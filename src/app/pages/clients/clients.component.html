@@ -1,0 +1,17 @@
+
+  <div class="container">
+    <div class="col-sm-12 col-md-6 col-ls-6" *ngFor="let member of productDetail" >
+      <div class="client" style="background-color:#f3f3f3">
+          <div [ngStyle]="imageStyle(member.img)" id="image"></div>
+          <div id="details">                 
+              <h3>{{member.name}}</h3>
+              <h3>{{member.marraige}},{{member.age}}yrs</h3>
+              <h3>{{member.qualification}}</h3> 
+              <h3>{{member.height}}</h3>
+              <h3>{{member.job}}</h3>
+              <h3>{{member.about}}</h3>
+              <h3>{{member.location}}</h3> 
+          </div>
+      </div>
+    </div>
+  </div>
