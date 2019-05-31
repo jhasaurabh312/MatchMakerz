@@ -4,6 +4,7 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { LoginComponent } from './pages/login/login.component'
 import { PersonalDetailsComponent } from './pages/personal-details/personal-details.component';
 import { GetOTPComponent } from './pages/get-otp/get-otp.component';
+import { ClientsComponent } from './pages/clients/clients.component';
 
 
 const appRoutes: Routes = [
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
   { path : 'login', component : LoginComponent },
   { path: 'my-profile', component:  MyProfileComponent},
   { path : 'personal-details', component : PersonalDetailsComponent},  
+  { path : 'clients' , component : ClientsComponent},
 ];
 
 

@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+// import { MatFormFieldModule, MatInputModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './shared/models/login/login.module'
@@ -16,6 +17,8 @@ import { PersonalDetailsComponent } from './pages/personal-details/personal-deta
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NotificationComponent } from './pages/notification/notification.component';
 import { GetOTPComponent } from './pages/get-otp/get-otp.component';
+import { AwaitedInComponent } from './pages/awaited-in/awaited-in.component';
+import { AwaitedOutComponent } from './pages/awaited-out/awaited-out.component';
 
 
 @NgModule({
@@ -29,6 +32,8 @@ import { GetOTPComponent } from './pages/get-otp/get-otp.component';
     PersonalDetailsComponent,
     NotificationComponent,
     GetOTPComponent,
+    AwaitedInComponent,
+    AwaitedOutComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,7 @@ import { GetOTPComponent } from './pages/get-otp/get-otp.component';
     FormsModule,
     RouterModule,
     LoginModule,
-        // HttpClient, 
+    ReactiveFormsModule    
   ],
   providers: [
     LoginService,

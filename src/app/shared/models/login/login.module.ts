@@ -14,5 +14,5 @@ export class LoginModule {
 
 export class LoginReturn {
   status : number;
-  message : string;
+  token : string;
 }

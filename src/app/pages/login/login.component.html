@@ -1,4 +1,4 @@
-
+<!-- 
 <form #userlogin = "ngForm" (ngSubmit) = "login(userlogin.value)"  > 
   <input type = "string" name = "phone_number" value = "phone_number" placeholder = "phone_number" ngModel>
   <br/>
@@ -6,6 +6,31 @@
   <br/>
   <button class= "btn btn-success"  type = "submit" value = "submit">click me</button>
 
-</form>
+</form> -->
 
 <!-- <a routerLink="./personal-details" routerLinkActive = "active" ><button class="btn-primary pull-right" > Add Customer</button></a> -->
+
+<div class="modal-body"  *ngIf="login">
+    <form [formGroup]="loginDetails">
+     
+        <input formControlName="email" required placeholder="Your Email">
+        <br>
+     
+      
+        <input type="password" matInput formControlName="password" required placeholder="Password">
+     
+        <br>
+
+        <div class="text-center">
+        <button class="btn btn-danger " (click)="submitLogin()" >  &nbsp;   &nbsp; Login &nbsp;&nbsp;
+        </button>
+        
+      </div>
+    
+      
+    </form>
+</div>
+
+ 
+ 
+   

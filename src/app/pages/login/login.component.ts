@@ -4,6 +4,8 @@ import { LoginModule, LoginReturn } from '../../shared/models/login/login.module
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { LoginService } from 'src/app/shared/services/login/login.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 
@@ -14,11 +16,51 @@ import { LoginService } from 'src/app/shared/services/login/login.service';
 })
 export class LoginComponent implements OnInit {
 
- constructor( private auth : LoginService , private http : HttpClient) { } 
+
+ loginDetails: FormGroup;
+ forgotDetails: FormGroup;
+ fdorgot:Boolean = false;
+ login:Boolean = true;
+ mverify = false;
+ sucess = false;
+ forgotpasswordEmail;
+
+ private response : LoginReturn;
+
+
+ constructor( private _formBuilder: FormBuilder,private authService : LoginService, private router: Router) { 
+ this.loginDetails = this._formBuilder.group({
+   'email': [''],
+   'password': [''],
+ });;
+}
+
 
  ngOnInit() {
    
-  }
+}
+
+
+submitLogin(){
+  const loginData = new FormData();
+  loginData.append('phone_number' , this.loginDetails.value.email );
+  loginData.append('otp', this.loginDetails.value.password);
+  this.authService.login(loginData).subscribe((suc:any) => {
+    this.response = suc;
+    // console.log(suc);
+    if(this.response.status == 1){
+      window.location.replace('/my-profile');
+      console.log(this.response.token);
+    }
+  },err =>{
+    console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
+  });
+  
+}
+
+  
+}
+
 
 //  login(data){
   
@@ -44,18 +86,27 @@ export class LoginComponent implements OnInit {
   
 //   }
 
-  login(data){
-  
-    let phone_number = data.phone_number; 
-    let otp = data.otp;
-    // console.log(phone_number,otp);
-   
-    this.auth.getUsersDetail(data).subscribe( data => {
-      console.log(data);
-    });
+  // login(data){
+
+  //   const loginData = new FormData();
+    
+  //   this.auth.getUserDetail(data).subscribe( response => {
+  //     console.log(response);
+  //   });
+
+  // }
 
 
-  }
+     
+    // if(suc.login_status === 'N'){
+    //   localStorage.setItem('loggedIn','false');
+    //   console.log('Email or password is Incorrect!', 'danger', 'top-right');
+    // } else {
+    //   localStorage.setItem('identityNumber',suc.identity_number);
+    //   console.log('suc',suc);
+    //   console.log('iden',suc.identityNumber);
+    //   localStorage.setItem('loggedIn','true');
+    //   document.getElementById('closeModal').click();
+    //  this.router.navigateByUrl('dashboard');
+    //}
 
-  
-}
