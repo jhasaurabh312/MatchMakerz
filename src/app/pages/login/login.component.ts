@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule , HttpClient, HttpHeaders } from '@angular/common/http'
 import { LoginModule, LoginReturn } from '../../shared/models/login/login.module';
-import { catchError } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
 import { LoginService } from 'src/app/shared/services/login/login.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -47,10 +44,14 @@ submitLogin(){
   loginData.append('otp', this.loginDetails.value.password);
   this.authService.login(loginData).subscribe((suc:any) => {
     this.response = suc;
-    if(this.response.status == 1){
-      window.location.replace('/my-profile');
+    console.log(suc);
+    if(this.response.status === 1){
       localStorage.setItem('token',this.response.token);
       console.log(localStorage.getItem('token'));
+      window.location.replace('/my-profile');
+    }
+    else if(this.response.status === 3) {
+      window.location.replace('/signup');
     }
   },err =>{
     console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
@@ -61,49 +62,5 @@ submitLogin(){
 }
 
 
-//  login(data){
-  
-//    let credentials : LoginModule = {
-//      "phone_number" : data.phone_number,
-//      "otp" : data.otp
-//    }  
-
-//    console.log(credentials);
-   
-//     if(data.otp != null && data.phone_number != null){
-//       const options = {headers: {'Content-Type': 'application/json'}};
-//       return this.http.post('http://matchmakerz.in/api/v1/matchmaker/login', credentials, options).pipe(catchError(error =>{
-//         return throwError("Something went wrong");
-//       })
-//     ).subscribe( data => {
-//       console.log(data);
-//     });
-//   }    
-//     else{
-//         alert('Something went wrong');
-//        } 
-  
-//   }
-
-  // login(data){
-
-  //   const loginData = new FormData();
-    
-  //   this.auth.getUserDetail(data).subscribe( response => {
-  //     console.log(response);
-  //   });
-
-  // }
-  
-    // if(suc.login_status === 'N'){
-    //   localStorage.setItem('loggedIn','false');
-    //   console.log('Email or password is Incorrect!', 'danger', 'top-right');
-    // } else {
-    //   localStorage.setItem('identityNumber',suc.identity_number);
-    //   console.log('suc',suc);
-    //   console.log('iden',suc.identityNumber);
-    //   localStorage.setItem('loggedIn','true');
-    //   document.getElementById('closeModal').click();
-    //  this.router.navigateByUrl('dashboard');
-    //}
+//7210644426
 

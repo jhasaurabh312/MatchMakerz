@@ -1,0 +1,54 @@
+ <div class="modal-body"  >
+  <form [formGroup]="signupDetails">
+    <input  formControlName="first_name" placeholder="First Name">
+    <br>
+    <input formControlName="last_name" placeholder="Last Name" >
+    <br>
+    <select  formControlName="gender" placeholder="Gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+     <br>
+     <select formControlName="matchmaker_type" placeholder="Are you">
+      <option value="1">Yes</option>
+      <option value="0">NO</option>
+    </select>
+     <br>
+    <input formControlName="age" placeholder="age">
+    <br>
+    <input formControlName="whatsapp_number" placeholder="whatsapp_number">
+    <br>
+    <input formControlName="referred_by" placeholder="Referal Code (optional)" >
+    <br>
+    <textarea formControlName="about" placeholder="About You"></textarea>
+    <br>
+    
+  </form>
+
+  <button class="btn btn-danger " (click)="signin()" >  &nbsp;   &nbsp; Register &nbsp;&nbsp;
+  </button>
+
+ </div>
+<!-- 
+
+ <div class="modal-body"  *ngIf="login">
+  <form [formGroup]="loginDetails">
+   
+      <input formControlName="email" required placeholder="Your Email">
+      <br>
+   
+    
+      <input type="password" matInput formControlName="password" required placeholder="Password">
+   
+      <br>
+
+      <div class="text-center">
+      <button class="btn btn-danger " (click)="submitLogin()" >  &nbsp;   &nbsp; Login &nbsp;&nbsp;
+      </button>
+      
+    </div>
+  
+    
+  </form>
+</div>
+ -->

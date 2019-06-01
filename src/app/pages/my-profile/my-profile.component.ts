@@ -23,9 +23,12 @@ export class MyProfileComponent implements OnInit {
 
     return this.http.get('http://matchmakerz.in/api/v1/matchmaker/logout', { headers: headers }).subscribe((response) => {
       this.response = response;
-      if(this.response.status === 1)
-       window.location.replace('/');
-       
+      if(this.response.status === 1){
+        localStorage.setItem('is_active','false');
+        window.location.replace('/');
+        
+      }
+      
       else 
        console.log('Something went wrong'); 
 

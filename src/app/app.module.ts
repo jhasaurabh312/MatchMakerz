@@ -19,6 +19,8 @@ import { NotificationComponent } from './pages/notification/notification.compone
 import { GetOTPComponent } from './pages/get-otp/get-otp.component';
 import { AwaitedInComponent } from './pages/awaited-in/awaited-in.component';
 import { AwaitedOutComponent } from './pages/awaited-out/awaited-out.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { AwaitedOutComponent } from './pages/awaited-out/awaited-out.component';
     GetOTPComponent,
     AwaitedInComponent,
     AwaitedOutComponent,
+    EditProfileComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
