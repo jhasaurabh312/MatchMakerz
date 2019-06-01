@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { LoginService } from 'src/app/shared/services/login/login.service';
 import { Router } from '@angular/router';
 
@@ -33,6 +33,9 @@ export class SignupComponent implements OnInit {
 
   signin(){
     const loginData = new FormData();
+   
+
+
     loginData.append('first_name' , this.signupDetails.get('first_name').value);
     loginData.append('last_name', this.signupDetails.get('last_name').value);
     loginData.append('age', this.signupDetails.get('age').value);
@@ -43,6 +46,8 @@ export class SignupComponent implements OnInit {
     loginData.append('about', this.signupDetails.get('about').value);
 
     console.log(loginData);
+
+
     // this.authService.register(loginData).subscribe((suc:any) => {
     //   this.response = suc;
     //   console.log(suc);
