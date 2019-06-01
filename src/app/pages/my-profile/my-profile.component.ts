@@ -12,4 +12,8 @@ export class MyProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  signout(){
+    console.log(localStorage.getItem('token'));
+  }
+
 }
