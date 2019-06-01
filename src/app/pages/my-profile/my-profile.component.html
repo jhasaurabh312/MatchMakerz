@@ -1,8 +1,7 @@
 <header class='masthead'>
     <img>
 </header>
-
-
+<div *ngFor = "let user of productDetail">
 <div class="flex">
   <div id="profile">
     <a href="" class="btn btn-1">
@@ -19,23 +18,20 @@
 </div> 
   <section class="introduction-section">
       <h1>About me</h1>
-      <p>I am a construction business owner, part time marketer, and soon to be web developer.</p>
-      <p>I love the internet, technology, and building beautiful things.</p>
+      <p>{{user.about}}</p>
   </section>
   <section class="location-section">
       <h1>Specialise in</h1>
-      <p>the cup of tea tasted particularly good. By using the article the, 
-          we've shown that it was one specific day that was long and one specific cup of tea that tasted good.</p>
+      {{user.specialization}}
   </section>
   <section class="questions-section">
       <h1>Referral code</h1>
-     <p>the cup of tea tasted particularly good. By using the article the, we've shown that
-          it was one specific  day that was long and one specific cup of tea that tasted good.</p>
+     <p>{{user.referred_by}}</p>
   </section>
 
   <section class="questions-section">
         <h1>Location section</h1>
-         <p>Delhi</p>    
+         <p>{{user.location}}</p>    
   </section>
   
  
@@ -54,6 +50,7 @@
     </div>
 </div> 
 
+</div>
 
 <div class="flex">
   <div class="col-sm-4 col-md-4 col-lg-4">

@@ -16,3 +16,19 @@ export class LoginReturn {
   status : number;
   token : string;
 }
+
+export class SignupModel{
+  first_name: string;
+  last_name : string;
+  about: string;
+  age: string;
+  password : string;
+  gender : string;
+  whatsapp_number: string;
+  referred_by : string;
+  location: string;
+  unique_about : string ;
+  specialization : string;
+  latitude : string;
+  longitude : string;
+}
