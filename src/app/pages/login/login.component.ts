@@ -47,15 +47,14 @@ submitLogin(){
   loginData.append('otp', this.loginDetails.value.password);
   this.authService.login(loginData).subscribe((suc:any) => {
     this.response = suc;
-    // console.log(suc);
     if(this.response.status == 1){
       window.location.replace('/my-profile');
-      console.log(this.response.token);
+      localStorage.setItem('token',this.response.token);
+      console.log(localStorage.getItem('token'));
     }
   },err =>{
     console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
   });
-  
 }
 
   
@@ -95,9 +94,7 @@ submitLogin(){
   //   });
 
   // }
-
-
-     
+  
     // if(suc.login_status === 'N'){
     //   localStorage.setItem('loggedIn','false');
     //   console.log('Email or password is Incorrect!', 'danger', 'top-right');
