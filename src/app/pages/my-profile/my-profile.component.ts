@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SignupModel, LoginModule } from 'src/app/shared/models/login/login.module';
-import { MyprofileService } from '../../shared/services/myprofile.service'
+import { MyprofileService } from '../../shared/services/myProfile/myprofile.service'
 
 @Component({
   selector: 'app-my-profile',

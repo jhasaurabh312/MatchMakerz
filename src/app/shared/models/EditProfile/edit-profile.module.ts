@@ -19,5 +19,5 @@ export class EditProfileModule {
   age: string;
   experience : string;
   whatsapp_number: string;
-  Upfront_charge : string;
+  upfront_charge : string;
 }

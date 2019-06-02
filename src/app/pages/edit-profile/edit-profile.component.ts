@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { LoginService } from 'src/app/shared/services/login/login.service';
 import { Router } from '@angular/router';
-import { SignupModel } from 'src/app/shared/models/login/login.module';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { EditProfileModule } from 'src/app/shared/models/EditProfile/edit-profile.module';
 
@@ -15,7 +14,6 @@ import { EditProfileModule } from 'src/app/shared/models/EditProfile/edit-profil
 export class EditProfileComponent implements OnInit {
 
   EditProfileDetails: FormGroup;
-  loginData : any = [];
   response : any;
 
   constructor(private _formBuilder: FormBuilder,private authService : LoginService, private router: Router , private http : HttpClient) { 
@@ -24,10 +22,14 @@ export class EditProfileComponent implements OnInit {
       'last_name' : [''],
       'age' : [''],
       'gender' : [''],
-      'matchmaker_type' : [''],
-      'referred_by' : [''],
       'whatsapp_number' : [''],
-      'about' : ['']
+      'about' : [''],
+      'phone_number' : [''],
+      'email' : [''],
+      'unique_about' : [''],
+      'specialization' : [''],
+      'experience' : [''],
+      'upfront_charge' : [''],
     });; 
   }
 
@@ -39,18 +41,33 @@ export class EditProfileComponent implements OnInit {
     const NewProfile : EditProfileModule = {
           'first_name' : this.EditProfileDetails.get('first_name').value,
           'last_name' : this.EditProfileDetails.get('last_name').value,
-          'phone_number' : this.EditProfileDetails.get('').value,
-          'email' : this.EditProfileDetails.get('').value,
-          'unique_about' : this.EditProfileDetails.get('').value,
-          'specialization' : this.EditProfileDetails.get('').value,
+          'phone_number' : this.EditProfileDetails.get('phone_number').value,
+          'email' : this.EditProfileDetails.get('email').value,
+          'unique_about' : this.EditProfileDetails.get('unique_about').value,
+          'specialization' : this.EditProfileDetails.get('specialization').value,
           'age': this.EditProfileDetails.get('age').value,
           'gender': this.EditProfileDetails.get('gender').value,          
           'whatsapp_number': this.EditProfileDetails.get('whatsapp_number').value,
           'about': this.EditProfileDetails.get('about').value,
-          'experience' : this.EditProfileDetails.get('').value,
-          'Upfront_charge' : this.EditProfileDetails.get('').value,
+          'experience' : this.EditProfileDetails.get('experience').value,
+          'upfront_charge' : this.EditProfileDetails.get('upfront_charge').value,
         }
 
+    //  const NewProfile = new FormData();
+    //    NewProfile.append('first_name', this.EditProfileDetails.value.first_name );
+    //    NewProfile.append('last_name', this.EditProfileDetails.value.last_name );
+    //    NewProfile.append('phone_number', this.EditProfileDetails.value.phone_number );
+    //    NewProfile.append('email', this.EditProfileDetails.value.email );
+    //    NewProfile.append('about', this.EditProfileDetails.value.about );
+    //    NewProfile.append('unique_about', this.EditProfileDetails.value.unique_about );
+    //    NewProfile.append('specialization', this.EditProfileDetails.value.specialization );
+    //    NewProfile.append('gender', this.EditProfileDetails.value.gender);
+    //    NewProfile.append('age', this.EditProfileDetails.value.age );
+    //    NewProfile.append('experience', this.EditProfileDetails.value.experience );
+    //    NewProfile.append('whatsapp_number', this.EditProfileDetails.value.whatsapp_number );
+    //    NewProfile.append('upfront_charge', this.EditProfileDetails.value.upfront_charge );
+
+    //    console.log(this.EditProfileDetails.getRawValue);
 
         const headers = new HttpHeaders({
           'Content-Type': 'application/json',

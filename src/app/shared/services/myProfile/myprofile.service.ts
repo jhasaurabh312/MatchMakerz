@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { SignupModel } from '../models/login/login.module';
+import { SignupModel } from '..//../models/login/login.module';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 export class MyprofileService {
 
   constructor( private http : HttpClient) { }
- 
   view_profile(){
 
     const headers = new HttpHeaders({
