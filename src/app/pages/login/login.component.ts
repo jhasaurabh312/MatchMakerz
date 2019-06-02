@@ -48,11 +48,15 @@ submitLogin(){
     if(this.response.status === 1){
       localStorage.setItem('token',this.response.token);
       console.log(localStorage.getItem('token'));
+      window.location.replace('/my-profile');
+    }
+    else if(this.response.status === 3) {
       window.location.replace('/signup');
     }
-    // else if(this.response.status === 3) {
-    //   window.location.replace('/signup');
-    // }
+
+    else if(this.response.status === 2){
+      alert("Wait while your profile is being verified ");
+    }
   },err =>{
     console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
   });

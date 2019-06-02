@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SignupModel, LoginModule } from 'src/app/shared/models/login/login.module';
+import { MyprofileService } from '../../shared/services/myprofile.service'
 
 @Component({
   selector: 'app-my-profile',
@@ -9,29 +10,28 @@ import { SignupModel, LoginModule } from 'src/app/shared/models/login/login.modu
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
-  response : any;
+  public user : any = [];
+  public response : any;
 
-  productDetail: Array<{
-    first_name: string;
-    last_name : string;
-    about: string;
-    age: string;
-    password : string;
-    gender : string;
-    whatsapp_number: string;
-    referred_by : string;
-    location: string;
-    unique_about : string ;
-    specialization : string;
-    latitude : string;
-    longitude : string;
-    }> = SignupModel;
-
-  constructor( private http : HttpClient) { }
+  constructor( private http : HttpClient , private myProfile : MyprofileService) { }
 
   ngOnInit() {
+    this.myProfile.view_profile().subscribe((response) => {
+          this.user = response; 
+          console.log(this.user) ;    
+    })  
+    
   }
  
+  signout(){
+    localStorage.clear();
+    window.location.replace('/get-otp');
+    window.history.go(-1);
+  }
+
+}
+
+
   // signout(event){
   //   const headers = new HttpHeaders({
   //     'Content-Type': 'application/json',
@@ -48,10 +48,3 @@ export class MyProfileComponent implements OnInit {
   //   })  
   // }
 
-  signout(){
-    localStorage.clear();
-    window.location.replace('/get-otp');
-    window.history.go(-1);
-  }
-
-}

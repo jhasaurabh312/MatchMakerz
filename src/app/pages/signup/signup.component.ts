@@ -33,28 +33,28 @@ export class SignupComponent implements OnInit {
   }
 
 
-  signin(){
-    const loginData : SignupModel = {
-      'first_name' : this.signupDetails.get('first_name').value,
-      'last_name' : this.signupDetails.get('last_name').value,
-      'age': this.signupDetails.get('age').value,
-      'gender': this.signupDetails.get('gender').value,
-      'matchmaker_type': this.signupDetails.get('matchmaker_type').value,
-      'referred_by': this.signupDetails.get('referred_by').value,
-      'whatsapp_number': this.signupDetails.get('whatsapp_number').value,
-      'about': this.signupDetails.get('about').value
-    }
+  // signin(){
+  //   const loginData : SignupModel = {
+  //     'first_name' : this.signupDetails.get('first_name').value,
+  //     'last_name' : this.signupDetails.get('last_name').value,
+  //     'age': this.signupDetails.get('age').value,
+  //     'gender': this.signupDetails.get('gender').value,
+  //     'matchmaker_type': this.signupDetails.get('matchmaker_type').value,
+  //     'referred_by': this.signupDetails.get('referred_by').value,
+  //     'whatsapp_number': this.signupDetails.get('whatsapp_number').value,
+  //     'about': this.signupDetails.get('about').value
+  //   }
   
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Token ' + localStorage.getItem('token')
-    })
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Token ' + localStorage.getItem('token')
+  //   })
     
-    return this.http.post('http://matchmakerz.in/api/v1/matchmaker/register', loginData, { headers: headers }).subscribe((response) => {
-      this.response = response;
-      console.log(this.response);
-    })
+  //   return this.http.post('http://matchmakerz.in/api/v1/matchmaker/register', loginData, { headers: headers }).subscribe((response) => {
+  //     this.response = response;
+  //     console.log(this.response);
+  //   })
         
-  }
+  // }
 
 }

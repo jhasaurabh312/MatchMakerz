@@ -31,4 +31,5 @@ export class SignupModel{
   specialization : string;
   latitude : string;
   longitude : string;
+  matchmaker_type : string;
 }
