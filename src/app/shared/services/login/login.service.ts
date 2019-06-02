@@ -8,29 +8,6 @@ import { map, catchError }  from 'rxjs/operators';
   providedIn: 'root'
 })
 
-// export class LoginService {
-
-//   constructor( private http : HttpClient) { }
-
-//   getUserDetail(data){
-
-//     const credentials : LoginModule = {
-//            phone_number : data.phone_number,
-//            otp : data.otp,
-//          };
-//     return this.http.post('http://matchmakerz.in/api/v1/matchmaker/login', credentials, {
-//               headers : new HttpHeaders({
-//                 'Content-Type' : 'application/json' ,                
-//               })
-//             }).pipe(catchError(error =>{
-//         return throwError("Something went wrong");
-//       })
-//     )
-//   }
-
-
-// }
-
 
 export class LoginService {
 

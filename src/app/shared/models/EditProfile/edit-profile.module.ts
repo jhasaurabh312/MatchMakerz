@@ -15,8 +15,8 @@ export class EditProfileModule {
   about: string;
   unique_about : string ;
   specialization : string;
-  gender : string;
-  age: string;
+  gender : number;
+  age: number;
   experience : string;
   whatsapp_number: string;
   upfront_charge : string;

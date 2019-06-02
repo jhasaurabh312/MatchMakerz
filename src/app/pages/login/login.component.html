@@ -1,16 +1,5 @@
-<!-- 
-<form #userlogin = "ngForm" (ngSubmit) = "login(userlogin.value)"  > 
-  <input type = "string" name = "phone_number" value = "phone_number" placeholder = "phone_number" ngModel>
-  <br/>
-  <input type = "string" name = "otp" value = "otp" placeholder = "OTP" ngModel>
-  <br/>
-  <button class= "btn btn-success"  type = "submit" value = "submit">click me</button>
 
-</form> -->
-
-<!-- <a routerLink="./personal-details" routerLinkActive = "active" ><button class="btn-primary pull-right" > Add Customer</button></a> -->
-
-<div class="modal-body"  *ngIf="login">
+<div class="modal-body" >
     <form [formGroup]="loginDetails">
      
         <input formControlName="email" required placeholder="Your Email">
