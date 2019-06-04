@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { LoginService } from 'src/app/shared/services/login/login.service';
 import { Router } from '@angular/router';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { EditProfileService } from 'src/app/shared/services/editProfile/edit-profile.service';
-import { LoginReturn } from 'src/app/shared/models/login/login.module';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 
 @Component({
@@ -15,20 +15,9 @@ import { LoginReturn } from 'src/app/shared/models/login/login.module';
 export class EditProfileComponent implements OnInit {
 
   EditProfileDetails: FormGroup;
-  data : any;
+  error : any;
 
-
- loginDetails: FormGroup;
- forgotDetails: FormGroup;
- fdorgot:Boolean = false;
- login:Boolean = true;
- mverify = false;
- sucess = false;
- forgotpasswordEmail;
-
- private response : LoginReturn;
-
-  constructor(private _formBuilder: FormBuilder,private authService : LoginService, private router: Router , private http : HttpClient, private edit : EditProfileService) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService) { 
     this. EditProfileDetails= this._formBuilder.group({
       'first_name' : [''],
       'last_name' : [''],
@@ -46,32 +35,36 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+   
   }
 
-  editProfile(){
+  editProfile(data){
 
 
-     const NewProfile = new FormData();
-       NewProfile.append('first_name', this.EditProfileDetails.value.first_name );
-       NewProfile.append('last_name', this.EditProfileDetails.value.last_name );
-       NewProfile.append('phone_number', this.EditProfileDetails.value.phone_number );
-       NewProfile.append('email', this.EditProfileDetails.value.email );
-       NewProfile.append('about', this.EditProfileDetails.value.about );
-       NewProfile.append('unique_about', this.EditProfileDetails.value.unique_about );
-       NewProfile.append('specialization', this.EditProfileDetails.value.specialization );
-       NewProfile.append('gender', this.EditProfileDetails.value.gender);
-       NewProfile.append('age', this.EditProfileDetails.value.age );
-       NewProfile.append('experience', this.EditProfileDetails.value.experience );
-       NewProfile.append('whatsapp_number', this.EditProfileDetails.value.whatsapp_number );
-       NewProfile.append('upfront_charge', this.EditProfileDetails.value.upfront_charge );
-      
-       this.data = this.EditProfileDetails.value;
-       console.log(localStorage.getItem('token'));
-       console.log(this.data);
-          
-       return this.edit.editProfile(this.data).subscribe((response) => {
-          this.response = response;
-          console.log(this.response);
+     const NewProfile  = new FormData();
+   
+    NewProfile.append('first_name', this.EditProfileDetails.value.first_name );
+    NewProfile.append('last_name', this.EditProfileDetails.value.last_name );
+    NewProfile.append('phone_number', this.EditProfileDetails.value.phone_number );
+    NewProfile.append('email', this.EditProfileDetails.value.email );
+    NewProfile.append('about', this.EditProfileDetails.value.about );
+    NewProfile.append('unique_about', this.EditProfileDetails.value.unique_about );
+    NewProfile.append('specialization', this.EditProfileDetails.value.specialization );
+    NewProfile.append('gender', this.EditProfileDetails.value.gender);
+    NewProfile.append('age', this.EditProfileDetails.value.age );
+    NewProfile.append('experience', this.EditProfileDetails.value.experience );
+    NewProfile.append('whatsapp_number', this.EditProfileDetails.value.whatsapp_number );
+    NewProfile.append('upfront_charge', this.EditProfileDetails.value.upfront_charge );
+
+    console.log(NewProfile);
+
+    return this.http.post('http://matchmakerz.in/api/v1/matchmaker/profile' , NewProfile ,{ 
+        headers : new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + localStorage.getItem('token'),
+        })}).pipe(catchError((error) => {
+          return throwError("oops"); })).subscribe((response:any) => {
+          console.log(response);
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
         }
@@ -95,3 +88,8 @@ export class EditProfileComponent implements OnInit {
     //       'experience' : this.EditProfileDetails.get('experience').value,
     //       'upfront_charge' : this.EditProfileDetails.get('upfront_charge').value,
     //     }
+
+
+   
+   
+   

@@ -1,54 +1,37 @@
- <div class="modal-body"  >
+<div class="modal-body"  >
   <form [formGroup]="signupDetails">
     <input  formControlName="first_name" placeholder="First Name" class="form-control">
     <br>
     <input formControlName="last_name" placeholder="Last Name" class="form-control" >
     <br>
-    <select  formControlName="gender" placeholder="Gender" class="form-control" >
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
+    <select  formControlName="gender" required-placeholder="Gender" class="form-control" >
+      <option value="0">Male</option>
+      <option value="1">Female</option>
+    </select>
+    <br>
+    <select  formControlName="matchmaker_type" required-placeholder="matchmaker_type" class="form-control" >
+      <option value="0">YES</option>
+      <option value="1">NO</option>
     </select>
      <br>
-     <select formControlName="matchmaker_type" placeholder="Are you" class="form-control" >
-      <option value="1">Yes</option>
-      <option value="0">NO</option>
-    </select>
-     <br>
+    <input formControlName="phone_number" placeholder="phone_number" class="form-control" >
+    <br>
+    <input formControlName="unique_about" placeholder="unique_about" class="form-control" >
+    <br>
+    <input formControlName="specialization" placeholder="specialization" class="form-control" >
+    <br>
     <input formControlName="age" placeholder="age" class="form-control" >
     <br>
     <input formControlName="whatsapp_number" placeholder="whatsapp_number" class="form-control" >
     <br>
-    <input formControlName="referred_by" placeholder="Referal Code (optional)" class="form-control" >
+    <input formControlName="referred_by" placeholder="referred_by" class="form-control" >
     <br>
     <textarea formControlName="about" placeholder="About You" class="form-control" ></textarea>
     <br>
     
-  <button type="button" class="btn btn-danger " (click)="signin()" >  &nbsp;   &nbsp; Register &nbsp;&nbsp;
+  <button type="button" class="btn btn-danger " (click)="signup()" >  &nbsp;   &nbsp; Register &nbsp;&nbsp;
   </button>
 
   </form>
 
  </div>
-<!-- 
-
- <div class="modal-body"  *ngIf="login">
-  <form [formGroup]="loginDetails">
-   
-      <input formControlName="email" required placeholder="Your Email">
-      <br>
-   
-    
-      <input type="password" matInput formControlName="password" required placeholder="Password">
-   
-      <br>
-
-      <div class="text-center">
-      <button class="btn btn-danger " (click)="submitLogin()" >  &nbsp;   &nbsp; Login &nbsp;&nbsp;
-      </button>
-      
-    </div>
-  
-    
-  </form>
-</div>
- -->

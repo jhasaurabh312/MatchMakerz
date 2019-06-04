@@ -15,13 +15,6 @@ export class LoginComponent implements OnInit {
 
 
  loginDetails: FormGroup;
- forgotDetails: FormGroup;
- fdorgot:Boolean = false;
- login:Boolean = true;
- mverify = false;
- sucess = false;
- forgotpasswordEmail;
-
  private response : LoginReturn;
 
 
@@ -42,6 +35,7 @@ submitLogin(){
   const loginData = new FormData();
   loginData.append('phone_number' , this.loginDetails.value.email );
   loginData.append('otp', this.loginDetails.value.password);
+  console.log(loginData)
   this.authService.login(loginData).subscribe((suc:any) => {
     this.response = suc;
     console.log(suc);
