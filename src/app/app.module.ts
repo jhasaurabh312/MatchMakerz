@@ -12,13 +12,10 @@ import { LoginComponent } from './pages/login/login.component'
 import { FilterComponent } from './pages/filter/filter.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
-import { NearYouComponent } from './pages/near-you/near-you.component';
 import { PersonalDetailsComponent } from './pages/personal-details/personal-details.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NotificationComponent } from './pages/notification/notification.component';
 import { GetOTPComponent } from './pages/get-otp/get-otp.component';
-import { AwaitedInComponent } from './pages/awaited-in/awaited-in.component';
-import { AwaitedOutComponent } from './pages/awaited-out/awaited-out.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
@@ -30,12 +27,11 @@ import { SignupComponent } from './pages/signup/signup.component';
     FilterComponent,
     ClientsComponent,
     MyProfileComponent,
-    NearYouComponent,
+   
     PersonalDetailsComponent,
     NotificationComponent,
     GetOTPComponent,
-    AwaitedInComponent,
-    AwaitedOutComponent,
+ 
     EditProfileComponent,
     SignupComponent,
   ],

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { EditProfileService } from 'src/app/shared/services/editProfile/edit-profile.service';
 import { catchError } from 'rxjs/operators';
@@ -16,6 +15,7 @@ export class EditProfileComponent implements OnInit {
 
   EditProfileDetails: FormGroup;
   error : any;
+  data : any;
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService) { 
     this. EditProfileDetails= this._formBuilder.group({
@@ -30,7 +30,7 @@ export class EditProfileComponent implements OnInit {
       'unique_about' : [''],
       'specialization' : [''],
       'experience' : [''],
-      'upfront_charge' : [''],
+      // 'upfront_charge' : [''],
     });; 
   }
 
@@ -40,8 +40,7 @@ export class EditProfileComponent implements OnInit {
 
   editProfile(data){
 
-
-     const NewProfile  = new FormData();
+    const NewProfile  = new FormData();
    
     NewProfile.append('first_name', this.EditProfileDetails.value.first_name );
     NewProfile.append('last_name', this.EditProfileDetails.value.last_name );
@@ -54,17 +53,21 @@ export class EditProfileComponent implements OnInit {
     NewProfile.append('age', this.EditProfileDetails.value.age );
     NewProfile.append('experience', this.EditProfileDetails.value.experience );
     NewProfile.append('whatsapp_number', this.EditProfileDetails.value.whatsapp_number );
-    NewProfile.append('upfront_charge', this.EditProfileDetails.value.upfront_charge );
 
     console.log(NewProfile);
 
-    return this.http.post('http://matchmakerz.in/api/v1/matchmaker/profile' , NewProfile ,{ 
+    return this.http.post('http://matchmakerz.in/api/v1/matchmaker/profile/' , NewProfile ,{ 
         headers : new HttpHeaders({
-          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/json',
           'Authorization': 'Token ' + localStorage.getItem('token'),
         })}).pipe(catchError((error) => {
           return throwError("oops"); })).subscribe((response:any) => {
-          console.log(response);
+          this.data = response;
+          if(this.data.status === 1)
+           window.location.replace('/my-profile');
+          else 
+           alert('Cannot Update !! something went Wrong');  
+
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
         }

@@ -17,7 +17,8 @@ const appRoutes: Routes = [
   { path : 'personal-details', component : PersonalDetailsComponent},  
   { path : 'clients' , component : ClientsComponent},
   { path : 'edit-profile', component : EditProfileComponent},
-  { path : 'signup' , component : SignupComponent}
+  { path : 'signup' , component : SignupComponent},
+  { path : 'personal-details ' , component : PersonalDetailsComponent}
 ];
 
 

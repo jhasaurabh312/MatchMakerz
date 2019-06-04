@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
   signupDetails: FormGroup;
   loginData : any = [];
   response : any;
+  data : any;
 
   constructor(private _formBuilder: FormBuilder,private authService : LoginService, private router: Router , private http : HttpClient ){ 
     this.signupDetails = this._formBuilder.group({
@@ -62,14 +63,12 @@ export class SignupComponent implements OnInit {
       
     console.log(loginData);
   
-    const headers = new HttpHeaders({
-      // 'Authorization': 'Token ' + localStorage.getItem('token')
-      'Content-type' : 'application/json',
-    })
-    
-    return this.http.post('http://matchmakerz.in/api/v1/matchmaker/register', loginData , { headers: headers }).subscribe((response) => {
-      this.response = response;
-      console.log(this.response);
+    return this.http.post('http://matchmakerz.in/api/v1/matchmaker/register', loginData ).subscribe((response) => {
+      this.data = response;
+      if(this.data.status === 1){
+        localStorage.setItem('token' , localStorage.getItem(this.data.auth_token));
+        alert('Wait , While your profile is being verified') ;
+      }
     })
         
   }
