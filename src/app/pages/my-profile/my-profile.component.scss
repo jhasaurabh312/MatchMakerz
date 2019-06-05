@@ -1,8 +1,9 @@
-body {
-    /* Typography Declarations */
-    color: #222222;
-    font-size: 1em;
-    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+html{
+  background-color : #F1F1F1;
+}
+
+.container-fluid{
+  background-color : #F1F1F1;
 }
 
 .content-footer,
@@ -14,20 +15,19 @@ body {
 .masthead {
   height: 200px;
   width: 200px;
+  margin-top: 30px;
   background-image: url('https://i.imgur.com/yGmrlyg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  // border-top: solid 1em #FFCF33;
+
   border-radius: 50%;
   margin-left: auto;
   margin-right:auto
 }
 
 .masthead-intro {
-    /* Layout Declarations */
+   
     margin-bottom: 0.1em;
-    /* Typography Declarations */
-    font-family: "Gentium Book Basic", Georgia, serif;
     font-size: 2em;
 }
 
@@ -49,27 +49,6 @@ body {
     max-width: 38em;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
-}
-
-.introduction-section > p,
-.location-section > p,
-.questions-section,
-.content-footer > p {
-    /* Typography Declarations */
-    font-weight: 300;
-    letter-spacing: 0.05em;
-}
-
-.questions-section > h2 {
-    font-family: "Gentium Book Basic", Georgia, serif;
-    font-size: 1.2em;
-    font-weight: bold;
-    /* Layout */
-    margin: 2em 0 1em 0;
-}
-
-section > h1 {
     margin-top: 2em;
 }
 
@@ -251,4 +230,25 @@ a .round i {
 #info{
   margin-top: 25px;
   margin-left: 10%
+}
+
+.card-header {
+  
+  font-weight: 500;
+ 
+}
+
+.card-body {
+  font-size : 1.1em;
+  font-weight: 400;
+  margin-top : 15px;
+}
+#title {
+  color: #F92CBB;
+  font-size : 1.1em;
+}
+
+#body {
+  color: black;
+  font-size : 0.9em;
 }
