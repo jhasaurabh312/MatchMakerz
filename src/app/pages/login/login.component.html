@@ -1,25 +1,42 @@
-
-<div class="modal-body" >
-    <form [formGroup]="loginDetails">
-     
-        <input formControlName="email" required placeholder="Your Email">
-        <br>
-     
-      
-        <input type="password" matInput formControlName="password" required placeholder="Password">
-     
-        <br>
-
-        <div class="text-center">
-        <button class="btn btn-danger " (click)="submitLogin()" >  &nbsp;   &nbsp; Login &nbsp;&nbsp;
-        </button>
-        
+  
+<main class="row">
+    <div class="col-12 row middle ml-0 pl-0 pr-0">
+      <div class="col-md-5 d-none d-md-block p-2 laptop">
       </div>
-    
-      
-    </form>
-</div>
+      <div class="col-md-7 col-12  mr-0 p-2 sign-up-block">
+        <form [formGroup]="loginDetails">
+  
+            <div class="input-group p-2" >
+                <label id="input">LOGIN</label>
+            </div>
+           
+            <div class="input-group p-2" >
+                <input class="form-control" formControlName="email" placeholder = " +91       Phone Number">
+            </div>
 
- 
- 
-   
+            <div class="input-group p-2" >
+                <input class="form-control" matInput formControlName="password" placeholder=" Enter OTP">
+            </div>
+
+            <div class="input-group p-2" style="display:flex">
+              <div style="width: 40%">
+                  <a>Resend OTP</a>   
+              </div> 
+              <!-- <div style="width: 20%">
+                  <a>50sec</a>   
+              </div>  -->
+              <div id="edit">
+                  <a style="float: right;">Edit Number</a>   
+              </div> 
+
+            </div>
+
+
+            
+            <div class="input-group p-2" >
+                <button class="btn btn-user" type = "submit" value = "submit">Login</button>
+            </div>
+      </form>
+      </div>
+    </div>
+  </main>

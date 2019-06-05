@@ -1,9 +1,31 @@
-
+<!-- 
 <form #userOTP = "ngForm" (ngSubmit) = "getOTP(userOTP.value)" >
     <input type = "text" name = "phone_number" placeholder = "phone_number" ngModel>
     <br/>
-  <!-- <a routerLink="/login" routerLinkActive = "active" ></a>  -->
-  <button class= "btn btn-success"  type = "submit" value = "submit">click me</button>
-</form>
+  <a routerLink="/login" routerLinkActive = "active" ></a> 
+   <button class= "btn btn-success"  type = "submit" value = "submit">click me</button>
+</form> --> 
 
+<main class="row">
+  <div class="col-12 row middle ml-0 pl-0 pr-0">
+    <div class="col-md-5 d-none d-md-block p-2 laptop">
+    </div>
+    <div class="col-md-7 col-12  mr-0 p-2 sign-up-block">
+      <form #userOTP = "ngForm" (ngSubmit) = "getOTP(userOTP.value)" >
+
+          <div class="input-group p-2" >
+              <label id="input">LOGIN</label>
+          </div>
+         
+          <div class="input-group p-2" >
+              <input class="form-control" type = "text" name = "phone_number" placeholder = " +91       Phone Number" ngModel>
+          </div>
+          
+          <div class="input-group p-2" >
+              <button class="btn btn-user" type = "submit" value = "submit">Send OTP</button>
+          </div>
+    </form>
+    </div>
+  </div>
+</main>
 

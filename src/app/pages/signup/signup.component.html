@@ -1,37 +1,59 @@
-<div class="modal-body"  >
+<div class="container-fluid">
+    <div class="header">
+        <h3>MATCHMAKERZ</h3>
+    </div>
+</div>
+
+<main class="modal-body"  >
+  <div class="row">
+      <h3 style="font-family: 'Poppins', sans-serif ; font-size:20px; font-weight: 600; margin-left: auto;margin-right: auto">Registration</h3>
+  </div>
   <form [formGroup]="signupDetails">
-    <input  formControlName="first_name" placeholder="First Name" class="form-control">
-    <br>
-    <input formControlName="last_name" placeholder="Last Name" class="form-control" >
-    <br>
-    <select  formControlName="gender" required-placeholder="Gender" class="form-control" >
-      <option value="0">Male</option>
-      <option value="1">Female</option>
-    </select>
-    <br>
-    <select  formControlName="matchmaker_type" required-placeholder="matchmaker_type" class="form-control" >
-      <option value="0">YES</option>
-      <option value="1">NO</option>
-    </select>
-     <br>
-    <input formControlName="phone_number" placeholder="phone_number" class="form-control" >
-    <br>
-    <input formControlName="unique_about" placeholder="unique_about" class="form-control" >
-    <br>
-    <input formControlName="specialization" placeholder="specialization" class="form-control" >
-    <br>
-    <input formControlName="age" placeholder="age" class="form-control" >
-    <br>
-    <input formControlName="whatsapp_number" placeholder="whatsapp_number" class="form-control" >
-    <br>
-    <input formControlName="referred_by" placeholder="referred_by" class="form-control" >
-    <br>
-    <textarea formControlName="about" placeholder="About You" class="form-control" ></textarea>
-    <br>
-    
-  <button type="button" class="btn btn-danger " (click)="signup()" >  &nbsp;   &nbsp; Register &nbsp;&nbsp;
-  </button>
+    <div class="input-group p-2">
+        <input  formControlName="first_name" placeholder="First Name" class="form-control">
+    </div>
+    <div class="input-group p-2">
+        <input formControlName="last_name" placeholder="Last Name" class="form-control" >
+      </div>
+        <div class="input-group p-2">
+            <select  formControlName="gender" required-placeholder="Gender" class="form-control" >
+              <option value="" disabled selected>Gender</option>
+              <option value="0">Male</option>
+              <option value="1">Female</option>
+            </select>
+        </div>
+        <div class="input-group p-2">
+            <select  formControlName="matchmaker_type" aria-placeholder="matchmaker_type" class="form-control" >
+              <option value="" disabled selected>matchmaker_type</option>
+              <option value="0">YES</option>
+              <option value="1">NO</option>
+            </select>
+        </div>
+        <div class="input-group p-2">
+            <input formControlName="phone_number" placeholder="phone_number" class="form-control" >
+        </div>
+        <div class="input-group p-2">
+            <input formControlName="unique_about" placeholder="unique_about" class="form-control" >
+        </div>
+        <div class="input-group p-2">
+            <input formControlName="specialization" placeholder="specialization" class="form-control" >
+        </div>
+        <div class="input-group p-2">
+            <input formControlName="age" placeholder="age" class="form-control" >
+        </div>
+        <div class="input-group p-2">
+            <input formControlName="whatsapp_number" placeholder="whatsapp_number" class="form-control" >
+        </div>
+        <div class="input-group p-2">
+            <input formControlName="referred_by" placeholder="referred_by" class="form-control" >
+        </div>
+        <div class="input-group p-2">
+            <textarea formControlName="about" placeholder="About You" class="form-control" ></textarea>
+        </div>
+        <div class="input-group p-2">
+            <button class="btn btn-user" type="button" (click)="signup()" >  &nbsp;   &nbsp; Register &nbsp;&nbsp;</button>
+        </div>
 
   </form>
 
- </div>
+</main>
