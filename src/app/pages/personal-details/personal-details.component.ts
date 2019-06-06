@@ -67,8 +67,11 @@ export class PersonalDetailsComponent implements OnInit {
         })}).pipe(catchError((error) => {
           return throwError("oops"); })).subscribe((response:any) => {
            this.data = response;
-           if(this.data.status === 1)
-            window.location.replace('/clients');
+           if(this.data.status === 1){
+             localStorage.setItem('newClientId' ,this.data.id);
+             window.location.replace('/educational-details');
+           }
+           
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

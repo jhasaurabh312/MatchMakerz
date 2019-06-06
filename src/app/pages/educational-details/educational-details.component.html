@@ -1,0 +1,49 @@
+<div class="modal-body">
+  <div class="header">
+      <h3>Add Client Educational Details</h3>
+  </div>
+</div>    
+<main class="modal-body">
+    <form [formGroup]="AddClientEducationalDetails">
+    
+      
+          <input class="input-group p-2" formControlName="education" placeholder="education*">
+
+          <input class="input-group p-2" formControlName="yearly_income" placeholder="yearly_income*">
+
+          <input class="input-group p-2" formControlName="office_address" placeholder="office_address*">
+
+          <input class="input-group p-2" formControlName="sub_occupation" placeholder="sub_occupation*">
+
+          <input class="input-group p-2" formControlName="college" placeholder="college*">
+
+          <!-- <input class="input-group p-2" formControlName="" placeholder="*"> -->
+
+          <select class="input-group p-2" formControlName="occupation">
+              <option value="" disabled selected>occupation</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+          </select>
+
+          <select class="input-group p-2" formControlName="degree">
+            <option value="" disabled selected>degree</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+      
+          <select class="input-group p-2" formControlName="is_working">
+            <option value="" disabled selected>is_working</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+           
+           
+       
+     
+ 
+      <div class="input-group p-2">
+          <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>          
+      </div>
+  </form>
+</main>
+

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { SignupModel, LoginModule } from 'src/app/shared/models/login/login.module';
 import { MyprofileService } from '../../shared/services/myProfile/myprofile.service'
 
 @Component({
@@ -12,6 +11,7 @@ import { MyprofileService } from '../../shared/services/myProfile/myprofile.serv
 export class MyProfileComponent implements OnInit {
   public user : any = [];
   public response : any;
+  public show:boolean = false;
 
   constructor( private http : HttpClient , private myProfile : MyprofileService) { }
 
@@ -22,11 +22,15 @@ export class MyProfileComponent implements OnInit {
     })  
     
   }
+
+  toggle() {
+    this.show = !this.show;
+  }
  
   signout(){
     localStorage.clear();
-    window.location.replace('/get-otp');
     window.history.go(-1);
+    window.location.replace('/');
   }
 
 }

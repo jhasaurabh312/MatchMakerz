@@ -1,0 +1,53 @@
+<div class="modal-body">
+  <div class="header">
+      <h3>Add Client Social Details</h3>
+  </div>
+</div>    
+<main class="modal-body">
+    <form [formGroup]="AddClientEducationalDetails">
+    
+      
+          <input class="input-group p-2" formControlName="marital_status" placeholder="marital_status*">
+
+          <input class="input-group p-2" formControlName="children" placeholder="children*">
+
+          <input class="input-group p-2" formControlName="mother_tongue" placeholder="mother_tongue*">
+
+          <input class="input-group p-2" formControlName="religion" placeholder="religion*">
+
+          <input class="input-group p-2" formControlName="zodiac" placeholder="zodiac*">
+
+          <input class="input-group p-2" formControlName="manglik" placeholder="manglik*">
+
+          <input class="input-group p-2" formControlName="caste" placeholder="caste*">
+
+          <input class="input-group p-2" formControlName="citizenship" placeholder="citizenship*">
+
+          <select class="input-group p-2" formControlName="want_horoscope_match">
+              <option value="" disabled selected>want_horoscope_match</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+          </select>
+<!-- 
+          <select class="input-group p-2" formControlName="">
+            <option value="" disabled selected></option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+      
+          <select class="input-group p-2" formControlName="">
+            <option value="" disabled selected></option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+           
+            -->
+       
+     
+ 
+      <div class="input-group p-2">
+          <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>          
+      </div>
+  </form>
+</main>
+

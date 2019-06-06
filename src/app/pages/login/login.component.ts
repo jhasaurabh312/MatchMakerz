@@ -20,14 +20,14 @@ export class LoginComponent implements OnInit {
 
  constructor( private _formBuilder: FormBuilder,private authService : LoginService, private router: Router) { 
  this.loginDetails = this._formBuilder.group({
-   'email': [''],
+   'email': [ localStorage.getItem('mpn')],
    'password': [''],
  });;
 }
 
 
  ngOnInit() {
-   
+
 }
 
 

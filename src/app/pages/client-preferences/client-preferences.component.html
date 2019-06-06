@@ -1,0 +1,58 @@
+<div class="modal-body">
+  <div class="header">
+      <h3>Add Client Social Details</h3>
+  </div>
+</div>    
+<main class="modal-body">
+    <form [formGroup]="AddClientEducationalDetails">
+    
+      
+          <input class="input-group p-2" formControlName="min_age" placeholder="min_age*">
+
+          <input class="input-group p-2" formControlName="max_age" placeholder="max_age*">
+
+          <input class="input-group p-2" formControlName="min_income" placeholder="min_income*">
+
+          <input class="input-group p-2" formControlName="max_income" placeholder="max_income*">
+
+          <input class="input-group p-2" formControlName="min_height" placeholder="min_height*">
+
+          <input class="input-group p-2" formControlName="max_height" placeholder="max_height*">
+
+          <input class="input-group p-2" formControlName="occupation" placeholder="occupation*">
+
+          <input class="input-group p-2" formControlName="caste" placeholder="caste*">
+
+          <select class="input-group p-2" formControlName="marital_status">
+              <option value="" disabled selected>marital_status</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+          </select>
+
+          <select class="input-group p-2" formControlName="manglik">
+            <option value="" disabled selected>manglik</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+      
+          <select class="input-group p-2" formControlName="food_choice">
+            <option value="" disabled selected>food_choice</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+           
+          <select class="input-group p-2" formControlName="citizenship">
+            <option value="" disabled selected>citizenship</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+           
+       
+     
+ 
+      <div class="input-group p-2">
+          <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>          
+      </div>
+  </form>
+</main>
+

@@ -1,15 +1,27 @@
 <div class="container-fluid">
 
 <main class="card-wrapper" style="width: 70%; margin-left: auto;margin-right: auto;margin-bottom: 30px">
+    <button (click)="toggle()" id="bt" style="float: right;"> options </button>
 
+    <ng-container *ngIf="show">
+        <div style="float: right">
+          <div >
+            <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
+            <a routerLink="/edit-profile" routerLinkActive = "active"  style="display:block"><button>edit-profile</button></a>
+            <a routerLink="/personal-details" routerLinkActive = "active"  style="display:block"><button>Add Clients</button></a>
+            <a style="display:block"><button  (click) = "signout()">signout</button></a>
+          </div>
+        </div>
+    </ng-container>
     <div class="row" style="display: block">
-        <header class='masthead'></header>  
+        <header class='masthead'>
+        </header>  
         <div class="masthead-intro"> {{user.first_name}} {{user.last_name}}</div>
     </div>
-  
+   
     <div class="flex">
         <div id="profile">
-            <a href="" class="btn btn-1"><span class="txt">{{user.experience}}Experience</span></a>
+            <a href="" class="btn btn-1"><span class="txt">{{user.experience}} yrs Experience</span></a>
         </div>
         <div id="info">
             <a href="" class="btn btn-1"><span class="txt">{{user.clients}}Clients</span></a>   
@@ -45,9 +57,15 @@
     </div> 
   
   </main>
+<!-- 
+  <div id="navbar">
+    <ul>
+      <li>fbudsh</li>
+    </ul>
+  </div> -->
   
   
-
+<!-- 
   <div class="flex">
     <div class="col-sm-3 col-md-3 col-lg-3">
       <a routerLink="/clients" routerLinkActive = "active" ><button class="btn-primary pull-right" > view clients</button></a>
@@ -61,7 +79,7 @@
     <div class="col-sm-3 col-md-3 col-lg-3">
       <button class="btn-primary pull-right"   (click) = "signout()"> signout</button>
     </div>  
-  </div> 
+  </div>  -->
     
   
   

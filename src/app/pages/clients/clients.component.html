@@ -1,17 +1,25 @@
-
-  <div class="container-fluid">
-    <div class="row" >
-      <div class="col-sm-12 col-md-6 col-ls-6"  *ngFor="let member of staticProductDetail" id="content">
-          <div [ngStyle]="imageStyle(member.img)" id="image"></div>
-          <div id="details">                 
-              <h3>{{member.name}}</h3>
-              <h3>{{member.age}}yrs</h3>
-              <h3>{{member.qualification}}</h3> 
-              <h3>{{member.height}}</h3>
-              <h3>{{member.job}}</h3>
-              <h3>{{member.about}}</h3>
-              <h3>{{member.location}}</h3> 
+  <main class="card-wrapper"  >
+      <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetail">
+         <div class="row" style="display:flexbox">
+          <div class="column-l" >
+            <img src="{{member.profile_photo}}" style="height:250px;width: 100%">
           </div>
-      </div>
+          <div class="column-r">
+             
+               <p>{{member.name}}</p>   
+               <p> <img src="" >{{member.age}}yrs</p>
+               <p> <img src="" >{{member.degree}}</p>
+               <p> <img src="" >{{member.height}}</p>       
+                      <p> <img src="" >{{member.about}}</p>
+                        <p> <img src="" >{{member.job}}</p>             
+                          <p> <img src="" >{{member.current_city}}</p>
+                        
+
+                    <div class="button" style="margin-top : 10px; display: fiex">
+                      <button type="button" (click) = "getMatches(member.id)">Matches</button>
+                      <button type="button" (click) = "getActivity(member.id)">Activity</button>
+                    </div>     
+            </div>
+         </div>
     </div>
-  </div>
+  </main>

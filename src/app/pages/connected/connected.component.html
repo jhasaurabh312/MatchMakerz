@@ -1,0 +1,30 @@
+<main class="card-wrapper">
+  <ng-container >
+    <main class="card-wrapper"  >
+      <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of connected">
+         <div class="row" style="display:flexbox">
+          <div class="column-l" >
+            <img src="{{member.matched_to.profile_photo}}" style="height:250px;width: 100%">
+          </div>
+          <div class="column-r">
+             
+               <p>{{member.matched_to.age}}</p>   
+               <p> <img src="" >{{member.matched_to.age}}yrs</p>
+               <p> <img src="" >{{member.matched_to.degree}}</p>
+               <p> <img src="" >{{member.matched_to.height}}</p>       
+                      <p> <img src="" >{{member.matched_to.about}}</p>
+                        <p> <img src="" >{{member.matched_to.job}}</p>             
+                          <p> <img src="" >{{member.matched_to.current_city}}</p>
+                        
+
+                    <div class="button" style="margin-top : 10px; display: fiex">
+                      <button type="button" (click) = "getMatches(member.id)">XXX</button>
+                      <button type="button" (click) = "getActivity(member.id)">YYY</button>
+                    </div>     
+            </div>
+         </div>
+    </div>
+  </main>
+  </ng-container>
+  
+</main>

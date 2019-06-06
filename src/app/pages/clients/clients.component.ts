@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { staticProductDetail} from './clients.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -23,17 +22,29 @@ export class ClientsComponent implements OnInit {
     return this.http.get('http://matchmakerz.in/api/v1/client/list?id=99999999', {headers : headers}).subscribe((response) =>{
      this.staticProductDetail = response;
      console.log(this.staticProductDetail);
+
+    //  for(let i=0;i<20;i++){
+    //    if(this.staticProductDetail[i].gender === 0){
+    //      this.staticProductDetail[i].gender = 'Male';
+    //      console.log(this.staticProductDetail[i].gender);
+    //    }
+
+    //    else{
+    //     this.staticProductDetail[i].gender = 'Female';
+    //     console.log(this.staticProductDetail[i].gender);
+    //    }
+       
+    //  }
+
    })
 
+  
+
   }
 
-
-  imageStyle(img) {
-    return {
-      'height': '40vh',
-      'width' : '50%',
-      'float' : 'left',
-      'background-image':  `url('../../../assets/images/${img}')`
-    };
+  getActivity(data){
+    localStorage.setItem('clientId' , data);
+    window.location.replace('/awaited');
   }
+
 }
