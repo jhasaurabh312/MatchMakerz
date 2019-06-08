@@ -1,11 +1,12 @@
 <main class="card-wrapper">
-  <div class="nav navbar" style="display:flex">
-   
-      <div class="flex">
-        <button class="btn btn-success" (click)="toggle()">Awaited Incoming</button>
-        <button class="btn btn-danger" (click)="toggle()">Awaited Outgoing</button>
+  <div class="flex" style="background-color:white;display:flex">
+    <div class="col-sm-6 col-md-6 col-lg-6" (click)="toggle()" style="text-align: center">
+       <h6>Declined Incoming</h6>
     </div>
-  </div>
+    <div class="col-sm-6 col-md-6 col-lg-6" (click)="toggle()" style="text-align: center">
+        <h6>Declined Outgoing</h6>
+     </div>
+</div>
   <ng-container *ngIf="show">
     <main class="card-wrapper"  >
       <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of awaitedOut">
@@ -62,4 +63,18 @@
   </main>
   </ng-container>
   
+</main>
+
+<main style="position:fixed;top: 50%;width: 100%;" class="card-wrapper">
+  <div class="flex" style="background-color:white;display:flex;cursor: pointer;">
+      <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center">
+         <h6>Awaited</h6>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4" (click)="connected()" style="text-align: center">
+        <h6>Connected</h6>
+     </div>
+      <div class="col-sm-4 col-md-4 col-lg-4" (click)="declined()" style="text-align: center">
+          <h6>Declined</h6>
+       </div>
+  </div>
 </main>

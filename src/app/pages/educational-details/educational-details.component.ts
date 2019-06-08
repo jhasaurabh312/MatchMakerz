@@ -19,13 +19,14 @@ export class EducationalDetailsComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private http : HttpClient) { 
     this. AddClientEducationalDetails= this._formBuilder.group({
       'is_working' : [''],
-      'education' : [''],
+      'education' : ['NA'],
       'degree' : [''],
       'college' : [''],
       'occupation' : [''],
       'sub_occupation' : [''],
       'office_address' : [''],
       'yearly_income' : [''],
+      
     });; 
   }
 
@@ -37,20 +38,20 @@ export class EducationalDetailsComponent implements OnInit {
   addClient(data){
 
     const NewProfile  = new FormData();
-    // NewProfile.append('id', localStorage.getItem('newClientId') );   
+    NewProfile.append('id', localStorage.getItem('newClientId') );   
     NewProfile.append('is_working', this.AddClientEducationalDetails.value.is_working );   
-    NewProfile.append('education', this.AddClientEducationalDetails.value.education );
     NewProfile.append('degree', this.AddClientEducationalDetails.value.degree);
     NewProfile.append('college', this.AddClientEducationalDetails.value.college );
     NewProfile.append('occupation', this.AddClientEducationalDetails.value.occupation );
     NewProfile.append('sub_occupation', this.AddClientEducationalDetails.value.sub_occupation );
     NewProfile.append('office_address', this.AddClientEducationalDetails.value.office_address );
     NewProfile.append('yearly_income', this.AddClientEducationalDetails.value.yearly_income );
+    NewProfile.append('education','NA');
    
 
     console.log(NewProfile);
 
-    return this.http.post('http://matchmakerz.in/api/v1/client/client-career-update?id='+ localStorage.getItem('newClientId') , NewProfile ,{ 
+    return this.http.post('http://matchmakerz.in/api/v1/client/client-career-update' , NewProfile ,{ 
         headers : new HttpHeaders({
           'Authorization': 'Token ' + localStorage.getItem('token'),
         })}).pipe(catchError((error) => {

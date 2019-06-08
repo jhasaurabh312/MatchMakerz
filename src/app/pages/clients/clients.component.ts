@@ -32,13 +32,13 @@ export class ClientsComponent implements OnInit {
   }
 
   getActivity(data){
-    localStorage.setItem('clientId' , data);
+    localStorage.setItem('clientId' , data);  
     window.location.replace('/awaited');
   }
 
   getMatches(data){
     localStorage.setItem('clientId' , data);
-    window.location.replace('/matches');
+    window.location.replace('/filter');
   }
 
   clientProfile(data){

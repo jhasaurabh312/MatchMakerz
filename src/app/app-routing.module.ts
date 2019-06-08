@@ -19,6 +19,7 @@ import { ClientProfileComponent } from './pages/client-profile/client-profile.co
 import { ConnectedComponent } from './pages/connected/connected.component';
 import { NotificationComponent } from './pages/notification/notification.component';
 import { DeclinedComponent } from './pages/declined/declined.component';
+import { DummyComponent } from './pages/dummy/dummy.component';
 
 
 const appRoutes: Routes = [
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
   { path : 'connected' , component : ConnectedComponent},
   { path : 'filter' , component : FilterComponent},
   { path : 'declined' , component : DeclinedComponent},
-  { path : 'notification' ,component : NotificationComponent}
+  { path : 'notification' ,component : NotificationComponent},
+  { path : 'dummy' , component : DummyComponent}
 ];
 
 

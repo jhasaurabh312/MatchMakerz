@@ -1,7 +1,7 @@
   <main class="card-wrapper"  >
-     <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetail" (click)="clientProfile(member.id)">
+     <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetail" >
         <div class="row" style="display:flexbox; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
-         <div class="column-l" >
+         <div class="column-l" (click)="clientProfile(member.id)">
            <img src="{{member.profile_photo}}" style="height:250px;width: 100%">
          </div>
          <div class="column-r">

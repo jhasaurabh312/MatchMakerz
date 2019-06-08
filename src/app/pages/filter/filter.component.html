@@ -4,7 +4,7 @@
     </div>
 
 <main class="modal-body">
-  <form [formGroup]="EditProfileDetails">
+  <form [formGroup]="EditClientPreferences">
       <div class="filter">
           <div class="input-group p-2">
             <select formControlName="gender"  class="form-control">
@@ -31,10 +31,10 @@
         </div>
 
         <div class="input-group p-2">
-            <select formControlName="foodChoice"  class="form-control">
+            <select formControlName="food_choice"  class="form-control">
                 <option value="foodChoice" disabled selected>foodChoice</option>
                 <option value="0" >Veg</option>
-                <option value="" >Non-veg</option>
+                <option value="1" >Non-veg</option>
             </select> 
         </div>
 
@@ -70,12 +70,12 @@
         </div>
         
         <div class="input-group p-2">
-                <input formControlName="min_height"  value ="min_age" class="form-control">
+                <input formControlName="min_age"  value ="min_age" class="form-control">
                
         </div>
             
         <div class="input-group p-2">
-                <input formControlName="max_height"  value ="max_age" class="form-control">
+                <input formControlName="max_age"  value ="max_age" class="form-control">
         </div>
         
         <div class="input-group p-2">

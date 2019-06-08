@@ -33,7 +33,21 @@ export class AwaitedComponent implements OnInit {
   }
 
   toggle() {
-   return this.show = !this.show;
+   this.show != this.show;
+  }
+
+  awaited(){
+    window.location.replace('/awaited');
+  }
+
+
+  connected(){
+    window.location.replace('/connected');
+  }
+
+
+  declined(){
+    window.location.replace('/declined');
   }
 
 

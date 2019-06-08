@@ -31,6 +31,7 @@ import { ClientPreferencesComponent } from './pages/client-preferences/client-pr
 
 import { ClientProfileComponent } from './pages/client-profile/client-profile.component';
 import { DeclinedComponent } from './pages/declined/declined.component';
+import { DummyComponent } from './pages/dummy/dummy.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { DeclinedComponent } from './pages/declined/declined.component';
     ClientPreferencesComponent,
     ClientProfileComponent,
     DeclinedComponent,
+    DummyComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ConnectedComponent implements OnInit {
 
- public connected : any = [];
+ public connect : any = [];
   constructor(private http : HttpClient) { }
 
   ngOnInit() {
@@ -18,11 +18,26 @@ export class ConnectedComponent implements OnInit {
     })
 
      this.http.get('http://matchmakerz.in/api/v1/client/connected-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
-       this.connected = response;
-       console.log(this.connected);
-      //  console.log(localStorage.getItem('clientId'));
+       this.connect = response;
+       console.log(this.connect);
      })
   
+  }
+
+
+
+  awaited(){
+    window.location.replace('/awaited');
+  }
+
+
+  connected(){
+    window.location.replace('/connected');
+  }
+
+
+  declined(){
+    window.location.replace('/declined');
   }
 }
 

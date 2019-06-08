@@ -36,6 +36,20 @@ export class DeclinedComponent implements OnInit {
   }
 
 
+  awaited(){
+    window.location.replace('/awaited');
+  }
+
+
+  connected(){
+    window.location.replace('/connected');
+  }
+
+
+  declined(){
+    window.location.replace('/declined');
+  }
+
 
 }
 
