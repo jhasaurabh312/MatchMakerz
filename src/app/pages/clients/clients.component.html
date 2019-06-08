@@ -1,26 +1,26 @@
   <main class="card-wrapper"  >
-      <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetail">
-         <div class="row" style="display:flexbox">
-          <div class="column-l" >
-            <img src="{{member.profile_photo}}" style="height:250px;width: 100%">
-          </div>
-          <div class="column-r">
-             
-               <p>{{member.name}}</p>   
-               <p> <img src="" >{{member.age}}yrs</p>
-               <p> <img src="" >{{member.degree}}</p>
-               <p> <img src="" >{{member.height}}</p>       
-                      <p> <img src="" >{{member.about}}</p>
-                        <p> <img src="" >{{member.job}}</p>             
-                          <p> <img src="" >{{member.current_city}}</p>
-                        
-
-                    <div class="button" style="margin-top : 10px; display: fiex">
-                      <button type="button" (click) = "getMatches(member.id)">Matches</button>
-                      <button type="button" (click) = "getActivity(member.id)">Activity</button>
-                    </div>     
-            </div>
+     <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetail" (click)="clientProfile(member.id)">
+        <div class="row" style="display:flexbox; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
+         <div class="column-l" >
+           <img src="{{member.profile_photo}}" style="height:250px;width: 100%">
          </div>
+         <div class="column-r">
+            
+              <p>{{member.name}}</p>   
+              <p> <img src="" >{{member.age}}yrs</p>
+              <p> <img src="" >{{member.degree}}</p>
+              <p> <img src="" >{{member.height}}</p>       
+                     <p> <img src="" >{{member.about}}</p>
+                       <p> <img src="" >{{member.job}}</p>             
+                         <p> <img src="" >{{member.current_city}}</p>
+                       
+
+                   <div class="button" style="margin-top : 10px; display: fiex">
+                     <button type="button" (click) = "getMatches(member.id)">Matches</button>
+                     <button type="button" (click) = "getActivity(member.id)">Activity</button>
+                   </div>     
+           </div>
+        </div>
     </div>
   </main>
 <!-- 

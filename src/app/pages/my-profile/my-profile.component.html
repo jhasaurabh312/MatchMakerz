@@ -1,18 +1,7 @@
-<div class="container-fluid">
 
-<main class="card-wrapper" style="width: 70%; margin-left: auto;margin-right: auto;margin-bottom: 30px">
-    <button (click)="toggle()" id="bt" style="float: right;"> options </button>
 
-    <ng-container *ngIf="show">
-        <div style="float: right">
-          <div >
-            <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
-            <a routerLink="/edit-profile" routerLinkActive = "active"  style="display:block"><button>edit-profile</button></a>
-            <a routerLink="/personal-details" routerLinkActive = "active"  style="display:block"><button>Add Clients</button></a>
-            <a style="display:block"><button  (click) = "signout()">signout</button></a>
-          </div>
-        </div>
-    </ng-container>
+<main class="card-wrapper" style="width: 80%; margin-left: auto;margin-right: auto;margin-bottom: 30px">
+  
     <div class="row" style="display: block">
         <header class='masthead'>
         </header>  
@@ -57,30 +46,30 @@
     </div> 
   
   </main>
-<!-- 
-  <div id="navbar">
-    <ul>
-      <li>fbudsh</li>
-    </ul>
-  </div> -->
-  
-  
-<!-- 
-  <div class="flex">
-    <div class="col-sm-3 col-md-3 col-lg-3">
-      <a routerLink="/clients" routerLinkActive = "active" ><button class="btn-primary pull-right" > view clients</button></a>
+
+  <div class="row" id="overlap">
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
     </div>
-    <div class="col-sm-3 col-md-3 col-lg-3">
-      <a routerLink="/edit-profile" routerLinkActive = "active" ><button class="btn-primary pull-right" >Edit Profile</button></a>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
     </div>
-    <div class="col-sm-3 col-md-3 col-lg-3">
-      <a routerLink="/personal-details" routerLinkActive = "active" ><button class="btn-primary pull-right"> Add Clients</button></a>
-    </div>  
-    <div class="col-sm-3 col-md-3 col-lg-3">
-      <button class="btn-primary pull-right"   (click) = "signout()"> signout</button>
-    </div>  
-  </div>  -->
-    
-  
-  
-</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
+    </div>
+  </div>
+<!-- 
+ 
+  <button (click)="toggle()" id="bt" style="float: right;"> options </button>
+
+  <ng-container *ngIf="show">
+      <div style="float: right">
+        <div >
+          <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
+          <a routerLink="/edit-profile" routerLinkActive = "active"  style="display:block"><button>edit-profile</button></a>
+          <a routerLink="/personal-details" routerLinkActive = "active"  style="display:block"><button>Add Clients</button></a>
+          <a style="display:block"><button  (click) = "signout()">signout</button></a>
+        </div>
+      </div>
+  </ng-container>
+     -->

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-notification',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationComponent implements OnInit {
 
-  constructor() { }
+  public notices : any =[];
+
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
+   
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    })
+
+   this.http.get('http://matchmakerz.in/api/v1/client/notifications' ,{ headers: headers }).subscribe((response:any)=>{
+     this.notices=response.notification;
+     console.log(this.notices);
+   })
   }
 
 }

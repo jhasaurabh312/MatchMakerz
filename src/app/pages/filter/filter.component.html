@@ -1,109 +1,107 @@
 <div class="container-fluid">
-<div class="header">
-    <h3>filter</h3>
-</div>
-
-<div class="container">
-  <form>
-      <div class="filter">
-          <select id="" name="Gender" >
-              <option value="Gender">Gender</option>
-          </select>
-          <select id="" name="Marital Status" >
-              <option value="Marital Status">Marital Status</option>
-          </select>
-          <select id="" name="Food Choice" >
-              <option value="Food Choice">Food Choice</option>
-          </select>
-          <select id="" name="Age" >
-              <option value="Age">Age</option>
-          </select>
-          <select id="" name="Height" >
-              <option value="Height">Height</option>
-          </select>
-      
-      </div>
-      <div class="filter">
-          <select id="" name="Mangalik" >
-              <option value="Mangalik">Mangalik</option>
-          </select>
-          <select id="" name="Occupation" >
-              <option value="Occupation">Occupation</option>
-          </select>
-          <select id="" name="Citizenship" >
-              <option value="Citizenship">Citizenship</option>
-          </select>
-          <select id="" name="Income" >
-              <option value="Income">Income</option>
-          </select>
-          <select id="" name="Caste" >
-              <option value="Caste">Caste</option>
-          </select>
-      
-      </div>
-  </form>
-</div>
-<div class="flex">
-   <button class="style-button"> <a href="" >Apply filter</a></button>
-</div>
-
-</div>
-<!-- 
-
-<div class="container-fluid">
     <div class="header">
-      <h3>MATCHMAKERZ</h3>
+        <h3>filter</h3>
     </div>
-  </div>
-  
-  <main class="modal-body"  >
-      <div class="row">
-          <h3 style="font-family: 'Poppins', sans-serif ; font-size:20px; font-weight: 600; margin-left: auto;margin-right: auto">Update Profile</h3>
-      </div>
-    <form [formGroup]="EditProfileDetails">
-      <div class="input-group p-2">
-          <input  formControlName="first_name" placeholder="First Name" class="form-control">
-      </div>
-      <div class="input-group p-2">
-          <input formControlName="last_name" placeholder="Last Name" class="form-control" >
-      </div>
-      <div class="input-group p-2">
-          <select  formControlName="gender"  value ="Gender" class="form-control" >
-              <option value="" disabled selected>Gender</option>
-              <option value="0">Male</option>
-              <option value="1">Female</option>
-            </select>   
-      </div>
-      <div class="input-group p-2">
-          <input formControlName="phone_number" placeholder="phone_number" class="form-control" >
-      </div>
-      <div class="input-group p-2">
-          <input formControlName="email" placeholder="email-id" class="form-control" >      
-      </div>
-      <div class="input-group p-2">
-          <input formControlName="unique_about" placeholder="unique_about" class="form-control" >
-      </div>
-      <div class="input-group p-2">
-            <input formControlName="specialization" placeholder="specialization" class="form-control" >
-      </div>
-      <div class="input-group p-2">
-              <input formControlName="experience" placeholder="experience" class="form-control" >
-      </div>
-      <div class="input-group p-2">
-        <input formControlName="age" placeholder="age" class="form-control" >
-      </div>
-      <div class="input-group p-2">
-        <input formControlName="whatsapp_number" placeholder="whatsapp_number" class="form-control" >
-      </div>
-      <div class="input-group p-2">
-          <textarea formControlName="about" placeholder="About You" class="form-control" ></textarea>
-      </div>  
-      <div class="input-group p-2">
-          <button type="button" class="btn btn-user " (click)="editProfile()" >  &nbsp;   &nbsp; Submit &nbsp;&nbsp;
-            </button>        
-      </div>  
+
+<main class="modal-body">
+  <form [formGroup]="EditProfileDetails">
+      <div class="filter">
+          <div class="input-group p-2">
+            <select formControlName="gender"  class="form-control">
+                <option value="gender" disabled selected>Gender</option>
+                <option value="0" >MALE</option>
+                <option value="1" >FEMALE</option>
+            </select> 
+          </div>
+
+        <div class="input-group p-2">
+            <select formControlName="manglik" class="form-control">
+                <option value="manglik" disabled selected>manglik</option>
+                <option value="0" >No</option>
+                <option value="1" >Yes</option>
+            </select> 
+        </div>
+
+        <div class="input-group p-2">
+            <select formControlName="marital_status"  class="form-control">
+                <option value="marital_status" disabled selected>marital_status</option>
+                <option value="0" >Not Married</option>
+                <option value="1" >Married</option>
+            </select> 
+        </div>
+
+        <div class="input-group p-2">
+            <select formControlName="foodChoice"  class="form-control">
+                <option value="foodChoice" disabled selected>foodChoice</option>
+                <option value="0" >Veg</option>
+                <option value="" >Non-veg</option>
+            </select> 
+        </div>
+
+        <div class="input-group p-2">
+            <select formControlName="citizenship" class="form-control">
+                <option value="citizenship" disabled selected>citizenship</option>
+                <option value="0" >Indian</option>
+                <option value="1" >NRI</option>
+            </select> 
+        </div>
+
+        <div class="input-group p-2">
+            <select formControlName="occupation" class="form-control">
+                <option value="occupation" disabled selected>occupation</option>
+                <option value="0" >No</option>
+                <option value="1" >Yes</option>
+            </select> 
+        </div>
+        
+             
+    </div>
+
+
+    <div class="filter">
+
+        <div class="input-group p-2">
+            <input formControlName="min_income"  value ="min_income" class="form-control">
+           
+        </div>
+
+        <div class="input-group p-2">
+                <input formControlName="max_income"  value ="max_income" class="form-control">
+        </div>
+        
+        <div class="input-group p-2">
+                <input formControlName="min_height"  value ="min_age" class="form-control">
+               
+        </div>
+            
+        <div class="input-group p-2">
+                <input formControlName="max_height"  value ="max_age" class="form-control">
+        </div>
+        
+        <div class="input-group p-2">
+                <input formControlName="min_height"  value ="min_height" class="form-control">
+                
+        </div>
+            
+        <div class="input-group p-2">
+                <input formControlName="max_height"  value ="max_height" class="form-control">
+        </div>
+            
+          
     
-    </form>
-  
-  </main>
-   -->
+    </div>
+
+    <div class="input-group p-2">
+        <input formControlName="caste"  value ="caste" class="form-control">
+    </div>
+
+    <div class="input-group p-2" >
+        <button class="btn btn-user" type = "submit" value = "submit" (click) = "ApplyFilter()">Apply Filter</button>
+    </div>
+  </form>
+</main>
+
+
+
+</div>
+

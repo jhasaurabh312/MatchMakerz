@@ -79,24 +79,5 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
 }
-
-
-    // const NewProfile : EditProfileModule = {
-    //       'first_name' : this.EditProfileDetails.get('first_name').value,
-    //       'last_name' : this.EditProfileDetails.get('last_name').value,
-    //       'phone_number' : this.EditProfileDetails.get('phone_number').value,
-    //       'email' : this.EditProfileDetails.get('email').value,
-    //       'unique_about' : this.EditProfileDetails.get('unique_about').value,
-    //       'specialization' : this.EditProfileDetails.get('specialization').value,
-    //       'age': this.EditProfileDetails.get('age').value,
-    //       // 'gender': this.EditProfileDetails.get('gender').value,          
-    //       'whatsapp_number': this.EditProfileDetails.get('whatsapp_number').value,
-    //       'about': this.EditProfileDetails.get('about').value,
-    //       'experience' : this.EditProfileDetails.get('experience').value,
-    //       'upfront_charge' : this.EditProfileDetails.get('upfront_charge').value,
-    //     }
-
-
-   
    
    

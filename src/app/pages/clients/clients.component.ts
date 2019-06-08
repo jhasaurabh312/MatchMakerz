@@ -10,6 +10,8 @@ export class ClientsComponent implements OnInit {
   public staticProductDetail : any = [];
   response : any ;
 
+  
+  
   constructor( private http : HttpClient) { }
 
   ngOnInit() {
@@ -19,23 +21,10 @@ export class ClientsComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
-    return this.http.get('http://matchmakerz.in/api/v1/client/list?id=99999999', {headers : headers}).subscribe((response) =>{
+    return this.http.get('http://matchmakerz.in/api/v1/client/list?id=999999999', {headers : headers}).subscribe((response) =>{
      this.staticProductDetail = response;
      console.log(this.staticProductDetail);
-
-    //  for(let i=0;i<20;i++){
-    //    if(this.staticProductDetail[i].gender === 0){
-    //      this.staticProductDetail[i].gender = 'Male';
-    //      console.log(this.staticProductDetail[i].gender);
-    //    }
-
-    //    else{
-    //     this.staticProductDetail[i].gender = 'Female';
-    //     console.log(this.staticProductDetail[i].gender);
-    //    }
-       
-    //  }
-
+    //  localStorage.setItem('lastClientId', this.staticProductDetail[19].id)
    })
 
   
@@ -45,6 +34,35 @@ export class ClientsComponent implements OnInit {
   getActivity(data){
     localStorage.setItem('clientId' , data);
     window.location.replace('/awaited');
+  }
+
+  getMatches(data){
+    localStorage.setItem('clientId' , data);
+    window.location.replace('/matches');
+  }
+
+  clientProfile(data){
+    // console.log(data);
+    localStorage.setItem('clientId' , data);
+    window.location.replace("/client-profile");
+  }
+
+  getMore(){
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    })
+
+    return this.http.get('http://matchmakerz.in/api/v1/client/list?id='+localStorage.getItem('lastClientId'), {headers : headers}).subscribe((response) =>{
+      this.staticProductDetail = response;
+      console.log(this.staticProductDetail);
+      localStorage.setItem('lastClientId', this.staticProductDetail[19].id);
+      window.location.replace("/clients");
+    })
+ 
+   
+    
   }
 
 }
