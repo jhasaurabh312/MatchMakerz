@@ -3,6 +3,7 @@ import { LoginModule, LoginReturn } from '../../shared/models/login/login.module
 import { LoginService } from 'src/app/shared/services/login/login.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
  private response : LoginReturn;
 
 
- constructor( private _formBuilder: FormBuilder,private authService : LoginService, private router: Router) { 
+ constructor( private _formBuilder: FormBuilder,private authService : LoginService, private router: Router, private http:HttpClient) { 
  this.loginDetails = this._formBuilder.group({
    'email': [ localStorage.getItem('mpn')],
    'password': [''],
@@ -54,6 +55,18 @@ submitLogin(){
   },err =>{
     console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
   });
+}
+
+resendOTP(){
+  event.preventDefault();
+   
+    this.http.get('http://matchmakerz.in/api/v1/matchmaker/loginotp?phone_number='+ localStorage.getItem('mpn')).subscribe((response) => {
+      alert('OTP Resent !!!');
+    })
+}
+
+EditNumber(){
+  window.location.replace('/get-otp');
 }
 
   
