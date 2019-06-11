@@ -1,12 +1,16 @@
+<div class="section" style="display:flex;">
 
+  <div class="col-sm-6 col-md-6 col-lg-6">Matchmakerz</div>
+  <div class="col-sm-6 col-md-6 col-lg-6">Signout</div>
+</div>
 
-<main class="card-wrapper" style="overflow: hidden;padding: 20px;">
+<main class="card-wrapper" style="overflow: hidden;padding: 20px;background-color: #f1f1f1">
   
     <div class="row" style="display: block">
         <header class='masthead'>
-            <a href="#" class="float">
+            <!-- <a href="#" class="float">
                 <i class="fa fa-plus my-float"></i>
-            </a>
+            </a> -->
         </header>  
         <div class="masthead-intro"> {{user.first_name}} {{user.last_name}}</div>
 
@@ -52,15 +56,15 @@
   
   </main>
 
-  <div class="row" id="overlap">
+  <div class="card-wrapper" style="background-color:white;position:fixed;width:100%;top:50%;display: flex;min-height: 60px">
     <div class="col-sm-4 col-md-4 col-lg-4">
-        <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
+        <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">view clients</a>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">
-        <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
+        <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Add Clients</a>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">
-        <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
+        <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>
     </div>
   </div>
 <!-- 

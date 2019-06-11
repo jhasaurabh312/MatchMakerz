@@ -2,7 +2,7 @@
     
     <ng-container >
       <main class="card-wrapper"  >
-        <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of awaitedOut">
+        <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetails">
            <div class="row" style="display:flexbox">
             <div class="column-l" >
               <img src="{{member.matched_to.profile_photo}}" style="height:250px;width: 100%">
@@ -10,7 +10,7 @@
             <div class="column-r">
                
                  <p>{{member.matched_to.age}}</p>   
-                 <p> <img src="" >{{member.matched_to.age}}yrs</p>
+                 <p > <img src="" style="color:black" >{{member.matched_to.age}}yrs</p>
                  <p> <img src="" >{{member.matched_to.degree}}</p>
                  <p> <img src="" >{{member.matched_to.height}}</p>       
                  <p> <img src="" >{{member.matched_to.about}}</p>

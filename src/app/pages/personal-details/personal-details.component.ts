@@ -40,7 +40,7 @@ export class PersonalDetailsComponent implements OnInit {
    
   }
 
-  addClient(data){
+  addClient(){
 
     const NewProfile  = new FormData();
    
@@ -76,6 +76,10 @@ export class PersonalDetailsComponent implements OnInit {
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
         }
         
+  }
+
+  filter(){
+    
   }
 
 }

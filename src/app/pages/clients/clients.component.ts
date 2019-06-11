@@ -24,6 +24,10 @@ export class ClientsComponent implements OnInit {
     return this.http.get('http://matchmakerz.in/api/v1/client/list?id=999999999', {headers : headers}).subscribe((response) =>{
      this.staticProductDetail = response;
      console.log(this.staticProductDetail);
+     console.log(this.staticProductDetail.length);
+
+     if(this.staticProductDetail.length===0)
+      window.location.replace('/dummy');
     //  localStorage.setItem('lastClientId', this.staticProductDetail[19].id)
    })
 
@@ -57,6 +61,7 @@ export class ClientsComponent implements OnInit {
     return this.http.get('http://matchmakerz.in/api/v1/client/list?id='+localStorage.getItem('lastClientId'), {headers : headers}).subscribe((response) =>{
       this.staticProductDetail = response;
       console.log(this.staticProductDetail);
+
       localStorage.setItem('lastClientId', this.staticProductDetail[19].id);
       window.location.replace("/clients");
     })

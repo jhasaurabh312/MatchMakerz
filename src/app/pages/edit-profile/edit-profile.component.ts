@@ -38,7 +38,7 @@ export class EditProfileComponent implements OnInit {
    
   }
 
-  editProfile(data){
+  editProfile(){
 
     const NewProfile  = new FormData();
    

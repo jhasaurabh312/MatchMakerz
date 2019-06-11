@@ -1,15 +1,26 @@
-<main class="card-wrapper">
-   
-      <div class="flex" style="background-color:white;display:flex">
-        <div class="col-sm-6 col-md-6 col-lg-6" (click)="toggle()" style="text-align: center">
-           <h6>Awaited Incoming</h6>
+<main class="card-wrapper" style="overflow:hidden;padding: 10px">
+
+    <!-- <div class="modal-body">
+        <div class="header">
+            <h3><img src="../../../assets/icons/angle-down.svg" style="width: 40px;">Awaited</h3>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6" (click)="toggle()" style="text-align: center">
-            <h6>Awaited Outgoing</h6>
-         </div>
+    </div>  -->
+   
+      <div class="header" style="background-color:white;display:block">
+        <div class="row">
+            <h3><img src="../../../assets/icons/angle-down.svg" style="width: 40px;">Awaited</h3>
+        </div>
+        <div class="row" style="display:flex">
+            <div class="col-sm-6 col-md-6 col-lg-6" (click)="toggle1()" style="text-align: center;cursor: pointer;">
+                <h6>Incoming</h6>
+             </div>
+             <div class="col-sm-6 col-md-6 col-lg-6" (click)="toggle2()" style="text-align: center;cursor: pointer;">
+                 <h6>Outgoing</h6>
+              </div>
+        </div>
     </div>
   
-  <ng-container *ngIf="show">
+  <ng-container *ngIf="show1">
     <main class="card-wrapper"  >
       <div class="col-sm-12 col-md-6 col-lg-6" style="float:right" *ngFor="let member of awaitedOut">
          <div class="row" style="display:flexbox">
@@ -37,7 +48,7 @@
   </main>
   </ng-container>
 
-  <ng-container *ngIf ="show">
+  <ng-container *ngIf ="show2">
     <main class="card-wrapper"  >
       <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of awaitedIn">
          <div class="row" style="display:flexbox">
@@ -55,10 +66,10 @@
                <p> <img src="" >{{member.matched_to.current_city}}</p>
                         
 
-                    <div class="button" style="margin-top : 10px; display: flex">
-                      <button type="button" >Accept</button>
-                      <button type="button" >Decline</button>
-                    </div>     
+              <div class="button" style="margin-top : 10px; display: flex">
+                <button type="button" >Accept</button>
+                <button type="button" >Decline</button>
+              </div>     
             </div>
          </div>
     </div>
@@ -68,7 +79,7 @@
 </main>
 
 <main style="position:fixed;top: 50%;width: 100%;" class="card-wrapper">
-    <div class="flex" style="background-color:white;display:flex;cursor: pointer;">
+    <div class="flex" style="background-color:#f1f1f1;display:flex;cursor: pointer;height: 60px">
         <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center">
            <h6>Awaited</h6>
         </div>
