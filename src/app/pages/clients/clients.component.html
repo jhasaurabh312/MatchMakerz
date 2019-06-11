@@ -1,20 +1,24 @@
   <main class="card-wrapper"  style="overflow:hidden">
      <div class="row" style="display:flex;background-color:white;border-bottom: 3px groove #F1F1F1">
-       <div class="col-sm-6 col-md-6 col-lg-6" style="float:left">
-        <h5 style="font-size:30px"><img src="../../../assets/icons/icons-20.svg" style="width: 80px;">Matchmakerz</h5>
-       </div>
-       <div class="col-sm-6 col-md-6 col-lg-6">
-         
+        <div class="col-sm-6 col-md-6 col-lg-6" style="float:left">
+          <h5 style="font-size:30px"><img src="../../../assets/icons/icons-20.svg" style="width: 80px;">Matchmakerz</h5>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6" style="display:flex;text-align: right">
+            <div style="float:right">
+              <img src="../../../assets/icons/rupee.svg" style="width: 10%;height: 5em;">
+              <img src="../../../assets/icons/play.svg" style="width: 10%;height: 5em;">
+              <img src="../../../assets/icons/close.svg" style="width: 10%;height: 5em;">
+            </div>
         </div>
      </div>
 
-     <div class="row" style="display:flex">
+     <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
         <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
-            <div class="row" style="display:flex; background-color:#F1F1F1; width: 90%;margin-left: auto;margin-right: auto">
-             <div class="column-l" (click)="clientProfile(member.id)">
-               <img src="{{member.profile_photo}}" style="height:250px;width: 100%" >
-             </div>
-             <div class="column-r">
+            <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
+              <div class="column-l" (click)="clientProfile(member.id)">
+                <img src="{{member.profile_photo}}" style="height:250px;width: 100%" >
+              </div>
+              <div class="column-r">
                 
                   <h6>&nbsp;&nbsp;{{member.name}}</h6>   
                   <p>&nbsp;&nbsp;{{member.age}}yrs</p>
@@ -34,3 +38,16 @@
         </div>
     </div>
   </main>
+
+
+  <div class="card-wrapper" style="background-color:white;position:fixed;width:100%;top:60%;display: flex;min-height: 60px">
+      <div class="col-sm-4 col-md-4 col-lg-4">
+          <a routerLink="/my-profile" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">view profile</a>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+          <a routerLink="/personal-details" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Add Clients</a>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+          <a routerLink="/edit-profile" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>
+      </div>
+    </div>

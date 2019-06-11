@@ -1,58 +1,67 @@
-<div class="section" style="display:flex;">
-
-  <div class="col-sm-6 col-md-6 col-lg-6">Matchmakerz</div>
-  <div class="col-sm-6 col-md-6 col-lg-6">Signout</div>
-</div>
 
 <main class="card-wrapper" style="overflow: hidden;padding: 20px;background-color: #f1f1f1">
+    <div class="row" style="display:flex;background-color:white;border-bottom: 3px groove #F1F1F1;margin-top: -20px">
+        <div class="col-sm-6 col-md-6 col-lg-6" style="float:left">
+          <h5 style="font-size:30px"><img src="../../../assets/icons/icons-20.svg" style="width: 80px;">Matchmakerz</h5>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6" style="display:flex;text-align: right">
+            <div style="float:right">
+              <img src="../../../assets/icons/rupee.svg" style="width: 10%;height: 5em;">
+              <img src="../../../assets/icons/play.svg" style="width: 10%;height: 5em;">
+              <img src="../../../assets/icons/close.svg" style="width: 10%;height: 5em;">
+            </div>
+        </div>
+     </div>
   
-    <div class="row" style="display: block">
-        <header class='masthead'>
-            <!-- <a href="#" class="float">
-                <i class="fa fa-plus my-float"></i>
-            </a> -->
-        </header>  
-        <div class="masthead-intro"> {{user.first_name}} {{user.last_name}}</div>
-
-        
-    </div>
-   
-    <div class="flex">
-        <div id="profile">
-            <a href="" class="btn btn-1"><span class="txt">{{user.experience}} yrs Experience</span></a>
+     <div class="section">
+        <div class="row" style="display: block">
+            <header class='masthead'>
+                <!-- <a href="#" class="float">
+                    <i class="fa fa-plus my-float"></i>
+                </a> -->
+            </header>  
+            <div class="masthead-intro"> {{user.first_name}} {{user.last_name}}</div>
+    
+            
         </div>
-        <div id="info">
-            <a href="" class="btn btn-1"><span class="txt">{{user.clients}}Clients</span></a>   
+       
+        <div class="flex">
+            <div id="profile">
+                <a href="" class="btn btn-1"><span class="txt">{{user.experience}} yrs Experience</span></a>
+            </div>
+            <div id="info">
+                <a href="" class="btn btn-1"><span class="txt">{{user.clients}}Clients</span></a>   
+            </div>
+        </div> 
+      
+        <div class="section" style="margin-top:20px">
+          <div class="card-body">
+            <div class="card-header" id="title">About me</div>
+            <div class="card-header" id="body">{{user.about}}</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header" id="title">Specialization</div>
+            <div class="card-header" id="body">{{user.specialization}}</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header" id="title">Referral Code</div>
+            <div class="card-header" id="body">{{user.unique_referral_code}}</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header" id="title">Location</div>
+            <div class="card-header" id="body">{{user.location}}</div>
+          </div>
         </div>
-    </div> 
-  
-    <div class="section" style="margin-top:20px">
-      <div class="card-body">
-        <div class="card-header" id="title">About me</div>
-        <div class="card-header" id="body">{{user.about}}</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header" id="title">Specialization</div>
-        <div class="card-header" id="body">{{user.specialization}}</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header" id="title">Referral Code</div>
-        <div class="card-header" id="body">{{user.unique_referral_code}}</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header" id="title">Location</div>
-        <div class="card-header" id="body">{{user.location}}</div>
-      </div>
-    </div>
-  
-    <div class="flex">
-        <div id="profile">
-            <a href="" class="btn btn-1"><span class="txt">website</span></a>
-        </div>
-        <div id="info">
-            <a href="" class="btn btn-1"><span class="txt">Share</span></a>   
-        </div>
-    </div> 
+      
+        <div class="flex">
+            <div id="profile">
+                <a href="" class="btn btn-1"><span class="txt">website</span></a>
+            </div>
+            <div id="info">
+                <a href="" class="btn btn-1"><span class="txt">Share</span></a>   
+            </div>
+        </div> 
+     </div>
   
   </main>
 

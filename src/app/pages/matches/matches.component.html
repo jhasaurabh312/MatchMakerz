@@ -2,7 +2,7 @@
     
     <ng-container >
       <main class="card-wrapper"  >
-        <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetails">
+        <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetail">
            <div class="row" style="display:flexbox">
             <div class="column-l" >
               <img src="{{member.matched_to.profile_photo}}" style="height:250px;width: 100%">
@@ -37,7 +37,7 @@
  
  <main style="position:fixed;top: 100%;width: 100%;">
     <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align: center;float: right;">
-        <button class="btn btn-success" (click)="declined()">Filter</button>
+        <button class="btn btn-success" (click)="filter()">Filter</button>
     </div>
  
 </main>

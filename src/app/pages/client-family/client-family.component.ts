@@ -43,7 +43,7 @@ export class ClientFamilyComponent implements OnInit {
   
   
   
-    addClient(data){
+    addClient(){
   
       const NewProfile  = new FormData();
       // NewProfile.append('id', localStorage.getItem('newClientId') );   
