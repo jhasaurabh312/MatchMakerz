@@ -15,6 +15,7 @@
       },
       "architect": {
         "build": {
+          
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/Matchmakerz",
