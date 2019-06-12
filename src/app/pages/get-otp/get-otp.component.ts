@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-otp',
@@ -12,7 +13,7 @@ export class GetOTPComponent implements OnInit {
   phone_number : string = "" ;
   response : any;
 
-  constructor( private http : HttpClient) { } 
+  constructor( private http : HttpClient, private router:Router) { } 
 
   ngOnInit() {
    
@@ -25,7 +26,8 @@ export class GetOTPComponent implements OnInit {
       this.response = response;
       console.log(this.response);
 
-      window.location.replace('/login');
+      // window.location.href=('/login');
+      this.router.navigate(['/login']);
     })
   }
 
