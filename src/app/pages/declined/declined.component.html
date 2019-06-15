@@ -7,35 +7,80 @@
         <h6>Declined Outgoing</h6>
      </div>
 </div>
-  <ng-container *ngIf="show">
-    <main class="card-wrapper"  >
-      <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of awaitedOut">
-         <div class="row" style="display:flexbox">
-          <div class="column-l" >
-            <img src="{{member.matched_to.profile_photo}}" style="height:250px;width: 100%">
+  <ng-container *ngIf="show1">
+      
+  <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
+    <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
+        <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
+          <div class="column-l" (click)="clientProfile(member.id)">
+            <img src="{{member.profile_photo}}" style="height:250px;width: 100%" >
           </div>
           <div class="column-r">
-             
-               <p>{{member.matched_to.age}}</p>   
-               <p> <img src="" >{{member.matched_to.age}}yrs</p>
-               <p> <img src="" >{{member.matched_to.degree}}</p>
-               <p> <img src="" >{{member.matched_to.height}}</p>       
-                      <p> <img src="" >{{member.matched_to.about}}</p>
-                        <p> <img src="" >{{member.matched_to.job}}</p>             
-                          <p> <img src="" >{{member.matched_to.current_city}}</p>
-                        
+            
+              <h6>&nbsp;&nbsp;{{member.name}}</h6>   
+              <p>&nbsp;&nbsp;{{member.age}}yrs</p>
+              <p> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+              <p> <img src="./../../../assets/icons/graduation-hat.svg" style="width:40px;height:20px">{{member.height}}</p>       
+              <p> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.about}}</p>
+              <p> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.job}}</p>             
+              <p> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                       
 
-                    <div class="button" style="margin-top : 10px; display: fiex">
-                      <button type="button" (click) = "getMatches(member.id)">Matches</button>
-                      <button type="button" (click) = "getActivity(member.id)">Activity</button>
-                    </div>     
-            </div>
-         </div>
+              <div class="button" style="margin-top : 10px; display: fiex">
+                <button type="button" (click) = "getMatches(member.id)"><img src="./../../../assets/icons/search.svg" style="width:20px;height:20px">Matches</button>
+                <button type="button" (click) = "getActivity(member.id)"><img src="./../../../assets/icons/clock.svg" style="width:20px;height:20px">Activity</button>
+              </div>     
+           </div>
+        </div>
     </div>
-  </main>
+</div>
   </ng-container>
 
-  <ng-container *ngIf ="show">
+  <ng-container *ngIf ="show2">
+    <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
+      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
+          <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
+            <div class="column-l" (click)="clientProfile(member.id)">
+              <img src="{{member.profile_photo}}" style="height:250px;width: 100%" >
+            </div>
+            <div class="column-r">
+              
+                <h6>&nbsp;&nbsp;{{member.name}}</h6>   
+                <p>&nbsp;&nbsp;{{member.age}}yrs</p>
+                <p> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+                <p> <img src="./../../../assets/icons/graduation-hat.svg" style="width:40px;height:20px">{{member.height}}</p>       
+                <p> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.about}}</p>
+                <p> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.job}}</p>             
+                <p> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                         
+  
+                <div class="button" style="margin-top : 10px; display: fiex">
+                  <button type="button" (click) = "getMatches(member.id)"><img src="./../../../assets/icons/search.svg" style="width:20px;height:20px">Matches</button>
+                  <button type="button" (click) = "getActivity(member.id)"><img src="./../../../assets/icons/clock.svg" style="width:20px;height:20px">Activity</button>
+                </div>     
+             </div>
+          </div>
+      </div>
+  </div>
+  </ng-container>
+  
+</main>
+
+<main style="position:fixed;top: 50%;width: 100%;" class="card-wrapper">
+  <div class="flex" style="background-color:white;display:flex;cursor: pointer;">
+      <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center">
+         <h6>Awaited</h6>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4" (click)="connected()" style="text-align: center">
+        <h6>Connected</h6>
+     </div>
+      <div class="col-sm-4 col-md-4 col-lg-4" (click)="declined()" style="text-align: center">
+          <h6>Declined</h6>
+       </div>
+  </div>
+</main>
+
+  <!-- <ng-container *ngIf ="show">
     <main class="card-wrapper"  >
       <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of awaitedIn">
          <div class="row" style="display:flexbox">
@@ -61,20 +106,4 @@
          </div>
     </div>
   </main>
-  </ng-container>
-  
-</main>
-
-<main style="position:fixed;top: 50%;width: 100%;" class="card-wrapper">
-  <div class="flex" style="background-color:white;display:flex;cursor: pointer;">
-      <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center">
-         <h6>Awaited</h6>
-      </div>
-      <div class="col-sm-4 col-md-4 col-lg-4" (click)="connected()" style="text-align: center">
-        <h6>Connected</h6>
-     </div>
-      <div class="col-sm-4 col-md-4 col-lg-4" (click)="declined()" style="text-align: center">
-          <h6>Declined</h6>
-       </div>
-  </div>
-</main>
+  </ng-container> -->

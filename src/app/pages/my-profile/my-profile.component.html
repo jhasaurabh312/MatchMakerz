@@ -1,24 +1,22 @@
 
 <main class="card-wrapper" style="overflow: hidden;padding: 20px;background-color: #f1f1f1">
     <div class="row" style="display:flex;background-color:white;border-bottom: 3px groove #F1F1F1;margin-top: -20px">
-        <div class="col-sm-6 col-md-6 col-lg-6" style="float:left">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float:left">
           <h5 style="font-size:30px"><img src="../../../assets/icons/icons-20.svg" style="width: 80px;">Matchmakerz</h5>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6" style="display:flex;text-align: right">
-            <div style="float:right">
-              <img src="../../../assets/icons/rupee.svg" style="width: 10%;height: 5em;">
-              <img src="../../../assets/icons/play.svg" style="width: 10%;height: 5em;">
-              <img src="../../../assets/icons/close.svg" style="width: 10%;height: 5em;">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="display:flex;text-align: right">
+            <div style="float:right;margin-left:40%;width: 60%">
+              <img src="../../../assets/icons/rupee.svg" style="width: 10%;height: 5em;margin-right: 10%;">
+              <img src="../../../assets/icons/play.svg" style="width: 10%;height: 5em;margin-right: 10%;">
+              <img src="../../../assets/icons/close.svg" style="width: 10%;height: 5em;margin-right: 10%;">
             </div>
         </div>
      </div>
   
      <div class="section">
         <div class="row" style="display: block">
-            <header class='masthead'>
-                <!-- <a href="#" class="float">
-                    <i class="fa fa-plus my-float"></i>
-                </a> -->
+            <header class='masthead' style="padding:0">
+              <img src="{{user.profile_pic}}" style="width:200px">
             </header>  
             <div class="masthead-intro"> {{user.first_name}} {{user.last_name}}</div>
     
@@ -53,7 +51,7 @@
           </div>
         </div>
       
-        <div class="flex">
+        <div class="flex" style="min-height:200px">
             <div id="profile">
                 <a href="" class="btn btn-1"><span class="txt">website</span></a>
             </div>
@@ -65,29 +63,19 @@
   
   </main>
 
-  <div class="card-wrapper" style="background-color:white;position:fixed;width:100%;top:50%;display: flex;min-height: 60px">
-    <div class="col-sm-4 col-md-4 col-lg-4">
-        <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">view clients</a>
+  <div class="section" style="position:fixed;width:100%;bottom:0">
+    <div class="row">
+
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-        <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Add Clients</a>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-        <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>
+    <div class="card-wrapper" style="background-color:white;display: flex;min-height: 100px">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center"><img src="../../../assets/icons/icons-16.svg" style="width:40px"><br>view clients</a>
+      </div>
+      <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
+          <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center"><img src="../../../assets/icons/icons-17.svg" style="width:40px"><br>Add Clients</a>
+      </div>
+      <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>
+      </div> -->
     </div>
   </div>
-<!-- 
- 
-  <button (click)="toggle()" id="bt" style="float: right;"> options </button>
-
-  <ng-container *ngIf="show">
-      <div style="float: right">
-        <div >
-          <a routerLink="/clients" routerLinkActive = "active"  style="display:block"><button>view clients</button></a>
-          <a routerLink="/edit-profile" routerLinkActive = "active"  style="display:block"><button>edit-profile</button></a>
-          <a routerLink="/personal-details" routerLinkActive = "active"  style="display:block"><button>Add Clients</button></a>
-          <a style="display:block"><button  (click) = "signout()">signout</button></a>
-        </div>
-      </div>
-  </ng-container>
-     -->

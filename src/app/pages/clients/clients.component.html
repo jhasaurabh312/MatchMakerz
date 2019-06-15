@@ -12,11 +12,11 @@
         </div>
      </div>
 
-     <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
+     <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available ; margin-bottom: 100px" >
         <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
             <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
               <div class="column-l" (click)="clientProfile(member.id)">
-                <img src="{{member.profile_photo}}" style="height:250px;width: 100%" >
+               <div style="border-radius:50%;padding: 10px;"> <img src="{{member.profile_photo}}" style="width: 100%" ></div>
               </div>
               <div class="column-r">
                 
@@ -40,14 +40,19 @@
   </main>
 
 
-  <div class="card-wrapper" style="background-color:white;position:fixed;width:100%;top:60%;display: flex;min-height: 60px">
-      <div class="col-sm-4 col-md-4 col-lg-4">
-          <a routerLink="/my-profile" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">view profile</a>
-      </div>
-      <div class="col-sm-4 col-md-4 col-lg-4">
-          <a routerLink="/personal-details" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Add Clients</a>
-      </div>
-      <div class="col-sm-4 col-md-4 col-lg-4">
-          <a routerLink="/edit-profile" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>
-      </div>
+  <div class="section" style="position:fixed;width:100%;bottom:0">
+    <div class="row">
+
     </div>
+    <div class="card-wrapper" style="background-color:white;display: flex;min-height: 100px">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center"><img src="../../../assets/icons/icons-16.svg" style="width:40px"><br>view clients</a>
+      </div>
+      <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
+          <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center"><img src="../../../assets/icons/icons-17.svg" style="width:40px"><br>Add Clients</a>
+      </div>
+      <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>
+      </div> -->
+    </div>
+  </div>

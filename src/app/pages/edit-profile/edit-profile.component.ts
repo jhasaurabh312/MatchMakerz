@@ -15,7 +15,11 @@ export class EditProfileComponent implements OnInit {
 
   EditProfileDetails: FormGroup;
   error : any;
+  val :any;
   data : any;
+  values : string = '';
+  suc :any;
+  apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService) { 
     this. EditProfileDetails= this._formBuilder.group({
@@ -30,7 +34,7 @@ export class EditProfileComponent implements OnInit {
       'unique_about' : [''],
       'specialization' : [''],
       'experience' : [''],
-      // 'upfront_charge' : [''],
+      // 'location' : [''],
     });; 
   }
 
@@ -74,25 +78,22 @@ export class EditProfileComponent implements OnInit {
         
   }
 
+  // getlocation(){
+
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'Application/json',
+      
+  //   })
+
+  //   this.values = this.EditProfileDetails.value.location ;
+  //   console.log(this.values);
+  //   return this.http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?input='+this.values+'&key='+this.apiKey , {headers:headers}).subscribe((suc) => {
+  //     this.suc=suc;
+  //     console.log(this.suc);
+  //   })
+  // }
+
 }
 
 
-    // const NewProfile : EditProfileModule = {
-    //       'first_name' : this.EditProfileDetails.get('first_name').value,
-    //       'last_name' : this.EditProfileDetails.get('last_name').value,
-    //       'phone_number' : this.EditProfileDetails.get('phone_number').value,
-    //       'email' : this.EditProfileDetails.get('email').value,
-    //       'unique_about' : this.EditProfileDetails.get('unique_about').value,
-    //       'specialization' : this.EditProfileDetails.get('specialization').value,
-    //       'age': this.EditProfileDetails.get('age').value,
-    //       // 'gender': this.EditProfileDetails.get('gender').value,          
-    //       'whatsapp_number': this.EditProfileDetails.get('whatsapp_number').value,
-    //       'about': this.EditProfileDetails.get('about').value,
-    //       'experience' : this.EditProfileDetails.get('experience').value,
-    //       'upfront_charge' : this.EditProfileDetails.get('upfront_charge').value,
-    //     }
 
-
-   
-   
-   

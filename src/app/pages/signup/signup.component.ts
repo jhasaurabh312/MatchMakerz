@@ -65,9 +65,10 @@ export class SignupComponent implements OnInit {
   
     return this.http.post('http://matchmakerz.in/api/v1/matchmaker/register', loginData ).subscribe((response) => {
       this.data = response;
+      console.log(this.data);
       if(this.data.status === 1){
         localStorage.setItem('token' , localStorage.getItem(this.data.auth_token));
-        alert('Wait , While your profile is being verified') ;
+        this.router.navigate(['/my-profile']);
       }
     })
         

@@ -18,7 +18,9 @@ export class MyProfileComponent implements OnInit {
   ngOnInit() {
     this.myProfile.view_profile().subscribe((response) => {
           this.user = response; 
-          console.log(this.user) ;    
+          console.log(this.user) ;  
+          if(this.user.profile_pic === null)
+           this.user.profile_pic ='https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png' ;  
     })  
     
   }
