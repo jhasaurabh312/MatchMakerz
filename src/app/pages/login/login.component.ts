@@ -43,10 +43,11 @@ submitLogin(){
     if(this.response.status === 1){
       localStorage.setItem('token',this.response.token);
       console.log(localStorage.getItem('token'));
-      window.location.href=('/my-profile');
+      this.router.navigate(['/my-profile']);
+      // window.location.href=('/my-profile');
     }
     else if(this.response.status === 3) {
-      window.location.href=('/signup');
+      this.router.navigate(['/signup']);
     }
 
     else if(this.response.status === 2){
@@ -66,7 +67,7 @@ resendOTP(){
 }
 
 EditNumber(){
-  window.location.href=('/get-otp');
+  this.router.navigate(['/get-otp']);
 }
 
   
