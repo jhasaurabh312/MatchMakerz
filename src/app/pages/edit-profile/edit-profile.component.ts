@@ -4,6 +4,7 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { EditProfileService } from 'src/app/shared/services/editProfile/edit-profile.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class EditProfileComponent implements OnInit {
   suc :any;
   apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService, private router: Router) { 
     this. EditProfileDetails= this._formBuilder.group({
       'first_name' : [''],
       'last_name' : [''],
@@ -68,12 +69,12 @@ export class EditProfileComponent implements OnInit {
           return throwError("oops"); })).subscribe((response:any) => {
           this.data = response;
           if(this.data.status === 1)
-           window.location.replace('/my-profile');
+           this.router.navigate(['/my-profile']);
           else 
            alert('Cannot Update !! something went Wrong');  
 
         }),err =>{
-          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
+          alert('Something went wrong please try again after Sometime');
         }
         
   }
