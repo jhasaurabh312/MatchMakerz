@@ -12,7 +12,7 @@
         </div> -->
      </div>
 
-     <div class="row" style="display:flex;background-color:white;min-height: -webkit-fill-available" >
+     <div class="row" style="display:flex;background-color:white;min-height: -webkit-fill-available; margin-bottom: 60px" >
         <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
             <div class="row" style="display:flex; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px">
               <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="row" *ngIf="show" style="margin-bottom:100px">
+    <div class="row" *ngIf="show" style="margin-bottom:20px">
       <button class="btn btn-user" (click)="getMore()">View More Clients</button>
     </div>
   </main>

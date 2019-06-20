@@ -48,41 +48,6 @@ export class DeclinedComponent implements OnInit {
     this.router.navigate(['/declined']);
   }
 
-  shortlistCandidate(data1, data2){
-
-    const NewProfile  = new FormData();
-
-    NewProfile.append('shortlist_for',data1);
-    NewProfile.append('shortlist_to',data2);
-
-    return this.http.post('http://matchmakerz.in/api/v1/client/shortlist' , NewProfile ,{ 
-           headers : new HttpHeaders({
-          'Authorization': 'Token ' + localStorage.getItem('token'),
-        })}).pipe(catchError((error) => {
-          return throwError("oops"); })).subscribe((response:any) => {
-          console.log(response);
-           }),err =>{
-          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
-        }
-  }
-
-
-  showActivityCandidate(data1,data2){
-    const NewProfile  = new FormData();
-
-    NewProfile.append('shortlist_for',data1);
-    NewProfile.append('shortlist_to',data2);
-
-    return this.http.post('http://matchmakerz.in/api/v1/client/showInterest' , NewProfile ,{ 
-           headers : new HttpHeaders({
-          'Authorization': 'Token ' + localStorage.getItem('token'),
-        })}).pipe(catchError((error) => {
-          return throwError("oops"); })).subscribe((response:any) => {
-          console.log(response);
-           }),err =>{
-          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
-        }
-  }
-
+  
 }
 

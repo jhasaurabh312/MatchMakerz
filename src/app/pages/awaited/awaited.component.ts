@@ -13,11 +13,15 @@ export class AwaitedComponent implements OnInit {
   public show1 : Boolean = true;
   public show2 : Boolean = false;
   public awaitedIn : any = [];
-  public awaitedOut : any = [];
+  staticProductDetail : any = [];
+  incoming : boolean;
+  outgoing:  boolean;
   constructor(private http : HttpClient, public router : Router) { }
 
   ngOnInit() {
 
+    this.incoming = true;
+    this.outgoing = false;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
@@ -25,12 +29,54 @@ export class AwaitedComponent implements OnInit {
 
      this.http.get('http://matchmakerz.in/api/v1/client/incoming-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
        this.awaitedIn = response;
-       console.log(this.awaitedIn)
+       console.log('INcoming',this.awaitedIn)
+
+       for(let i=0;i<this.awaitedIn.length;i++){
+        if(this.awaitedIn[i].matched_to.profile_photo== null)
+        this.awaitedIn[i].matched_to.profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
+
+        if(this.awaitedIn[i].matched_to.marital_status == '0')
+         this.awaitedIn[i].matched_to.marital = "Not Married";
+        else
+         this.awaitedIn[i].matched_to.marital = "Married";
+
+
+         if(this.awaitedIn[i].matched_to.manglik == 0)
+          this.awaitedIn[i].matched_to.manglik = 'Non-Manglik';
+         else
+          this.awaitedIn[i].matched_to.manglik = 'Manglik'; 
+
+       
+         this.awaitedIn[i].matched_to.inches = this.awaitedIn[i].matched_to.height % 12 ;
+         this.awaitedIn[i].matched_to.feet = (this.awaitedIn[i].matched_to.height -  this.awaitedIn[i].matched_to.inches)/12;
+        
+      } 
      })
 
      this.http.get('http://matchmakerz.in/api/v1/client/awaited-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
-      this.awaitedOut = response;
-      console.log(this.awaitedOut)
+      this.staticProductDetail = response;
+      console.log('outgoing',this.staticProductDetail)
+
+      for(let i=0;i<this.staticProductDetail.length;i++){
+        if(this.staticProductDetail[i].matched_to.profile_photo== null)
+        this.staticProductDetail[i].matched_to.profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
+
+        if(this.staticProductDetail[i].matched_to.marital_status == '0')
+         this.staticProductDetail[i].matched_to.marital = "Not Married";
+        else
+         this.staticProductDetail[i].matched_to.marital = "Married";
+
+
+         if(this.staticProductDetail[i].matched_to.manglik == 0)
+          this.staticProductDetail[i].matched_to.manglik = 'Non-Manglik';
+         else
+          this.staticProductDetail[i].matched_to.manglik = 'Manglik'; 
+
+       
+         this.staticProductDetail[i].matched_to.inches = this.staticProductDetail[i].matched_to.height % 12 ;
+         this.staticProductDetail[i].matched_to.feet = (this.staticProductDetail[i].matched_to.height -  this.staticProductDetail[i].matched_to.inches)/12;
+        
+      } 
      
     })
   
@@ -51,40 +97,6 @@ export class AwaitedComponent implements OnInit {
     this.router.navigate(['/declined']);
   }
 
-  shortlistCandidate(data1, data2){
-
-    const NewProfile  = new FormData();
-
-    NewProfile.append('shortlist_for',data1);
-    NewProfile.append('shortlist_to',data2);
-
-    return this.http.post('http://matchmakerz.in/api/v1/client/shortlist' , NewProfile ,{ 
-           headers : new HttpHeaders({
-          'Authorization': 'Token ' + localStorage.getItem('token'),
-        })}).pipe(catchError((error) => {
-          return throwError("oops"); })).subscribe((response:any) => {
-          console.log(response);
-           }),err =>{
-          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
-        }
-  }
-
-
-  showActivityCandidate(data1,data2){
-    const NewProfile  = new FormData();
-
-    NewProfile.append('shortlist_for',data1);
-    NewProfile.append('shortlist_to',data2);
-
-    return this.http.post('http://matchmakerz.in/api/v1/client/showInterest' , NewProfile ,{ 
-           headers : new HttpHeaders({
-          'Authorization': 'Token ' + localStorage.getItem('token'),
-        })}).pipe(catchError((error) => {
-          return throwError("oops"); })).subscribe((response:any) => {
-          console.log(response);
-           }),err =>{
-          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
-        }
-  }
-
+  
+ 
 }

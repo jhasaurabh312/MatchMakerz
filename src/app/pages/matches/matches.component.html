@@ -1,43 +1,66 @@
-<main class="card-wrapper">
-    
-    <ng-container >
-      <main class="card-wrapper"  >
-        <div class="col-sm-12 col-md-6 com-lg-6" style="float:right" *ngFor="let member of staticProductDetail">
-           <div class="row" style="display:flexbox">
-            <div class="column-l" >
-              <img src="{{member.matched_to.profile_photo}}" style="height:250px;width: 100%">
-            </div>
-            <div class="column-r">
-               
-                 <p>{{member.matched_to.age}}</p>   
-                 <p > <img src="" style="color:black" >{{member.matched_to.age}}yrs</p>
-                 <p> <img src="" >{{member.matched_to.degree}}</p>
-                 <p> <img src="" >{{member.matched_to.height}}</p>       
-                 <p> <img src="" >{{member.matched_to.about}}</p>
-                 <p> <img src="" >{{member.matched_to.job}}</p>             
-                 <p> <img src="" >{{member.matched_to.current_city}}</p>
-                          
-  
-                <div class="button" style="margin-top : 10px; display: fiex">
-                  <button type="button" (click) = "(member.id)">Interested</button>
-                  <button type="button" (click) = "(member.id)">Shortlist</button>
-                </div>     
-              </div>
+<main class="card-wrapper"  style="overflow:hidden">
+  <div class="row" style="display:flex;background-color:white;border-bottom: 3px groove #F1F1F1">
+     <div class="col-sm-6 col-md-6 col-lg-6" style="float:left">
+       <h5 style="font-size:30px"><img src="../../../assets/icons/icons-20.svg" style="width: 80px;">Matchmakerz</h5>
+     </div>
+     <!-- <div class="col-sm-6 col-md-6 col-lg-6" style="display:flex;text-align: right">
+         <div style="float:right">
+           <img src="../../../assets/icons/rupee.svg" style="width: 10%;height: 5em;">
+           <img src="../../../assets/icons/play.svg" style="width: 10%;height: 5em;">
+           <img src="../../../assets/icons/close.svg" style="width: 10%;height: 5em;">
+         </div>
+     </div> -->
+  </div>
+
+  <div class="row" style="display:flex;background-color:white;min-height: -webkit-fill-available" >
+     <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
+         <div class="row" style="display:flex; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px">
+           <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
+            <div style="padding:10px"> <img src="{{member.profile_photo}}" style="width: 100%;height:250px" ></div>
            </div>
-      </div>
-    </main>
-    </ng-container>
-  
-    
-    
-  </main>
+           <div class="column-r" style="width:50%">
+             
+               <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6>   
+               <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
+               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>       
+               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
+               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>             
+               <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                        
+ 
+               <div class="button" style="margin-top : 15px; display: flex">
+                 <button type="button" (click) = "shortlistCandidate(member.id)" style="color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-search"  style="width:20px;height:20px;color:white"></i>Shortlist</button>
+                 <button type="button" (click) = "showInterestCandidate(member.id)" style="margin-left:10px;color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-clock-o" style="width:20px;height:20px"></i>Interested</button>
+               </div>     
+            </div>
+         </div>
+     </div>
+ </div>
+</main>
+
+
+
+
 
 
 <!-- <main style="position:fixed;top: 100%;width: 100%;" class="card-wrapper"> -->
  
+<!-- 
+<p>{{member.matched_to.age}}</p>   
+<p > <img src="" style="color:black" >{{member.matched_to.age}}yrs</p>
+<p> <img src="" >{{member.matched_to.degree}}</p>
+<p> <img src="" >{{member.matched_to.height}}</p>       
+<p> <img src="" >{{member.matched_to.about}}</p>
+<p> <img src="" >{{member.matched_to.job}}</p>             
+<p> <img src="" >{{member.matched_to.current_city}}</p>
+          -->
+
+
+<!-- 
  <main style="position:fixed;top: 100%;width: 100%;">
-    <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align: center;float: right;">
-        <button class="btn btn-success" (click)="filter()">Filter</button>
-    </div>
- 
-</main>
+  <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align: center;float: right;">
+      <button class="btn btn-success" (click)="filter()">Filter</button>
+  </div>
+
+</main> -->
