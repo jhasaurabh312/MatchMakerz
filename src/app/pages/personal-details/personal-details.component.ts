@@ -5,6 +5,7 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { EditProfileService } from 'src/app/shared/services/editProfile/edit-profile.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personal-details',
@@ -18,7 +19,7 @@ export class PersonalDetailsComponent implements OnInit {
   error : any;
   data : any;
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient , public router : Router) { 
     this. AddClientDetails= this._formBuilder.group({
       'name' : [''],
       'gender' : [''],
@@ -68,7 +69,7 @@ export class PersonalDetailsComponent implements OnInit {
            this.data = response;
            if(this.data.status === 1){
              localStorage.setItem('newClientId' ,this.data.id);
-             window.location.replace('/educational-details');
+             this.router.navigate(['/educational-details']);
            }
            
          

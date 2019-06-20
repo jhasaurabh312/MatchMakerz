@@ -1,65 +1,66 @@
 <main class="card-wrapper">
-  <div class="flex" style="background-color:white;display:flex">
-    <div class="col-sm-6 col-md-6 col-lg-6" (click)="toggle()" style="text-align: center">
-       <h6>Declined Incoming</h6>
-    </div>
-    <div class="col-sm-6 col-md-6 col-lg-6" (click)="toggle()" style="text-align: center">
-        <h6>Declined Outgoing</h6>
-     </div>
-</div>
-  <ng-container *ngIf !="show">
+  <div class="row" style="display:flex">
+    <nav>
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" style="border:1px solid red;border-radius:5px">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" style="text-decoration:none;padding-top:18px" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Declined Incoming</a>
+        <a class="nav-item nav-link" style="text-decoration:none;padding-top:18px" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Declined Outgoing</a>
+      </div>
+    </nav>
+  </div>
+  <ng-container id="nav-home-tab">
       
   <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
-    <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
-        <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
-          <div class="column-l" (click)="clientProfile(member.id)">
-            <img src="{{member.profile_photo}}" style="height:250px;width: 100%" >
+    <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of awaitedIn" >
+      <div class="row" style="display:flex; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px">
+        <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
+         <div style="padding:10px"> <img src="{{member.profile_photo}}" style="width: 100%;height:250px" ></div>
+        </div>
+        <div class="column-r" style="width:50%">
+          
+            <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6>   
+            <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
+            <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+            <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>       
+            <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
+            <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>             
+            <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                     
+
+            <div class="button" style="margin-top : 15px; display: fiex">
+              <button type="button" (click) = "getMatches(member.id)" style="color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-search"  style="width:20px;height:20px;color:white"></i>Matches</button>
+              <button type="button" (click) = "getActivity(member.id)" style="margin-left:10px;color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-clock-o" style="width:20px;height:20px"></i>&nbsp;Activity</button>
+            </div>     
+         </div>
+      </div>
+  </div>
+</div>
+  </ng-container>
+
+  <ng-container id="nav-profile-tab">
+    <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
+      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of awaitedOut" >
+        <div class="row" style="display:flex; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px">
+          <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
+           <div style="padding:10px"> <img src="{{member.profile_photo}}" style="width: 100%;height:250px" ></div>
           </div>
-          <div class="column-r">           
-              <h6>&nbsp;&nbsp;{{member.name}}</h6>   
-              <p>&nbsp;&nbsp;{{member.age}}yrs</p>
-              <p> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
-              <p> <img src="./../../../assets/icons/graduation-hat.svg" style="width:40px;height:20px">{{member.height}}</p>       
-              <p> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.about}}</p>
-              <p> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.job}}</p>             
-              <p> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+          <div class="column-r" style="width:50%">
+            
+              <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6>   
+              <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>       
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>             
+              <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
                        
 
-              <div class="button" style="margin-top : 10px; display: fiex">
-                <button type="button" (click) = "getMatches(member.id)"><img src="./../../../assets/icons/search.svg" style="width:20px;height:20px">Matches</button>
-                <button type="button" (click) = "getActivity(member.id)"><img src="./../../../assets/icons/clock.svg" style="width:20px;height:20px">Activity</button>
+              <div class="button" style="margin-top : 15px; display: fiex">
+                <button type="button" (click) = "getMatches(member.id)" style="color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-search"  style="width:20px;height:20px;color:white"></i>Matches</button>
+                <button type="button" (click) = "getActivity(member.id)" style="margin-left:10px;color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-clock-o" style="width:20px;height:20px"></i>&nbsp;Activity</button>
               </div>     
            </div>
         </div>
     </div>
-</div>
-  </ng-container>
-
-  <ng-container *ngIf ="show">
-    <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
-      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
-          <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
-            <div class="column-l" (click)="clientProfile(member.id)">
-              <img src="{{member.profile_photo}}" style="height:250px;width: 100%" >
-            </div>
-            <div class="column-r">
-              
-                <h6>&nbsp;&nbsp;{{member.name}}</h6>   
-                <p>&nbsp;&nbsp;{{member.age}}yrs</p>
-                <p> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
-                <p> <img src="./../../../assets/icons/graduation-hat.svg" style="width:40px;height:20px">{{member.height}}</p>       
-                <p> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.about}}</p>
-                <p> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.job}}</p>             
-                <p> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
-                         
-  
-                <div class="button" style="margin-top : 10px; display: fiex">
-                  <button type="button" (click) = "getMatches(member.id)"><img src="./../../../assets/icons/search.svg" style="width:20px;height:20px">Matches</button>
-                  <button type="button" (click) = "getActivity(member.id)"><img src="./../../../assets/icons/clock.svg" style="width:20px;height:20px">Activity</button>
-                </div>     
-             </div>
-          </div>
-      </div>
   </div>
   </ng-container>
   

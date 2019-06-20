@@ -3,39 +3,43 @@
         <div class="col-sm-6 col-md-6 col-lg-6" style="float:left">
           <h5 style="font-size:30px"><img src="../../../assets/icons/icons-20.svg" style="width: 80px;">Matchmakerz</h5>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6" style="display:flex;text-align: right">
+        <!-- <div class="col-sm-6 col-md-6 col-lg-6" style="display:flex;text-align: right">
             <div style="float:right">
               <img src="../../../assets/icons/rupee.svg" style="width: 10%;height: 5em;">
               <img src="../../../assets/icons/play.svg" style="width: 10%;height: 5em;">
               <img src="../../../assets/icons/close.svg" style="width: 10%;height: 5em;">
             </div>
-        </div>
+        </div> -->
      </div>
 
-     <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available ; margin-bottom: 100px" >
+     <div class="row" style="display:flex;background-color:white;min-height: -webkit-fill-available" >
         <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of staticProductDetail" >
-            <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
-              <div class="column-l" (click)="clientProfile(member.id)">
-               <div style="border-radius:50%;padding: 10px;"> <img src="{{member.profile_photo}}" style="width: 100%" ></div>
+            <div class="row" style="display:flex; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px">
+              <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
+               <div style="padding:10px"> <img src="{{member.profile_photo}}" style="width: 100%;height:250px" ></div>
               </div>
-              <div class="column-r">
+              <div class="column-r" style="width:50%">
                 
-                  <h6>&nbsp;&nbsp;{{member.name}}</h6>   
-                  <p>&nbsp;&nbsp;{{member.age}}yrs</p>
-                  <p> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
-                  <p> <img src="./../../../assets/icons/graduation-hat.svg" style="width:40px;height:20px">{{member.height}}</p>       
-                  <p> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.about}}</p>
-                  <p> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.job}}</p>             
-                  <p> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                  <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6>   
+                  <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>       
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>             
+                  <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
                            
     
-                  <div class="button" style="margin-top : 10px; display: fiex">
-                    <button type="button" (click) = "getMatches(member.id)"><img src="./../../../assets/icons/search.svg" style="width:20px;height:20px">Matches</button>
-                    <button type="button" (click) = "getActivity(member.id)"><img src="./../../../assets/icons/clock.svg" style="width:20px;height:20px">Activity</button>
+                  <div class="button" style="margin-top : 15px; display: fiex">
+                    <button type="button" (click) = "getMatches(member.id)" style="color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-search"  style="width:20px;height:20px;color:white"></i>Matches</button>
+                    <button type="button" (click) = "getActivity(member.id)" style="margin-left:10px;color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-clock-o" style="width:20px;height:20px"></i>&nbsp;Activity</button>
                   </div>     
                </div>
             </div>
         </div>
+    </div>
+
+    <div class="row" *ngIf="show" style="margin-bottom:100px">
+      <button class="btn btn-user" (click)="getMore()">View More Clients</button>
     </div>
   </main>
 
@@ -49,10 +53,10 @@
           <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center"><img src="../../../assets/icons/icons-16.svg" style="width:40px"><br>view clients</a>
       </div>
       <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
-          <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center"><img src="../../../assets/icons/icons-17.svg" style="width:40px"><br>Add Clients</a>
+          <a routerLink="/my-profile" routerLinkActive = "active"  style="display:block;color: violet;text-align: center"><img src="../../../assets/icons/icons-17.svg" style="width:40px"><br>View Profile</a>
       </div>
-      <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>
-      </div> -->
-    </div>
+      </div> 
+     </div>
   </div>

@@ -1,7 +1,17 @@
-<div class="row" style="max-height: 100px;margin-left: auto;margin-right: auto;max-width: 400px;" >
-  <div class="row" *ngFor="let notice of notices" style="padding:2px">
-   <ul>
-     <li> <h4>{{notice.mesg}}</h4></li>
-   </ul>
+<div class="dropdown">
+  <button (click)="myFunction()" class="dropbtn">Notification</button>
+  <div id="myDropdown" class="dropdown-content">
+    <div class="row" *ngFor="let notice of notices" style="padding:2px">
+      <ul style="list-style:none">
+          <li> 
+            <div style="display:flex">
+               <img src="{{notice.matched_to_pic}}" style="width:40px;height:40px">
+               <img src="{{notice.matched_for_pic}}" style="width:40px;height:40px">
+               <p>{{notice.mesg}}</p>
+               <button>View</button>
+            </div>
+          </li>
+      </ul>
+   </div>
+  </div>
 </div>
-<!-- *ngIf="show" -->

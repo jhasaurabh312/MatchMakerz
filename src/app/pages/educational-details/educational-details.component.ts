@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-educational-details',
@@ -16,7 +17,7 @@ export class EducationalDetailsComponent implements OnInit {
   error : any;
   data : any;
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router) { 
     this. AddClientEducationalDetails= this._formBuilder.group({
       'is_working' : [''],
       'education' : ['NA'],
@@ -59,7 +60,7 @@ export class EducationalDetailsComponent implements OnInit {
            this.data = response;
            console.log(this.data);
            if(this.data.status === 1)
-            window.location.replace('/social-details');
+           this.router.navigate(['/social-details']);
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

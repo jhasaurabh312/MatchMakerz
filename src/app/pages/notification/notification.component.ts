@@ -25,4 +25,7 @@ export class NotificationComponent implements OnInit {
    })
   }
 
+ myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
 }

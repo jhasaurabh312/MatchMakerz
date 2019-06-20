@@ -1,0 +1,30 @@
+<main class="card-wrapper">
+  <ng-container >
+    <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
+      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of shortlistedTotal" >
+        <div class="row" style="display:flex; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px">
+          <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
+           <div style="padding:10px"> <img src="{{member.profile_photo}}" style="width: 100%;height:250px" ></div>
+          </div>
+          <div class="column-r" style="width:50%">
+            
+              <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6>   
+              <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>       
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>             
+              <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                       
+  
+              <div class="button" style="margin-top : 15px; display: fiex">
+                <button type="button" (click) = "getMatches(member.id)" style="color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-search"  style="width:20px;height:20px;color:white"></i>Matches</button>
+                <button type="button" (click) = "getActivity(member.id)" style="margin-left:10px;color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-clock-o" style="width:20px;height:20px"></i>&nbsp;Activity</button>
+              </div>     
+           </div>
+        </div>
+    </div>
+  </div>
+  </ng-container>
+  
+</main>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-awaited',
@@ -11,7 +14,7 @@ export class AwaitedComponent implements OnInit {
   public show2 : Boolean = false;
   public awaitedIn : any = [];
   public awaitedOut : any = [];
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, public router : Router) { }
 
   ngOnInit() {
 
@@ -33,28 +36,55 @@ export class AwaitedComponent implements OnInit {
   
   }
 
-  toggle1() {
-   return this.show1 != this.show1;
-  }
-
-  toggle2() {
-    return this.show2 != this.show2;
-   }
    
   awaited(){
-    window.location.replace('/awaited');
+    this.router.navigate(['/awaited']);
   }
 
 
   connected(){
-    window.location.replace('/connected');
+    this.router.navigate(['/connected']);
   }
 
 
   declined(){
-    window.location.replace('/declined');
+    this.router.navigate(['/declined']);
+  }
+
+  shortlistCandidate(data1, data2){
+
+    const NewProfile  = new FormData();
+
+    NewProfile.append('shortlist_for',data1);
+    NewProfile.append('shortlist_to',data2);
+
+    return this.http.post('http://matchmakerz.in/api/v1/client/shortlist' , NewProfile ,{ 
+           headers : new HttpHeaders({
+          'Authorization': 'Token ' + localStorage.getItem('token'),
+        })}).pipe(catchError((error) => {
+          return throwError("oops"); })).subscribe((response:any) => {
+          console.log(response);
+           }),err =>{
+          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
+        }
   }
 
 
+  showActivityCandidate(data1,data2){
+    const NewProfile  = new FormData();
+
+    NewProfile.append('shortlist_for',data1);
+    NewProfile.append('shortlist_to',data2);
+
+    return this.http.post('http://matchmakerz.in/api/v1/client/showInterest' , NewProfile ,{ 
+           headers : new HttpHeaders({
+          'Authorization': 'Token ' + localStorage.getItem('token'),
+        })}).pipe(catchError((error) => {
+          return throwError("oops"); })).subscribe((response:any) => {
+          console.log(response);
+           }),err =>{
+          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
+        }
+  }
 
 }

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-client-preferences',
   templateUrl: './client-preferences.component.html',
@@ -14,7 +15,7 @@ export class ClientPreferencesComponent implements OnInit {
   error : any;
   data : any;
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router:Router) { 
     this. AddClientEducationalDetails= this._formBuilder.group({
       'min_age' : [''],
       'max_age' : [''],
@@ -28,6 +29,7 @@ export class ClientPreferencesComponent implements OnInit {
       'occupation' : [''],
       'citizenship' : [''],
       'caste' : [''],
+      // 'id' : [''],
     });; 
   }
 
@@ -39,7 +41,7 @@ export class ClientPreferencesComponent implements OnInit {
   addClient(){
 
     const NewProfile  = new FormData();
-    // NewProfile.append('id', localStorage.getItem('newClientId') );   
+    NewProfile.append('id', localStorage.getItem('newClientId') );   
     NewProfile.append('min_age', this.AddClientEducationalDetails.value.min_age );   
     NewProfile.append('max_age', this.AddClientEducationalDetails.value.max_age );
     NewProfile.append('min_income', this.AddClientEducationalDetails.value.min_income);
@@ -77,7 +79,7 @@ export class ClientPreferencesComponent implements OnInit {
            this.data = response;
            console.log(this.data);
            if(this.data.status === 1)
-            window.location.replace('/clients');
+            this.router.navigate(['/clients']);
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

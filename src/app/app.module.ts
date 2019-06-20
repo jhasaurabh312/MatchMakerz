@@ -32,6 +32,7 @@ import { ClientPreferencesComponent } from './pages/client-preferences/client-pr
 import { ClientProfileComponent } from './pages/client-profile/client-profile.component';
 import { DeclinedComponent } from './pages/declined/declined.component';
 import { DummyComponent } from './pages/dummy/dummy.component';
+import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { DummyComponent } from './pages/dummy/dummy.component';
     ClientProfileComponent,
     DeclinedComponent,
     DummyComponent,
+    ShortlistedComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +75,7 @@ import { DummyComponent } from './pages/dummy/dummy.component';
   ],
   providers: [
     LoginService,
+    FilterComponent,
   ],
   bootstrap: [AppComponent]
 })
