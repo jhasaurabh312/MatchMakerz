@@ -27,8 +27,8 @@
         <input formControlName="last_name" placeholder="Last Name" class="form-control" >
     </div>
     <div class="input-group p-2">
-        <select  formControlName="gender"  value ="Gender" class="form-control" >
-            <option value="" disabled selected>Gender</option>
+        <select  formControlName="gender" class="form-control" >
+            <option value="" disabled="true" [selected]="true">Gender</option>
             <option value="0">Male</option>
             <option value="1">Female</option>
           </select>   
@@ -57,9 +57,6 @@
     <div class="input-group p-2">
         <textarea formControlName="about" placeholder="About You" class="form-control" ></textarea>
     </div>  
-    <!-- <div class="input-group p-2">
-      <input formControlName="location" placeholder="location" class="form-control" (keyup)="getlocation()">
-     </div>   -->
     <div class="input-group p-2">
         <button type="button" class="btn btn-user " (click)="editProfile()" >  &nbsp;   &nbsp; Submit &nbsp;&nbsp;
           </button>        

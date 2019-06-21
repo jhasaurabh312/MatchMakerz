@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
  constructor( private _formBuilder: FormBuilder,private authService : LoginService, private router: Router, private http:HttpClient) { 
  this.loginDetails = this._formBuilder.group({
-   'email': [ localStorage.getItem('mpn')],
+   'email': [ localStorage.getItem('signup_phone_number')],
    'password': [''],
  });;
 }
@@ -43,7 +43,7 @@ submitLogin(){
     if(this.response.status === 1){
       localStorage.setItem('token',this.response.token);
       console.log(localStorage.getItem('token'));
-      this.router.navigate(['/my-profile']);
+      this.router.navigate(['/clients']);
       // window.location.href=('/my-profile');
     }
     else if(this.response.status === 3) {

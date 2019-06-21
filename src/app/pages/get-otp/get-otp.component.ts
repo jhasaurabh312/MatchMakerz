@@ -21,7 +21,7 @@ export class GetOTPComponent implements OnInit {
 
   getOTP(data){   
     event.preventDefault();
-    localStorage.setItem('mpn',data.phone_number);
+    localStorage.setItem('signup_phone_number',data.phone_number);
     this.http.get('http://matchmakerz.in/api/v1/matchmaker/loginotp?phone_number='+ data.phone_number).subscribe((response) => {
       this.response = response;
       console.log(this.response);

@@ -1,18 +1,12 @@
-<main class="card-wrapper" style="overflow: hidden;padding: 20px;background-color: #f1f1f1">
-  <div class="row" style="display:flex;background-color:white;border-bottom: 3px groove #F1F1F1;margin-top: -20px">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float:left">
-      <h5 style="font-size:30px"><img src="../../../assets/icons/icons-20.svg"
-          style="width: 50px;">&nbsp;&nbsp;Matchmakerz</h5>
+<main class="card-wrapper" style="overflow: hidden;padding: 0px;background-color: #f1f1f1;padding-top: 20px">
+  <div class="section" style="display:flex;background-color:white;border-bottom: 3px groove #F1F1F1;margin-top: -20px">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="display:flex;height:60px;padding-left:20px">
+      <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
+      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-style: continuous">Matchmakerz</h5>
     </div>
-    <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="display:flex;text-align: right">
-            <div style="float:right;margin-left:40%;width: 60%">
-              <img src="../../../assets/icons/rupee.svg" style="width: 10%;height: 5em;margin-right: 10%;">
-              <img src="../../../assets/icons/play.svg" style="width: 10%;height: 5em;margin-right: 10%;">
-              <img src="../../../assets/icons/close.svg" style="width: 10%;height: 5em;margin-right: 10%;">
-            </div>
-        </div> -->
+   
   </div>
-  <div class="card-header" id="title">
+  <div class="card-header" id="title" style="padding:0px">
     <div class="section" style="background-color:#F1F1F1">
       <div class="row" style="display: block">
         <header class='masthead' style="padding:0">
@@ -25,11 +19,11 @@
 
       <div class="flex">
         <div id="profile">
-          <a href="" class="btn btn-1" style="cursor:pointer"><span class="txt">{{user.experience}} yrs
-              Experience</span></a>
+          <a class="btn btn-1" style="cursor:auto"><div class="txt">{{user.experience}} yrs
+              Experience</div></a>
         </div>
         <div id="info">
-          <a href="" class="btn btn-1" style="cursor:pointer"><span class="txt">{{user.clients}}Clients</span></a>
+          <a class="btn btn-1" style="cursor:auto"><div class="txt">{{user.clients}}Clients</div></a>
         </div>
       </div>
 
@@ -54,10 +48,10 @@
 
       <div class="flex" style="min-height:200px">
         <div id="profile">
-          <a href="" class="btn btn-1"><span class="txt">website</span></a>
+          <a class="btn btn-1"><div class="txt">website</div></a>
         </div>
         <div id="info">
-          <a href="" class="btn btn-1"><span class="txt">Share</span></a>
+          <a class="btn btn-1"><div class="txt">Share</div></a>
         </div>
       </div>
     </div>
@@ -70,14 +64,14 @@
            <a routerLink="/edit-profile" routerLinkActive = "active"><img src="../../../assets/icons/pen.svg" style="width:40px;float: right"></a>
         </div>
     </div> -->
-  <div class="card-wrapper" style="background-color:white;display: flex;min-height: 100px">
+  <div class="card-wrapper" style="background-color:white;display: flex;">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <a routerLink="/clients" routerLinkActive="active" style="display:block;color: violet;text-align: center"><img
-          src="../../../assets/icons/icons-16.svg" style="width:40px"><br>view clients</a>
+      <a routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center"><img
+          src="../../../assets/icons/users-alt.svg" style="width:30px"><br><p style="color:#5d5a5a">My clients</p></a>
     </div>
     <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
-      <a routerLink="/clients" routerLinkActive="active" style="display:block;color: violet;text-align: center"><img
-          src="../../../assets/icons/icons-17.svg" style="width:40px"><br>Add Clients</a>
+      <a routerLink="/clients" routerLinkActive="active" style="display:block;;text-align: center"><img
+          src="../../../assets/icons/icons-19.svg" style="width:30px"><br><p style="color:#F92CBB">My Profile</p></a>
     </div>
     <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>

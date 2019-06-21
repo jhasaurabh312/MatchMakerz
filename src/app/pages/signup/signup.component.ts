@@ -18,17 +18,17 @@ export class SignupComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,private authService : LoginService, private router: Router , private http : HttpClient ){ 
     this.signupDetails = this._formBuilder.group({
-      'first_name' : [''],
-      'last_name' : [''],
-      'age' : [''],
-      'gender' : [''],
-      'matchmaker_type' : [''],
-      'referred_by' : [''],
-      'whatsapp_number' : [''],
-      'about' : [''],
-      'phone_number' : [''],
-      'unique_about' : [''],
-      'specialization' : [''],
+      'first_name' : [localStorage.getItem('signup_first_name')],
+      'last_name' : [localStorage.getItem('signup_last_name')],
+      'age' : [localStorage.getItem('signup_age')],
+      'gender' : [localStorage.getItem('signup_gender')],
+      'matchmaker_type' : [localStorage.getItem('signup_matchmaker_type')],
+      'referred_by' : [localStorage.getItem('signup_referred_by')],
+      'whatsapp_number' : [localStorage.getItem('signup_whatsapp_number')],
+      'about' : [localStorage.getItem('signup_about')],
+      'phone_number' : [localStorage.getItem('signup_phone_number')],
+      'unique_about' : [localStorage.getItem('signup_unique_about')],
+      'specialization' : [localStorage.getItem('signup_specialization')],
       'password' : [''],
       'location' : [''],
       'lattitude' : [''],
@@ -42,6 +42,20 @@ export class SignupComponent implements OnInit {
 
   signup(){
     const loginData  =  new FormData()
+
+    localStorage.setItem('signup_first_name' , this.signupDetails.value.first_name);
+    localStorage.setItem('signup_last_name' , this.signupDetails.value.last_name);
+    localStorage.setItem( 'signup_age', this.signupDetails.value.age);
+    localStorage.setItem('signup_gender', this.signupDetails.value.gender);
+    localStorage.setItem('signup_referred_by', this.signupDetails.value.referred_by);
+    localStorage.setItem('signup_whatsapp_number', this.signupDetails.value.whatsapp_number);
+    localStorage.setItem('signup_about', this.signupDetails.value.about);
+    localStorage.setItem('signup_phone_number',this.signupDetails.value.phone_number);
+    localStorage.setItem('signup_unique_about',this.signupDetails.value.unique_about);
+    localStorage.setItem('signup_specialization',this.signupDetails.value.specialization);
+    localStorage.setItem('signup_matchmaker_type' , this.signupDetails.value.matchmaker_type);
+
+
     
     loginData.append( 'first_name' , this.signupDetails.value.first_name),
     loginData.append('last_name' , this.signupDetails.value.last_name),

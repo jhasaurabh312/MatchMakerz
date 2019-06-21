@@ -7,44 +7,75 @@
       <form [formGroup]="AddClientDetails">
       
          <div class="no-filter">
-            <input class="input-group p-2" formControlName="name" placeholder="Name*">
+             <div class="input-group p-2">
+                    <input class="form-control" formControlName="name" placeholder="Name">
+             </div>
 
-            <input class="input-group p-2" formControlName="phone_number" placeholder="phone_number*">
+             <div class="input-group p-2">
+                    <input class="form-control" formControlName="phone_number" placeholder="phone_number">
+            </div>
 
-            <input class="input-group p-2" formControlName="whatsapp_number" placeholder="whatsapp_number*">
+            <div class="input-group p-2">
+                    <input class="form-control" formControlName="whatsapp_number" placeholder="whatsapp_number">
+            </div>
 
-            <select class="input-group p-2" formControlName="gender">
-                <option value="" disabled selected>Gender</option>
-                <option value="0">Male</option>
-                <option value="1">Female</option>
-            </select>
+            <div class="input-group p-2">
+                <select class="form-control" formControlName="gender">
+                    <option value="" [selected]="true" disabled="true">gender</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                </select>
+            </div>   
+           
          </div>
 
           <div class="filter1">
+
+                <div class="input-group p-2">
+                        <input class="form-control" formControlName="height" placeholder="Height(Inches)">
+                </div>
+                <div class="input-group p-2">
+                        <input class="form-control" formControlName="birth_date" placeholder="Birth Date(YYYY-MM-DD)">  
+                </div>
+                <div class="input-group p-2">
+                        <input class="form-control" formControlName="birth_place" placeholder="Birth Place*">  
+                </div>
              
-              <input class="input-group p-2" formControlName="height" placeholder="Height*">
-              <input class="input-group p-2" formControlName="birth_date" placeholder="Birth Date*">
-              <input class="input-group p-2" formControlName="birth_place" placeholder="Birth Place*">
           </div>
+
           <div class="filter2">
 
-              <input class="input-group p-2" formControlName="weight" placeholder="Weight*">
-              <input class="input-group p-2" formControlName="birth_time" placeholder="Bith Time*">
-              <input class="input-group p-2" formControlName="current_city" placeholder="Current City*">
+                <div class="input-group p-2">
+                        <input class="form-control" formControlName="weight" placeholder="Weight(Kg)">
+                </div>
+                <div class="input-group p-2">
+                        <input class="form-control" formControlName="birth_time" placeholder="Birth Time(11:45)">  
+                </div>
+                <div class="input-group p-2">
+                        <input class="form-control" formControlName="current_city" placeholder="Current City">
+                </div>
+
           </div>
           
         <div class="no-filter">
-            <select class="input-group p-2" formControlName="food_choice" >
-                <option value="" disabled selected>Food Choice</option>
-                <option value="0">Veg</option>
-                <option value="1">Non-veg</option>
-            </select>
-            <select class="input-group p-2" formControlName="disability" >
-                <option value="" disabled selected>Disability</option>
-                <option value="0">NO</option>
-                <option value="1">YES</option>
-            </select>
-            <input class="input-group p-2" formControlName="disabled_part" placeholder="Disabled Part*">
+            <div class="input-group p-2">
+                    <select class="form-control" formControlName="food_choice" >
+                        <option value="" [selected]="true" [disabled]="true">Food Choice</option>
+                        <option value="0">Vegetarian</option>
+                        <option value="1">Non-vegetarian</option>
+                    </select>
+            </div>
+            <div class="input-group p-2">
+                    <select class="form-control" formControlName="disability" >
+                        <option value="" [selected]="true" [disabled]="true">Disability</option>
+                        <option value="0">Not Disabled</option>
+                        <option value="1">Disabled</option>
+                    </select>
+            </div>
+
+            <div class="input-group p-2">
+                    <input class="form-control" formControlName="disabled_part" placeholder="Disabled Part">
+            </div>         
         </div> 
       
    

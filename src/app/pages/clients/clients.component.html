@@ -20,14 +20,16 @@
               </div>
               <div class="column-r" style="width:50%">
                 
-                  <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6>   
-                  <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
-                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
-                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>       
-                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
-                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>             
-                  <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
-                           
+                  <div (click) = "getProfile(member.id)" style="cursor:pointer">
+                      <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6>   
+                      <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
+                      <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+                      <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>       
+                      <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
+                      <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>             
+                      <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                               
+                  </div>
     
                   <div class="button" style="margin-top : 15px; display: fiex">
                     <button type="button" (click) = "getMatches(member.id)" style="color:white;background-color:#f92bcc;border: 5px solid #f92bcc"><i class="fa fa-search"  style="width:20px;height:20px;color:white"></i>Matches</button>

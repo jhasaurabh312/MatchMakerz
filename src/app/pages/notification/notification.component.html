@@ -1,17 +1,13 @@
 <div class="dropdown">
-  <button (click)="myFunction()" class="dropbtn">Notification</button>
+  <button (click)="myFunction()" class="dropbtn">bdvd</button>
   <div id="myDropdown" class="dropdown-content">
-    <div class="row" *ngFor="let notice of notices" style="padding:2px">
-      <ul style="list-style:none">
-          <li> 
-            <div style="display:flex">
-               <img src="{{notice.matched_to_pic}}" style="width:40px;height:40px">
-               <img src="{{notice.matched_for_pic}}" style="width:40px;height:40px">
-               <p>{{notice.mesg}}</p>
-               <button>View</button>
-            </div>
-          </li>
-      </ul>
-   </div>
+     <div class="row" *ngFor="let notice of notices" style="padding:10px;margin-top:10px;background-color: #f1f1f1"> 
+        <div style="display:flex;margin-top:auto;margin-bottom:auto">
+            <div><img src="{{notice.matched_to_pic}}" style="width:60px;height:60px;padding:5px;margin-left: 10px"></div>
+            <div><img src="{{notice.matched_for_pic}}" style="width:60px;height:60px;padding:5px;margin-left: 10px"></div>
+            <div><p style="padding:5px;font-size:1em;margin-left: 10px">{{notice.mesg}}</p></div>
+            <div><button class="btn btn-primary" style="padding:5px;margin-left: 10px;height:40px;width: 80px">View</button></div>
+        </div>      
+    </div>
   </div>
 </div>

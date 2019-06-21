@@ -16,17 +16,17 @@
         <input formControlName="last_name" placeholder="Last Name" class="form-control" >
       </div>
         <div class="input-group p-2">
-            <select  formControlName="gender" required-placeholder="Gender" class="form-control" >
-              <option value="" disabled selected>Gender</option>
-              <option value="0">Male</option>
-              <option value="1">Female</option>
+            <select class="input-group p-2" formControlName="gender">
+                <option value=""  disabled="true" [selected]="true">Gender</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
             </select>
         </div>
         <div class="input-group p-2">
             <select  formControlName="matchmaker_type" aria-placeholder="matchmaker_type" class="form-control" >
               <option value="" disabled selected>matchmaker_type</option>
-              <option value="0">YES</option>
-              <option value="1">NO</option>
+              <option value="0">Existing Matchmaker</option>
+              <option value="1">Never done Before</option>
             </select>
         </div>
         <div class="input-group p-2">

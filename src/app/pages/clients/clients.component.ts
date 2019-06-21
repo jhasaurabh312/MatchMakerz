@@ -80,7 +80,7 @@ export class ClientsComponent implements OnInit {
     this.router.navigate(['/filter']);
   }
 
-  clientProfile(data){
+  getProfile(data){
     // console.log(data);
     localStorage.setItem('clientId' , data);
     this.router.navigate(['/client-profile']);
