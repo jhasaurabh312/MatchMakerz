@@ -59,11 +59,10 @@
 <!-- </main> -->
 
 <div class="section" style="position:fixed;width:100%;bottom:0">
-  <!-- <div class="row">
-         <div class="col-sm-4 col-md-4 col-lg-4" style="margin-left:auto;margin-right: 0px">
-           <a routerLink="/edit-profile" routerLinkActive = "active"><img src="../../../assets/icons/pen.svg" style="width:40px;float: right"></a>
-        </div>
-    </div> -->
+  <div class="row">
+    <div style="width:60px;margin-left:80%;background-image: url('../../../assets/icons/plus.svg')" id="edit" (click)="editProfile()">
+    </div>
+  </div>
   <div class="card-wrapper" style="background-color:white;display: flex;">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <a routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center"><img
@@ -73,8 +72,5 @@
       <a routerLink="/clients" routerLinkActive="active" style="display:block;;text-align: center"><img
           src="../../../assets/icons/icons-19.svg" style="width:30px"><br><p style="color:#F92CBB">My Profile</p></a>
     </div>
-    <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <a routerLink="/clients" routerLinkActive = "active"  style="display:block;color: violet;text-align: center">Edit Profile</a>
-      </div> -->
   </div>
 </div>
