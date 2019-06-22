@@ -1,4 +1,4 @@
-<main class="card-wrapper">
+<main class="card-wrapper" style="overflow:hidden">
   <ng-container >
     <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available" >
       <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of connect" >
@@ -28,17 +28,16 @@
   </ng-container>
   
 </main>
-
-<main style="position:fixed;top: 50%;width: 100%;" class="card-wrapper">
-  <div class="flex" style="background-color:white;display:flex;cursor: pointer;">
+<main style="position:fixed;bottom:0px;width: 100%;overflow: hidden;" class="card-wrapper">
+  <div class="flex" style="background-color:#f1f1f1;display:flex;cursor: pointer;height: 60px">
       <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center">
-         <h6>Awaited</h6>
+        <img src="../../../assets/icons/icons-17.svg" style="width:40px">  <h6>Awaited</h6>
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4" (click)="connected()" style="text-align: center">
-        <h6>Connected</h6>
+        <img src="../../../assets/icons/icons-17.svg" style="width:40px"><h6>Connected</h6>
      </div>
       <div class="col-sm-4 col-md-4 col-lg-4" (click)="declined()" style="text-align: center">
-          <h6>Declined</h6>
+        <img src="../../../assets/icons/icons-17.svg" style="width:40px"> <h6>Declined</h6>
        </div>
   </div>
 </main>

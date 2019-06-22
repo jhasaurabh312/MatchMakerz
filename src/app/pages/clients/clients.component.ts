@@ -12,7 +12,7 @@ export class ClientsComponent implements OnInit {
   response : any ;
   a : BigInteger;
   show : boolean;
-
+  notices : any =[];
   
   
   constructor( private http : HttpClient , public router : Router) { }
@@ -24,7 +24,7 @@ export class ClientsComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
-    return this.http.get('http://matchmakerz.in/api/v1/client/list?id=999999999', {headers : headers}).subscribe((response) =>{
+     this.http.get('http://matchmakerz.in/api/v1/client/list?id=999999999', {headers : headers}).subscribe((response) =>{
      this.staticProductDetail = response;
      console.log(this.staticProductDetail);
     //  console.log(this.staticProductDetail.length);
@@ -66,7 +66,10 @@ export class ClientsComponent implements OnInit {
     //  localStorage.setItem('lastClientId', this.staticProductDetail[19].id)
    })
 
-  
+   this.http.get('http://matchmakerz.in/api/v1/client/notifications' ,{ headers: headers }).subscribe((response:any)=>{
+    this.notices=response.notification;
+    console.log(this.notices);
+  })
 
   }
 
@@ -81,9 +84,12 @@ export class ClientsComponent implements OnInit {
   }
 
   getProfile(data){
-    // console.log(data);
     localStorage.setItem('clientId' , data);
     this.router.navigate(['/client-profile']);
+  }
+
+  AddClient(){
+    this.router.navigate(['/personal-details']);
   }
 
   getMore(){
@@ -135,5 +141,10 @@ export class ClientsComponent implements OnInit {
    
     
   }
+
+
+ myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
 }

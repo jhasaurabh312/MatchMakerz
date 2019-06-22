@@ -1,22 +1,22 @@
-<!-- <main class="card-wrapper" style="background-color:white; overflow: hidden;">
+<main class="card-wrapper" style="background-color:white; overflow: hidden;">
 
   <div class="modal-body">
-    <div class="header">
-        <h3>Add Client Details</h3>
-    </div>
+    <!-- <div class="header">
+        <h3></h3>
+    </div> -->
   </div>  
   
   <div class="row" style="display:flex">
-    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">Personal</div>
-    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">Social</div>
-    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">Preferences</div>
-  </div>
+    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align:center;">Personal</div>
+    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align:center">Social</div>
+    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align:center;">Preferences</div>
+  </div> 
 </main>
 
 
-<main class="container-fluid">
+<main class="section" style="background-color:#f1f1f1;padding-top:30px;padding-bottom: 30px">
 
-  <main class="section" >
+  <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
 
     <div class="section">
 
@@ -24,59 +24,76 @@
          <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">BASIC DETAILS</div>
       </div>
 
-      <div class="row">
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <h5>Current City</h5>
-              <br>
-              <h6>{{ }}</h6>
+      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
+          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+              <h5>Name</h5>
+              
+              <h6>{{user.name}}</h6>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <h5>Current City</h5>
-              <br>
-              <h6>{{ }}</h6>
+          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+              <h5>Age</h5>
+              
+              <h6>{{user.age}}</h6>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <h5>Current City</h5>
-              <br>
-              <h6>{{ }}</h6>
-          </div>
-      </div>
-
-      <div class="row">
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <h5>Current City</h5>
-              <br>
-              <h6>{{ }}</h6>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <h5>Current City</h5>
-              <br>
-              <h6>{{ }}</h6>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <h5>Current City</h5>
-              <br>
-              <h6>{{ }}</h6>
+          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+              <h5>Marital Status</h5>
+              
+              <h6>{{user.marital_status}}</h6>
           </div>
       </div>
 
-      <div class="row">
-          <div class="col-sm-4 col-md-4 col-lg-4">
-            <h5>Current City</h5>
+      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
+          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+              <h5>Height</h5>
+              <br>
+              <h6>{{user.height}} inches</h6>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+              <h5>Weight(Kg)</h5>
+              <br>
+              <h6>{{user.weight}}</h6>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+              <h5>Religion</h5>
+              <br>
+              <h6>{{user.religion}}</h6>
+          </div>
+      </div>
+
+      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
+          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+            <h5>Food Choice</h5>
             <br>
-            <h6>{{ }}</h6>
+            <h6>{{user.food_choice}}</h6>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <h5>Current City</h5>
+          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+              <h5>Gotra</h5>
               <br>
-              <h6>{{ }}</h6>
+              <h6>{{user.gotra}}</h6>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <h5>Current City</h5>
+          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+              <h5>Caste</h5>
               <br>
-              <h6>{{ }}</h6>
+              <h6>{{user.caste}}</h6>
           </div>
       </div>
+      <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+              <h5>Current City</h5>
+              <br>
+              <h6>{{user.current_city}}</h6>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+                <h5>Salary</h5>
+                <br>
+                <h6>{{user.yearly_income}}</h6>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+                <h5>Job Type</h5>
+                <br>
+                <h6>{{user.occupation}}</h6>
+            </div>
+        </div>
 
     </div>
 
@@ -84,110 +101,261 @@
 
   
 
- <main class="section" >
+  <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
 
       <div class="section">
   
-        <div class="row">
-           <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">HOROSCOPE DETAILS</div>
+        <div class="row" >
+           <div class="col-sm-6 col-md-6 col-lg-6" style="text-align:center;color: #F92BCC">HOROSCOPE DETAILS</div>
+        </div>
+  
+        <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
+            <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                <h5>Mangalik Status</h5>
+               
+                <h6>{{user.manglik}}</h6>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center;">
+                <h5>Date of Birth</h5>
+                
+                <h6>{{user.birth_date}}</h6>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center;">
+                <h5>Time of Birth</h5>
+                
+                <h6>{{user.birth_time}}</h6>
+            </div>
         </div>
   
         <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
-            </div>
-        </div>
-  
-        <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
+            <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                <h5>Birth Place</h5>
+                
+                <h6>{{user.birth_place}}</h6>
             </div>
         </div>
       </div>
   
-  </main>
-  
-  
+  </main> 
 
  
-  <main class="section" >
+  <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
 
       <div class="section">
   
         <div class="row">
-           <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">HOROSCOPE DETAILS</div>
+           <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Educational Details</div>
         </div>
   
         <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
+            <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                
+                <h6>{{user.degree}}, {{user.college}}</h6>
             </div>
         </div>
-  
-        <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <h5>Current City</h5>
-                <br>
-                <h6>{{ }}</h6>
-            </div>
-        </div>
+
       </div>
   
   </main>
 
+  <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+        <div class="section">
+    
+          <div class="row">
+             <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Career Details</div>
+          </div>
+          <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                  <h5>Occupation</h5>
+                 
+                  <h6>{{user.occupation}}</h6>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                    <h5>Organisation</h5>
+                   
+                    <h6>{{user.organisation}}</h6>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                    <h5>City</h5>
+                   
+                    <h6>{{user.city}}</h6>
+                </div>
+            </div>
+          
+          
+        </div>
+    
+    </main>
+
+    <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+            <div class="section">
+        
+              <div class="row">
+                 <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Contact Details</div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                      <h5>E-mail</h5>
+                     
+                      <h6>{{user.email}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <h5>Phone</h5>
+                       
+                        <h6>{{user.phone_number}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <h5>Whatsapp number</h5>
+                       
+                        <h6>{{user.whatsapp_number}}</h6>
+                    </div>
+                </div>
+              
+              
+            </div>
+        
+        </main>
+
+        <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+            <div class="section">
+        
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Parent Details</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <h5>Father's Occupation</h5>
+                        
+                        <h6>{{user.father_occupation}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <h5>Father's Status</h5>
+                        
+                        <h6>{{user.father_status}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <h5>Mother's Occupation</h5>
+                        
+                        <h6>{{user.mother_occupation}}</h6>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <h5>Mother's Status</h5>
+                        
+                        <h6>{{user.mother_status}}</h6>
+                    </div>
+                </div>    
+                
+            </div>
+        
+        </main>
+
+        <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+                <div class="section">
+            
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Siblings</div>
+                    </div>
+                    <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
+                        <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                            <h5>Sister Married</h5>
+                            
+                            <h6>{{user.married_daughter}}</h6>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                            <h5>Sister Unmarried</h5>
+                            
+                            <h6>{{user.Unmarried_daughter}}</h6>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                            <h5>Brother Married</h5>
+                            
+                            <h6>{{user.married_son}}</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                            <h5>Brother Unmarried</h5>
+                            
+                            <h6>{{user.Unmarried_son}}</h6>
+                        </div>
+                    </div>
+                    
+                </div>
+            
+            </main>
+            <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+                    <div class="section">
+                
+                      <div class="row">
+                         <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Partner Preferences</div>
+                      </div>
+                
+                      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
+                          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                              <h5>Caste</h5>
+                              
+                              <h6>{{User.id}}</h6>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                              <h5>Mangalik</h5>
+                              
+                              <h6>{{User.manglik}}</h6>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                              <h5>Marital Status</h5>
+                              
+                              <h6>{{User.marital_status}}</h6>
+                          </div>
+                      </div>
+                
+                      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
+                          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+                              <h5>Age</h5>
+                              <br>
+                              <h6>{{User.min_age}} - {{User.max_age}}yrs</h6>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+                                <h5>Food Choice</h5>
+                                <br>
+                                <h6>{{User.food_choice}}</h6>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+                                    <h5>Occupation</h5>
+                                    <br>
+                                    <h6>{{User.occupation}}</h6>
+                                </div>
+                      </div>
+                
+                      <div class="row"  >
+                            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+                                <h5>Income</h5>
+                                <br>
+                                <h6>{{User.yearly_income}} LPA</h6>
+                            </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                              <h5>Citizenship</h5>
+                              <br>
+                              <h6>{{User.citizenship}}</h6>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
+                              <h5>Height</h5>
+                              <br>
+                              <h6>{{User.min_height}}-{{User.max_height}}</h6>
+                          </div>
+                      </div>
+                           
+                
+       </div>
+                
+    </main>
+    <div class="row">
+        <button class="btn btn-primary" style="margin-left:auto;margin-right:auto">Delete Client</button>
+    </div>
 </main> 
-
-
-<div class="row">
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <h5></h5>
-      <br>
-      <h6>{{ }}</h6>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-        <h5></h5>
-        <br>
-        <h6>{{ }}</h6>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-        <h5></h5>
-        <br>
-        <h6>{{ }}</h6>
-    </div>
-</div> -->

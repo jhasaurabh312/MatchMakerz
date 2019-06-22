@@ -29,3 +29,54 @@
   color: white;
   font-weight: 600
 }
+
+.circle{
+  // width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: #F92CBB;
+  width: 40px;margin-right: 25px;
+  background-position: center;
+  background-size: 30px;
+  background-repeat: no-repeat
+}
+
+#edit {
+  height: 60px;
+  border-radius: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: #F92CBB;
+  width: 40px;margin-right: 25px;
+  background-position: center;
+  background-size: 40px;
+  background-repeat: no-repeat
+}
+
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  max-width: 600px;
+  overflow: hidden;
+  margin-left:-75%;
+  // margin-right: 100%;
+  margin-top:5%;
+  z-index: 999;
+  #something {
+    opacity: 2;
+  }
+}
+
+.show {display: block;}
