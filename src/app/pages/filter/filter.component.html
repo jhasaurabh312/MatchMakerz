@@ -1,14 +1,9 @@
-<div class="container-fluid">
-    <div class="header">
-        <h3>filter</h3>
-    </div>
-
 <main class="modal-body">
   <form [formGroup]="EditClientPreferences">
       <div class="filter">
           <div class="input-group p-2">
             <select formControlName="gender"  class="form-control">
-                <option value="gender" disabled selected>Gender</option>
+                <option value="gender" [disabled]="true" [selected]="true">Gender</option>
                 <option value="0" >MALE</option>
                 <option value="1" >FEMALE</option>
             </select> 
@@ -16,7 +11,7 @@
 
         <div class="input-group p-2">
             <select formControlName="manglik" class="form-control">
-                <option value="manglik" disabled selected>manglik</option>
+                <option value="manglik" [disabled]="true" [selected]="true">manglik</option>
                 <option value="0" >No</option>
                 <option value="1" >Yes</option>
             </select> 
@@ -24,7 +19,7 @@
 
         <div class="input-group p-2">
             <select formControlName="marital_status"  class="form-control">
-                <option value="marital_status" disabled selected>marital_status</option>
+                <option value="marital_status" [disabled]="true" [selected]="true">marital_status</option>
                 <option value="0" >Not Married</option>
                 <option value="1" >Married</option>
             </select> 
@@ -32,7 +27,7 @@
 
         <div class="input-group p-2">
             <select formControlName="food_choice"  class="form-control">
-                <option value="foodChoice" disabled selected>foodChoice</option>
+                <option value="foodChoice" [disabled]="true" [selected]="true">foodChoice</option>
                 <option value="0" >Veg</option>
                 <option value="1" >Non-veg</option>
             </select> 
@@ -40,7 +35,7 @@
 
         <div class="input-group p-2">
             <select formControlName="citizenship" class="form-control">
-                <option value="citizenship" disabled selected>citizenship</option>
+                <option value="citizenship" [disabled]="true" [selected]="true">citizenship</option>
                 <option value="0" >Indian</option>
                 <option value="1" >NRI</option>
             </select> 
@@ -48,60 +43,53 @@
 
         <div class="input-group p-2">
             <select formControlName="occupation" class="form-control">
-                <option value="occupation" disabled selected>occupation</option>
+                <option value="occupation" [disabled]="true" [selected]="true">occupation</option>
                 <option value="0" >No</option>
                 <option value="1" >Yes</option>
             </select> 
         </div>
-        
-             
-    </div>
-
-
-    <div class="filter">
 
         <div class="input-group p-2">
-            <input formControlName="min_income"  value ="min_income" class="form-control">
+            <input formControlName="min_income"  value ="min_income" class="form-control" placeholder="Min Income(LPA)">
            
         </div>
 
         <div class="input-group p-2">
-                <input formControlName="max_income"  value ="max_income" class="form-control">
+                <input formControlName="max_income"  value ="max_income" class="form-control" placeholder="Max Income(LPA)">
         </div>
         
         <div class="input-group p-2">
-                <input formControlName="min_age"  value ="min_age" class="form-control">
+                <input formControlName="min_age"  value ="min_age" class="form-control" placeholder="Min Age">
                
         </div>
             
         <div class="input-group p-2">
-                <input formControlName="max_age"  value ="max_age" class="form-control">
+                <input formControlName="max_age"  value ="max_age" class="form-control" placeholder="Max Age">
         </div>
         
         <div class="input-group p-2">
-                <input formControlName="min_height"  value ="min_height" class="form-control">
+                <input formControlName="min_height"  value ="min_height" class="form-control" placeholder="Min Height">
                 
         </div>
             
         <div class="input-group p-2">
-                <input formControlName="max_height"  value ="max_height" class="form-control">
+                <input formControlName="max_height"  value ="max_height" class="form-control" placeholder="Max Height">
         </div>
-            
-          
+
+        <div class="input-group p-2">
+            <input formControlName="caste"  value ="caste" class="form-control" placeholder="Caste">
+        </div>
+
+        <div class="input-group p-2" >
+            <button class="btn btn-user" type = "button"  (click) = "ApplyFilter()">Apply Filter</button>
+        </div>
     
+             
     </div>
 
-    <div class="input-group p-2">
-        <input formControlName="caste"  value ="caste" class="form-control">
-    </div>
+   
+   
 
-    <div class="input-group p-2" >
-        <button class="btn btn-user" type = "button"  (click) = "ApplyFilter()">Apply Filter</button>
-    </div>
   </form>
+
 </main>
-
-
-
-</div>
-
