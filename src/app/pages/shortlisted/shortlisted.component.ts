@@ -22,15 +22,15 @@ export class ShortlistedComponent implements OnInit {
     })
 
 
-    this.http.get('http://matchmakerz.in/api/v1/client/shortlist?id='+localStorage.getItem('shortlistedId'), {headers : headers}).subscribe((res) => {
+    this.http.get('http://matchmakerz.in/api/v1/client/shortlist?id='+localStorage.getItem('clientId'), {headers : headers}).subscribe((res) => {
        this.shortlisted = res;
        console.log(this.shortlisted);
     })
 
-    this.http.get('http://matchmakerz.in/api/v1/client/total-shortlist?id='+localStorage.getItem('shortlistedId'), {headers : headers}).subscribe((res) => {
-      this.shortlistedTotal = res;
-      console.log(this.shortlistedTotal);
-   })
+  //   this.http.get('http://matchmakerz.in/api/v1/client/total-shortlist?id='+localStorage.getItem('clientId'), {headers : headers}).subscribe((res) => {
+  //     this.shortlistedTotal = res;
+  //     console.log(this.shortlistedTotal);
+  //  })
   }
 
 }

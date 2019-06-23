@@ -97,6 +97,16 @@ export class AwaitedComponent implements OnInit {
     this.router.navigate(['/declined']);
   }
 
+  toggle1(){
+   if(!this.outgoing)
+    this.outgoing != this.outgoing ;
+  }
+
+  toggle2(){
+    if(!this.incoming)
+     this.incoming != this.incoming ;
+  }
+
   
  
 }

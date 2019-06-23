@@ -1,21 +1,14 @@
-<main class="card-wrapper" style="overflow:hidden;padding: 10px">
+<main class="card-wrapper" style="overflow:hidden;">
    
-  <div class="header" style="background-color:white;display:block">
-      <div class="row">
-          <h3><img src="../../../assets/icons/angle-down.svg" style="width: 40px;">Awaited</h3>
+  <div class="header" style="background-color:white;display:block;height: 120px">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="display:flex;height:60px;padding-left:20px">
+      <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
+      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Awaited</h5>
+    </div>
+      <div class="row" style="display:flex;height: 60px">
+        <div class="col-sm-6 col-lg-6 active" style="text-align:center;margin-top: 25px"><a routerLink="#outgoing" routerLinkActive = "active" style="color:black">Awaited Outgoing</a></div>
+        <div class="col-sm-6 col-lg-6 active" style="text-align:center;margin-top: 25px"><a routerLink="#incoming" routerLinkActive = "active" style="color:black">Awaited Incoming</a></div>
       </div>
-      <div class="row" style="display:flex">
-        <div class="col-sm-6 col-lg-6 active" style="text-align:center"><a routerLink="#outgoing" routerLinkActive = "active" style="color:black">Awaited Outgoing</a></div>
-        <div class="col-sm-6 col-lg-6 active" style="text-align:center"><a routerLink="#incoming" routerLinkActive = "active" style="color:black">Awaited Incoming</a></div>
-      </div>
-      <!-- <div class="row" style="width:100%">
-          <nav>
-              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" style=" width: 100%">
-                <button data-toggle="tab" style="text-decoration:none;padding-top:18px" data-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Awaited Incoming</button>
-                <button style="text-decoration:none;padding-top:18px" id="nav-profile-tab" data-target="#tab" role="tab" aria-controls="nav-profile" aria-selected="false">Awaited Outgoing</button>
-              </div>
-          </nav>
-      </div> -->
   </div>
 
   <ng-container id="outgoing" *ngIf="outgoing">

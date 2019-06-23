@@ -14,17 +14,32 @@
       font-size : 15px;
       margin-bottom : 5px
   }
+  
+  .circle{
+    height: 40px;
+    border-radius: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: #F92CBB;
+    width: 40px;
+    margin-right: 25px;
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-image:url('../../../assets/icons_white/close.svg');
+  }
+  
 
 
-//  .btn-user {
-//   font-size: 1rem;
-//   border-radius: 10rem;
-//   padding: .75rem 1rem;
-//   width: 50%;
-//   margin-left: auto;
-//   margin-right: auto;
-//   background-color: #F92CBB;
-//   margin-top: 30px;
-//   color: white;
-//   font-weight: 600
-// }
+ .btn-user {
+  font-size: 1rem;
+  border-radius: 10rem;
+  padding: .75rem 1rem;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F92CBB;
+  margin-top: 30px;
+  color: white;
+  font-weight: 600
+}

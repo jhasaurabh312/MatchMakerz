@@ -11,6 +11,7 @@ import { throwError } from 'rxjs';
   styleUrls: ['./matches.component.scss']
 })
 export class MatchesComponent implements OnInit {
+  shortlistedTotal: any = [];
   staticProductDetail : any = [];
   a : any;
   response : any ;
@@ -93,6 +94,11 @@ export class MatchesComponent implements OnInit {
                   } 
             
             })
+
+            this.http.get('http://matchmakerz.in/api/v1/client/total-shortlist?id='+localStorage.getItem('clientId'), {headers : headers}).subscribe((res) => {
+            this.shortlistedTotal = res;
+            console.log(this.shortlistedTotal);
+   })
   }
 
 
