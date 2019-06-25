@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-// import { MatFormFieldModule, MatInputModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './shared/models/login/login.module'
@@ -33,6 +32,7 @@ import { ClientProfileComponent } from './pages/client-profile/client-profile.co
 import { DeclinedComponent } from './pages/declined/declined.component';
 import { DummyComponent } from './pages/dummy/dummy.component';
 import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
+import { PlansComponent } from './pages/plans/plans.component';
 
 
 @NgModule({
@@ -42,11 +42,9 @@ import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component'
     FilterComponent,
     ClientsComponent,
     MyProfileComponent,
-   
     PersonalDetailsComponent,
     NotificationComponent,
     GetOTPComponent,
- 
     EditProfileComponent,
     SignupComponent,
     CarouselComponent,
@@ -61,6 +59,7 @@ import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component'
     DeclinedComponent,
     DummyComponent,
     ShortlistedComponent,
+    PlansComponent,
   ],
   imports: [
     BrowserModule,

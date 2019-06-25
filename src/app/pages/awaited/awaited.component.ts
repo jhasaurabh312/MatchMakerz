@@ -30,26 +30,26 @@ export class AwaitedComponent implements OnInit {
 
      this.http.get('http://matchmakerz.in/api/v1/client/incoming-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
        this.awaitedIn = response;
-       console.log('INcoming',this.awaitedIn)
+       console.log('Incoming',this.awaitedIn)
 
        for(let i=0;i<this.awaitedIn.length;i++){
-        if(this.awaitedIn[i].matched_to.profile_photo== null)
-        this.awaitedIn[i].matched_to.profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
+          if(this.awaitedIn[i].matched_to.profile_photo== null)
+          this.awaitedIn[i].matched_to.profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
 
-        if(this.awaitedIn[i].matched_to.marital_status == '0')
-         this.awaitedIn[i].matched_to.marital = "Not Married";
-        else
-         this.awaitedIn[i].matched_to.marital = "Married";
+          if(this.awaitedIn[i].matched_to.marital_status == '0')
+          this.awaitedIn[i].matched_to.marital = "Not Married";
+          else
+          this.awaitedIn[i].matched_to.marital = "Married";
 
 
-         if(this.awaitedIn[i].matched_to.manglik == 0)
-          this.awaitedIn[i].matched_to.manglik = 'Non-Manglik';
-         else
-          this.awaitedIn[i].matched_to.manglik = 'Manglik'; 
+          if(this.awaitedIn[i].matched_to.manglik == 0)
+            this.awaitedIn[i].matched_to.manglik = 'Non-Manglik';
+          else
+            this.awaitedIn[i].matched_to.manglik = 'Manglik'; 
 
-       
-         this.awaitedIn[i].matched_to.inches = this.awaitedIn[i].matched_to.height % 12 ;
-         this.awaitedIn[i].matched_to.feet = (this.awaitedIn[i].matched_to.height -  this.awaitedIn[i].matched_to.inches)/12;
+        
+          this.awaitedIn[i].matched_to.inches = this.awaitedIn[i].matched_to.height % 12 ;
+          this.awaitedIn[i].matched_to.feet = (this.awaitedIn[i].matched_to.height -  this.awaitedIn[i].matched_to.inches)/12;
         
       } 
      })

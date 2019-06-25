@@ -20,6 +20,7 @@ import { ConnectedComponent } from './pages/connected/connected.component';
 import { NotificationComponent } from './pages/notification/notification.component';
 import { DeclinedComponent } from './pages/declined/declined.component';
 import { DummyComponent } from './pages/dummy/dummy.component';
+import { PlansComponent } from './pages/plans/plans.component';
 
 
 const appRoutes: Routes = [
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
   { path : 'filter' , component : FilterComponent},
   { path : 'declined' , component : DeclinedComponent},
   { path : 'notification' ,component : NotificationComponent},
-  { path : 'dummy' , component : DummyComponent}
+  { path : 'dummy' , component : DummyComponent},
+  { path: 'plans' , component : PlansComponent}
 ];
 
 
