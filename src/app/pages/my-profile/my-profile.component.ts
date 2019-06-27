@@ -39,6 +39,11 @@ export class MyProfileComponent implements OnInit {
   editProfile(){
     this.router.navigate(['/edit-profile']);
   }
+  
+ myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
 
 }
 

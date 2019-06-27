@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-
+import {StickyModule} from 'ng2-sticky-kit';
 import { AppComponent } from './app.component';
 import { LoginModule } from './shared/models/login/login.module'
 import { LoginService } from './shared/services/login/login.service'
@@ -70,7 +70,8 @@ import { PlansComponent } from './pages/plans/plans.component';
     LoginModule,
     ReactiveFormsModule,
     NgbModule,
-    CarouselModule  
+    CarouselModule,
+    StickyModule  
   ],
   providers: [
     LoginService,
