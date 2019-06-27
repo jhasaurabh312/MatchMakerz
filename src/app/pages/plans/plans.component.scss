@@ -1,0 +1,45 @@
+.button-data{
+border-radius: 7px;
+    padding: 20px;
+    background-color: #E55A69;
+    margin: 70px 61px 72px 33px;
+    color: white;
+    width: 158px;
+    height: 72px;
+    text-align: center;
+}
+
+.credits-button{
+ 
+    background-color: #E55A69;
+    width: 85px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+    padding: 6px;
+    text-align: center;
+   transition: box-shadow, width,1s;
+   cursor: pointer;
+}
+.credits-button:hover{
+	// width: 40px;
+	-webkit-box-shadow: 0px 0px 13px wpx #B20707; 
+box-shadow: 0px 0px 13px 2px #B20707;
+}
+
+.credits{
+	background:white;
+	border-radius: 10px;
+	width: 59%;
+    background: white;
+    border-radius: 10px;
+    padding: 17px;
+    margin: 15px;
+       transition: box-shadow, cursor,width,1s;
+
+}
+.credits:hover{
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 12px 1px #B7B7B7; 
+box-shadow: 0px 0px 12px 1px #B7B7B7;
+}
