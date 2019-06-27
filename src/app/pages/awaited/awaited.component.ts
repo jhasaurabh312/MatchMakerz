@@ -21,7 +21,7 @@ export class AwaitedComponent implements OnInit {
   ngOnInit() {
 
     this.incoming = true;
-    this.outgoing = true;
+    this.outgoing = false;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -34,8 +34,17 @@ export class AwaitedComponent implements OnInit {
 
        for(let i=0;i<this.awaitedIn.length;i++){
           if(this.awaitedIn[i].matched_to.profile_photo== null)
-          this.awaitedIn[i].matched_to.profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
+          {
+              if (this.awaitedIn[i].matched_to.gender===0){
+                  this.awaitedIn[i].matched_to.profile_photo = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
 
+              }
+              else{
+                  this.awaitedIn[i].matched_to.profile_photo = 'http://www.pranawellness.in/Images/female.png';
+                
+              }
+
+          }
           if(this.awaitedIn[i].matched_to.marital_status == '0')
           this.awaitedIn[i].matched_to.marital = "Not Married";
           else
@@ -59,9 +68,18 @@ export class AwaitedComponent implements OnInit {
       console.log('outgoing',this.staticProductDetail)
 
       for(let i=0;i<this.staticProductDetail.length;i++){
-        if(this.staticProductDetail[i].matched_to.profile_photo== null)
-        this.staticProductDetail[i].matched_to.profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
+             if(this.staticProductDetail[i].matched_to.profile_photo== null)
+          {
+              if (this.staticProductDetail[i].matched_to.gender===0){
+                  this.staticProductDetail[i].matched_to.profile_photo = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
 
+              }
+              else{
+                  this.staticProductDetail[i].matched_to.profile_photo = 'http://www.pranawellness.in/Images/female.png';
+                
+              }
+
+          }
         if(this.staticProductDetail[i].matched_to.marital_status == '0')
          this.staticProductDetail[i].matched_to.marital = "Not Married";
         else
@@ -83,7 +101,18 @@ export class AwaitedComponent implements OnInit {
   
   }
 
-   
+   ShowAwaited(e){
+     if(e === 'incoming'){
+               this.incoming = true;
+       this.outgoing = false;
+     }
+     else{
+        this.incoming = false;
+       this.outgoing = true;
+
+     }
+   }
+
   awaited(){
     this.router.navigate(['/awaited']);
   }

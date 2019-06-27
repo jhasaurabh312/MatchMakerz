@@ -1,95 +1,111 @@
+<div class="section shadow" id="header">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
+    <a href="/clients" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" ><i class="fa fa-chevron-left fa-2x" ></i></a>
+    <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Filter</h5>
+  </div>
+</div>
+
 <main class="modal-body">
-  <form [formGroup]="EditClientPreferences">
-      <div class="filter">
-          <div class="input-group p-2">
-            <select formControlName="gender"  class="form-control">
-                <option value="gender" [disabled]="true" [selected]="true">Gender</option>
-                <option value="0" >MALE</option>
-                <option value="1" >FEMALE</option>
-            </select> 
-          </div>
+    <form [formGroup]="EditClientPreferences">
+        <div class="filter">
+            <div class="container">
+                <div class="form-row">
+                    <div class="col input-group p-2">
+                        <select formControlName="gender" class="form-control">
+                            <option value="gender" [disabled]="true" [selected]="true">Gender</option>
+                            <option value="0">MALE</option>
+                            <option value="1">FEMALE</option>
+                        </select>
+                    </div>
 
-        <div class="input-group p-2">
-            <select formControlName="manglik" class="form-control">
-                <option value="manglik" [disabled]="true" [selected]="true">manglik</option>
-                <option value="0" >No</option>
-                <option value="1" >Yes</option>
-            </select> 
+                    <div class="col nput-group p-2">
+                        <select formControlName="manglik" class="form-control">
+                            <option value="manglik" [disabled]="true" [selected]="true">manglik</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <div class="col input-group p-2">
+                        <select formControlName="marital_status" class="form-control">
+                            <option value="marital_status" [disabled]="true" [selected]="true">marital_status</option>
+                            <option value="0">Not Married</option>
+                            <option value="1">Married</option>
+                        </select>
+                    </div>
+
+                    <div class="col input-group p-2">
+                        <select formControlName="food_choice" class="form-control">
+                            <option value="foodChoice" [disabled]="true" [selected]="true">foodChoice</option>
+                            <option value="0">Veg</option>
+                            <option value="1">Non-veg</option>
+                        </select>
+                    </div>
+                </div>
+                    <div class="form-row">
+                        <div class="col input-group p-2">
+                            <select formControlName="citizenship" class="form-control">
+                                <option value="citizenship" [disabled]="true" [selected]="true">citizenship</option>
+                                <option value="0">Indian</option>
+                                <option value="1">NRI</option>
+                            </select>
+                        </div>
+                        <div class="col input-group p-2">
+                            <select formControlName="occupation" class="form-control">
+                                <option value="occupation" [disabled]="true" [selected]="true">occupation</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+
+                        <div class="col input-group p-2">
+                            <input formControlName="min_age" value="min_age" class="form-control" placeholder="Min Age">
+
+                        </div>
+
+                        <div class="col input-group p-2">
+                            <input formControlName="max_age" value="max_age" class="form-control" placeholder="Max Age">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col input-group p-2">
+                            <input formControlName="min_income" value="min_income" class="form-control" placeholder="Min Income(LPA)">
+
+                        </div>
+                        <div class="col input-group p-2">
+                            <input formControlName="max_income" value="max_income" class="form-control" placeholder="Max Income(LPA)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="col input-group p-2">
+                            <input formControlName="min_height" value="min_height" class="form-control" placeholder="Min Height">
+
+                        </div>
+
+                        <div class="col input-group p-2">
+                            <input formControlName="max_height" value="max_height" class="form-control" placeholder="Max Height">
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="col input-group p-2">
+                            <input formControlName="caste" value="caste" class="form-control" placeholder="Caste">
+                        </div>
+
+                    </div>
+                    <div class="col input-group p-2">
+                        <button class="btn btn-user" type="button" (click)="ApplyFilter()">Apply Filter</button>
+                    </div>
+
+            </div>
         </div>
 
-        <div class="input-group p-2">
-            <select formControlName="marital_status"  class="form-control">
-                <option value="marital_status" [disabled]="true" [selected]="true">marital_status</option>
-                <option value="0" >Not Married</option>
-                <option value="1" >Married</option>
-            </select> 
-        </div>
-
-        <div class="input-group p-2">
-            <select formControlName="food_choice"  class="form-control">
-                <option value="foodChoice" [disabled]="true" [selected]="true">foodChoice</option>
-                <option value="0" >Veg</option>
-                <option value="1" >Non-veg</option>
-            </select> 
-        </div>
-
-        <div class="input-group p-2">
-            <select formControlName="citizenship" class="form-control">
-                <option value="citizenship" [disabled]="true" [selected]="true">citizenship</option>
-                <option value="0" >Indian</option>
-                <option value="1" >NRI</option>
-            </select> 
-        </div>
-
-        <div class="input-group p-2">
-            <select formControlName="occupation" class="form-control">
-                <option value="occupation" [disabled]="true" [selected]="true">occupation</option>
-                <option value="0" >No</option>
-                <option value="1" >Yes</option>
-            </select> 
-        </div>
-
-        <div class="input-group p-2">
-            <input formControlName="min_income"  value ="min_income" class="form-control" placeholder="Min Income(LPA)">
-           
-        </div>
-
-        <div class="input-group p-2">
-                <input formControlName="max_income"  value ="max_income" class="form-control" placeholder="Max Income(LPA)">
-        </div>
-        
-        <div class="input-group p-2">
-                <input formControlName="min_age"  value ="min_age" class="form-control" placeholder="Min Age">
-               
-        </div>
-            
-        <div class="input-group p-2">
-                <input formControlName="max_age"  value ="max_age" class="form-control" placeholder="Max Age">
-        </div>
-        
-        <div class="input-group p-2">
-                <input formControlName="min_height"  value ="min_height" class="form-control" placeholder="Min Height">
-                
-        </div>
-            
-        <div class="input-group p-2">
-                <input formControlName="max_height"  value ="max_height" class="form-control" placeholder="Max Height">
-        </div>
-
-        <div class="input-group p-2">
-            <input formControlName="caste"  value ="caste" class="form-control" placeholder="Caste">
-        </div>
-
-        <div class="input-group p-2" >
-            <button class="btn btn-user" type = "button"  (click) = "ApplyFilter()">Apply Filter</button>
-        </div>
-    
-             
-    </div>
-
-   
-   
-
-  </form>
+    </form>
 
 </main>

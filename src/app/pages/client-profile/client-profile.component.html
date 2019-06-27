@@ -1,361 +1,562 @@
-<main class="card-wrapper" style="background-color:white; overflow: hidden;">
-
-  <div class="modal-body">
-    <!-- <div class="header">
-        <h3></h3>
-    </div> -->
-  </div>  
-  
-  <div class="row" style="display:flex">
-    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align:center;">Personal</div>
-    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align:center">Social</div>
-    <div class="col-xs-4 col-md-4 col-lg-4" style="text-align:center;">Preferences</div>
-  </div> 
-</main>
-
-
-<main class="section" style="background-color:#f1f1f1;padding-top:30px;padding-bottom: 30px">
-
-  <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
-
-    <div class="section">
-
-      <div class="row">
-         <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">BASIC DETAILS</div>
-      </div>
-
-      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
-          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
-              <h5>Name</h5>
-              
-              <h6>{{user.name}}</h6>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
-              <h5>Age</h5>
-              
-              <h6>{{user.age}}</h6>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
-              <h5>Marital Status</h5>
-              
-              <h6>{{user.marital_status}}</h6>
-          </div>
-      </div>
-
-      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
-          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-              <h5>Height</h5>
-              <br>
-              <h6>{{user.height}} inches</h6>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-              <h5>Weight(Kg)</h5>
-              <br>
-              <h6>{{user.weight}}</h6>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-              <h5>Religion</h5>
-              <br>
-              <h6>{{user.religion}}</h6>
-          </div>
-      </div>
-
-      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
-          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-            <h5>Food Choice</h5>
-            <br>
-            <h6>{{user.food_choice}}</h6>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
-              <h5>Gotra</h5>
-              <br>
-              <h6>{{user.gotra}}</h6>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-              <h5>Caste</h5>
-              <br>
-              <h6>{{user.caste}}</h6>
-          </div>
-      </div>
-      <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-              <h5>Current City</h5>
-              <br>
-              <h6>{{user.current_city}}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-                <h5>Salary</h5>
-                <br>
-                <h6>{{user.yearly_income}}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-                <h5>Job Type</h5>
-                <br>
-                <h6>{{user.occupation}}</h6>
-            </div>
-        </div>
-
-    </div>
-
-  </main>
-
-  
-
-  <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
-
-      <div class="section">
-  
-        <div class="row" >
-           <div class="col-sm-6 col-md-6 col-lg-6" style="text-align:center;color: #F92BCC">HOROSCOPE DETAILS</div>
-        </div>
-  
-        <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
-            <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                <h5>Mangalik Status</h5>
-               
-                <h6>{{user.manglik}}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center;">
-                <h5>Date of Birth</h5>
-                
-                <h6>{{user.birth_date}}</h6>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center;">
-                <h5>Time of Birth</h5>
-                
-                <h6>{{user.birth_time}}</h6>
-            </div>
-        </div>
-  
-        <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                <h5>Birth Place</h5>
-                
-                <h6>{{user.birth_place}}</h6>
-            </div>
-        </div>
-      </div>
-  
-  </main> 
-
- 
-  <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
-
-      <div class="section">
-  
-        <div class="row">
-           <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Educational Details</div>
-        </div>
-  
-        <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                
-                <h6>{{user.degree}}, {{user.college}}</h6>
-            </div>
-        </div>
-
-      </div>
-  
-  </main>
-
-  <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
-
-        <div class="section">
-    
-          <div class="row">
-             <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Career Details</div>
-          </div>
-          <div class="row">
-                <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                  <h5>Occupation</h5>
-                 
-                  <h6>{{user.occupation}}</h6>
+<main class="card-wrapper" style="background-color:#f1f1f1;">
+    <main class="card-wrapper" style="background-color:#ffffff;">
+        <div class="section shadow" id="header-2">
+            <div class="row" style="margin: 0px; padding: 0px;">
+                <div class="section shadow" id="header-1">
+                    <div class="container">
+                        <div class="row" style="margin-top: 20px;">
+                            <a href="/clients" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark">
+                                <i class="fa fa-chevron-left fa-2x"></i></a>
+                            <strong style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">
+                            Client Profile
+                            </strong>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                    <h5>Organisation</h5>
-                   
-                    <h6>{{user.organisation}}</h6>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                    <h5>City</h5>
-                   
-                    <h6>{{user.city}}</h6>
+
+            </div>
+            <div class="row" style="margin: 0px;padding: 0px;">
+                <div class="container">
+                    <div class="row text-center" style="margin: 32px;">
+                        <div class="container">
+                            <div class="row text-center header-row">
+                                <img class="img-thumbnail rounded-circle mx-auto d-block " style="width:250px;height: 250px;" src="{{user.profile_photo}}">
+                            </div>
+                            <div class="image">
+                                <div class="circle">
+                                    <p class="fa fa-camera" aria-hidden="true"></p>
+                                </div>
+                            </div>
+                            <div class="row text-center header-row">
+                                <strong class=" mx-auto d-block">
+                        {{user.name}}
+                      </strong>
+                            </div>
+                            <div class="row text-center header-row">
+                                <!-- <div class=" mx-auto d-block"> -->
+                                <div class="col-md-6 col-sm-6 col-lg-6  mx-auto d-block text-right">
+                                    <div class="icon-phone">
+                                        <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6   mx-auto d-block text-left">
+                                    <div class="icon-whatsapp">
+                                        <i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-lg-4 active" style="text-align:center;margin-top: 30px;color:black;cursor: pointer;">
+                            <div [ngClass]="personal ? 'active-border' : 'active-border-none'" (click)="ShowData('personal')">
+                                <p>Personal</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 active" style="text-align:center;margin-top: 30px;color:black;cursor: pointer;">
+                            <div [ngClass]="social ? 'active-border' : 'active-border-none'" (click)="ShowData('social')">
+                                <p>Social</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-lg-4 active" style="text-align:center;margin-top: 30px;color:black;cursor: pointer;">
+                            <div [ngClass]="preferences ? 'active-border' : 'active-border-none'" (click)="ShowData('preferences')">
+                                <p>Preferences</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-          
-          
         </div>
-    
     </main>
+    <main class="section" style="padding-top:30px;padding-bottom: 30px;margin: -5px 69px 100px 100px;">
 
-    <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+        <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
 
             <div class="section">
-        
-              <div class="row">
-                 <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Contact Details</div>
-              </div>
-              <div class="row">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92BCC">
+                        <div class="row">
+                            <div class=" icons">
+                                <img src="../../../assets/icons/info-circle.svg">
+                            </div>
+                            <div style="color: #E55A69;margin: 14px;">
+                                BASIC DETAILS
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                            <div class="offset-11">
+                            <div class="icons">
+                                <img src="../../../assets/icons/pen.svg">
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="row" style=" margin-top:15px;">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Name</strong>
+
+                        <h6>{{user.name}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Age</strong>
+
+                        <h6>{{user.age}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Marital Status</strong>
+
+                        <h6>{{user.marital_status}}</h6>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row" style=" margin-top:15px;">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Height</strong>
+                        <br>
+                        <h6>{{user.height}} inches</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Weight(Kg)</strong>
+                        <br>
+                        <h6>{{user.weight}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Religion</strong>
+                        <br>
+                        <h6>{{user.religion}}</h6>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="row" style=" margin-top:15px;">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Food Choice</strong>
+                        <br>
+                        <h6>{{user.food_choice}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Gotra</strong>
+                        <br>
+                        <h6>{{user.gotra}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Caste</strong>
+                        <br>
+                        <h6>{{user.caste}}</h6>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Current City</strong>
+                        <br>
+                        <h6>{{user.current_city}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Salary</strong>
+                        <br>
+                        <h6>{{user.yearly_income}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Job Type</strong>
+                        <br>
+                        <h6>{{user.occupation}}</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+            <div class="section">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="text-align:left;color: #F92BCC">
+                        <div class="row">
+                            <div class=" icons">
+                                <img src="../../../assets/icons/balance-scale.svg">
+                            </div>
+                            <div style="color: #E55A69;margin: 14px;">
+                         HOROSCOPE DETAILS
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                            <div class="offset-11">
+                              <div class="icons">
+                                <img src="../../../assets/icons/pen.svg">
+                              </div>
+                            </div>                   
+                     </div>
+
+                </div>
+
+                <div class="row" style=" margin-top:15px;">
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                      <h5>E-mail</h5>
-                     
-                      <h6>{{user.email}}</h6>
+                        <strong>Mangalik Status</strong>
+
+                        <h6>{{user.manglik}}</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                        <h5>Phone</h5>
-                       
+                        <strong>Date of Birth</strong>
+
+                        <h6>{{user.birth_date}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Time of Birth</strong>
+
+                        <h6>{{user.birth_time}}</h6>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Birth Place</strong>
+
+                        <h6>{{user.birth_place}}</h6>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+            <div class="section">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                        <div class="row">
+                            <div class=" icons">
+                                <img src="../../../assets/icons/graduation-hat.svg">
+                            </div>
+                            <div style="color: #E55A69;margin: 14px;">
+                            Educational Details
+
+                            </div>
+                        </div>
+                  </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                            <div class="offset-11">
+                              <div class="icons">
+                                <img src="../../../assets/icons/pen.svg">
+                              </div>
+                            </div>                   
+                     </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+
+                        <h6>{{user.degree}}, {{user.college}}</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+            <div class="section">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                        <div class="row">
+                            <div class=" icons">
+                                <img src="../../../assets/icons/briefcase-alt.svg">
+                            </div>
+                            <div style="color: #E55A69;margin: 14px;">
+                    Career Details
+                            </div>
+                        </div>
+
+                  </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                            <div class="offset-11">
+                              <div class="icons">
+                                <img src="../../../assets/icons/pen.svg">
+                              </div>
+                            </div>                   
+                     </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Occupation</strong>
+
+                        <h6>{{user.occupation}}</h6>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Organisation</strong>
+
+                        <h6>{{user.organisation}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>City</strong>
+
+                        <h6>{{user.city}}</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+            <div class="section">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                        <div class="row">
+                            <div class=" icons">
+                                <img src="../../../assets/icons/info-circle.svg">
+                            </div>
+                            <div style="color: #E55A69;margin: 14px;">
+                    Contact Details
+                            </div>
+                        </div>
+                  </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                            <div class="offset-11">
+                              <div class="icons">
+                                <img src="../../../assets/icons/pen.svg">
+                              </div>
+                            </div>                   
+                     </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>E-mail</strong>
+
+                        <h6>{{user.email}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Phone</strong>
+
                         <h6>{{user.phone_number}}</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                        <h5>Whatsapp number</h5>
-                       
+                        <strong>Whatsapp number</strong>
+
                         <h6>{{user.whatsapp_number}}</h6>
                     </div>
                 </div>
-              
-              
+
             </div>
-        
+
         </main>
 
         <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
 
             <div class="section">
-        
+
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Parent Details</div>
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                        <div class="row">
+                            <div class=" icons">
+                                <img src="../../../assets/icons/couple.svg">
+                            </div>
+                            <div style="color: #E55A69;margin: 14px;">
+                    Parent Details
+                            </div>
+                        </div>
+                  </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                            <div class="offset-11">
+                              <div class="icons">
+                                <img src="../../../assets/icons/pen.svg">
+                              </div>
+                            </div>                   
+                     </div>
+
                 </div>
                 <div class="row">
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                        <h5>Father's Occupation</h5>
-                        
+                        <strong>Father's Occupation</strong>
+
                         <h6>{{user.father_occupation}}</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                        <h5>Father's Status</h5>
-                        
+                        <strong>Father's Status</strong>
+
                         <h6>{{user.father_status}}</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                        <h5>Mother's Occupation</h5>
-                        
+                        <strong>Mother's Occupation</strong>
+
                         <h6>{{user.mother_occupation}}</h6>
                     </div>
                 </div>
+                <hr/>
+
                 <div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                        <h5>Mother's Status</h5>
-                        
+                        <strong>Mother's Status</strong>
+
                         <h6>{{user.mother_status}}</h6>
                     </div>
-                </div>    
-                
+                </div>
+
             </div>
-        
+
         </main>
 
         <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
 
-                <div class="section">
-            
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Siblings</div>
-                    </div>
-                    <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
-                        <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                            <h5>Sister Married</h5>
-                            
-                            <h6>{{user.married_daughter}}</h6>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                            <h5>Sister Unmarried</h5>
-                            
-                            <h6>{{user.Unmarried_daughter}}</h6>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                            <h5>Brother Married</h5>
-                            
-                            <h6>{{user.married_son}}</h6>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                            <h5>Brother Unmarried</h5>
-                            
-                            <h6>{{user.Unmarried_son}}</h6>
-                        </div>
-                    </div>
-                    
-                </div>
-            
-            </main>
-            <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+            <div class="section">
 
-                    <div class="section">
-                
-                      <div class="row">
-                         <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">Partner Preferences</div>
-                      </div>
-                
-                      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
-                          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
-                              <h5>Caste</h5>
-                              
-                              <h6>{{User.id}}</h6>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
-                              <h5>Mangalik</h5>
-                              
-                              <h6>{{User.manglik}}</h6>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
-                              <h5>Marital Status</h5>
-                              
-                              <h6>{{User.marital_status}}</h6>
-                          </div>
-                      </div>
-                
-                      <div class="row" style="border-bottom:2px groove #f1f1f1; margin-top:15px;">
-                          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-                              <h5>Age</h5>
-                              <br>
-                              <h6>{{User.min_age}} - {{User.max_age}}yrs</h6>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-                                <h5>Food Choice</h5>
-                                <br>
-                                <h6>{{User.food_choice}}</h6>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                        <div class="row">
+                            <div class=" icons">
+                                <img src="../../../assets/icons/twins.svg">
                             </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-                                    <h5>Occupation</h5>
-                                    <br>
-                                    <h6>{{User.occupation}}</h6>
-                                </div>
-                      </div>
-                
-                      <div class="row"  >
-                            <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-                                <h5>Income</h5>
-                                <br>
-                                <h6>{{User.yearly_income}} LPA</h6>
+                            <div style="color: #E55A69;margin: 14px;">
+                              Siblings
                             </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
-                              <h5>Citizenship</h5>
-                              <br>
-                              <h6>{{User.citizenship}}</h6>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4"  style="text-align:center">
-                              <h5>Height</h5>
-                              <br>
-                              <h6>{{User.min_height}}-{{User.max_height}}</h6>
-                          </div>
-                      </div>
-                           
-                
-       </div>
-                
+                        </div>
+                  </div>
+                                      <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                            <div class="offset-11">
+                              <div class="icons">
+                                <img src="../../../assets/icons/pen.svg">
+                              </div>
+                            </div>                   
+                     </div>
+
+                </div>
+                <div class="row" style=" margin-top:15px;">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Sister Married</strong>
+
+                        <h6>{{user.married_daughter}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Sister Unmarried</strong>
+
+                        <h6>{{user.Unmarried_daughter}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Brother Married</strong>
+
+                        <h6>{{user.married_son}}</h6>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
+                        <strong>Brother Unmarried</strong>
+
+                        <h6>{{user.Unmarried_son}}</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+        <main class="container" style="background-color:white;padding:20px;border-radius:20px;margin-top:20px">
+
+            <div class="section">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                        <div class="row">
+                            <div class=" icons">
+                                <img src="../../../assets/icons/info-circle.svg">
+                            </div>
+                            <div style="color: #E55A69;margin: 14px;">
+Partner Preferences                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                            <div class="offset-11">
+                              <div class="icons">
+                                <img src="../../../assets/icons/pen.svg">
+                              </div>
+                            </div>                   
+                     </div>
+
+
+                </div>
+
+                <div class="row" style=" margin-top:15px;">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Caste</strong>
+
+                        <h6>{{User.id}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Mangalik</strong>
+
+                        <h6>{{User.manglik}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Marital Status</strong>
+
+                        <h6>{{User.marital_status}}</h6>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="row" style=" margin-top:15px;">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Age</strong>
+                        <br>
+                        <h6>{{User.min_age}} - {{User.max_age}}yrs</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Food Choice</strong>
+                        <br>
+                        <h6>{{User.food_choice}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Occupation</strong>
+                        <br>
+                        <h6>{{User.occupation}}</h6>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Income</strong>
+                        <br>
+                        <h6>{{User.yearly_income}} LPA</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Citizenship</strong>
+                        <br>
+                        <h6>{{User.citizenship}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
+                        <strong>Height</strong>
+                        <br>
+                        <h6>{{User.min_height}}-{{User.max_height}}</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
     </main>
-    <div class="row">
-        <button class="btn btn-primary" style="margin-left:auto;margin-right:auto">Delete Client</button>
+    <div class="container text-center">
+        <button class="btn btn-danger" style="margin:50px;margin-left:auto;margin-right:auto;">Delete Client</button>
     </div>
-</main> 
+
+</main>

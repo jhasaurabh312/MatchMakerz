@@ -20,6 +20,7 @@ export class EditProfileComponent implements OnInit {
   data : any;
   values : string = '';
   suc :any;
+  notices :any;
   // apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService, private router: Router) { 
@@ -39,8 +40,22 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+        const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    }) 
+       this.http.get('http://matchmakerz.in/api/v1/client/notifications' ,{ headers: headers }).subscribe((response:any)=>{
+        this.notices=response.notification;
+        console.log(this.notices);
+      })
    
   }
+
+
+
+ myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
   editProfile(){
 

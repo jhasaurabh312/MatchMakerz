@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent implements OnInit {
+  load_more = false;
   public staticProductDetail : any = [];
-  response : any ;
+  public staticLoadProductDetail : any = [];
+  response : any = [];
+  load_response : any = [] ;
   a : BigInteger;
   show : boolean;
   notices : any =[];
@@ -92,15 +95,21 @@ export class ClientsComponent implements OnInit {
     this.router.navigate(['/personal-details']);
   }
 
-  getMore(){
-
+  GetMore(){
+    console.log("** get more **")
+    // console.log(this.staticProductDetail.length)
+    this.load_more = true;
+    this.show = false;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
-
-    return this.http.get('http://matchmakerz.in/api/v1/client/list?id='+localStorage.getItem('lastClientId'), {headers : headers}).subscribe((response) =>{
-      this.staticProductDetail = response;
+    return this.http.get('http://matchmakerz.in/api/v1/client/list?id='+localStorage.getItem('lastClientId'), {headers : headers}).subscribe((load_response) =>{
+      console.log((load_response))
+      console.log(typeof(this.staticProductDetail))
+      this.staticLoadProductDetail = load_response;
+      this.staticProductDetail = [...this.staticProductDetail];
+      this.staticProductDetail = [...this.staticProductDetail,...this.staticLoadProductDetail];
       console.log(this.staticProductDetail);
 
      
@@ -132,6 +141,7 @@ export class ClientsComponent implements OnInit {
          this.staticProductDetail[i].feet = (this.staticProductDetail[i].height -  this.staticProductDetail[i].inches)/12;
         
       } 
+      this.load_more = false;
 
       localStorage.setItem('lastClientId', this.staticProductDetail[l-1].id);
       this.router.navigate(['/clients']);
