@@ -1,37 +1,163 @@
-<main class="card-wrapper">
-
-  <div class="row">
-
+<div style="background-color:#f1f1f1;">
+  <div class="section shadow" id="header" style="background: white;">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
+      <a href="/clients" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" ><i class="fa fa-chevron-left fa-2x" ></i></a>
+      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Plans</h5>
+    </div>
   </div>
 
-  <div class="row" style="display:flex">
-    <div class="col-xs-6 col-md-6 col-lg-6" style="margin-left:auto;margin-right:auto">
-      <div class="square">
-        <p>Credits left : {{user.value}}</p>
-      </div>
-    </div>
-    <div class="col-xs-6 col-md-6 col-lg-6">
-        <div class="square" style="margin-left:auto;margin-right:auto">
-          <p>Credits left : {{user.value}}</p>
+  <!-- <div class="row"> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="container">
+          <!-- <div class="offset-2"> -->
+          <div style="margin: 67px 67px 76px 276px;" class=" button-data shadow">
+            <div style="text-align: center; margin-left: 10px;  margin-top: -6px" class="row text-center">Credits Left</div>
+            <div style=" margin-left: 50px;  margin-top: -6px" class="row text-center">0</div>
+          </div>
+          <!-- </div> -->
         </div>
       </div>
-  </div>
-
-  <div class="section">
-      <div class="row" style="display:flex">
-          <div class="text">
-              <h5>Refer and Earn</h5>
-              <p> Earn 200 free credits for 30 days</p>
+      <div class="col-md-6">
+        <div class="container  text-right">
+          <!-- <div class="offset-2 "> -->
+          <div class=" button-data shadow">
+            <div style="margin-left: 23px; margin-top: -6px" class="row">Valid till</div>
+            <div style="margin-left: 23px; margin-top: -6px" class="row">30 Days</div>
+            <!-- </div>  -->
           </div>
-          <div class="btn btn-user"> Refer </div>
+        </div>
       </div>
-      <div class="row" style="display:flex">
-          <div class="text">
-              <h5>Rate us 5 stars</h5>
-              <p>Earn 200 free credits for 30 days</p>
-          </div>
-          <div class="btn btn-user"> Refer </div>
-      </div>
+    </div>
   </div>
+  <!-- </div> -->
+  <div class="container">
+    <div class="offset-3">
+        <div class="row">
+          <div style="color:#E55A69">
+            <h5>Get Free Credits</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+              <div class="row credits">
+                <div class="col-md-9 col-lg-9 col">
+                  <div class="row">
+                    <div class="container">
+                      <div class="row">
+                        <strong>
+                            Refer and Earn
+                        </strong>
+                      </div>
 
-</main>
+                      <div class="row" >
+                          Earn 200 free credits for 30 days
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                  <div class="credits-button shadow">Reffer</div>
+                </div>
+              </div>
+              <div class="row credits">
+                <div class="col-md-9 col-lg-9 col">
+                  <div class="row">
+                    <div class="container">
+                      <div class="row">
+                        <strong>
+                            Rate Us Five Star
+                        </strong>
+                      </div>
+
+                      <div class="row">
+                          Earn 200 free credits for 30 days
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                  <div class="credits-button shadow">Rate</div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="offset-3">
+        <div class="row">
+          <div style="color:#E55A69">
+            <h5>Plans</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div *ngFor="let plan of plans">
+              <div class="row credits">
+                <div class="col-md-12 col-lg-12">
+                  <div class="row">
+                    <div class="container">
+                      <div class="row">
+                        <strong>
+                            {{plan.plan_name}}
+                        </strong>
+                      </div>
+
+                      <div class="row" style="color:#E55A69" >
+                        <ul>
+                          <li>
+                            {{plan.number_of_clients}}
+                          </li>
+                          <li>
+                            {{plan.description}}
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="row" style="color:#E55A69">
+                        <div class="col-md-4 col-lg-4">
+                            <p>Amount: {{plan.amount}}</p>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <p>Credits: {{plan.credits}}</p>
+                        </div>                      
+                        <div class="col-md-4 col-lg-4">
+                            <p>Validity: {{plan.validity}}</p>
+                        </div>
+                      </div>
+                      <div class="row" style="color:#E55A69">
+                        <div class="col-md-4 col-lg-4">
+                          <div>
+                              Platforms
+                          </div>
+                          <div>
+                            {{plan.platforms}}
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-lg-8">
+                          <div>
+                                Additional Features
+                          </div>
+                          <div>
+                              {{plan.additional_features}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+
+                    <div class="offset-5" style="margin-top:40px;">
+                      <div class="credits-button shadow">Buy</div>
+                    </div>
+                </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

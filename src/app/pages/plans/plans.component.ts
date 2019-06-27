@@ -7,7 +7,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   styleUrls: ['./plans.component.scss']
 })
 export class PlansComponent implements OnInit {
-
+  plans: any = [];
   constructor(private http : HttpClient) { }
 
   ngOnInit() {
@@ -18,6 +18,7 @@ export class PlansComponent implements OnInit {
 
     this.http.get('http://matchmakerz.in/api/v1/matchmaker/plans_for_existing',{headers : headers}).subscribe((res : any) => {
       console.log(res);
+      this.plans = res["data"];
     })
   }
 
