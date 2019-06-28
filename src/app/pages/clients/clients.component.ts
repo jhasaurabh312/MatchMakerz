@@ -15,6 +15,8 @@ export class ClientsComponent implements OnInit {
   load_response : any = [] ;
   a : BigInteger;
   show : boolean;
+  clients: boolean=true;
+  my_profile: boolean = false;
   notices : any =[];
   
   
@@ -93,6 +95,16 @@ export class ClientsComponent implements OnInit {
 
   AddClient(){
     this.router.navigate(['/personal-details']);
+  }
+  ActiveBorder(e){
+    if(e==='my_profile'){
+      this.my_profile  =true;
+      this.clients = false
+    }
+    else{
+           this.my_profile  = !true;
+      this.clients = !false 
+    }
   }
 
   GetMore(){

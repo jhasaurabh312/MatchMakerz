@@ -20,7 +20,15 @@
 
 z-index: 100;  
 }
+.active-border{
+  color:black;cursor: pointer;
+  border-bottom: 3px solid #E55A69;
+  // width: 400px;
+    color: #E55A69;
+// margin: -43px;
+   transition: border-bottom, width,1s;
 
+}
 
 .card-button{
   color:white;background-color:#f92bcc;border: 5px solid #f92bcc;

@@ -54,11 +54,12 @@
   border-radius: 100%;
   margin-top: 10px;
   margin-bottom: auto;
+  cursor: pointer;
   // background-color: #f92c8b;
   width: 40px;
   margin-right: 25px;
   background-position: center;
-  background-size: 40px;
+  background-size: cover;
   background-repeat: no-repeat;
   -webkit-transition-property: width, height, background-color, box-shadow ;/* Safari */
   -webkit-transition-duration: 0.9s; /* Safari */
@@ -68,6 +69,25 @@
 .circle:hover{
   // background-color: blue;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.active-border-none{
+    color:black;cursor: pointer;
+  // width: 300px;
+  color: #f92c8b;
+
+    border-bottom: 3px solid #FFF;
+
+
+}
+.active-border{
+  color:black;cursor: pointer;
+  border-bottom: 3px solid #F92CBB;
+  // width: 400px;
+    color: #f92c8b;
+
+   transition: border-bottom, width,1s;
+
 }
 
 #edit {

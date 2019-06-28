@@ -1,6 +1,6 @@
 
-<main class="card-wrapper" style="overflow: hidden;padding: 0px;background-color: #f1f1f1;">
-<div class="section shadow" id="header">
+<div class="card-wrapper" style="overflow: hidden;padding: 0px;background-color: #f1f1f1;">
+  <div class="section shadow" id="header">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;padding-top:20px; ">
     <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
     <h5 style="font-size:1.2em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-style: continuous">Matchmakerz</h5>
@@ -14,10 +14,10 @@
         <header class='masthead' style="padding:0">
           <img class="img-thumbnail" src="{{user.profile_pic}}" style="width:200px;height: -webkit-fill-available;border-radius: 50%">
           <div class="image">
-              <i class="fa fa-camera fa-2x" style="color:#E55A69;"></i>
+                <img src="../../../assets/icons/camera-plus.svg">
           </div>
         </header>
-        <div class="masthead-intro" style="color:#E55A69;"> {{user.first_name}} {{user.last_name}}</div>
+        <div class="masthead-intro" style="color:#f92c8b;"> {{user.first_name}} {{user.last_name}}</div>
 
       </div>
 
@@ -33,19 +33,19 @@
 
       <div class="section" style="margin-top:20px;width: 80%;margin-left: auto;margin-right:auto">
         <div class="card-body">
-          <div style="font-size:25px;color:#E55A69;">About me</div>
+          <div style="font-size:25px;color:#f92c8b;;">About me</div>
           <div style="font-size:18px;color:black">{{user.about}}</div>
         </div>
         <div class="card-body">
-          <div  style="font-size:25px;color:#E55A69;">Specialization</div>
+          <div  style="font-size:25px;color:#f92c8b;">Specialization</div>
           <div style="font-size:18px;color:black">{{user.specialization}}</div>
         </div>
         <div class="card-body">
-          <div  style="font-size:25px;color:#E55A69;">Referral Code</div>
+          <div  style="font-size:25px;color:#f92c8b;">Referral Code</div>
           <div style="font-size:18px;color:black">{{user.unique_referral_code}}</div>
         </div>
         <div class="card-body">
-          <div  style="font-size:25px;color:#E55A69;">Location</div>
+          <div  style="font-size:25px;color:#f92c8b;">Location</div>
           <div style="font-size:18px;color:black">{{user.location}}</div>
         </div>
       </div>
@@ -59,27 +59,27 @@
         </div>
       </div>
     </div>
-<!-- </main> -->
-
-<div class="section" style="position:fixed;width:100%;bottom:0;">
+</div>
+<div class="section" style="position:fixed;width:100%;bottom:0">
   <div class="row">
-
-    <div style="width:60px;margin-left:80%;  background-color: #E55A69;cursor: pointer;" id="edit" (click)="editProfile()">
-      <i class="fa fa-edit fa-2x" style="padding: 2px;
-    /* text-align: right; */
-    font-size: 30px;
-    color: white;
-    margin: 16px;"></i> 
+    <div class="circle play"  style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;background-image: url('../../../assets/icons/pen.svg')" id="edit" (click)="AddClient()">
+      
     </div>
   </div>
-  <div class="card-wrapper" style="background-color:white;display: flex;">
+  <div class="card-wrapper" style="background-color:white;height:62px;display:  flex; font-size:14px;color:#f92c8b;">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <a routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center"><img
-          src="../../../assets/icons/users-alt.svg" style="width:30px"><br><p style="color:#E55A69;">My clients</p></a>
+      <a  [ngClass]="clients ? 'active-border' : 'active-border-none'" (click)="ActiveBorder('clients')" routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center">
+        <img src="../../../assets/icons/users-alt.svg" style="width:30px">
+        <br>
+        <p style="color:#5d5a5a;margin-bottom:4px">My clients</p>
+      </a>
     </div>
     <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
-      <a routerLink="/clients" routerLinkActive="active" style="display:block;;text-align: center"><img
-          src="../../../assets/icons/icons-19.svg" style="width:30px"><br><p style="color:#E55A69;">My Profile</p></a>
+      <a  [ngClass]="my_profile ? 'active-border' : 'active-border-none'" (click)="ActiveBorder('my_profile')" routerLink="/my-profile" routerLinkActive="active" style="display:block;;text-align: center">
+        <img src="../../../assets/icons/icons-19.svg" style="width:30px">
+        <br>
+        <p style="color:#f92c8b;margin-bottom:4px" >My Profile</p>
+      </a>
     </div>
   </div>
 </div>

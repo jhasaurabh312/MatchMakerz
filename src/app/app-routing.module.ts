@@ -23,7 +23,7 @@ import { DummyComponent } from './pages/dummy/dummy.component';
 import { PlansComponent } from './pages/plans/plans.component';
 import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
 
-
+      
 const appRoutes: Routes = [
   { path: '', redirectTo: 'get-otp', pathMatch: 'full'},
   { path : 'carousel' , component : CarouselComponent},

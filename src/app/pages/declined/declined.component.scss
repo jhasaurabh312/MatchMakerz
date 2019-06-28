@@ -17,7 +17,36 @@ p {
 }
 
 
-.header{
-  border-bottom: 6px solid #f1f1f1;
+// .header{
+//   border-bottom: 6px solid #f1f1f1;
   
+// }
+
+.active-border{
+  color:black;cursor: pointer;
+  border-bottom: 3px solid #E55A69;
+  // width: 400px;
+    color: #E55A69;
+// margin: -43px;
+   transition: border-bottom, width,1s;
+
+}
+
+.active-border-none{
+    color:black;cursor: pointer;
+  // width: 300px;
+  color: #F92CBB;
+
+    border-bottom: 3px solid #FFF;
+
+
+}
+.active-border{
+  color:black;cursor: pointer;
+  border-bottom: 3px solid #F92CBB;
+  // width: 400px;
+    color: #F92CBB;
+
+   transition: border-bottom, width,1s;
+
 }

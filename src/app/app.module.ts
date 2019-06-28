@@ -33,6 +33,7 @@ import { DeclinedComponent } from './pages/declined/declined.component';
 import { DummyComponent } from './pages/dummy/dummy.component';
 import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
 import { PlansComponent } from './pages/plans/plans.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { PlansComponent } from './pages/plans/plans.component';
     ReactiveFormsModule,
     NgbModule,
     CarouselModule,
-    StickyModule  
+    StickyModule,
+    BrowserAnimationsModule  
   ],
   providers: [
     LoginService,
