@@ -1,9 +1,12 @@
-<div class="modal-body">
-  <div class="header">
-      <h3>Add Client Social Details</h3>
-  </div>+
-</div>    
+  <div class="section shadow" id="header" style="background: white;">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
+      <a href="/clients" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" ><i class="fa fa-chevron-left fa-2x" ></i></a>
+      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Family</h5>
+    </div>
+
+  </div>
 <main class="modal-body">
+    <div class="container" style="padding: 50px;margin: 10px;">
     <form [formGroup]="AddClientEducationalDetails">
     
       
@@ -68,5 +71,6 @@
           <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>          
       </div>
   </form>
+</div>
 </main>
 

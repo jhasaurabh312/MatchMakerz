@@ -33,8 +33,7 @@ import { DeclinedComponent } from './pages/declined/declined.component';
 import { DummyComponent } from './pages/dummy/dummy.component';
 import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
 import { PlansComponent } from './pages/plans/plans.component';
-
-
+    
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,4 +78,7 @@ import { PlansComponent } from './pages/plans/plans.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+
+}
