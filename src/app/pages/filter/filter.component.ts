@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+export interface Food {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-filter',
@@ -15,8 +19,12 @@ export class FilterComponent implements OnInit {
   data : any; 
   page : number;
   a :string;
-
-
+selectedValue: any = '0'
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public route : Router) { 
     this.EditClientPreferences = this._formBuilder.group({
       'min_age' : [localStorage.getItem('c_cp_min_age')],
@@ -35,6 +43,11 @@ export class FilterComponent implements OnInit {
     });;
    
   }
+//   castes:[
+// {id:'1', name:'Aggarwal'},
+// {id:'2', name:'Jat'},
+// {id:'3', name:'Punjabi'}
+//   ]
 
 
   ngOnInit() {

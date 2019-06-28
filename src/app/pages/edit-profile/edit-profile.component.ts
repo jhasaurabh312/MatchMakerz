@@ -84,7 +84,7 @@ export class EditProfileComponent implements OnInit {
     NewProfile.append('experience', this.EditProfileDetails.value.experience );
     NewProfile.append('whatsapp_number', this.EditProfileDetails.value.whatsapp_number );
 
-    console.log(NewProfile);
+    console.log(this.EditProfileDetails.value);
 
     return this.http.post('http://matchmakerz.in/api/v1/matchmaker/profile/' , NewProfile ,{ 
         headers : new HttpHeaders({

@@ -15,8 +15,8 @@ showNavigationArrows = false;
   images = [
 
     '../../../assets/icons/Group_1.png',
-    '../../../assets/icons/Group_2.png',
-    '../../../assets/icons/Group_3.png'
+    // '../../../assets/icons/Group_2.png',
+    // '../../../assets/icons/Group_3.png'
   ]
 
   constructor(config: NgbCarouselConfig) {
