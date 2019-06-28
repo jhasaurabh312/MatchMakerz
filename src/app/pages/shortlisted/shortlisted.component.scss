@@ -145,17 +145,17 @@ text-align: center;
 }
 
 .notification-item {
-display:flex;
-position:relative;
-padding:20px;
-// margin-top:2px;
-background-color: #f1f1f1;
--webkit-transition-property: width, background-color,box-shadow; /* Safari */
--webkit-transition-duration: 0.9s; /* Safari */
-transition-property: background-color, box-shadow;
-transition-duration: 0.9s;
-
+  display:flex;
+  position:relative;
+  padding:20px;
+  // margin-top:2px;
+  background-color: #f1f1f1;
+  -webkit-transition-property: width, background-color,box-shadow; /* Safari */
+  -webkit-transition-duration: 0.9s; /* Safari */
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.9s;
 }
+
 .notification-item:hover{
 background-color:#F8CFDF;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
