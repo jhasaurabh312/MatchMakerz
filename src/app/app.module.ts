@@ -33,9 +33,10 @@ import { DeclinedComponent } from './pages/declined/declined.component';
 import { DummyComponent } from './pages/dummy/dummy.component';
 import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
 import { PlansComponent } from './pages/plans/plans.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
-
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
 // import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
 
 @NgModule({
@@ -75,12 +76,13 @@ import { PlansComponent } from './pages/plans/plans.component';
     NgbModule,
     CarouselModule,
     StickyModule,
+    BrowserAnimationsModule,
     // BrowserAnimationsModule,
-    // BrowserModule,
-    // MatInputModule, 
-    // MatButtonModule,
-    // MatSelectModule,
-    // MatIconModule
+    BrowserModule,
+    MatInputModule, 
+    MatButtonModule,
+    MatSelectModule,
+    MatIconModule
   ],
   providers: [
     LoginService,
