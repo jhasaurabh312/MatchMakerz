@@ -148,6 +148,10 @@ export class MatchesComponent implements OnInit {
         }
   }
 
+  getshortlisted(){
+    this.route.navigate(['/shortlisted']);
+  }
+
 
 
 }

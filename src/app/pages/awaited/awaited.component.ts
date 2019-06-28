@@ -127,16 +127,26 @@ export class AwaitedComponent implements OnInit {
     this.router.navigate(['/declined']);
   }
 
-  toggle1(){
-   if(!this.outgoing)
-    this.outgoing != this.outgoing ;
+  accept(data){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    })
+
+     return this.http.get('http://matchmakerz.in/api/v1/client/statusaccept-interest?id='+data, {headers : headers}).subscribe((result:any) => {
+       console.log(result);
+     })
   }
 
-  toggle2(){
-    if(!this.incoming)
-     this.incoming != this.incoming ;
-  }
+  decline(data){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    })
 
-  
+     return this.http.get('http://matchmakerz.in/api/v1/client/statusdecline-interest?id='+data, {headers : headers}).subscribe((result:any) => {
+       console.log(result);
+     })
+  }
  
 }
