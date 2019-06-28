@@ -1,59 +1,118 @@
-<div class="container-fluid">
-    <div class="header">
-        <h3>MATCHMAKERZ</h3>
+<div class="section shadow" id="header">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
+        <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
+        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-style: continuous">Matchmakerz</h5>
     </div>
+
 </div>
 
-<main class="modal-body"  >
-  <div class="row">
-      <h3 style="font-family: 'Poppins', sans-serif ; font-size:20px; font-weight: 600; margin-left: auto;margin-right: auto">Registration</h3>
-  </div>
-  <form [formGroup]="signupDetails">
-    <div class="input-group p-2">
-        <input  formControlName="first_name" placeholder="First Name" class="form-control">
-    </div>
-    <div class="input-group p-2">
-        <input formControlName="last_name" placeholder="Last Name" class="form-control" >
-      </div>
-        <div class="input-group p-2">
-            <select class="input-group p-2" formControlName="gender">
-                <option value=""  disabled="true" [selected]="true">Gender</option>
-                <option value="0">Male</option>
-                <option value="1">Female</option>
-            </select>
+<main class="modal-body" style="margin-top: 40px;">
+        <div class="container">
+            <div class="row">
+                <div class="offset-6">        
+                    <h3 style="font-family: 'Poppins', sans-serif ; font-size:20px; font-weight: 600; margin-left: auto;margin-right: auto">Registration</h3>
+                </div>
+            </div>
         </div>
-        <div class="input-group p-2">
-            <select  formControlName="matchmaker_type" aria-placeholder="matchmaker_type" class="form-control" >
-              <option value="" disabled selected>matchmaker_type</option>
-              <option value="0">Existing Matchmaker</option>
-              <option value="1">Never done Before</option>
-            </select>
-        </div>
-        <div class="input-group p-2">
-            <input formControlName="phone_number" placeholder="phone_number" class="form-control" >
-        </div>
-        <div class="input-group p-2">
-            <input formControlName="unique_about" placeholder="unique_about" class="form-control" >
-        </div>
-        <div class="input-group p-2">
-            <input formControlName="specialization" placeholder="specialization" class="form-control" >
-        </div>
-        <div class="input-group p-2">
-            <input formControlName="age" placeholder="age" class="form-control" >
-        </div>
-        <div class="input-group p-2">
-            <input formControlName="whatsapp_number" placeholder="whatsapp_number" class="form-control" >
-        </div>
-        <div class="input-group p-2">
-            <input formControlName="referred_by" placeholder="referred_by" class="form-control" >
-        </div>
-        <div class="input-group p-2">
-            <textarea formControlName="about" placeholder="About You" class="form-control" ></textarea>
-        </div>
-        <div class="input-group p-2">
-            <button class="btn btn-user" type="button" (click)="signup()" >  &nbsp;   &nbsp; Register &nbsp;&nbsp;</button>
+    <form [formGroup]="signupDetails">
+        <div class="container">
+            <div class="row">
+                <div class="offset-4">
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="first_name" placeholder="First Name" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="last_name" placeholder="Last Name" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <mat-label>Gender</mat-label>
+                                <mat-select formControlName="gender">
+                                    <mat-option value="0">Male</mat-option>
+                                    <mat-option value="1">Female</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <mat-label>Matchmaker Type</mat-label>
+                                <mat-select formControlName="matchmaker_type" placeholder="matchmaker_type">
+                                    <mat-option value="0">Existing Matchmaker</mat-option>
+                                    <mat-option value="1">Never done Before</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="phone_number" placeholder="phone_number" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="unique_about" placeholder="unique_about" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="specialization" placeholder="specialization" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="age" placeholder="age" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="whatsapp_number" placeholder="whatsapp_number" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="referred_by" placeholder="referred_by" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <textarea matInput formControlName="about" placeholder="About You" ></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="signup()"> &nbsp; &nbsp; Register &nbsp;&nbsp;
+                        </button>
+
+                        <!-- <button class="btn btn-user" type="button" (click)="signup()"> &nbsp; &nbsp; Register &nbsp;&nbsp;</button> -->
+                    </div>
+                </div>
+            </div>
         </div>
 
-  </form>
+    </form>
 
 </main>

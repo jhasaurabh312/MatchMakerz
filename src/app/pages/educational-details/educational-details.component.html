@@ -1,56 +1,109 @@
-  <div class="section shadow" id="header" style="background: white;">
+<div class="section shadow" id="header" style="background: white;">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
-      <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" ><i class="fa fa-chevron-left fa-2x" ></i></a>
-      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Educational Details</h5>
+        <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark"><i class="fa fa-chevron-left fa-2x" ></i></a>
+        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Educational Details</h5>
     </div>
 
-  </div>
-<main class="modal-body">
-  <div class="container" style="padding: 50px;margin: 10px;">
-    <form [formGroup]="AddClientEducationalDetails">
-    
-      
-          <select class="form-control" formControlName="degree">
-            <option value="" [selected]="true" disabled="true">Degree</option>
-            <option value="0">B.A</option>
-            <option value="1">B.Com</option>
-            <option value="2">B.E/B.Tech</option>
-            <option value="4">B.Sc</option>
-            <option value="5">B.Tech</option>
-            <option value="6">Bachelors</option>
-            <option value="13">Masters</option>
-            <option value="16">Ph.D</option>
-            <option value="15">Others</option>
-          </select>
-
-          <input class="form-control" formControlName="college" placeholder="Last college*">
-
-          <select class="input-group p-2" formControlName="is_working">
-              <option value="" disabled selected>is_working</option>
-              <option value="0" disabled>No</option>
-              <option value="1">Yes</option>
-            </select>
-
-          <input class="form-control" formControlName="yearly_income" placeholder="yearly_income*">
-
-          <input class="form-control" formControlName="office_address" placeholder="office_address*">
-
-          <input class="form-control" formControlName="sub_occupation" placeholder="sub_occupation*">
-
-          <select class="input-group p-2" formControlName="occupation">
-              <option value="" disabled selected>occupation</option>
-              <option value="0">Not Working</option>
-              <option value="1">Private Company</option>
-              <option value="2">Business/ Self Employed</option>
-              <option value="3">Government Job</option>
-              <option value="4">Doctor</option>
-              <option value="5">Teacher</option>
-          </select>
- 
-      <div class="input-group p-2">
-          <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>          
-      </div>
-  </form>
 </div>
-</main>
+<main class="modal-body">
+    <div class="container" style="padding: 50px;margin: 10px;">
+        <form [formGroup]="AddClientEducationalDetails">
+            <div class="filter">
+                <div class="container">
 
+                    <div class="form-row ">
+                        <div class="col input-group p-2 offset-5">
+                            <mat-form-field style="width: 400px !important">
+                                <mat-label>Degree</mat-label>
+                                <mat-select name="degree">
+                                    <mat-option value="0">B.A</mat-option>
+                                    <mat-option value="1">B.Com</mat-option>
+                                    <mat-option value="2">B.E/B.Tech</mat-option>
+                                    <mat-option value="4">B.Sc</mat-option>
+                                    <mat-option value="5">B.Tech</mat-option>
+                                    <mat-option value="6">Bachelors</mat-option>
+                                    <mat-option value="13">Masters</mat-option>
+                                    <mat-option value="16">Ph.D</mat-option>
+                                    <mat-option value="15">Others</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="col input-group p-2 offset-5">
+
+                            <mat-form-field style="width: 400px !important">
+                                <input matInput name="college" placeholder="Last college*">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="col input-group p-2 offset-5">
+
+                            <mat-form-field style="width: 400px !important">
+                                <mat-label>Is Working</mat-label>
+
+                                <mat-select name="is_working">
+
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="col input-group p-2 offset-5">
+
+                            <mat-form-field style="width: 400px !important">
+
+                                <input matInput name="yearly_income" placeholder="yearly_income*">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="col input-group p-2 offset-5">
+
+                            <mat-form-field style="width: 400px !important">
+                                <input matInput name="office_address" placeholder="office_address*">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="col input-group p-2 offset-5">
+
+                            <mat-form-field style="width: 400px !important">
+                                <input matInput name="sub_occupation" placeholder="sub_occupation*">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="col input-group p-2 offset-5">
+
+                            <mat-form-field style="width: 400px !important">
+                                <mat-label>Occupation</mat-label>
+
+                                <mat-select name="occupation">
+
+                                    <mat-option value="0">Not Working</mat-option>
+                                    <mat-option value="1">Private Company</mat-option>
+                                    <mat-option value="2">Business/ Self Employed</mat-option>
+                                    <mat-option value="3">Government Job</mat-option>
+                                    <mat-option value="4">Doctor</mat-option>
+                                    <mat-option value="5">Teacher</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="input-group p-2">
+                        <div class="offset-5">
+                            <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
+                            </button>
+
+                            <!-- <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>    -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>

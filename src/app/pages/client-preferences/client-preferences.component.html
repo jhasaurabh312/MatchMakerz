@@ -1,62 +1,129 @@
-  <div class="section shadow" id="header" style="background: white;">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
-      <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" ><i class="fa fa-chevron-left fa-2x" ></i></a>
-      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Preferences</h5>
+<div class="section shadow" id="header" style="background: white;">
+    <div class="col input-group p-2-xs-8 col input-group p-2-sm-8 col input-group p-2-md-8 col input-group p-2-lg-8" style="display:flex;height:70px;">
+        <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark"><i class="fa fa-chevron-left fa-2x" ></i></a>
+        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Preferences</h5>
     </div>
 
-  </div>
+</div>
 <main class="modal-body">
     <div class="container" style="padding: 50px;margin: 10px;">
-    <form [formGroup]="AddClientEducationalDetails">
-    
-      
-          <input class="input-group p-2" formControlName="min_age" placeholder="min_age*">
+        <form [formGroup]="AddClientEducationalDetails">
 
-          <input class="input-group p-2" formControlName="max_age" placeholder="max_age*">
+            <div class="filter">
+                <div class="container">
+                    <div class="row">
+                      <div class="container offset-5">
 
-          <input class="input-group p-2" formControlName="min_income" placeholder="min_income*">
+                        <div class="form-row ">
+                            <div class="col-5 input-group p-2">
+                                <mat-form-field class="full-min-width">
+                                    <input type="number" matInput formControlName="min_age" placeholder="min_age*">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-5 p-2">
 
-          <input class="input-group p-2" formControlName="max_income" placeholder="max_income*">
+                                <mat-form-field class="full-min-width">
 
-          <input class="input-group p-2" formControlName="min_height" placeholder="min_height*">
+                                    <input matInput formControlName="max_age" placeholder="max_age*">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-row ">
 
-          <input class="input-group p-2" formControlName="max_height" placeholder="max_height*">
+                            <div class="col-5  p-2">
 
-          <input class="input-group p-2" formControlName="occupation" placeholder="occupation*">
+                                <mat-form-field class="full-min-width">
 
-          <input class="input-group p-2" formControlName="caste" placeholder="caste*">
+                                    <input matInput formControlName="min_income" placeholder="min_income*">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-5  p-2">
 
-          <select class="input-group p-2" formControlName="marital_status">
-              <option value="" disabled selected>marital_status</option>
-              <option value="0">No</option>
-              <option value="1">Yes</option>
-          </select>
+                                <mat-form-field class="full-min-width">
 
-          <select class="input-group p-2" formControlName="manglik">
-            <option value="" disabled selected>manglik</option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-          </select>
-      
-          <select class="input-group p-2" formControlName="food_choice">
-            <option value="" disabled selected>food_choice</option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-          </select>
-           
-          <select class="input-group p-2" formControlName="citizenship">
-            <option value="" disabled selected>citizenship</option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-          </select>
-           
-       
-     
- 
-      <div class="input-group p-2">
-          <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>          
-      </div>
-  </form>
-</div>
+                                    <input matInput formControlName="max_income" placeholder="max_income*">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-row ">
+
+                            <div class="col-5  p-2">
+
+                                <mat-form-field class="full-min-width">
+
+                                    <input matInput formControlName="min_height" placeholder="min_height*">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-5  p-2">
+
+                                <mat-form-field class="full-min-width">
+
+                                    <input matInput formControlName="max_height" placeholder="max_height*">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+
+                                <input matInput formControlName="occupation" placeholder="occupation*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+
+                                <input matInput formControlName="caste" placeholder="caste*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+                                <mat-label>marital_status</mat-label>
+
+                                <mat-select formControlName="marital_status">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+                                <mat-label>manglik</mat-label>
+
+                                <mat-select formControlName="manglik">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+                                <mat-label>food_choice</mat-label>
+
+                                <mat-select formControlName="food_choice">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+                                <mat-label>citizenship</mat-label>
+
+                                <mat-select formControlName="citizenship">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-user" style="background-color: #f92c8b;width:400px"  type="button" (click)="addClient()"> Next Page</button>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </main>
-

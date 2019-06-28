@@ -1,143 +1,139 @@
-  <div class="section shadow" id="header" style="background: white;">
+<div class="section shadow" id="header" style="background: white;">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
-      <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" ><i class="fa fa-chevron-left fa-2x" ></i></a>
-      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">personal Details</h5>
+        <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark"><i class="fa fa-chevron-left fa-2x" ></i></a>
+        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">personal Details</h5>
     </div>
-  </div>  <main class="modal-body">
+</div>
+<main class="modal-body">
     <div class="container" style="padding: 50px;margin: 10px;">
-      <form [formGroup]="AddClientDetails">
-      
-         <div class="no-filter">
-             <div class="input-group p-2">
-                    <input class="form-control" formControlName="name" placeholder="Name">
-             </div>
+        <form [formGroup]="AddClientDetails">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-5">
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
 
-             <div class="input-group p-2">
-                    <input class="form-control" formControlName="phone_number" placeholder="phone_number">
+                                <input matInput formControlName="name" placeholder="Name">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="col-7 input-group p-2">
+                            <mat-form-field class="full-min-width">
+                                <input matInput formControlName="phone_number" placeholder="phone_number">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col input-group p-2">
+                            <mat-form-field class="full-min-width">
+                                <input matInput formControlName="whatsapp_number" placeholder="whatsapp_number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <mat-label>Gender</mat-label>
+
+                                <mat-select formControlName="gender">
+                                    <mat-option value="0">Male</mat-option>
+                                    <mat-option value="1">Female</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row ">
+
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="height" placeholder="Height(Inches)">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+
+                        <div class="col-7 input-group p-2">
+                            <mat-form-field class="full-min-width">
+                                <input matInput formControlName="birth_date" placeholder="Birth Date(YYYY-MM-DD)">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col input-group p-2">
+                            <mat-form-field class="full-min-width">
+                                <input matInput formControlName="birth_time" placeholder="Birth Time(11:45)">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="form-row ">
+
+                        <div class="colinput-group p-2">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="weight" placeholder="Weight(Kg)">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="form-row ">
+                        <div class="col-7 input-group p-2">
+                            <mat-form-field class="full-min-width">
+                                <input matInput formControlName="current_city" placeholder="Current City">
+                            </mat-form-field>
+                        </div>
+                        <div class="col input-group p-2">
+                            <mat-form-field class="full-min-width">
+                                <input matInput formControlName="birth_place" placeholder="Birth Place*">
+                            </mat-form-field>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-row ">
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <mat-label>Food Choice</mat-label>
+
+                                <mat-select formControlName="food_choice">
+                                    <mat-option value="0">Vegetarian</mat-option>
+                                    <mat-option value="1">Non-vegetarian</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                        <div class="form-row ">
+
+                        <div class="input-group p-2">
+                            <mat-form-field class="full-width">
+                                <mat-label>Disability</mat-label>
+                                <mat-select formControlName="disability">
+                                    <mat-option value="0">Not Disabled</mat-option>
+                                    <mat-option value="1">Disabled</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+
+                        <div class="input-group p-2">
+
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="disabled_part" placeholder="Disabled Part">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="input-group p-2">
+                            <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
+                            </button>
+                    </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="input-group p-2">
-                    <input class="form-control" formControlName="whatsapp_number" placeholder="whatsapp_number">
-            </div>
-
-            <div class="input-group p-2">
-                <select class="form-control" formControlName="gender">
-                    <option value="" [selected]="true" disabled="true">gender</option>
-                    <option value="0">Male</option>
-                    <option value="1">Female</option>
-                </select>
-            </div>   
-           
-         </div>
-
-          <div class="filter1">
-
-                <div class="input-group p-2">
-                        <input class="form-control" formControlName="height" placeholder="Height(Inches)">
-                </div>
-                <div class="input-group p-2">
-                        <input class="form-control" formControlName="birth_date" placeholder="Birth Date(YYYY-MM-DD)">  
-                </div>
-                <div class="input-group p-2">
-                        <input class="form-control" formControlName="birth_place" placeholder="Birth Place*">  
-                </div>
-             
-          </div>
-
-          <div class="filter2">
-
-                <div class="input-group p-2">
-                        <input class="form-control" formControlName="weight" placeholder="Weight(Kg)">
-                </div>
-                <div class="input-group p-2">
-                        <input class="form-control" formControlName="birth_time" placeholder="Birth Time(11:45)">  
-                </div>
-                <div class="input-group p-2">
-                        <input class="form-control" formControlName="current_city" placeholder="Current City">
-                </div>
-
-          </div>
-          
-        <div class="no-filter">
-            <div class="input-group p-2">
-                    <select class="form-control" formControlName="food_choice" >
-                        <option value="" [selected]="true" [disabled]="true">Food Choice</option>
-                        <option value="0">Vegetarian</option>
-                        <option value="1">Non-vegetarian</option>
-                    </select>
-            </div>
-            <div class="input-group p-2">
-                    <select class="form-control" formControlName="disability" >
-                        <option value="" [selected]="true" [disabled]="true">Disability</option>
-                        <option value="0">Not Disabled</option>
-                        <option value="1">Disabled</option>
-                    </select>
-            </div>
-
-            <div class="input-group p-2">
-                    <input class="form-control" formControlName="disabled_part" placeholder="Disabled Part">
-            </div>         
-        </div> 
-      
-   
-        <div class="input-group p-2">
-            <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>          
-        </div>
-    </form>
+        </form>
     </div>
 </main>
-
-
-<!--
-    
-    <main class="modal-body"  >
-      <form [formGroup]="signupDetails">
-        <div class="input-group p-2">
-            <input  formControlName="first_name" placeholder="First Name" class="form-control">
-        </div>
-        <div class="input-group p-2">
-            <input formControlName="last_name" placeholder="Last Name" class="form-control" >
-          </div>
-            <div class="input-group p-2">
-                <select  formControlName="gender" required-placeholder="Gender" class="form-control" >
-                  <option value="" disabled selected>Gender</option>
-                  <option value="0">Male</option>
-                  <option value="1">Female</option>
-                </select>
-            </div>
-            <div class="input-group p-2">
-                <select  formControlName="matchmaker_type" aria-placeholder="matchmaker_type" class="form-control" >
-                  <option value="" disabled selected>matchmaker_type</option>
-                  <option value="0">YES</option>
-                  <option value="1">NO</option>
-                </select>
-            </div>
-            <div class="input-group p-2">
-                <input formControlName="phone_number" placeholder="phone_number" class="form-control" >
-            </div>
-            <div class="input-group p-2">
-                <input formControlName="unique_about" placeholder="unique_about" class="form-control" >
-            </div>
-            <div class="input-group p-2">
-                <input formControlName="specialization" placeholder="specialization" class="form-control" >
-            </div>
-            <div class="input-group p-2">
-                <input formControlName="age" placeholder="age" class="form-control" >
-            </div>
-            <div class="input-group p-2">
-                <input formControlName="whatsapp_number" placeholder="whatsapp_number" class="form-control" >
-            </div>
-            <div class="input-group p-2">
-                <input formControlName="referred_by" placeholder="referred_by" class="form-control" >
-            </div>
-            <div class="input-group p-2">
-                <textarea formControlName="about" placeholder="About You" class="form-control" ></textarea>
-            </div>
-            <div class="input-group p-2">
-                <button class="btn btn-user" type="button" (click)="signup()" >  &nbsp;   &nbsp; Register &nbsp;&nbsp;</button>
-            </div>
-    
-      </form>
-    
-    </main>
-     -->
