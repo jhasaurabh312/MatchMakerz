@@ -1,76 +1,148 @@
-  <div class="section shadow" id="header" style="background: white;">
+<div class="section shadow" id="header" style="background: white;">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
-      <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" ><i class="fa fa-chevron-left fa-2x" ></i></a>
-      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Family</h5>
+        <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark"><i class="fa fa-chevron-left fa-2x" ></i></a>
+        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Family</h5>
     </div>
 
-  </div>
+</div>
 <main class="modal-body">
     <div class="container" style="padding: 50px;margin: 10px;">
-    <form [formGroup]="AddClientEducationalDetails">
-    
-      
-          <input class="input-group p-2" formControlName="hometown" placeholder="hometown*">
+        <form [formGroup]="AddClientEducationalDetails">
+            <div class="filter">
+                <div class="container">
+                    <div class="offset-5">
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+                                <input matInput formControlName="hometown" placeholder="hometown*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="home_address" placeholder="home_address*">
+                                <input matInput formControlName="home_address" placeholder="home_address*">
 
-          <input class="input-group p-2" formControlName="gotra" placeholder="gotra*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
 
-          <input class="input-group p-2" formControlName="mother_occupation" placeholder="mother_occupation*">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="father_occupation" placeholder="father_occupation*">
+                                <input matInput formControlName="gotra" placeholder="gotra*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="family_income" placeholder="family_income*">
+                                <input matInput formControlName="mother_occupation" placeholder="mother_occupation*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="landline" placeholder="landline*">
+                                <input matInput formControlName="father_occupation" placeholder="father_occupation*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="married_son" placeholder="married_son*">
+                                <input matInput formControlName="family_income" placeholder="family_income*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="unmarried_son" placeholder="unmarried_son*">
+                                <input matInput formControlName="landline" placeholder="landline*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="married_daughter" placeholder="married_daughter*">
+                                <input matInput formControlName="married_son" placeholder="married_son*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="unmarried_daughter" placeholder="unmarried_daughter*">
+                                <input matInput formControlName="unmarried_son" placeholder="unmarried_son*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <input class="input-group p-2" formControlName="matchmaker_note" placeholder="matchmaker_note*">
+                                <input matInput formControlName="married_daughter" placeholder="married_daughter*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <select class="input-group p-2" formControlName="family_type">
-              <option value="" disabled selected>family_type</option>
-              <option value="0">No</option>
-              <option value="1">Yes</option>
-          </select>
+                                <input matInput formControlName="unmarried_daughter" placeholder="unmarried_daughter*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
 
-          <select class="input-group p-2" formControlName="house_type">
-            <option value="" disabled selected>house_type</option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-          </select>
-      
-          <select class="input-group p-2" formControlName="mother_status">
-            <option value="" disabled selected>mother_status</option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-          </select>
-          <select class="input-group p-2" formControlName="father_status">
-            <option value="" disabled selected>father_status</option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
-    
-        <select class="input-group p-2" formControlName="is_active">
-          <option value="" disabled selected>is_active</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-           
-           
-       
-     
- 
-      <div class="input-group p-2">
-          <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>          
-      </div>
-  </form>
-</div>
+                                <input matInput formControlName="matchmaker_note" placeholder="matchmaker_note*">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+
+                                <mat-label>family_type</mat-label>
+                                <mat-select formControlName="family_type">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+
+                                <mat-label>house_type</mat-label>
+                                <mat-select formControlName="house_type">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+
+                                <mat-label>mother_status</mat-label>
+                                <mat-select formControlName="mother_status">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+                                <mat-label>father_status</mat-label>
+                                <mat-select formControlName="father_status">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+                                <mat-label>is_active</mat-label>
+
+                                <mat-select formControlName="is_active">
+                                    <mat-option value="0">No</mat-option>
+                                    <mat-option value="1">Yes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
+                            </button>
+
+                            <!-- <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>    -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </main>
-
