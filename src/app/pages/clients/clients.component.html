@@ -62,17 +62,17 @@
             <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6> 
             <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
             <p style="font-size:16px;margin-bottom:7px">
-              <img src="./../../../assets/icons/graduation-hat.svg" style="width:40px;height:20px">{{member.degree}}</p>
+              <img src="./../../../assets/icons_white/graduation-hat.svg" style="width:40px;height:20px">{{member.degree}}</p>
             <p style="font-size:16px;margin-bottom:7px">
               <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>
             <p style="font-size:16px;margin-bottom:7px">
               <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
             <p style="font-size:16px;margin-bottom:7px">
-              <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>
+              <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>
             <p style="font-size:16px">
               <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
           </div>
-          <div class="button" style="margin-top : 15px; display: flex">
+          <div class="button" style="margin-top : 15px;overflow:hidden; display: flex">
             <button type="button"  class="card-button" (click)="getMatches(member.id)" ><i class="fa fa-search" style="width:20px;height:20px;color:white"  ></i>Matches</button>
             <button type="button" class="card-button" (click)="getActivity(member.id)" ><i class="fa fa-clock-o" style="width:20px;height:20px"></i>&nbsp;Activity</button>
           </div>
@@ -82,12 +82,12 @@
   </div>
   <div class="row" style="margin-bottom: 100px">
     <button type="button" *ngIf="show" class="btn load-more" (click)="GetMore()">View More Clients</button>
-    <button type="button" *ngIf="load_more" class="btn load-more-icon"> <i class="fa  fa-spinner fa-spin fa-3x" aria-hidden="true" style="color:#F92CBB;"> </i> </button>
+    <button type="button" *ngIf="load_more" class="btn load-more-icon"> <i class="fa  fa-spinner fa-spin fa-3x" aria-hidden="true" style="color:#f92c8b;"> </i> </button>
   </div>
 </main>
 <div class="section" style="position:fixed;width:100%;bottom:0">
   <div class="row">
-    <div  class="circle" style="width:60px;margin-left:80%;background-image: url('../../../assets/icons_white/user-plus.svg')" id="edit" (click)="AddClient()">
+    <div style="width:60px;margin-left:80%;cursor:pointer;background-image: url('../../../assets/icons/user-plus-1.svg')" id="edit" (click)="AddClient()">
       
     </div>
   </div>
@@ -103,7 +103,7 @@
       <a routerLink="/my-profile" routerLinkActive="active" style="display:block;;text-align: center">
         <img src="../../../assets/icons/icons-19.svg" style="width:30px">
         <br>
-        <p style="color:#F92CBB">My Profile</p>
+        <p style="color:#f92c8b">My Profile</p>
       </a>
     </div>
   </div>
