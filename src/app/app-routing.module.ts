@@ -21,6 +21,7 @@ import { NotificationComponent } from './pages/notification/notification.compone
 import { DeclinedComponent } from './pages/declined/declined.component';
 import { DummyComponent } from './pages/dummy/dummy.component';
 import { PlansComponent } from './pages/plans/plans.component';
+import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
 
 
 const appRoutes: Routes = [
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
   { path : 'declined' , component : DeclinedComponent},
   { path : 'notification' ,component : NotificationComponent},
   { path : 'dummy' , component : DummyComponent},
-  { path: 'plans' , component : PlansComponent}
+  { path: 'plans' , component : PlansComponent},
+  { path : 'shortlisted', component : ShortlistedComponent}
 ];
 
 

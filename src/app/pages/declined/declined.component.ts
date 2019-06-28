@@ -50,6 +50,28 @@ export class DeclinedComponent implements OnInit {
     this.router.navigate(['/declined']);
   }
 
+  accept(data){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    })
+
+     return this.http.get('http://matchmakerz.in/api/v1/client/statusaccept-interest?id='+data, {headers : headers}).subscribe((result:any) => {
+       console.log(result);
+     })
+  }
+
+  decline(data){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    })
+
+     return this.http.get('http://matchmakerz.in/api/v1/client/statusdecline-interest?id='+data, {headers : headers}).subscribe((result:any) => {
+       console.log(result);
+     })
+  }
+
   
 }
 
