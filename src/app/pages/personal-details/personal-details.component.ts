@@ -63,9 +63,11 @@ export class PersonalDetailsComponent implements OnInit {
 
     return this.http.post('http://matchmakerz.in/api/v1/client/registerClient' , NewProfile ,{ 
         headers : new HttpHeaders({
+
           'Authorization': 'Token ' + localStorage.getItem('token'),
         })}).pipe(catchError((error) => {
           return throwError("oops"); })).subscribe((response:any) => {
+          console.log(response)
            this.data = response;
            if(this.data.status === 1){
              localStorage.setItem('newClientId' ,this.data.id);

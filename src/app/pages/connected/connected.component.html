@@ -1,18 +1,13 @@
 <main class="card-wrapper" style="overflow:hidden;">
-   
-  <div class="header" style="background-color:white;display:block;height: 60px">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="display:flex;height:60px;padding-left:20px">
-      <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
-      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Connected</h5>
-    </div>
-      <!-- <div class="row" style="display:flex;height: 60px">
-        <div class="col-sm-6 col-lg-6 active" style="text-align:center;margin-top: 25px"><a routerLink="#outgoing" routerLinkActive = "active" style="color:black">Declined Outgoing</a></div>
-        <div class="col-sm-6 col-lg-6 active" style="text-align:center;margin-top: 25px"><a routerLink="#incoming" routerLinkActive = "active" style="color:black">Declined Incoming</a></div>
-      </div> -->
+<div class="section shadow" id="header">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
+    <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
+    <h5 style="font-size:1.2em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-style: continuous">Connected</h5>
   </div>
+</div>
 
-  <ng-container id="outgoing">
-    <div class="row" style="display:flex;background-color:white;min-height: -webkit-fill-available" >
+  <ng-container id="outgoing" style="margin-top: 30px;">
+    <div class="row" style="display:flex;background-color:white;min-height: -webkit-fill-available;margin:30px;" >
       <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of connect" >
         <div class="row" style="display:flex; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px">
           <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">

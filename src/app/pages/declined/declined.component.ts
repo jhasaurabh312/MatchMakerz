@@ -13,6 +13,8 @@ export class DeclinedComponent implements OnInit {
   public show : Boolean = false;
   public awaitedIn : any = [];
   public awaitedOut : any = [];
+  outgoing : boolean = true;
+  incoming : boolean = false;
   constructor(private http : HttpClient, public router : Router) { }
 
   ngOnInit() {
