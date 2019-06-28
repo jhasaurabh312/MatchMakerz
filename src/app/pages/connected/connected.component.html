@@ -1,4 +1,4 @@
-<main class="card-wrapper" style="overflow:hidden;">
+<main class="card-wrapper" style="overflow:hidden;margin-bottom: 50px;">
 <div class="section shadow" id="header">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
       <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" >
@@ -36,7 +36,6 @@
       </div>
     </div>
   </ng-container>
-  
 </main>
 
 
@@ -45,14 +44,16 @@
 
   <main style="position:fixed;bottom:0px;width: 100%;" class="card-wrapper">
     <div class="flex" style="background-color:#f1f1f1;display:flex;cursor: pointer;height: 60px">
-        <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center">
-          <img src="../../../assets/icons/icons-17.svg" style="width:40px">  <h6>Awaited</h6>
+        <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center;padding: 5px">
+          <img src="../../../assets/icons/pending.svg" style="width:27px">  <h6 style="font-size: 15px;padding: 2px;">Awaited</h6>
         </div>
-        <div class="col-sm-4 col-md-4 col-lg-4" (click)="connected()" style="text-align: center">
-          <img src="../../../assets/icons_white/heartbeat.svg" style="width:40px"><h6>Connected</h6>
+        <div class="col-sm-4 col-md-4 col-lg-4" (click)="connected()" style="text-align: center;padding: 5px;">
+          <div >
+          <img src="../../../assets/icons_white/heartbeat.svg" style="width:27px"><h6 style="font-size: 15px;padding: 2px;" class="active-border">Connected</h6>
+        </div>
        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4" (click)="declined()" style="text-align: center">
-          <img src="../../../assets/icons/cross.svg" style="width:40px"> <h6>Declined</h6>
+        <div class="col-sm-4 col-md-4 col-lg-4" (click)="declined()" style="text-align: center;padding: 5px;">
+          <img src="../../../assets/icons/cross.svg" style="width:27px"> <h6 style="font-size: 15px;padding: 2px;">Declined</h6>
          </div>
     </div>
 </main>

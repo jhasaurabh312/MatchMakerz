@@ -40,6 +40,18 @@ export class DeclinedComponent implements OnInit {
     this.router.navigate(['/awaited']);
   }
 
+     ShowDeclined(e){
+     if(e === 'incoming'){
+               this.incoming = true;
+       this.outgoing = false;
+     }
+     else{
+        this.incoming = false;
+       this.outgoing = true;
+
+     }
+   }
+
 
   connected(){
     this.router.navigate(['/connected']);

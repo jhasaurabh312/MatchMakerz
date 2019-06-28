@@ -13,7 +13,8 @@ export class MyProfileComponent implements OnInit {
   public user : any = [];
   public response : any;
   public show:boolean = false;
-
+  clients: boolean= !true;
+  my_profile: boolean = !false;
   constructor( private http : HttpClient , private myProfile : MyprofileService, public router : Router) { }
 
   ngOnInit() {
@@ -25,7 +26,16 @@ export class MyProfileComponent implements OnInit {
     })  
     
   }
-
+  ActiveBorder(e){
+    if(e==='my_profile'){
+      this.my_profile  =true;
+      this.clients = false
+    }
+    else{
+           this.my_profile  = !true;
+      this.clients = !false 
+    }
+  }
   toggle() {
     this.show = !this.show;
   }
