@@ -19,7 +19,7 @@ export class SocialDetailsComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private http: HttpClient , public router : Router) {
     this.AddClientEducationalDetails = this._formBuilder.group({
       'marital_status': [''],
-      // 'children': [''],
+      'children': [''],
       'mother_tongue': [''],
       'religion': [''],
       'zodiac': [''],
@@ -40,7 +40,7 @@ export class SocialDetailsComponent implements OnInit {
     const NewProfile = new FormData();
     NewProfile.append('id', localStorage.getItem('newClientId') );   
     NewProfile.append('marital_status', this.AddClientEducationalDetails.value.marital_status);
-    // NewProfile.append('children', this.AddClientEducationalDetails.value.children);
+    NewProfile.append('children', this.AddClientEducationalDetails.value.children);
     NewProfile.append('mother_tongue', this.AddClientEducationalDetails.value.mother_tongue);
     NewProfile.append('religion', this.AddClientEducationalDetails.value.religion);
     NewProfile.append('zodiac', this.AddClientEducationalDetails.value.zodiac);
@@ -51,7 +51,7 @@ export class SocialDetailsComponent implements OnInit {
 
     console.log(NewProfile);
 
-    return this.http.post('http://matchmakerz.in/api/v1/client/client-social-update?id=' + localStorage.getItem('newClientId'), NewProfile, {
+    return this.http.post('http://matchmakerz.in/api/v1/client/client-social-update', NewProfile, {
       headers: new HttpHeaders({
         'Authorization': 'Token ' + localStorage.getItem('token'),
       })

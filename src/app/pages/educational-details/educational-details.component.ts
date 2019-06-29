@@ -50,7 +50,7 @@ export class EducationalDetailsComponent implements OnInit {
     NewProfile.append('education','NA');
    
 
-    console.log(NewProfile);
+    console.log(NewProfile); 
 
     return this.http.post('http://matchmakerz.in/api/v1/client/client-career-update' , NewProfile ,{ 
         headers : new HttpHeaders({

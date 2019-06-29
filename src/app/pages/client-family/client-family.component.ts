@@ -36,7 +36,6 @@ export class ClientFamilyComponent implements OnInit {
         'unmarried_daughter' : [''],
         'matchmaker_note' : [''],
         'is_active' : [''],
-        // 'id' : [''],
       });; 
     }
   
@@ -69,7 +68,7 @@ export class ClientFamilyComponent implements OnInit {
       NewProfile.append('is_active', this.AddClientEducationalDetails.value.is_active );
       console.log(NewProfile);
   
-      return this.http.post('http://matchmakerz.in/api/v1/client/client-family-update?id='+localStorage.getItem('newClientId') , NewProfile ,{ 
+      return this.http.post('http://matchmakerz.in/api/v1/client/client-family-update', NewProfile ,{ 
           headers : new HttpHeaders({
             'Authorization': 'Token ' + localStorage.getItem('token'),
           })}).pipe(catchError((error) => {

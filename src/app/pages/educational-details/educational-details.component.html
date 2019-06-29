@@ -15,7 +15,7 @@
                         <div class="col input-group p-2 offset-5">
                             <mat-form-field style="width: 400px !important">
                                 <mat-label>Degree</mat-label>
-                                <mat-select name="degree">
+                                <mat-select  formControlName="degree">
                                     <mat-option value="0">B.A</mat-option>
                                     <mat-option value="1">B.Com</mat-option>
                                     <mat-option value="2">B.E/B.Tech</mat-option>
@@ -33,7 +33,7 @@
                         <div class="col input-group p-2 offset-5">
 
                             <mat-form-field style="width: 400px !important">
-                                <input matInput name="college" placeholder="Last college*">
+                                <input matInput formControlName="college" placeholder="Last college*">
                             </mat-form-field>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             <mat-form-field style="width: 400px !important">
                                 <mat-label>Is Working</mat-label>
 
-                                <mat-select name="is_working">
+                                <mat-select formControlName="is_working">
 
                                     <mat-option value="0">No</mat-option>
                                     <mat-option value="1">Yes</mat-option>
@@ -56,7 +56,7 @@
 
                             <mat-form-field style="width: 400px !important">
 
-                                <input matInput name="yearly_income" placeholder="yearly_income*">
+                                <input matInput formControlName="yearly_income" placeholder="yearly_income*">
                             </mat-form-field>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         <div class="col input-group p-2 offset-5">
 
                             <mat-form-field style="width: 400px !important">
-                                <input matInput name="office_address" placeholder="office_address*">
+                                <input matInput formControlName="office_address" placeholder="office_address*">
                             </mat-form-field>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                         <div class="col input-group p-2 offset-5">
 
                             <mat-form-field style="width: 400px !important">
-                                <input matInput name="sub_occupation" placeholder="sub_occupation*">
+                                <input matInput formControlName="sub_occupation" placeholder="sub_occupation*">
                             </mat-form-field>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                             <mat-form-field style="width: 400px !important">
                                 <mat-label>Occupation</mat-label>
 
-                                <mat-select name="occupation">
+                                <mat-select formControlName="occupation">
 
                                     <mat-option value="0">Not Working</mat-option>
                                     <mat-option value="1">Private Company</mat-option>
