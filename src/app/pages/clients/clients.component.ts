@@ -181,4 +181,24 @@ export class ClientsComponent implements OnInit {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
+ signout(){
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'Authorization': 'Token ' + localStorage.getItem('token')
+    // })
+    // return this.http.get('http://matchmakerz.in/api/v1/matchmaker/logout', { headers: headers }).subscribe((response) => {
+    //   this.response = response;
+    //   if(this.response.status === 1){
+    //     localStorage.setItem('is_active','false');
+    //     window.location.replace('/');   
+    //   }   
+    //   else 
+    //    console.log('Something went wrong'); 
+    // })  
+
+    localStorage.clear();
+    this.router.navigate(['/get-otp']);
+  }
+
+
 }

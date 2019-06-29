@@ -39,8 +39,19 @@
          </div>
      </div>
  </div>
+ <div class="row" style="margin-bottom: 40px;margin-top: 30px">
+  <button type="button" *ngIf="show" class="btn load-more" (click)="GetMore()">View More Clients</button>
+  <button type="button" *ngIf="load_more" class="btn load-more-icon"> <i class="fa  fa-spinner fa-spin fa-3x" aria-hidden="true" style="color:#f92c8b;"> </i> </button>
+</div>
 </main>
 
+<div class="section" style="position:fixed;width:100%;bottom:0;height: 60px">
+<div class="row">
+  <div style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;background-image: url('../../../assets/icons/pen.svg')" id="edit" (click)="filter()">
+    
+  </div>
+</div>
+</div>
 
 
 
