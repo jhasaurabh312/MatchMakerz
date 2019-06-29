@@ -18,6 +18,7 @@ export class PersonalDetailsComponent implements OnInit {
   AddClientDetails: FormGroup;
   error : any;
   data : any;
+  birth : any = [] ;
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient , public router : Router) { 
     this. AddClientDetails= this._formBuilder.group({
@@ -44,6 +45,17 @@ export class PersonalDetailsComponent implements OnInit {
   addClient(){
 
     const NewProfile  = new FormData();
+    // let l = this.AddClientDetails.value.birth_date.length;
+    // console.log(l);
+
+    // for(var i=0;i<l;i++){
+
+    //   if(this.AddClientDetails.value.birth_date[i] == '-')
+    //    this.AddClientDetails.value.birth_date[i] = '/' 
+     
+    // }
+
+    // console.log(this.AddClientDetails.value.birth_date);
    
     NewProfile.append('name', this.AddClientDetails.value.name );   
     NewProfile.append('phone_number', this.AddClientDetails.value.phone_number );
@@ -58,6 +70,11 @@ export class PersonalDetailsComponent implements OnInit {
     NewProfile.append('food_choice', this.AddClientDetails.value.food_choice );
     NewProfile.append('disability', this.AddClientDetails.value.disability );
     NewProfile.append('disabled_part', this.AddClientDetails.value.disabled_part );
+
+    
+    
+     
+
 
     console.log(NewProfile);
 

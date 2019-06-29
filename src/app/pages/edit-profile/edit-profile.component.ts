@@ -21,6 +21,7 @@ export class EditProfileComponent implements OnInit {
   values : string = '';
   suc :any;
   notices :any;
+  results : any = [];
   // apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService, private router: Router) { 
@@ -48,6 +49,24 @@ export class EditProfileComponent implements OnInit {
         this.notices=response.notification;
         console.log(this.notices);
       })
+ 
+      this.http.get('http://matchmakerz.in/api/v1/matchmaker/profile/',{headers : headers}).subscribe((results : any) => {
+         this.results = results;
+         console.log(this.results);
+         localStorage.setItem('signup_first_name' , this.results.first_name);
+          localStorage.setItem('signup_last_name' , this.results.last_name);
+          localStorage.setItem( 'signup_age', this.results.age);
+          localStorage.setItem('signup_gender', this.results.gender);
+          localStorage.setItem('signup_email', this.results.email);
+          localStorage.setItem('signup_whatsapp_number', this.results.whatsapp_number);
+          localStorage.setItem('signup_about', this.results.about);
+          localStorage.setItem('signup_phone_number',this.results.phone_number);
+          localStorage.setItem('signup_unique_about',this.results.unique_about);
+          localStorage.setItem('signup_specialization',this.results.specialization);
+          localStorage.setItem('signup_experience' , this.results.experience);
+
+      })
+
    
   }
 
@@ -59,17 +78,7 @@ export class EditProfileComponent implements OnInit {
 
   editProfile(){
 
-    localStorage.setItem('signup_first_name' , this.EditProfileDetails.value.first_name);
-    localStorage.setItem('signup_last_name' , this.EditProfileDetails.value.last_name);
-    localStorage.setItem( 'signup_age', this.EditProfileDetails.value.age);
-    localStorage.setItem('signup_gender', this.EditProfileDetails.value.gender);
-    localStorage.setItem('signup_email', this.EditProfileDetails.value.email);
-    localStorage.setItem('signup_whatsapp_number', this.EditProfileDetails.value.whatsapp_number);
-    localStorage.setItem('signup_about', this.EditProfileDetails.value.about);
-    localStorage.setItem('signup_phone_number',this.EditProfileDetails.value.phone_number);
-    localStorage.setItem('signup_unique_about',this.EditProfileDetails.value.unique_about);
-    localStorage.setItem('signup_specialization',this.EditProfileDetails.value.specialization);
-    localStorage.setItem('signup_experience' , this.EditProfileDetails.value.experience);
+    
 
     const NewProfile  = new FormData();
     NewProfile.append('first_name', this.EditProfileDetails.value.first_name );

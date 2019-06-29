@@ -1,10 +1,3 @@
-<!-- 
-<form #userOTP = "ngForm" (ngSubmit) = "getOTP(userOTP.value)" >
-    <input type = "text" name = "phone_number" placeholder = "phone_number" ngModel>
-    <br/>
-  <a routerLink="/login" routerLinkActive = "active" ></a> 
-   <button class= "btn btn-success"  type = "submit" value = "submit">click me</button>
-</form> --> 
 
 <main class="row">
   <div class="col-12 row middle ml-0 pl-0 pr-0">
@@ -18,7 +11,9 @@
           </div>
          
           <div class="input-group p-2" >
-              <input class="form-control" type = "text" name = "phone_number" placeholder = " +91       Phone Number" ngModel>
+              <input class="form-control" type = "text" name = "phone_number" placeholder = "Phone Number" ngModel style="padding-left:40px">
+              <div class="unit" style="padding-left:10px; padding-top:6px"><span >+91</span></div>
+              
           </div>
           
           <div class="input-group p-2" >
