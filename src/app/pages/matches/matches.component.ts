@@ -41,9 +41,16 @@ export class MatchesComponent implements OnInit {
 
     this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
       this.res = res;
-      console.log(this.res);
-      localStorage.setItem('min_age',this.res.min_age);
-      localStorage.setItem('max_age',this.res.max_age);
+      console.log((this.res.caste));
+      var cast_prefer = '';
+      this.res.caste.map((value, index) => {
+        console.log(value)
+        cast_prefer+=(value['id'])+','
+      })
+      cast_prefer+='0';
+
+      localStorage.setItem('min_age',(this.res.min_age).split('-')[0]);
+      localStorage.setItem('max_age',(this.res.max_age).split('-')[0]);
       localStorage.setItem('min_income',this.res.min_income);
       ((localStorage.setItem('max_income',this.res.max_income)));
       ((localStorage.setItem('min_height',this.res.min_height)));
@@ -52,9 +59,14 @@ export class MatchesComponent implements OnInit {
       ((localStorage.setItem('manglik',this.res.manglik)));
       ((localStorage.setItem('food_choice',this.res.food_choice)));
       ((localStorage.setItem('occupation',this.res.occupation)));
-      ((localStorage.setItem('citizenship',this.res.citizenship )));
-      ((localStorage.setItem('caste',this.res.caste)));
-      ((localStorage.setItem('gender', this.res.gender)));
+      // ((localStorage.setItem('citizenship',this.res.citizenship )));
+      ((localStorage.setItem('caste',cast_prefer)));
+      if(this.res.gender===1)
+        ((localStorage.setItem('prefer-gender', '0')));
+      else{
+                ((localStorage.setItem('prefer-gender', '1')));
+
+      }
     })
 
 
@@ -72,9 +84,9 @@ export class MatchesComponent implements OnInit {
                 +'&manglik='+localStorage.getItem('food_choice')
                 +'&food_choice='+localStorage.getItem('food_choice')
                 +'&occupation='+localStorage.getItem('occupation')
-                +'&citizenship='+localStorage.getItem('citizenship')
+                // +'&citizenship='+localStorage.getItem('citizenship')
                 +'&caste='+localStorage.getItem('caste')
-                +'&gender='+localStorage.getItem('gender')
+                +'&gender='+localStorage.getItem('prefer-gender')
 
                 this.http.get(URL, {headers : headers}).subscribe((response) =>{
                   this.response = response;

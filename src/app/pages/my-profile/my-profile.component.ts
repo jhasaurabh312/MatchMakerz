@@ -73,9 +73,8 @@ processfile(event){
   this.selectedFile =  (event.target.files[0])
    const uploadData = new FormData();
    console.log(this.selectedFile)
-   this.user.profile_pic = URL.createObjectURL(this.selectedFile);
     uploadData.append('profile_pic', this.selectedFile,  this.selectedFile.name);
-    console.log(this.user.profile_pic)
+    // console.log(this.user.profile_pic)
     uploadData.append('matchmaker_id', this.user.id);
 
     this.http.post('http://matchmakerz.in/api/v1/matchmaker/uploadProfilePic' , uploadData ,{ 
