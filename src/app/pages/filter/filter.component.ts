@@ -21,11 +21,11 @@ export class FilterComponent implements OnInit {
   a :string;
   selectedValue: any = '0';
   res : any = [];
-  // foods: Food[] = [
-  //   {value: 'steak-0', viewValue: 'Steak'},
-  //   {value: 'pizza-1', viewValue: 'Pizza'},
-  //   {value: 'tacos-2', viewValue: 'Tacos'}
-  // ];
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public route : Router) { 
     this.EditClientPreferences = this._formBuilder.group({
       'min_age' : [localStorage.getItem('min_age')],

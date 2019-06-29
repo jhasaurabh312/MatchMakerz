@@ -22,7 +22,7 @@ export class EditProfileComponent implements OnInit {
   suc :any;
   notices :any;
   results : any = [];
-  // apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
+  
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService, private router: Router) { 
     this. EditProfileDetails= this._formBuilder.group({
@@ -113,20 +113,7 @@ export class EditProfileComponent implements OnInit {
         
   }
 
-  // getlocation(){
-
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'Application/json',
-      
-  //   })
-
-  //   this.values = this.EditProfileDetails.value.location ;
-  //   console.log(this.values);
-  //   return this.http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?input='+this.values+'&key='+this.apiKey , {headers:headers}).subscribe((suc) => {
-  //     this.suc=suc;
-  //     console.log(this.suc);
-  //   })
-  // }
+  
 
 }
 
