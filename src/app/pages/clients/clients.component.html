@@ -49,7 +49,7 @@
     </div>
   </div>
 </div>
-<main class="card-wrapper" style="overflow:hidden;padding: 20px;margin-bottom:10px" *ngIf="check">
+<main class="card-wrapper" style="overflow:hidden;padding: 20px;margin-bottom:10px" *ngIf="check" (click)="hide()">
   <div id="something" class="row" style="display:flex;background-color:white;min-height: -webkit-fill-available; margin-bottom: 60px">
     <div class="col-sm-12 col-md-6 col-lg-6"  *ngFor="let member of staticProductDetail">
       <div class="row client-card">

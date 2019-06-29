@@ -30,8 +30,9 @@
               <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.shortlist_to.current_city}}</p>
           </div>
           <div class="button" style="margin-top : 15px; display: flex">
-            <button type="button"  class="card-button" (click)="getMatches(member.id)" ><i class="fa fa-heart-beat" style="width:20px;height:20px;color:white"  ></i>Show Inerest</button>
-            <button type="button" class="card-button" (click)="getActivity(member.id)" ><i class="fa fa-clock-o" style="width:20px;height:20px"></i>&nbsp;Activity</button>
+                 <button type="button" class="card-button" (click) = "showInterestCandidate(member.id)" style="margin-left:10px;color:white;background-color:#f92c8b;border: 5px solid #f92c8b"><i class="fa fa-clock-o" style="width:20px;height:20px"></i>Interested</button>
+<!--             <button type="button"  style="padding: inherit;" class="card-button" (click)="getMatches(member.id)" ><i class="fa fa-heart" style="width:20px;height:20px;color:white"  ></i>Show Inerest</button>
+ -->            <button type="button" style="padding: inherit;" class="card-button" (click)="DeleteShorlist(member.id)" ><i class="fa fa-clock-o" style="width:20px;height:20px"></i>&nbsp;Activity</button>
           </div>
         </div>
       </div>

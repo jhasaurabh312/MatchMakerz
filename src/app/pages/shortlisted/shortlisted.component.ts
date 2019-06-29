@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-shortlisted',
@@ -10,7 +12,7 @@ export class ShortlistedComponent implements OnInit {
   shortlistedTotal: any = [];
   shortlisted: any =[];
   res:any;
-  
+  a:any;
 
   constructor(private http : HttpClient) { }
 
@@ -60,5 +62,46 @@ export class ShortlistedComponent implements OnInit {
 
    
   }
+  DeleteShorlist(data){
+    // this.a = parseInt(localStorage.getItem('clientId'));
+    const NewProfile  = new FormData();
+
+    NewProfile.append('shortlist_id',data);
+    // NewProfile.append('shortlist_for',this.a);
+
+    console.log(NewProfile);
+
+    return this.http.put('http://matchmakerz.in/api/v1/client/shortList' , NewProfile ,{ 
+           headers : new HttpHeaders({
+          'Authorization': 'Token ' + localStorage.getItem('token'),
+        })}).pipe(catchError((error) => {
+          return throwError("oops"); })).subscribe((response:any) => {
+          console.log(response);
+           }),err =>{
+          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
+        }
+
+  }
+
+  showInterestCandidate(data){
+
+    this.a = parseInt(localStorage.getItem('clientId'));
+    const Data  = new FormData();
+    Data.append('showInterest_for',this.a)
+    Data.append('showInterest_to',data);
+
+    console.log(Data);
+
+    return this.http.post('http://matchmakerz.in/api/v1/client/showInterest' , Data ,{ 
+           headers : new HttpHeaders({
+          'Authorization': 'Token ' + localStorage.getItem('token'),
+        })}).pipe(catchError((error) => {
+          return throwError("oops"); })).subscribe((response:any) => {
+          console.log(response);
+           }),err =>{
+          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
+        }
+  }
+
 
 }
