@@ -53,7 +53,7 @@ export class ClientPreferencesComponent implements OnInit {
     NewProfile.append('food_choice', this.AddClientEducationalDetails.value.food_choice );
     NewProfile.append('occupation', this.AddClientEducationalDetails.value.occupation );
     NewProfile.append('citizenship', this.AddClientEducationalDetails.value.citizenship );
-    NewProfile.append('caste', this.AddClientEducationalDetails.value.caste );
+    NewProfile.append('caste', this.AddClientEducationalDetails.value.caste.join() );
 
     localStorage.setItem('c_cp_min_age', this.AddClientEducationalDetails.value.min_age );
     localStorage.setItem('c_cp_max_age', this.AddClientEducationalDetails.value.max_age );
@@ -66,8 +66,10 @@ export class ClientPreferencesComponent implements OnInit {
     localStorage.setItem('c_cp_food_choice', this.AddClientEducationalDetails.value.food_choice );
     localStorage.setItem('c_cp_occupation', this.AddClientEducationalDetails.value.occupation );
     localStorage.setItem('c_cp_citizenship', this.AddClientEducationalDetails.value.citizenship );
-    localStorage.setItem('c_cp_caste', this.AddClientEducationalDetails.value.caste );
+    localStorage.setItem('c_cp_caste', this.AddClientEducationalDetails.value.caste.join() );
     
+
+    // console.log(this.AddClientEducationalDetails.value.caste.join() );
 
     console.log(NewProfile);
 
