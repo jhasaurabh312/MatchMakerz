@@ -181,6 +181,11 @@ export class ClientsComponent implements OnInit {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
+hide(){
+  document.getElementById("myDropdown").toggle("show");
+  // x.style.display = "none";
+}
+
  signout(){
     // const headers = new HttpHeaders({
     //   'Content-Type': 'application/json',
@@ -199,6 +204,5 @@ export class ClientsComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/get-otp']);
   }
-
 
 }
