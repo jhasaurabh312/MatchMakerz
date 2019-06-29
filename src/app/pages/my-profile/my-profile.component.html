@@ -14,7 +14,11 @@
         <header class='masthead' style="padding:0">
           <img class="img-thumbnail" src="{{user.profile_pic}}" style="width:200px;height: -webkit-fill-available;border-radius: 50%">
           <div class="image">
-                <img src="../../../assets/icons/camera-plus.svg">
+              <form enctype="multipart/form-data">
+                <label for="photo"> <img src="../../../assets/icons/camera-plus.svg"></label>
+                <input type="file" name="filetoupload" id="photo" style="display:none" (change)="processfile()">
+              </form>
+               
           </div>
         </header>
         <div class="masthead-intro" style="color:#f92c8b;"> {{user.first_name}} {{user.last_name}}</div>
@@ -27,7 +31,7 @@
               Experience</div></div></div></div>
         </div>
         <div id="info">
-          <div class="btn btn-1" style="cursor:auto"><div class="txt"><div class="row span-data"><div class="user-span"> {{user.clients}} </div><div> Total Clients</div></div></div></div>
+          <div class="btn btn-1" style="cursor:auto"><div class="txt"><div class="row span-data"><div class="user-span"> {{result.clients}} </div><div> Total Clients</div></div></div></div>
         </div>
       </div>
 
@@ -62,7 +66,7 @@
 </div>
 <div class="section" style="position:fixed;width:100%;bottom:0">
   <div class="row">
-    <div class="circle play"  style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;background-image: url('../../../assets/icons/pen.svg')" id="edit" (click)="AddClient()">
+    <div class="circle play"  style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;background-image: url('../../../assets/icons/pen.svg')" id="edit" (click)="editProfile()">
       
     </div>
   </div>

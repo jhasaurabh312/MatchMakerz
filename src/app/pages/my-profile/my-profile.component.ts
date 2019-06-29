@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MyprofileService } from '../../shared/services/myProfile/myprofile.service'
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-my-profile',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MyProfileComponent implements OnInit {
   public user : any = [];
+  result : any = [];
   public response : any;
   public show:boolean = false;
   clients: boolean= !true;
@@ -18,6 +20,17 @@ export class MyProfileComponent implements OnInit {
   constructor( private http : HttpClient , private myProfile : MyprofileService, public router : Router) { }
 
   ngOnInit() {
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    }) 
+    
+    this.http.get('http://matchmakerz.in/api/v1/matchmaker/totalclients', {headers : headers}).subscribe((result) => {
+      this.result = result;
+      console.log(this.result);
+    })
+
     this.myProfile.view_profile().subscribe((response) => {
           this.user = response; 
           console.log(this.user) ;  
@@ -52,6 +65,44 @@ export class MyProfileComponent implements OnInit {
   
  myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
+}
+
+processfile(){
+  var inputValue = (<HTMLInputElement>document.getElementById('photo')).value.length;
+  if(inputValue){
+    this.submit();
+  }
+  else 
+   alert('NO PICTURE SELECTED !!!');
+  
+}
+
+submit(){
+   const NewValue = new FormData();
+   NewValue.append('profile_pic',(<HTMLInputElement>document.getElementById('photo')).value);
+
+   this.http.post('http://matchmakerz.in/api/v1/matchmaker/uploadProfilePic' , NewValue ,{ 
+    headers : new HttpHeaders({
+      // 'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token'),
+    })}).pipe(catchError((error) => {
+      return throwError("oops"); })).subscribe((response:any) => {
+      this.response = response;
+      console.log(this.response);
+      if(this.response.status === 1)
+       this.router.navigate(['/my-profile']);
+      else 
+       alert('Cannot Update !! something went Wrong');  
+
+    }),err =>{
+      alert('Something went wrong please try again after Sometime');
+    }
+
+  //  console.log((<HTMLInputElement>document.getElementById('photo')).value);
+
+   
+
+   
 }
 
 

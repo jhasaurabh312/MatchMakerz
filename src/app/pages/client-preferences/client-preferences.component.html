@@ -17,7 +17,7 @@
                         <div class="form-row ">
                             <div class="col-5 input-group p-2">
                                 <mat-form-field class="full-min-width">
-                                    <input type="number" matInput formControlName="min_age" placeholder="min_age*">
+                                    <input matInput formControlName="min_age" placeholder="min_age*">
                                 </mat-form-field>
                             </div>
                             <div class="col-5 p-2">
@@ -65,7 +65,15 @@
                         <div class="form-row ">
                             <mat-form-field class="full-width">
 
-                                <input matInput formControlName="occupation" placeholder="occupation*">
+                                <mat-label>Occupation</mat-label>
+                                <mat-select formControlName="occupation">
+                                        <mat-option value="0">Not Working</mat-option>
+                                        <mat-option value="1">Private Company</mat-option>
+                                        <mat-option value="2">Business/ Self Employed</mat-option>
+                                        <mat-option value="3">Government Job</mat-option>
+                                        <mat-option value="4">Doctor</mat-option>
+                                        <mat-option value="5">Teacher</mat-option>
+                                </mat-select>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
@@ -76,42 +84,45 @@
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width">
-                                <mat-label>marital_status</mat-label>
+                                    <mat-label>Marraige</mat-label>
 
-                                <mat-select formControlName="marital_status">
-                                    <mat-option value="0">No</mat-option>
-                                    <mat-option value="1">Yes</mat-option>
-                                </mat-select>
+                                    <mat-select formControlName="marital_status">
+    
+                                        <mat-option value="0">Never Married</mat-option>
+                                        <mat-option value="1">Divorced</mat-option>
+                                        <mat-option value="2">Widowed</mat-option>
+                                    </mat-select>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width">
-                                <mat-label>manglik</mat-label>
-
-                                <mat-select formControlName="manglik">
-                                    <mat-option value="0">No</mat-option>
-                                    <mat-option value="1">Yes</mat-option>
-                                </mat-select>
+                                    <mat-label>Manglik</mat-label>
+                                    <mat-select matInput formControlName="manglik" >
+                                        <mat-option value="0">Non Manglik</mat-option>
+                                        <mat-option value="1">Manglik</mat-option>
+                                        <mat-option value="2">Anshik Manglik</mat-option>
+                                       
+                                       
+                                    </mat-select>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width">
-                                <mat-label>food_choice</mat-label>
+                                    <mat-label>Food Choice</mat-label>
 
-                                <mat-select formControlName="food_choice">
-                                    <mat-option value="0">No</mat-option>
-                                    <mat-option value="1">Yes</mat-option>
-                                </mat-select>
+                                    <mat-select formControlName="food_choice">
+                                        <mat-option value="0">Vegetarian</mat-option>
+                                        <mat-option value="1">Non-vegetarian</mat-option>
+                                    </mat-select>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width">
-                                <mat-label>citizenship</mat-label>
-
-                                <mat-select formControlName="citizenship">
-                                    <mat-option value="0">No</mat-option>
-                                    <mat-option value="1">Yes</mat-option>
-                                </mat-select>
+                                    <mat-label>citizenship</mat-label>
+                                    <mat-select matInput formControlName="citizenship" >
+                                        <mat-option value="0">Indian</mat-option>
+                                        <mat-option value="1">NRI</mat-option>   
+                                    </mat-select>
 
                             </mat-form-field>
                         </div>

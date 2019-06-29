@@ -23,6 +23,28 @@
 
                             </mat-form-field>
                         </div>
+                            <div class="form-row ">
+                                <mat-form-field class="full-width">
+    
+                                    <mat-label>house_type</mat-label>
+                                    <mat-select formControlName="house_type">
+                                        <mat-option value="0">Owned</mat-option>
+                                        <mat-option value="1">Rented</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="form-row ">
+                                    <mat-form-field class="full-width">
+        
+                                        <mat-label>family_type</mat-label>
+                                        <mat-select formControlName="family_type">
+                                            <mat-option value="0">Nuclear</mat-option>
+                                            <mat-option value="1">Joint</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
                         <div class="form-row ">
 
                             <mat-form-field class="full-width">
@@ -33,84 +55,110 @@
                         <div class="form-row ">
                             <mat-form-field class="full-width">
 
-                                <input matInput formControlName="mother_occupation" placeholder="mother_occupation*">
+                                <!-- <input matInput formControlName="mother_occupation" placeholder="mother_occupation*"> -->
+                                <mat-label>mother_occupation</mat-label>
+                                <mat-select formControlName="mother_occupation">
+                                        <mat-option value="0">Not Working</mat-option>
+                                        <mat-option value="1">Private Company</mat-option>
+                                        <mat-option value="2">Business/ Self Employed</mat-option>
+                                        <mat-option value="3">Government Job</mat-option>
+                                        <mat-option value="4">Doctor</mat-option>
+                                        <mat-option value="5">Teacher</mat-option>
+                                </mat-select>
                             </mat-form-field>
-                        </div>
-                        <div class="form-row ">
+                        </div> 
+                         <div class="form-row ">
                             <mat-form-field class="full-width">
 
                                 <input matInput formControlName="father_occupation" placeholder="father_occupation*">
+                                <mat-label>father_occupation</mat-label>
+                                <mat-select formControlName="father_occupation">
+                                        <mat-option value="0">Not Working</mat-option>
+                                        <mat-option value="1">Private Company</mat-option>
+                                        <mat-option value="2">Business/ Self Employed</mat-option>
+                                        <mat-option value="3">Government Job</mat-option>
+                                        <mat-option value="4">Doctor</mat-option>
+                                        <mat-option value="5">Teacher</mat-option>
+                                </mat-select>
                             </mat-form-field>
                         </div>
-                        <div class="form-row ">
-                            <mat-form-field class="full-width">
-
-                                <input matInput formControlName="family_income" placeholder="family_income*">
-                            </mat-form-field>
-                        </div>
-                        <div class="form-row ">
+                       
+                        <!-- <div class="form-row ">
                             <mat-form-field class="full-width">
 
                                 <input matInput formControlName="landline" placeholder="landline*">
                             </mat-form-field>
-                        </div>
+                        </div> -->
                         <div class="form-row ">
                             <mat-form-field class="full-width">
 
-                                <input matInput formControlName="married_son" placeholder="married_son*">
-                            </mat-form-field>
-                        </div>
-                        <div class="form-row ">
-                            <mat-form-field class="full-width">
-
-                                <input matInput formControlName="unmarried_son" placeholder="unmarried_son*">
-                            </mat-form-field>
-                        </div>
-                        <div class="form-row ">
-                            <mat-form-field class="full-width">
-
-                                <input matInput formControlName="married_daughter" placeholder="married_daughter*">
-                            </mat-form-field>
-                        </div>
-                        <div class="form-row ">
-                            <mat-form-field class="full-width">
-
-                                <input matInput formControlName="unmarried_daughter" placeholder="unmarried_daughter*">
-                            </mat-form-field>
-                        </div>
-                        <div class="form-row ">
-                            <mat-form-field class="full-width">
-
-                                <input matInput formControlName="matchmaker_note" placeholder="matchmaker_note*">
-                            </mat-form-field>
-                        </div>
-                        <div class="form-row ">
-                            <mat-form-field class="full-width">
-
-                                <mat-label>family_type</mat-label>
-                                <mat-select formControlName="family_type">
-                                    <mat-option value="0">No</mat-option>
-                                    <mat-option value="1">Yes</mat-option>
+                                <!-- <input matInput formControlName="married_son" placeholder="married_son*"> -->
+                                <mat-label>married_son</mat-label>
+                                <mat-select formControlName="married_son">
+                                    <mat-option value="0">0</mat-option>
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width">
 
-                                <mat-label>house_type</mat-label>
-                                <mat-select formControlName="house_type">
-                                    <mat-option value="0">No</mat-option>
-                                    <mat-option value="1">Yes</mat-option>
+                                <!-- <input matInput formControlName="unmarried_son" placeholder="unmarried_son*"> -->
+                                <mat-label>unmarried_son</mat-label>
+                                <mat-select formControlName="unmarried_son">
+                                    <mat-option value="0">0</mat-option>
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+
+                                <!-- <input matInput formControlName="married_daughter" placeholder="married_daughter*"> -->
+                                <mat-label>married_daughter</mat-label>
+                                <mat-select formControlName="married_daughter">
+                                    <mat-option value="0">0</mat-option>
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+                            <mat-form-field class="full-width">
+
+                                <!-- <input matInput formControlName="unmarried_daughter" placeholder="unmarried_daughter*"> -->
+                                <mat-label>unmarried_daughter</mat-label>
+                                <mat-select formControlName="unmarried_daughter">
+                                    <mat-option value="0">0</mat-option>
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                       
+                       
+                       
                         <div class="form-row ">
                             <mat-form-field class="full-width">
 
                                 <mat-label>mother_status</mat-label>
                                 <mat-select formControlName="mother_status">
-                                    <mat-option value="0">No</mat-option>
-                                    <mat-option value="1">Yes</mat-option>
+                                    <mat-option value="0">Alive</mat-option>
+                                    <mat-option value="1">Dead</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -118,12 +166,18 @@
                             <mat-form-field class="full-width">
                                 <mat-label>father_status</mat-label>
                                 <mat-select formControlName="father_status">
-                                    <mat-option value="0">No</mat-option>
-                                    <mat-option value="1">Yes</mat-option>
+                                    <mat-option value="0">Alive</mat-option>
+                                    <mat-option value="1">Dead</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
+                                <mat-form-field class="full-width">
+    
+                                    <input matInput formControlName="family_income" placeholder="family_income*">
+                                </mat-form-field>
+                            </div>
+                        <!-- <div class="form-row ">
                             <mat-form-field class="full-width">
                                 <mat-label>is_active</mat-label>
 
@@ -132,7 +186,13 @@
                                     <mat-option value="1">Yes</mat-option>
                                 </mat-select>
                             </mat-form-field>
-                        </div>
+                        </div> -->
+                        <div class="form-row ">
+                                <mat-form-field class="full-width">
+    
+                                    <input matInput formControlName="matchmaker_note" placeholder="matchmaker_note*">
+                                </mat-form-field>
+                            </div>
 
                         <div>
                             <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
@@ -146,3 +206,5 @@
         </form>
     </div>
 </main>
+
+                                       

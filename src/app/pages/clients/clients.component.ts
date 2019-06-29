@@ -18,6 +18,8 @@ export class ClientsComponent implements OnInit {
   clients: boolean=true;
   my_profile: boolean = false;
   notices : any =[];
+  check : boolean ;
+  check1 : boolean ;
   
   
   constructor( private http : HttpClient , public router : Router) { }
@@ -32,10 +34,18 @@ export class ClientsComponent implements OnInit {
      this.http.get('http://matchmakerz.in/api/v1/client/list?id=999999999', {headers : headers}).subscribe((response) =>{
      this.staticProductDetail = response;
      console.log(this.staticProductDetail);
-    //  console.log(this.staticProductDetail.length);
+  
 
-     if(this.staticProductDetail.length===0)
-      this.router.navigate(['/dummy']);
+     if(this.staticProductDetail.length===0){
+      this.check = false ;
+      this.check1 = true ;
+     }
+      
+     else {
+      this.check = true ; 
+      this.check1 = false ; 
+     }
+     
 
      
       let l = this.staticProductDetail.length;
@@ -44,7 +54,7 @@ export class ClientsComponent implements OnInit {
       else
        this.show = true; 
        
-      console.log(l, this.show); 
+      // console.log(l, this.show); 
 
       for(let i=0;i<l;i++){
         if(this.staticProductDetail[i].profile_photo== null)
@@ -68,7 +78,7 @@ export class ClientsComponent implements OnInit {
       } 
 
       localStorage.setItem('lastClientId', this.staticProductDetail[l-1].id);
-    //  localStorage.setItem('lastClientId', this.staticProductDetail[19].id)
+  
    })
 
    this.http.get('http://matchmakerz.in/api/v1/client/notifications' ,{ headers: headers }).subscribe((response:any)=>{
@@ -85,7 +95,7 @@ export class ClientsComponent implements OnInit {
 
   getMatches(data){
     localStorage.setItem('clientId' , data);
-    this.router.navigate(['/filter']);
+    this.router.navigate(['/matches']);
   }
 
   getProfile(data){
@@ -95,6 +105,10 @@ export class ClientsComponent implements OnInit {
 
   AddClient(){
     this.router.navigate(['/personal-details']);
+  }
+
+  plans(){
+    this.router.navigate(['/plans']);
   }
   ActiveBorder(e){
     if(e==='my_profile'){
@@ -108,7 +122,7 @@ export class ClientsComponent implements OnInit {
   }
 
   GetMore(){
-    console.log("** get more **")
+    // console.log("** get more **")
     // console.log(this.staticProductDetail.length)
     this.load_more = true;
     this.show = false;

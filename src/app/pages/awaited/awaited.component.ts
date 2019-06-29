@@ -16,6 +16,8 @@ export class AwaitedComponent implements OnInit {
   staticProductDetail : any = [];
   incoming : boolean;
   outgoing:  boolean;
+  check : boolean ;
+  check1 : boolean ;
   constructor(private http : HttpClient, public router : Router) { }
 
   ngOnInit() {
@@ -31,6 +33,16 @@ export class AwaitedComponent implements OnInit {
      this.http.get('http://matchmakerz.in/api/v1/client/incoming-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
        this.awaitedIn = response;
        console.log('Incoming',this.awaitedIn)
+
+       if(this.awaitedIn.length===0){
+        this.check = false ;
+        this.check1 = true ;
+       }
+        
+       else {
+        this.check = true ; 
+        this.check1 = false ; 
+       }
 
        for(let i=0;i<this.awaitedIn.length;i++){
           if(this.awaitedIn[i].matched_to.profile_photo== null)
@@ -66,6 +78,16 @@ export class AwaitedComponent implements OnInit {
      this.http.get('http://matchmakerz.in/api/v1/client/awaited-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
       this.staticProductDetail = response;
       console.log('outgoing',this.staticProductDetail)
+
+      if(this.staticProductDetail.length===0){
+        this.check = false ;
+        this.check1 = true ;
+       }
+        
+       else {
+        this.check = true ; 
+        this.check1 = false ; 
+       }
 
       for(let i=0;i<this.staticProductDetail.length;i++){
              if(this.staticProductDetail[i].matched_to.profile_photo== null)
