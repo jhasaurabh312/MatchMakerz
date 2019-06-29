@@ -18,7 +18,9 @@ export class PersonalDetailsComponent implements OnInit {
   AddClientDetails: FormGroup;
   error : any;
   data : any;
+ startDate = new Date(1970, 0, 1);
   birth : any = [] ;
+
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient , public router : Router) { 
     this. AddClientDetails= this._formBuilder.group({
