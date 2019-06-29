@@ -23,9 +23,10 @@
                                 <img class="img-thumbnail rounded-circle mx-auto d-block " style="width:250px;height: 250px;" src="{{user.profile_photo}}">
                             </div>
                             <div class="image">
-                                <!-- <div class="circle"> -->
-                                        <img src="../../../assets/icons/camera-plus.svg">
-                                <!-- </div> -->
+                                    <form  enctype="multipart/form-data">
+                                        <label for="photo"> <img src="../../../assets/icons/camera-plus.svg"></label>
+                                        <input type="file" name="filetoupload" id="photo" style="display:none" (change)="processfile($event)">
+                                      </form>
                             </div>
                             <div class="row text-center header-row">
                                 <strong class=" mx-auto d-block">

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-profile',
@@ -12,8 +15,10 @@ export class ClientProfileComponent implements OnInit {
   personal: boolean;
   social: boolean;
   preferences: boolean;
+  selectedFile: File;
+  response: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public router : Router) { }
 
   ngOnInit() {
     this.personal = true;
@@ -52,6 +57,37 @@ export class ClientProfileComponent implements OnInit {
        this.preferences = true;
      }
    }
+
+
+processfile(event){
+  // const image = event.target.files[0] ;
+  this.selectedFile =  (event.target.files[0])
+   const uploadData = new FormData();
+   console.log(this.selectedFile)
+   this.user.profile_pic = URL.createObjectURL(this.selectedFile);
+    uploadData.append('profile_pic', this.selectedFile,  this.selectedFile.name);
+    console.log(this.user.profile_pic)
+    uploadData.append('matchmaker_id', this.user.id);
+
+    this.http.post('http://matchmakerz.in/api/v1/matchmaker/uploadProfilePic' , uploadData ,{ 
+    headers : new HttpHeaders({
+      // 'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token'),
+    })}).pipe(catchError((error) => {
+      return throwError("oops"); }))
+      .subscribe((response:any) => {
+      this.response = response;
+      console.log(this.response);
+      if(this.response.status === 1)
+       this.router.navigate(['/my-profile']);
+      else 
+       alert('Cannot Update !! something went Wrong');  
+
+    }),err =>{
+      alert('Something went wrong please try again after Sometime');
+    }
+}
+
 
 
 }
