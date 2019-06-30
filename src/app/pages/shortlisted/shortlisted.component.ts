@@ -13,6 +13,8 @@ export class ShortlistedComponent implements OnInit {
   shortlisted: any =[];
   res:any;
   a:any;
+  check : boolean;
+  check1 : boolean;
 
   constructor(private http : HttpClient) { }
 
@@ -34,6 +36,14 @@ export class ShortlistedComponent implements OnInit {
        console.log(this.shortlisted);
 
        let l = this.shortlisted.length;
+       if(l==0){
+         this.check1 = true;
+         this.check = false;
+       }
+       else{
+        this.check = true;
+        this.check1 = false;
+       }
        
  
        for(let i=0;i<l;i++){
