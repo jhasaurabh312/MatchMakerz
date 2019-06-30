@@ -16,6 +16,9 @@ export class GetOTPComponent implements OnInit {
   constructor( private http : HttpClient, private router:Router) { } 
 
   ngOnInit() {
+
+     if(localStorage.getItem('token') != null)
+       this.router.navigate(['/clients']);
    
   }
 
