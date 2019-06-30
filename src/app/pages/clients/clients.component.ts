@@ -181,7 +181,8 @@ export class ClientsComponent implements OnInit {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 hide(){
-  document.getElementById("myDropdown").toggle("show");
+ var x =  document.getElementById("myDropdown").classList.toggle("show");
+ console.log(x)
   // x.style.display = "none";
 }
 }
