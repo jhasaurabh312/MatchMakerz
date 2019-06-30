@@ -93,8 +93,9 @@ export class ClientsComponent implements OnInit {
     this.router.navigate(['/awaited']);
   }
 
-  getMatches(data){
+  getMatches(data, gender){
     localStorage.setItem('clientId' , data);
+    localStorage.setItem('gender' , gender);
     this.router.navigate(['/matches']);
   }
 
@@ -180,6 +181,11 @@ export class ClientsComponent implements OnInit {
  myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
+hide(){
+ var x =  document.getElementById("myDropdown").classList.toggle("show");
+ console.log(x)
+  // x.style.display = "none";
+}
 
 // hide(){
 //   document.getElementById("myDropdown").toggle("show");
@@ -204,5 +210,6 @@ export class ClientsComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/get-otp']);
   }
+
 
 }
