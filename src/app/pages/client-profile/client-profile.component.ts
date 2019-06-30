@@ -32,6 +32,10 @@ export class ClientProfileComponent implements OnInit {
      this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
       this.user = res;
       console.log(this.user);
+      if(this.user.is_active == "true")
+         this.user.is_active = 1;
+      else
+         this.user.is_active = 0;
     })
 
      this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
@@ -87,6 +91,19 @@ processfile(event){
       alert('Something went wrong please try again after Sometime');
     }
 }
+
+ delete(){
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Token ' + localStorage.getItem('token')
+  }) 
+
+   this.http.get('http://matchmakerz.in/api/v1/client/deleteClient?id='+localStorage.getItem('clientId')+'&is_active='+this.user.is_active,{headers : headers}).subscribe((res : any) => {
+    this.user = res;
+    console.log(this.user);
+  })
+
+ }
 
 
 

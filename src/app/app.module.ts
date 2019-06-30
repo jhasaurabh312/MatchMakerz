@@ -27,17 +27,14 @@ import { SocialDetailsComponent } from './pages/social-details/social-details.co
 import { EducationalDetailsComponent } from './pages/educational-details/educational-details.component';
 import { ClientFamilyComponent } from './pages/client-family/client-family.component';
 import { ClientPreferencesComponent } from './pages/client-preferences/client-preferences.component';
-
 import { ClientProfileComponent } from './pages/client-profile/client-profile.component';
 import { DeclinedComponent } from './pages/declined/declined.component';
 import { DummyComponent } from './pages/dummy/dummy.component';
 import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
 import { PlansComponent } from './pages/plans/plans.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-    
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
-// import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatAutocompleteModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -77,12 +74,12 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from 
     CarouselModule,
     StickyModule,
     BrowserAnimationsModule,
-    // BrowserAnimationsModule,
     BrowserModule,
     MatInputModule, 
     MatButtonModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatAutocompleteModule
   ],
   providers: [
     LoginService,

@@ -90,11 +90,14 @@
                                         </div>        
                              
             
-                <div class="form-row ">
+                  <div class="form-row ">
                         <div class="input-group p-2">
-                            <mat-form-field class="full-width" appearance="outline">
-                                    <input matInput formControlName="current_city" placeholder="Current City">
-                                    
+                            <mat-form-field class="full-width" appearance="outline">   
+                                    <input type="text" matInput formControlName="current_city"  placeholder="current_city" (keyup)="getlocation()">
+                                    <datalist>
+                                        <option *ngFor="let option of suc">{{option.description}}</option>
+                                    </datalist>  
+
                             </mat-form-field>
                         </div>
                     </div>

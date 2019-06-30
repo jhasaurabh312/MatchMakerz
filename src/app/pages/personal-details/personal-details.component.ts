@@ -18,9 +18,11 @@ export class PersonalDetailsComponent implements OnInit {
   AddClientDetails: FormGroup;
   error : any;
   data : any;
- startDate = new Date(1970, 0, 1);
+  startDate = new Date(1970, 0, 1);
   birth : any = [] ;
-
+  values : any = [];
+  suc : any = [];
+  apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient , public router : Router) { 
     this. AddClientDetails= this._formBuilder.group({
@@ -100,8 +102,20 @@ export class PersonalDetailsComponent implements OnInit {
         
   }
 
-  filter(){
-    
+
+  getlocation(){
+
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'Application/json',
+      
+    // })
+
+    this.values = this.AddClientDetails.value.current_city ;
+    console.log(this.values);
+    return this.http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?input='+this.values+'&key='+this.apiKey).subscribe((suc) => {
+      this.suc=suc;
+      console.log(this.suc);
+    })
   }
 
 }

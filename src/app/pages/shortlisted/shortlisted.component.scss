@@ -24,7 +24,7 @@ border-radius: 10rem;
 width: 50%;
 margin-left: auto;/*  */
 margin-right: auto;
-background-color: #F92CBB;
+background-color: #f92c8b;
 // margin-top: 30px;
 color: white;
 font-weight: 600;
@@ -54,11 +54,12 @@ height: 40px;
 border-radius: 100%;
 margin-top: 10px;
 margin-bottom: auto;
-// background-color: #F92CBB;
+cursor: pointer;
+// background-color: #f92c8b;
 width: 40px;
 margin-right: 25px;
 background-position: center;
-background-size: 40px;
+background-size: cover;
 background-repeat: no-repeat;
 -webkit-transition-property: width, height, background-color, box-shadow ;/* Safari */
 -webkit-transition-duration: 0.9s; /* Safari */
@@ -66,7 +67,27 @@ transition-property:  width, height,background-color, border, box-shadow;
 transition-duration: 0.9s;
 }
 .circle:hover{
+// background-color: blue;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.active-border-none{
+  color:black;cursor: pointer;
+// width: 300px;
+color: #f92c8b;
+
+  border-bottom: 3px solid #FFF;
+
+
+}
+.active-border{
+color:black;cursor: pointer;
+border-bottom: 3px solid #F92CBB;
+// width: 400px;
+  color: #f92c8b;
+
+ transition: border-bottom, width,1s;
+
 }
 
 #edit {
@@ -145,17 +166,17 @@ text-align: center;
 }
 
 .notification-item {
-  display:flex;
-  position:relative;
-  padding:20px;
-  // margin-top:2px;
-  background-color: #f1f1f1;
-  -webkit-transition-property: width, background-color,box-shadow; /* Safari */
-  -webkit-transition-duration: 0.9s; /* Safari */
-  transition-property: background-color, box-shadow;
-  transition-duration: 0.9s;
-}
+display:flex;
+position:relative;
+padding:20px;
+// margin-top:2px;
+background-color: #f1f1f1;
+-webkit-transition-property: width, background-color,box-shadow; /* Safari */
+-webkit-transition-duration: 0.9s; /* Safari */
+transition-property: background-color, box-shadow;
+transition-duration: 0.9s;
 
+}
 .notification-item:hover{
 background-color:#F8CFDF;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -186,8 +207,6 @@ transition-duration: 0.5s;
 }
 
 .client-card:hover{
-  -webkit-box-shadow: 0px 0px 16px -2px rgba(0,0,0,0.76); 
-box-shadow: 0px 0px 16px -2px rgba(0,0,0,0.76);
-// box-shadow:0px 0px 15px 4px rgba(85,255,216,0.36);
+box-shadow:0px 0px 15px 4px rgba(85,255,216,0.36);
 // 0px 0px 9px 4px rgba(0, 0, 0, 0.30), 0px 0px 10px 4px rgba(0, 0, 0, 0.30);
 }

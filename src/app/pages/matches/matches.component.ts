@@ -11,11 +11,13 @@ import { throwError } from 'rxjs';
   styleUrls: ['./matches.component.scss']
 })
 export class MatchesComponent implements OnInit {
+  load_more = false;
   shortlistedTotal: any = [];
   staticProductDetail : any = [];
   a : any;
   response : any ;
   res : any = [];
+  show : boolean;
   // min_age: number;
   // max_age: number;
   // min_income : number;
@@ -30,7 +32,9 @@ export class MatchesComponent implements OnInit {
   // caste: number;
   // gender: number;
 
-  constructor(private http : HttpClient, private filtercomp: FilterComponent, public route : Router) { }
+  constructor(private http : HttpClient, private filtercomp: FilterComponent, public route : Router) { 
+    localStorage.setItem('page','1');
+  }
 
   ngOnInit() {
 
@@ -41,30 +45,52 @@ export class MatchesComponent implements OnInit {
 
     this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
       this.res = res;
-      console.log((this.res.caste));
+      console.log((this.res));
       var cast_prefer = '';
       this.res.caste.map((value, index) => {
-        console.log(value)
+        // console.log(value)
         cast_prefer+=(value['id'])+','
       })
       cast_prefer+='0';
+      if(this.res.min_age !== null)
+        localStorage.setItem('min_age',(this.res.min_age).split('-')[0]);
 
-      localStorage.setItem('min_age',(this.res.min_age).split('-')[0]);
-      localStorage.setItem('max_age',(this.res.max_age).split('-')[0]);
-      localStorage.setItem('min_income',this.res.min_income);
+      if(this.res.max_age !== null)
+        localStorage.setItem('max_age',(this.res.max_age).split('-')[0]);
+
+      if(this.res.min_income !== null)
+        localStorage.setItem('min_income',this.res.min_income);
+
+      if(this.res.max_income !== null)
       ((localStorage.setItem('max_income',this.res.max_income)));
-      ((localStorage.setItem('min_height',this.res.min_height)));
-      ((localStorage.setItem('max_height',this.res.max_height)));
-      ((localStorage.setItem('marital_status',this.res.marital_status)));
-      ((localStorage.setItem('manglik',this.res.manglik)));
-      ((localStorage.setItem('food_choice',this.res.food_choice)));
-      ((localStorage.setItem('occupation',this.res.occupation)));
-      // ((localStorage.setItem('citizenship',this.res.citizenship )));
-      ((localStorage.setItem('caste',cast_prefer)));
-      if(this.res.gender===1)
-        ((localStorage.setItem('prefer-gender', '0')));
+
+      if (this.res.min_height !== null)
+        ((localStorage.setItem('min_height',this.res.min_height)));
+
+      if (this.res.max_height !== null)
+        ((localStorage.setItem('max_height',this.res.max_height)));
+
+      if (this.res.marital_status !== null)
+        ((localStorage.setItem('marital_status',this.res.marital_status)));
+
+      if(this.res.manglik !== null)
+        ((localStorage.setItem('manglik',this.res.manglik)));
+
+      if(this.res.food_choice !== null)
+        ((localStorage.setItem('food_choice',this.res.food_choice)));
+      if(this.res.occupation !== null)
+        ((localStorage.setItem('occupation',this.res.occupation)));
+      if(cast_prefer !== null)
+        ((localStorage.setItem('caste',cast_prefer)));
+
+      // if(this.res.gender === 1)
+      //   ((localStorage.setItem('prgender', this.res.gender)));
+      if(localStorage.getItem('gender')==='0'){
+                ((localStorage.setItem('prgender', '1')));
+
+      }
       else{
-                ((localStorage.setItem('prefer-gender', '1')));
+        ((localStorage.setItem('prgender', '0')));
 
       }
     })
@@ -74,24 +100,90 @@ export class MatchesComponent implements OnInit {
    
 
     let  URL = 'http://matchmakerz.in/api/v1/client/filterMatches?page='+localStorage.getItem('page')
-                +'&min_age='+localStorage.getItem('min_age')
-                +'&max_age='+localStorage.getItem('max_age')
-                +'&min_income='+localStorage.getItem('min_income')
-                +'&max_income='+localStorage.getItem('max_income')
-                +'&min_height='+localStorage.getItem('min_height')
-                +'&max_height='+localStorage.getItem('max_height')
-                +'&marital_status='+localStorage.getItem('marital_status')
-                +'&manglik='+localStorage.getItem('food_choice')
-                +'&food_choice='+localStorage.getItem('food_choice')
-                +'&occupation='+localStorage.getItem('occupation')
-                // +'&citizenship='+localStorage.getItem('citizenship')
-                +'&caste='+localStorage.getItem('caste')
-                +'&gender='+localStorage.getItem('prefer-gender')
+                if(localStorage.getItem('min_age') !== null){
+                 URL +='&min_age='+localStorage.getItem('min_age')
+                 localStorage.removeItem('min_age')
+                }
 
+                if(localStorage.getItem('max_age') !== null){
+                URL +='&max_age='+localStorage.getItem('max_age')
+                                 localStorage.removeItem('max_age')
+
+              }
+
+                if(localStorage.getItem('min_income') !== null){
+                  URL +='&min_income='+localStorage.getItem('min_income')
+                                 localStorage.removeItem('min_income')
+
+              }
+
+                if(localStorage.getItem('max_income') !== null){
+                URL +='&max_income='+localStorage.getItem('max_income')
+                                 localStorage.removeItem('max_income')
+
+              }
+
+                if (localStorage.getItem('min_height') !== null){
+                  URL +='&min_height='+localStorage.getItem('min_height')
+                                               localStorage.removeItem('min_height')
+
+              }
+  
+                if(localStorage.getItem('max_height') !== null){
+                  URL +='&max_height='+localStorage.getItem('max_height')
+                                 localStorage.removeItem('max_height')
+
+              }
+
+                if(localStorage.getItem('marital_status') !== null){
+                  URL +='&marital_status='+localStorage.getItem('marital_status')
+                                             localStorage.removeItem('marital_status')
+                
+
+              }
+
+                if(localStorage.getItem('manglik') !== null) {
+                  URL +='&manglik='+localStorage.getItem('manglik')
+
+                                 localStorage.removeItem('manglik')
+
+              }
+              if(localStorage.getItem('food_choice') !== null){
+                URL +='&food_choice='+localStorage.getItem('food_choice')
+                                 localStorage.removeItem('food_choice')
+
+              }
+
+              if(localStorage.getItem('occupation') !== null){
+                URL +='&occupation='+localStorage.getItem('occupation')
+
+                                 localStorage.removeItem('occupation')
+
+              }
+              if(localStorage.getItem('caste') !== null){
+                URL +='&caste='+localStorage.getItem('caste')
+
+                                 localStorage.removeItem('caste')
+
+              }
+              if(localStorage.getItem('prgender') !== null){
+                URL +='&gender='+localStorage.getItem('prgender')
+
+                                 localStorage.removeItem('prgender')
+              }
+
+              
+                console.log(URL)
                 this.http.get(URL, {headers : headers}).subscribe((response) =>{
                   this.response = response;
                   this.staticProductDetail = this.response.results;
                   console.log(this.staticProductDetail);
+
+                  let l = this.staticProductDetail.length;
+                    if(l<20)
+                    this.show = false;
+                    else
+                    this.show = true; 
 
                   for(let i=0;i<this.staticProductDetail.length;i++){
                     if(this.staticProductDetail[i].profile_photo== null)
@@ -120,11 +212,6 @@ export class MatchesComponent implements OnInit {
             this.shortlistedTotal = res;
             console.log(this.shortlistedTotal);
    })
-  }
-
-
-  filter(){
-    this.route.navigate(['/filter']);
   }
 
 
@@ -173,6 +260,18 @@ export class MatchesComponent implements OnInit {
     this.route.navigate(['/shortlisted']);
   }
 
+  filter(){
+    this.route.navigate(['/filter'])
+  }
 
+  getProfile(data){
+    localStorage.setItem('clientId' , data);
+    this.route.navigate(['/client-profile']);
+  }
+  getmore(){
+    this.load_more = true;
+
+    this.load_more = false;
+  }
 
 }
