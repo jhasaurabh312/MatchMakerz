@@ -1,57 +1,13 @@
-<div class="section shadow" id="header">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
-        <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
-        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-style: continuous">Matchmakerz</h5>
-    </div>
-    <!-- <div class="col-xs-4 col-md-4 col-lg-4 col-sm-4" style="display:flex;height:70px;">
-        <div class="offset-md-7">
-            <div class="row">
-                <div class="circle play" style="background-image:url('../../../assets/icons/play.svg');background-size:40px;" (click)="myFunction()">
-                    <div id="myDropdown" class="dropdown-content shadow">
-                        <div class="row notification-item" *ngFor="let notice of notices">
-
-                            <div class="col-xs-10 col-md-10 col-lg-10">
-                                <div class="row">
-                                    <div>
-                                        <img class="rounded-circle" [src]="notice.matched_to_pic != null ? notice.matched_to_pic : 'https://img.icons8.com/color/1600/circled-user-male-skin-type-1-2.png' " style="width:50px;height:50px;margin-left: 10px">
-                                        <img class="rounded-circle" [src]="notice.matched_for_pic != null ? notice.matched_for_pic : 'https://img.icons8.com/color/1600/circled-user-male-skin-type-1-2.png'" style="width:50px;height:50px;margin-left: 10px">
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <p style="font-size:.9em;margin-left: 10px">{{notice.mesg}}</p>
-                                        </div>
-                                        <div> <strong style="font-size:.9em;margin-left: 10px">
-                      {{
-                        notice.updated_at | date : medium : medium
-                      }}
-                    </strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-2 col-md-2 col-lg-2 text-center">
-                                <div class="button-notification">
-                                    <button class="btn btn-primary text-center" style="margin-left:10px;width:60px;height:34px;font-size:1em;text-align: center;">View</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                    <!-- <div class="circle" style="background:#f92c8b;    background-size: 20px;
-    background-repeat: no-repeat;    background-position: center;background-image:url('../../../assets/icons/rupee.svg')"></div>
-        <div class="circle" style="background:#f92c8b;    background-size: 20px;
-    background-repeat: no-repeat;    background-position: center;background-image:url('../../../assets/icons/close.svg')"></div>            </div> -->
-        <!-- </div>
-    </div>
-</div> -->
-
+<div class="section shadow" id="header" style="background: white;">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;margin-top : auto; margin-bottom : auto">
+            <a [routerLink]="['/my-profile']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark"><i class="fa fa-chevron-left fa-2x" ></i></a>
+            <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Edit Profile</h5>
+        </div>
 <main class="modal-body">
-    <div class="row">
-        <h3 style="font-family: 'Poppins', sans-serif ; font-size:20px; font-weight: 600; margin-left: auto;margin-right: auto;margin-top: -15px">Update Profile</h3>
-    </div>
     <form [formGroup]="EditProfileDetails">
-<div class="container">
-
+        <div class="container">
+            <div class="section" style="margin-left : auto;margin-right:auto">
+            
         <div class="form-row ">
             <div class="col input-group p-2 ">
                 <mat-form-field class="example-full-width" appearance="outline">
@@ -173,8 +129,9 @@
             <button type="button" mat-raised-button class="btn btn-user "style="background-color: #f92c8b" (click)="editProfile()"> &nbsp; &nbsp; Submit &nbsp;&nbsp;
             </button>
         </div>
-<!-- </dic> -->
-</div>
+            </div>
+        <!-- </dic> -->
+        </div>
     </form>
 
 </main>

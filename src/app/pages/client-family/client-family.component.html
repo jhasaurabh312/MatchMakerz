@@ -6,25 +6,25 @@
 
 </div>
 <main class="modal-body">
-    <div class="container" style="padding: 50px;margin: 10px;">
+    <div class="container" style="padding: 50px">
         <form [formGroup]="AddClientEducationalDetails">
             <div class="filter">
                 <div class="container">
-                    <div class="offset-5">
+                   
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
                                 <input matInput formControlName="hometown" placeholder="hometown*">
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <input matInput formControlName="home_address" placeholder="home_address*">
 
                             </mat-form-field>
                         </div>
                             <div class="form-row ">
-                                <mat-form-field class="full-width">
+                                <mat-form-field class="full-width" appearance="outline">
     
                                     <mat-label>house_type</mat-label>
                                     <mat-select formControlName="house_type">
@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="form-row ">
-                                    <mat-form-field class="full-width">
+                                    <mat-form-field class="full-width" appearance="outline">
         
                                         <mat-label>family_type</mat-label>
                                         <mat-select formControlName="family_type">
@@ -47,13 +47,13 @@
 
                         <div class="form-row ">
 
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <input matInput formControlName="gotra" placeholder="gotra*">
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <!-- <input matInput formControlName="mother_occupation" placeholder="mother_occupation*"> -->
                                 <mat-label>mother_occupation</mat-label>
@@ -68,7 +68,7 @@
                             </mat-form-field>
                         </div> 
                          <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <input matInput formControlName="father_occupation" placeholder="father_occupation*">
                                 <mat-label>father_occupation</mat-label>
@@ -82,15 +82,8 @@
                                 </mat-select>
                             </mat-form-field>
                         </div>
-                       
-                        <!-- <div class="form-row ">
-                            <mat-form-field class="full-width">
-
-                                <input matInput formControlName="landline" placeholder="landline*">
-                            </mat-form-field>
-                        </div> -->
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <!-- <input matInput formControlName="married_son" placeholder="married_son*"> -->
                                 <mat-label>married_son</mat-label>
@@ -105,7 +98,7 @@
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <!-- <input matInput formControlName="unmarried_son" placeholder="unmarried_son*"> -->
                                 <mat-label>unmarried_son</mat-label>
@@ -120,7 +113,7 @@
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <!-- <input matInput formControlName="married_daughter" placeholder="married_daughter*"> -->
                                 <mat-label>married_daughter</mat-label>
@@ -135,7 +128,7 @@
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <!-- <input matInput formControlName="unmarried_daughter" placeholder="unmarried_daughter*"> -->
                                 <mat-label>unmarried_daughter</mat-label>
@@ -153,7 +146,7 @@
                        
                        
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <mat-label>mother_status</mat-label>
                                 <mat-select formControlName="mother_status">
@@ -163,7 +156,7 @@
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
-                            <mat-form-field class="full-width">
+                            <mat-form-field class="full-width" appearance="outline">
                                 <mat-label>father_status</mat-label>
                                 <mat-select formControlName="father_status">
                                     <mat-option value="0">Alive</mat-option>
@@ -172,7 +165,7 @@
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
-                                <mat-form-field class="full-width">
+                                <mat-form-field class="full-width" appearance="outline">
     
                                     <input matInput formControlName="family_income" placeholder="family_income*">
                                 </mat-form-field>
@@ -188,20 +181,21 @@
                             </mat-form-field>
                         </div> -->
                         <div class="form-row ">
-                                <mat-form-field class="full-width">
+                                <mat-form-field class="full-width" appearance="outline">
     
                                     <input matInput formControlName="matchmaker_note" placeholder="matchmaker_note*">
                                 </mat-form-field>
                             </div>
 
                         <div>
-                            <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
-                            </button>
-
+                                <div class="input-group p-2">
+                                        <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
+                                        </button>
+                                </div>
                             <!-- <button class="btn btn-user" type="button" (click) = "addClient()"> Next Page</button>    -->
                         </div>
                     </div>
-                </div>
+              
             </div>
         </form>
     </div>

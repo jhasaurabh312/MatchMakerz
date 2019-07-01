@@ -42,32 +42,16 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit() {
         const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Token ' + localStorage.getItem('token')
-    }) 
-       this.http.get('http://matchmakerz.in/api/v1/client/notifications' ,{ headers: headers }).subscribe((response:any)=>{
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + localStorage.getItem('token')
+       }) 
+
+        this.http.get('http://matchmakerz.in/api/v1/client/notifications' ,{ headers: headers }).subscribe((response:any)=>{
         this.notices=response.notification;
         console.log(this.notices);
       })
  
-      this.http.get('http://matchmakerz.in/api/v1/matchmaker/profile/',{headers : headers}).subscribe((results : any) => {
-         this.results = results;
-         console.log(this.results);
-         localStorage.setItem('signup_first_name' , this.results.first_name);
-          localStorage.setItem('signup_last_name' , this.results.last_name);
-          localStorage.setItem( 'signup_age', this.results.age);
-          localStorage.setItem('signup_gender', this.results.gender);
-          localStorage.setItem('signup_email', this.results.email);
-          localStorage.setItem('signup_whatsapp_number', this.results.whatsapp_number);
-          localStorage.setItem('signup_about', this.results.about);
-          localStorage.setItem('signup_phone_number',this.results.phone_number);
-          localStorage.setItem('signup_unique_about',this.results.unique_about);
-          localStorage.setItem('signup_specialization',this.results.specialization);
-          localStorage.setItem('signup_experience' , this.results.experience);
-
-      })
-
-   
+     
   }
 
 
@@ -102,8 +86,11 @@ export class EditProfileComponent implements OnInit {
         })}).pipe(catchError((error) => {
           return throwError("oops"); })).subscribe((response:any) => {
           this.data = response;
-          if(this.data.status === 1)
-           this.router.navigate(['/my-profile']);
+          if(this.data.status === 1){
+            window.alert("Your Profile has been successfully updated !!!")
+            this.router.navigate(['/my-profile']);
+          }
+          
           else 
            alert('Cannot Update !! something went Wrong');  
 

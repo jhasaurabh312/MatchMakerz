@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { EditProfileService } from 'src/app/shared/services/editProfile/edit-profile.service';
@@ -8,11 +7,11 @@ import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-personal-details',
-  templateUrl: './personal-details.component.html',
-  styleUrls: ['./personal-details.component.scss']
+  selector: 'app-edit-client-one',
+  templateUrl: './edit-client-one.component.html',
+  styleUrls: ['./edit-client-one.component.scss']
 })
-export class PersonalDetailsComponent implements OnInit {
+export class EditClientOneComponent implements OnInit {
 
 
   AddClientDetails: FormGroup;
@@ -90,23 +89,4 @@ export class PersonalDetailsComponent implements OnInit {
         }
         
   }
-
-
-  getlocation(){
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'Application/json',
-      
-    // })
-
-    this.values = this.AddClientDetails.value.current_city ;
-    console.log(this.values);
-    return this.http.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?input='+this.values+'&key='+this.apiKey).subscribe((suc) => {
-      this.suc=suc;
-      console.log(this.suc);
-    })
-  }
-
 }
-   
-   

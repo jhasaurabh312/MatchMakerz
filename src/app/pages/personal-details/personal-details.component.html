@@ -1,160 +1,163 @@
 <div class="section shadow" id="header" style="background: white;">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;margin-top : auto; margin-bottom : auto">
         <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark"><i class="fa fa-chevron-left fa-2x" ></i></a>
-        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">personal Details</h5>
+        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Personal Details</h5>
+    </div>
+<main class="modal-body">
+<form [formGroup]="AddClientDetails">
+    <div class="container" style="padding : 30px">
+        <div class="section" style="margin-left : auto;margin-right:auto">
+        
+    <div class="form-row ">
+        <div class="col input-group p-2 ">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Name">
+            </mat-form-field>
+            <!-- <input  formControlName="first_name" placeholder="First Name" class="form-control"> -->
+    
+    </div>    </div>
+    <div class="form-row ">
+
+        <div class="col input-group p-2">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput formControlName="phone_number" placeholder="phone_number">
+            
+        </mat-form-field>
+            <!-- <input formControlName="last_name" placeholder="Last Name" class="form-control" > -->
+        </div>
+    </div>
+    <div class="form-row ">
+
+    <div class="col input-group p-2 ">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Whatsapp Number</mat-label>
+            <input matInput formControlName="whatsapp_number" placeholder="whatsapp_number">
+
+    </mat-form-field>
+
     </div>
 </div>
-<main class="modal-body">
-    <div class="container" style="padding: 50px;margin: 10px;">
-        <form [formGroup]="AddClientDetails">
-            <div class="container" style="margin:0px">
-                <div class="row">
-                    <div class="offset-5" style="margin-left:auto;margin-right:auto">
-                    <div class="form-row ">
-                        <div class="input-group p-2">
-                            <mat-form-field class="full-width" appearance="outline">
+        <div class="form-row ">
 
-                                <input matInput formControlName="name" placeholder="Name">
-                            </mat-form-field>
-                        </div>
-                    </div>
+            <div class="col input-group p-2">
+        <!-- <input formControlName="email" placeholder="email-id" class="form-control" >       -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Gender</mat-label>
 
-                    <div class="form-row ">
-                        <div class="input-group p-2">
-                            <mat-form-field class="full-width" appearance="outline">
-                                    <input matInput formControlName="phone_number" placeholder="phone_number">
-                                
-                            </mat-form-field>
-                        </div>
-                    </div>
-
-                    <div class="form-row ">
-                        <div class="input-group p-2">
-                            <mat-form-field class="full-width" appearance="outline">
-                                    <input matInput formControlName="whatsapp_number" placeholder="whatsapp_number">
-
-                            </mat-form-field>
-                        </div>
-                    </div>
-
-
-                    <div class="form-row ">
-                        <div class="input-group p-2" >
-                            <mat-form-field class="full-width" appearance="outline">
-                                    <mat-label>Gender</mat-label>
-
-                                    <mat-select formControlName="gender">
-                                        <mat-option value="0">Male</mat-option>
-                                        <mat-option value="1">Female</mat-option>
-                                    </mat-select>
-                            </mat-form-field>
-                        </div>
-                    </div>                       
-
-                    <div class="form-row ">
-                            <div class="input-group p-2">
-                                <mat-form-field class="full-width" appearance="outline">
-    
-                                        <input matInput formControlName="height" placeholder="Height(Inches)">
-                                </mat-form-field>
-                            </div>
-                        </div>
-    
-    
-                        <div class="form-row ">
-                                <div class="input-group p-2">
-                                    <mat-form-field class="full-width" appearance="outline">
-        
-                                            <input matInput formControlName="birth_date" placeholder="Birth Date(YYYY-MM-DD)">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            
-                            
-                                    <div class="form-row ">
-                                            <div class="input-group p-2">
-                                                <mat-form-field class="full-width" appearance="outline">
-                    
-                                                        <input matInput formControlName="birth_time" placeholder="Birth Time(11:45)">
-                                                </mat-form-field>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-row ">
-                                                <div class="input-group p-2">
-                                                    <mat-form-field class="full-width" appearance="outline">
-                        
-                                                            <input matInput formControlName="weight" placeholder="Weight(Kg)">
-                                                    </mat-form-field>
-                                                </div>
-                                        </div>        
-                             
-            
-                  <div class="form-row ">
-                        <div class="input-group p-2">
-                            <mat-form-field class="full-width" appearance="outline">   
-                                    <input type="text" matInput formControlName="current_city"  placeholder="current_city" (keyup)="getlocation()">
-                                    <datalist>
-                                        <option *ngFor="let option of suc">{{option.description}}</option>
-                                    </datalist>  
-
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row ">
-                            <div class="input-group p-2">
-                                <mat-form-field class="full-width" appearance="outline">
-                                        <input matInput formControlName="birth_place" placeholder="Birth Place*">
-                                        
-                                </mat-form-field>
-                            </div>
-                        </div>
-     
-                <div class="form-row ">
-                    <div class="input-group p-2">
-                        <mat-form-field class="full-width" appearance="outline">
-                                <mat-label>Food Choice</mat-label>
-
-                                <mat-select formControlName="food_choice">
-                                    <mat-option value="0">Vegetarian</mat-option>
-                                    <mat-option value="1">Non-vegetarian</mat-option>
-                                </mat-select>
-                                
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="form-row ">
-                        <div class="input-group p-2">
-                            <mat-form-field class="full-width" appearance="outline">
-                                    <mat-label>Disability</mat-label>
-                                    <mat-select formControlName="disability">
-                                        <mat-option value="0">Not Disabled</mat-option>
-                                        <mat-option value="1">Disabled</mat-option>
-                                    </mat-select>
-                                    
-                            </mat-form-field>
-                        </div>
-                    </div>
-
-                    <div class="form-row ">
-                            <div class="input-group p-2">
-                                <mat-form-field class="full-width" appearance="outline">
-                                        <input matInput formControlName="disabled_part" placeholder="Disabled Part">
-                                        
-                                </mat-form-field>
-                            </div>
-                        </div>
-
-                
-
-                    <div class="input-group p-2">
-                            <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
-                            </button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+            <mat-select formControlName="gender">
+                <mat-option value="0">Male</mat-option>
+                <mat-option value="1">Female</mat-option>
+            </mat-select>
+    </mat-form-field>
     </div>
+  </div>
+          <div class="form-row ">
+
+    <div class="col input-group p-2 ">
+        <!-- <input matinput formControlName="phone_number" placeholder="phone_number" class="form-control" > -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Height</mat-label>
+            <input matInput formControlName="height" placeholder="Height(Inches)">
+    </mat-form-field>
+    </div>
+</div>
+        <div class="form-row ">
+
+            <div class="col input-group p-2" >
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Birth Date</mat-label>
+                    <input matInput formControlName="birth_date" placeholder="Birth Date(YYYY-MM-DD)" type="number">
+            </mat-form-field>
+    </div>
+  </div>
+          <div class="form-row ">
+
+    <div class="col input-group p-2 ">
+        <!-- <input formControlName="unique_about" placeholder="unique_about" class="form-control" > -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Birth Time</mat-label>
+            <input matInput formControlName="birth_time" placeholder="Birth Time(11:45)" type="number">
+        </mat-form-field>
+    </div>
+</div>
+<div class="form-row ">
+    <div class="input-group p-2">
+        <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Weight</mat-label>
+                <input matInput formControlName="weight" placeholder="Weight(Kg)" type="number">
+        </mat-form-field>
+    </div>
+</div>        
+<div class="form-row ">
+    <div class="input-group p-2">
+        <mat-form-field class="full-width" appearance="outline">  
+                <mat-label>Current City</mat-label> 
+                <input type="text" matInput formControlName="current_city"  placeholder="current_city" (keyup)="getlocation()">
+                <datalist>
+                    <option *ngFor="let option of suc">{{option.description}}</option>
+                </datalist>  
+
+        </mat-form-field>
+    </div>
+</div>
+<div class="form-row ">
+    <div class="input-group p-2">
+        <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Birth Place</mat-label>
+                <input matInput formControlName="birth_place" placeholder="Birth Place*">
+                
+        </mat-form-field>
+    </div>
+</div>
+<div class="form-row ">
+    <div class="input-group p-2">
+        <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Food Choice</mat-label>
+
+                <mat-select formControlName="food_choice">
+                    <mat-option value="0">Vegetarian</mat-option>
+                    <mat-option value="1">Non-vegetarian</mat-option>
+                </mat-select>
+                
+        </mat-form-field>
+    </div>
+</div>
+<div class="form-row ">
+        <div class="input-group p-2">
+            <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Disability</mat-label>
+                    <mat-select formControlName="disability">
+                        <mat-option value="0">Not Disabled</mat-option>
+                        <mat-option value="1">Disabled</mat-option>
+                    </mat-select>
+                    
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="form-row ">
+            <div class="input-group p-2">
+                <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Disabled Part</mat-label>
+                        <input matInput formControlName="disabled_part" placeholder="Disabled Part">
+                        
+                </mat-form-field>
+            </div>
+        </div>
+
+
+
+    <div class="input-group p-2">
+            <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
+            </button>
+    </div>
+
+    
+        </div>
+    <!-- </dic> -->
+    </div>
+</form>
+
 </main>

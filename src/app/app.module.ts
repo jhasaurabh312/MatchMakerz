@@ -34,6 +34,11 @@ import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component'
 import { PlansComponent } from './pages/plans/plans.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatAutocompleteModule } from '@angular/material';
+import { EditClientOneComponent } from './pages/edit-client-one/edit-client-one.component';
+import { EditClientTwoComponent } from './pages/edit-client-two/edit-client-two.component';
+import { EditClientThreeComponent } from './pages/edit-client-three/edit-client-three.component';
+import { EditClientfourComponent } from './pages/edit-clientfour/edit-clientfour.component';
+import { EditClientfiveComponent } from './pages/edit-clientfive/edit-clientfive.component';
 
 
 @NgModule({
@@ -61,6 +66,11 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatAut
     DummyComponent,
     ShortlistedComponent,
     PlansComponent,
+    EditClientOneComponent,
+    EditClientTwoComponent,
+    EditClientThreeComponent,
+    EditClientfourComponent,
+    EditClientfiveComponent,
   ],
   imports: [
     BrowserModule,

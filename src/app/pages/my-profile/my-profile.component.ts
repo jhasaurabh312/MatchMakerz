@@ -34,7 +34,18 @@ export class MyProfileComponent implements OnInit {
 
     this.myProfile.view_profile().subscribe((response) => {
           this.user = response; 
-          console.log(this.user) ;  
+          console.log(this.user) ; 
+          localStorage.setItem('signup_first_name' , this.user.first_name);
+          localStorage.setItem('signup_last_name' , this.user.last_name);
+          localStorage.setItem( 'signup_age', this.user.age);
+          localStorage.setItem('signup_gender', this.user.gender);
+          localStorage.setItem('signup_email', this.user.email);
+          localStorage.setItem('signup_whatsapp_number', this.user.whatsapp_number);
+          localStorage.setItem('signup_about', this.user.about);
+          localStorage.setItem('signup_phone_number',this.user.phone_number);
+          localStorage.setItem('signup_unique_about',this.user.unique_about);
+          localStorage.setItem('signup_specialization',this.user.specialization);
+          localStorage.setItem('signup_experience' , this.user.experience); 
           if(this.user.profile_pic === null)
            this.user.profile_pic ='https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png' ;  
     })  
