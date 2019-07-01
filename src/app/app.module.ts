@@ -40,7 +40,7 @@ import { EditClientThreeComponent } from './pages/edit-client-three/edit-client-
 import { EditClientfourComponent } from './pages/edit-clientfour/edit-clientfour.component';
 import { EditClientfiveComponent } from './pages/edit-clientfive/edit-clientfive.component';
 
-import {ngMaterialDatePicker} from 'ng-material-datetimepicker';
+// import {ngMaterialDatePicker} from 'ng-material-datetimepicker';
 
 @NgModule({
   declarations: [
@@ -93,7 +93,7 @@ import {ngMaterialDatePicker} from 'ng-material-datetimepicker';
     MatIconModule,
     MatAutocompleteModule,
     MatDatepickerModule, MatNativeDateModule,
-    ngMaterialDatePicker
+    // ngMaterialDatePicker
   ],
   providers: [
     LoginService,
