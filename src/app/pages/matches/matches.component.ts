@@ -111,10 +111,10 @@ export class MatchesComponent implements OnInit {
 
                                  // localStorage.removeItem('prgender')
               }
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Token ' + localStorage.getItem('token')
-    }) 
+              const headers = new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + localStorage.getItem('token')
+              }) 
               localStorage.setItem('filter','0')
                 console.log(URL)
                 this.http.get(URL, {headers : headers}).subscribe((response) =>{
@@ -127,6 +127,43 @@ export class MatchesComponent implements OnInit {
                     this.show = false;
                     else
                     this.show = true; 
+
+                  if(this.response.links.next === 'null'){
+                    this.show = false;
+                    this.load_more = false;
+
+                        localStorage.removeItem('min_age')
+                
+
+                                 localStorage.removeItem('max_age')
+                                 localStorage.removeItem('min_income')
+
+                                 localStorage.removeItem('max_income')
+
+                                               localStorage.removeItem('min_height')
+
+                                 localStorage.removeItem('max_height')
+
+                                             localStorage.removeItem('marital_status')
+                
+
+                                 localStorage.removeItem('manglik')
+
+                                 localStorage.removeItem('food_choice')
+
+
+                                 localStorage.removeItem('occupation')
+
+
+                                 localStorage.removeItem('caste')
+
+              }
+              if(localStorage.getItem('prgender') !== null){
+                URL +='&gender='+localStorage.getItem('prgender')
+
+                                 localStorage.removeItem('prgender')
+
+                  }
 
                   for(let i=0;i<this.staticProductDetail.length;i++){
                     if(this.staticProductDetail[i].profile_photo== null)
@@ -167,7 +204,7 @@ export class MatchesComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
-    if(localStorage.getItem('filter') == '0'){
+    if(localStorage.getItem('filter') === '0'){
       console.log("888888")
        this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
       this.res = res;
@@ -204,6 +241,10 @@ export class MatchesComponent implements OnInit {
 
       if(this.res.food_choice !== null)
         ((localStorage.setItem('food_choice',this.res.food_choice)));
+
+      if(this.res.citizenship !== null)
+        ((localStorage.setItem('citizenship',this.res.citizenship)));
+
       if(this.res.occupation !== null)
         ((localStorage.setItem('occupation',this.res.occupation)));
       if(cast_prefer !== null)
