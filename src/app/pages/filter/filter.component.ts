@@ -26,11 +26,12 @@ export class FilterComponent implements OnInit {
   //   {value: 'tacos-2', viewValue: 'Tacos'}
   // ];
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public route : Router) { 
+    console.log(2019-parseInt(localStorage.getItem('min_age')))
     this.EditClientPreferences = this._formBuilder.group({
-      'min_age' : [localStorage.getItem('min_age')],
-      'max_age' : [localStorage.getItem('max_age')],
-      'min_income' : [localStorage.getItem('min_income')],
-      'max_income' : [localStorage.getItem('max_income')],
+      'min_age' : [2019-parseInt(localStorage.getItem('min_age'))],
+      'max_age' : [2019-parseInt(localStorage.getItem('max_age'))],
+      'min_income' : [(parseFloat(localStorage.getItem('min_income'))/parseFloat('100000'))],
+      'max_income' : [(parseFloat(localStorage.getItem('max_income'))/parseFloat('100000'))],
       'min_height' : [localStorage.getItem('min_height')],
       'max_height' : [localStorage.getItem('max_height')],
       'marital_status' : [localStorage.getItem('marital_status')],
@@ -39,7 +40,7 @@ export class FilterComponent implements OnInit {
       'occupation' : [localStorage.getItem('occupation')],
       'citizenship' : [localStorage.getItem('citizenship')],
       'caste' : [localStorage.getItem('caste')],
-      'gender' : ['1'],
+      'gender' : [localStorage.getItem('prgender')],
     });;
    
   }
@@ -99,14 +100,46 @@ export class FilterComponent implements OnInit {
       ((localStorage.setItem('max_income',(parseInt(this.EditClientPreferences.value.max_income)*100000).toString())));
       localStorage.setItem('min_height',this.EditClientPreferences.value.min_height);   
       localStorage.setItem('max_height',this.EditClientPreferences.value.max_height);   
-      localStorage.setItem('marital_status',this.EditClientPreferences.value.marital_status);          
-      localStorage.setItem('manglik',this.EditClientPreferences.value.manglik);   
-      localStorage.setItem('food_choice',this.EditClientPreferences.value.food_choice);   
-      localStorage.setItem('occupation',this.EditClientPreferences.value.occupation);   
-      localStorage.setItem('citizenship',this.EditClientPreferences.value.citizenship);   
-      localStorage.setItem('caste',this.EditClientPreferences.value.caste.toString());   
-      localStorage.setItem('gender',this.EditClientPreferences.value.gender);   
-      console.log(this.EditClientPreferences.value.caste.toString())
+      if(this.EditClientPreferences.value.marital_status!=='3')
+        localStorage.setItem('marital_status',this.EditClientPreferences.value.marital_status);
+       else{
+        localStorage.removeItem('marital_status');
+
+       }          
+      if(this.EditClientPreferences.value.manglik!=='2')
+        localStorage.setItem('manglik',this.EditClientPreferences.value.manglik);   
+       else{
+        localStorage.removeItem('manglik');
+
+       }          
+      if(this.EditClientPreferences.value.food_choice!=='2')
+        localStorage.setItem('food_choice',this.EditClientPreferences.value.food_choice);  
+       else{
+        localStorage.removeItem('food_choice');
+
+       }          
+       if(this.EditClientPreferences.value.occupation!=='2')
+          localStorage.setItem('occupation',this.EditClientPreferences.value.occupation);   
+       else{
+        localStorage.removeItem('occupation');
+
+       }          
+       if(this.EditClientPreferences.value.citizenship!=='2')
+          localStorage.setItem('citizenship',this.EditClientPreferences.value.citizenship); 
+       else{
+        localStorage.removeItem('citizenship');
+
+       }          
+       if(this.EditClientPreferences.value.caste && this.EditClientPreferences.value.caste.length>0 && this.EditClientPreferences.value.caste.toString()!=='0'){
+         console.log("5555")
+          localStorage.setItem('caste',this.EditClientPreferences.value.caste.toString());   
+       }
+       else{
+         localStorage.removeItem('caste')
+       }
+
+      localStorage.setItem('prgender',this.EditClientPreferences.value.gender);   
+      // console.log(this.EditClientPreferences.value.caste!=='0')
       this.route.navigate(['/matches']);
   
   }
