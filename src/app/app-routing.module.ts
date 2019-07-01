@@ -25,7 +25,7 @@ import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component'
 
       
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'get-otp', pathMatch: 'full'},
+  { path: '', redirectTo: 'carousel', pathMatch: 'full'},
   { path : 'carousel' , component : CarouselComponent},
   { path : 'get-otp', component : GetOTPComponent }, 
   { path : 'login', component : LoginComponent },

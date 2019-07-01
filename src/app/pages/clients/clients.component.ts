@@ -208,7 +208,7 @@ hide(){
     // })  
 
     localStorage.clear();
-    this.router.navigate(['/get-otp']);
+    this.router.navigate(['/carousel']);
   }
 
 

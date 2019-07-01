@@ -17,8 +17,7 @@ export class GetOTPComponent implements OnInit {
 
   ngOnInit() {
 
-     if(localStorage.getItem('token') != null)
-       this.router.navigate(['/clients']);
+     
    
   }
 

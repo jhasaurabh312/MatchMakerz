@@ -73,11 +73,8 @@ export class ShortlistedComponent implements OnInit {
    
   }
   DeleteShorlist(data){
-    // this.a = parseInt(localStorage.getItem('clientId'));
     const NewProfile  = new FormData();
-
     NewProfile.append('shortlist_id',data);
-    // NewProfile.append('shortlist_for',this.a);
 
     console.log(NewProfile);
 

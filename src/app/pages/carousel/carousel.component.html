@@ -1,15 +1,41 @@
-<div>
-<div class="section shadow" id="header">
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
-    <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
-    <h5 style="font-size:1.2em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-style: continuous">Matchmakerz</h5>
-  </div>
-  
-</div>
+<!-- <div>
 <ngb-carousel *ngIf="images"  style="text-align: center;">
   <ng-template ngbSlide *ngFor="let image of images" style=" margin-left: auto;margin-right: auto;width: 100%;text-align: center">
-    <!-- <i class="fa fa-ch"> -->
+   
     <img [src]="image" alt="Random slide" style="height: -webkit-fill-available;width: 60%" >
   </ng-template>
 </ngb-carousel>
-</div>
+</div> -->
+
+<main style="height: 100%;overflow: hidden" *ngIf="check1">
+  <div class="container" style="overflow: hidden;text-align: center;height: 80%">
+     <img src="../../../assets/icons/Group_1.png" style="height: 100%">
+     
+  </div>
+  <div class="row" style="height: 20%;">
+    <button class="btn btn-primary" style="margin-left: auto;margin-right: auto;width: 15%;background-color: #F92CBB;border: 5px solid #f92CBB;border-radius: 40px;padding: 7px;margin-top:auto;margin-bottom:auto" type="button" (click)="check(1)">Next</button>
+  </div>
+</main>
+
+
+<main style="height: 100%;overflow: hidden" *ngIf="check2">
+  <div class="container" style="overflow: hidden;text-align: center;height: 80%">
+     <img src="../../../assets/icons/Group_2.png" style="height: 100%">
+     
+  </div>
+  <div class="row" style="height: 20%;">
+    <button class="btn btn-primary" style="margin-left: auto;margin-right: auto;width: 15%;background-color: #F92CBB;border: 5px solid #f92CBB;border-radius: 40px;padding: 7px;margin-top:auto;margin-bottom:auto" type="button" (click)="check(2)">Next</button>
+  </div>
+</main>
+
+
+<main style="height: 100%;overflow: hidden" *ngIf="check3">
+  <div class="container" style="overflow: hidden;text-align: center;height: 80%">
+     <img src="../../../assets/images/Group 1110.png" style="height: 100%">
+     
+  </div>
+  <div class="row" style="height: 20%;">
+    <button class="btn btn-primary" style="margin-left: auto;margin-right: auto;width: 15%;background-color: #F92CBB;border: 5px solid #f92CBB;border-radius: 40px;padding: 7px;margin-top:auto;margin-bottom:auto" type="button" (click)="check(3)">Next</button>
+  </div>
+</main>
+
