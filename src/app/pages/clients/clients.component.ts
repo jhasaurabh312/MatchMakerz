@@ -84,6 +84,7 @@ export class ClientsComponent implements OnInit {
    this.http.get('http://matchmakerz.in/api/v1/client/notifications' ,{ headers: headers }).subscribe((response:any)=>{
     this.notices=response.notification;
     console.log(this.notices);
+    this.notices.reverse()
   })
 
   }
@@ -128,7 +129,7 @@ export class ClientsComponent implements OnInit {
     // console.log(this.staticProductDetail.length)
     this.load_more = true;
     this.show = false;
-    const headers = new HttpHeaders({
+    const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
@@ -180,12 +181,34 @@ export class ClientsComponent implements OnInit {
 
 
  myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-hide(){
- var x =  document.getElementById("myDropdown").classList.toggle("show");
+  var x = document.getElementById("myDropdown")
+  // .classList.toggle("show");
+    // document.getElementById("myDropdown").classList.remove('hide');
+console.log(x.style.display)
+console.log(x.style.display==='block')
+  if(x.style.display==='block'){
+    x.style.display='none';
+  }
+  else{
+    x.style.display = 'block';
+  }
+ // x.style.display = 'none';
  console.log(x)
   // x.style.display = "none";
+
+}
+hide(){
+  var x = document.getElementById("myDropdown")
+  // .classList.add('hide');
+ //  if(x.style.display='block'){
+ //    x.style.display='none';
+ //  }
+ //  else{
+ //    x.style.display = 'block';
+ //  }
+ // x.style.display = 'none';
+ // console.log(x)
+  x.style.display = "none";
 }
 
 // hide(){
