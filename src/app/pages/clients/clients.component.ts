@@ -95,6 +95,7 @@ export class ClientsComponent implements OnInit {
 
   getMatches(data, gender){
     localStorage.setItem('clientId' , data);
+    localStorage.setItem('filter' , '0');
     localStorage.setItem('gender' , gender);
     this.router.navigate(['/matches']);
   }

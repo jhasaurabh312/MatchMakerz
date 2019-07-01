@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+
 
 @Component({
   selector: 'app-filter',
@@ -21,11 +18,13 @@ export class FilterComponent implements OnInit {
   a :string;
   selectedValue: any = '0';
   res : any = [];
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+
+  castes: any = []
+  //  = [
+  //   {value: 'steak-0', viewValue: 'Steak'},
+  //   {value: 'pizza-1', viewValue: 'Pizza'},
+  //   {value: 'tacos-2', viewValue: 'Tacos'}
+  // ];
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public route : Router) { 
     this.EditClientPreferences = this._formBuilder.group({
       'min_age' : [localStorage.getItem('min_age')],
@@ -52,7 +51,12 @@ export class FilterComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
-    this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
+   this.http.get('http://matchmakerz.in/api/v1/client/castes',{headers : headers}).subscribe((res) => {
+     console.log(res)
+     this.castes = res
+
+   })
+       this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
       this.res = res;
       console.log((this.res));
       var cast_prefer = '';
@@ -87,12 +91,12 @@ export class FilterComponent implements OnInit {
 
 
   ApplyFilter(){
-
-      localStorage.setItem('page','1'); 
-      localStorage.setItem('min_age',this.EditClientPreferences.value.min_age);  
-      localStorage.setItem('max_age',this.EditClientPreferences.value.max_age);   
-      localStorage.setItem('min_income',this.EditClientPreferences.value.min_income);   
-      localStorage.setItem('max_income',this.EditClientPreferences.value.max_income);   
+      localStorage.setItem('filter','1')
+      localStorage.setItem('page','1');
+      localStorage.setItem('min_age',(parseInt('2019')-parseInt(this.EditClientPreferences.value.min_age)).toString());
+      localStorage.setItem('max_age',(parseInt('2019')-parseInt(this.EditClientPreferences.value.max_age)).toString());
+      localStorage.setItem('min_income',(parseInt(this.EditClientPreferences.value.min_income)*100000).toString());
+      ((localStorage.setItem('max_income',(parseInt(this.EditClientPreferences.value.max_income)*100000).toString())));
       localStorage.setItem('min_height',this.EditClientPreferences.value.min_height);   
       localStorage.setItem('max_height',this.EditClientPreferences.value.max_height);   
       localStorage.setItem('marital_status',this.EditClientPreferences.value.marital_status);          
@@ -100,9 +104,9 @@ export class FilterComponent implements OnInit {
       localStorage.setItem('food_choice',this.EditClientPreferences.value.food_choice);   
       localStorage.setItem('occupation',this.EditClientPreferences.value.occupation);   
       localStorage.setItem('citizenship',this.EditClientPreferences.value.citizenship);   
-      localStorage.setItem('caste',this.EditClientPreferences.value.caste);   
+      localStorage.setItem('caste',this.EditClientPreferences.value.caste.toString());   
       localStorage.setItem('gender',this.EditClientPreferences.value.gender);   
-      
+      console.log(this.EditClientPreferences.value.caste.toString())
       this.route.navigate(['/matches']);
   
   }

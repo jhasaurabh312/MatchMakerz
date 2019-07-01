@@ -42,8 +42,9 @@ export class MatchesComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
-
-    this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
+    if(localStorage.getItem('filter') == '0'){
+      console.log("888888")
+       this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
       this.res = res;
       console.log((this.res));
       var cast_prefer = '';
@@ -85,21 +86,23 @@ export class MatchesComponent implements OnInit {
 
       // if(this.res.gender === 1)
       //   ((localStorage.setItem('prgender', this.res.gender)));
-      if(localStorage.getItem('gender')==='0'){
-                ((localStorage.setItem('prgender', '1')));
+        if(localStorage.getItem('gender')==='0'){
+                  ((localStorage.setItem('prgender', '1')));
 
-      }
-      else{
-        ((localStorage.setItem('prgender', '0')));
+        }
+        else{
+          ((localStorage.setItem('prgender', '0')));
 
-      }
-    })
+        }
+      })
 
+    }
+   
 
 
    
-
-    let  URL = 'http://matchmakerz.in/api/v1/client/filterMatches?page='+localStorage.getItem('page')
+ 
+     let  URL = 'http://matchmakerz.in/api/v1/client/filterMatches?page='+localStorage.getItem('page')
                 if(localStorage.getItem('min_age') !== null){
                  URL +='&min_age='+localStorage.getItem('min_age')
                  localStorage.removeItem('min_age')
@@ -172,7 +175,7 @@ export class MatchesComponent implements OnInit {
                                  localStorage.removeItem('prgender')
               }
 
-              
+              localStorage.setItem('filter','0')
                 console.log(URL)
                 this.http.get(URL, {headers : headers}).subscribe((response) =>{
                   this.response = response;

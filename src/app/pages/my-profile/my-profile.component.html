@@ -66,11 +66,12 @@
 </div>
 <div class="section" style="position:fixed;width:100%;bottom:0">
   <div class="row">
-    <div class="circle play"  style="width:45px;height:45px;background-size: 24px;margin-left:80%;margin-bottom:1.5em;cursor:pointer;background-image: url('../../../assets/icons/pen.svg')" id="edit" (click)="editProfile()">
-      
+    <div style="width:45px;height:45px;background-size: 24px;margin-left:80.5%;cursor:pointer;margin-bottom: 1.3em;" (click)="editProfile()">
+      <img src='../../../assets/icons_white/pen.svg' style="width: 40px;">
+
     </div>
-  </div>
-  <div class="card-wrapper" style="background-color:white;height:70px;padding:10px;display:  flex; font-size:14px;color:#f92c8b;">
+  </div>  
+  <div class="card-wrapper" style="background-color:white;height:65px;padding:4px;display:  flex; font-size:14px;color:#f92c8b;">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <a  [ngClass]="clients ? 'active-border' : 'active-border-none'" (click)="ActiveBorder('clients')" routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center">
         <img src="../../../assets/icons/users-alt.svg" style="width:30px">
