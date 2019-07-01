@@ -166,9 +166,57 @@ export class AwaitedComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
 
-     return this.http.get('http://matchmakerz.in/api/v1/client/statusdecline-interest?id='+data, {headers : headers}).subscribe((result:any) => {
+     this.http.get('http://matchmakerz.in/api/v1/client/statusdecline-interest?id='+data, {headers : headers}).subscribe((result:any) => {
        console.log(result);
      })
+     return  this.http.get('http://matchmakerz.in/api/v1/client/awaited-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+      this.staticProductDetail = response;
+      console.log('outgoing',this.staticProductDetail)
+
+      if(this.staticProductDetail.length===0){
+        this.check = false ;
+        this.check1 = true ;
+       }
+        
+       else {
+        this.check = true ; 
+        this.check1 = false ; 
+       }
+
+      for(let i=0;i<this.staticProductDetail.length;i++){
+             if(this.staticProductDetail[i].matched_to.profile_photo== null)
+          {
+              if (this.staticProductDetail[i].matched_to.gender===0){
+                  this.staticProductDetail[i].matched_to.profile_photo = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
+
+              }
+              else{
+                  this.staticProductDetail[i].matched_to.profile_photo = 'http://www.pranawellness.in/Images/female.png';
+                
+              }
+
+          }
+        if(this.staticProductDetail[i].matched_to.marital_status == '0')
+         this.staticProductDetail[i].matched_to.marital = "Not Married";
+        else
+         this.staticProductDetail[i].matched_to.marital = "Married";
+
+
+         if(this.staticProductDetail[i].matched_to.manglik == 0)
+          this.staticProductDetail[i].matched_to.manglik = 'Non-Manglik';
+         else
+          this.staticProductDetail[i].matched_to.manglik = 'Manglik'; 
+
+       
+         this.staticProductDetail[i].matched_to.inches = this.staticProductDetail[i].matched_to.height % 12 ;
+         this.staticProductDetail[i].matched_to.feet = (this.staticProductDetail[i].matched_to.height -  this.staticProductDetail[i].matched_to.inches)/12;
+        
+      } 
+     
+    })
+
+
   }
+
  
 }

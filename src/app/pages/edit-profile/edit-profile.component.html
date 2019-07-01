@@ -50,16 +50,22 @@
         <h3 style="font-family: 'Poppins', sans-serif ; font-size:20px; font-weight: 600; margin-left: auto;margin-right: auto;margin-top: -15px">Update Profile</h3>
     </div>
     <form [formGroup]="EditProfileDetails">
-        <div class="form-row ">
+<div class="container">
 
-            <div class="col input-group p-2 offset-3">
-                <mat-form-field class="example-full-width">
+        <div class="form-row ">
+            <div class="col input-group p-2 ">
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>First Name </mat-label>
                     <input matInput formControlName="first_name" placeholder="First Name">
                 </mat-form-field>
                 <!-- <input  formControlName="first_name" placeholder="First Name" class="form-control"> -->
-            </div>
+        
+        </div>    </div>
+        <div class="form-row ">
+
             <div class="col input-group p-2">
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Last Name </mat-label>
                     <input matInput formControlName="last_name" placeholder="Last Name">
                 </mat-form-field>
                 <!-- <input formControlName="last_name" placeholder="Last Name" class="form-control" > -->
@@ -67,8 +73,9 @@
         </div>
         <div class="form-row ">
 
-        <div class="col input-group p-2 offset-3">
-            <mat-form-field>
+        <div class="col input-group p-2 ">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Gender </mat-label>
                 <mat-label>Gender</mat-label>
                 <mat-select formControlName="gender">
                     <mat-option value='0'>
@@ -81,63 +88,83 @@
             </mat-form-field>
 
         </div>
+    </div>
+            <div class="form-row ">
+
                 <div class="col input-group p-2">
             <!-- <input formControlName="email" placeholder="email-id" class="form-control" >       -->
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>email </mat-label>
                 <input matInput placeholder="Email" type="email" formControlName="email">
             </mat-form-field>
         </div>
       </div>
               <div class="form-row ">
 
-        <div class="col input-group p-2 offset-3">
+        <div class="col input-group p-2 ">
             <!-- <input matinput formControlName="phone_number" placeholder="phone_number" class="form-control" > -->
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Phone number </mat-label>
                 <input matInput formControlName="phone_number" placeholder="phone number">
             </mat-form-field>
         </div>
-                <div class="col input-group p-2">
+    </div>
+            <div class="form-row ">
+
+                <div class="col input-group p-2" >
             <!-- <input formControlName="whatsapp_number" placeholder="whatsapp_number" class="form-control" > -->
-            <mat-form-field>
-                <input matInput placeholder="Whats Number" formControlName="whatsapp_number">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>WhatsApp Number </mat-label>
+                <input matInput placeholder="Whatsapp Number" formControlName="whatsapp_number">
             </mat-form-field>
         </div>
       </div>
               <div class="form-row ">
 
-        <div class="col input-group p-2 offset-3">
+        <div class="col input-group p-2 ">
             <!-- <input formControlName="unique_about" placeholder="unique_about" class="form-control" > -->
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width"  appearance="outline">
+                <mat-label>Unidque About </mat-label>
                 <input matInput placeholder="unique_about" formControlName="unique_about">
             </mat-form-field>
         </div>
+    </div>
+            <div class="form-row ">
+
         <div class="col input-group p-2 ">
             <!-- <input formControlName="specialization" placeholder="specialization" class="form-control" > -->
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>specialization</mat-label>
                 <input matInput placeholder="specialization" formControlName="specialization">
             </mat-form-field>
         </div>
       </div>
                     <div class="form-row ">
 
-        <div class="col input-group p-2 offset-3">
+        <div class="col input-group p-2 ">
             <!-- <input formControlName="experience" placeholder="experience" class="form-control" > -->
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Experience </mat-label>
                 <input matInput placeholder="experience" formControlName="experience">
             </mat-form-field>
         </div>
+    </div>
+            <div class="form-row ">
+
         <div class="col input-group p-2">
             <!-- <input formControlName="age" placeholder="age" class="form-control" > -->
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Age</mat-label>
                 <input matInput placeholder="Age" formControlName="age">
             </mat-form-field>
         </div>
       </div>
               <div class="form-row ">
 
-        <div class="col input-group p-2 offset-3">
+        <div class="col input-group p-2 ">
             <!-- <textarea formControlName="about" placeh?older="About You" class="form-control" ></textarea> -->
-            <mat-form-field class="example-full-width" style="width:590px !important; ">
+             <mat-form-field class="example-full-width"  appearance="outline">
+                <mat-label>About you</mat-label>
                 <textarea matInput placeholder="About you" formControlName="about"></textarea>
             </mat-form-field>
         </div>
@@ -146,7 +173,8 @@
             <button type="button" mat-raised-button class="btn btn-user "style="background-color: #f92c8b" (click)="editProfile()"> &nbsp; &nbsp; Submit &nbsp;&nbsp;
             </button>
         </div>
-
+<!-- </dic> -->
+</div>
     </form>
 
 </main>

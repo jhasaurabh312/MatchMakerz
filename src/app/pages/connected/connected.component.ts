@@ -61,6 +61,7 @@ export class ConnectedComponent implements OnInit {
 
   declined(){
     this.router.navigate(['/declined']);
+    
   }
 
   
