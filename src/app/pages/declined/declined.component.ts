@@ -16,17 +16,22 @@ export class DeclinedComponent implements OnInit {
   outgoing : boolean = true;
   incoming : boolean = false;
   constructor(private http : HttpClient, public router : Router) { }
-
+  male:any;
+  female:any;
   ngOnInit() {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
+                  this.male = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
+                  this.female= 'http://www.pranawellness.in/Images/female.png';
+
 
      this.http.get('http://matchmakerz.in/api/v1/client/declined-interest-incoming?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
        this.awaitedIn = response;
        console.log(this.awaitedIn)
+
      })
 
      this.http.get('http://matchmakerz.in/api/v1/client/declined-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
@@ -77,11 +82,21 @@ export class DeclinedComponent implements OnInit {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
+
     })
 
-     return this.http.get('http://matchmakerz.in/api/v1/client/statusdecline-interest?id='+data, {headers : headers}).subscribe((result:any) => {
+     this.http.get('http://matchmakerz.in/api/v1/client/statusdecline-interest?id='+data, {headers : headers}).subscribe((result:any) => {
        console.log(result);
      })
+      this.http.get('http://matchmakerz.in/api/v1/client/declined-interest-incoming?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+       this.awaitedIn = response;
+       console.log(this.awaitedIn)
+     })
+
+     this.http.get('http://matchmakerz.in/api/v1/client/declined-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+      this.awaitedOut = response;
+      console.log(this.awaitedOut)
+    })
   }
 
   
