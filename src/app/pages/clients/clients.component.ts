@@ -196,7 +196,7 @@ console.log(x.style.display==='block')
  console.log(x)
   // x.style.display = "none";
 
-}
+} 
 hide(){
   var x = document.getElementById("myDropdown")
   // .classList.add('hide');
