@@ -22,8 +22,8 @@ export class AwaitedComponent implements OnInit {
 
   ngOnInit() {
 
-    this.incoming = true;
-    this.outgoing = false;
+    this.incoming = false;
+    this.outgoing = true;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

@@ -104,11 +104,12 @@
 </main>
 <div class="section" style="position:fixed;width:100%;bottom:0">
   <div class="row">
-    <div style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;background-image: url('../../../assets/icons/user-plus-1.svg')" id="edit" (click)="AddClient()">
-      
+    <div style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;" (click)="AddClient()">
+      <img src='../../../assets/icons/test.svg' style="width: 50px;">
+
     </div>
   </div>
-  <div class="card-wrapper" style="background-color:white;display: flex;color:#f92c8b;margin-top:20px">
+  <div class="card-wrapper" style="background-color:white;height:62px;padding:5px;display: flex;color:#f92c8b;margin-top:20px">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <a  [ngClass]="clients ? 'active-border' : 'active-border-none'" (click)="ActiveBorder('clients')" routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center">
         <img src="../../../assets/icons/users-alt.svg" style="width:30px">

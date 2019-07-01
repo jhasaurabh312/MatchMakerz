@@ -31,6 +31,19 @@ export class ClientProfileComponent implements OnInit {
 
      this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
       this.user = res;
+      if(this.user.profile_photo == null )
+          {  console.log("****")
+            console.log(this.user.profile_photo)
+              if (this.user.gender===0){
+                  this.user.profile_photo = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
+
+              }
+              else{
+                  this.user.profile_photo = 'http://www.pranawellness.in/Images/female.png';
+                
+              }
+
+          }  
       console.log(this.user);
       if(this.user.is_active == "true")
          this.user.is_active = 1;
