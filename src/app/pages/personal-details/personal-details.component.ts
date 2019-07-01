@@ -55,7 +55,7 @@ export class PersonalDetailsComponent implements OnInit {
     NewProfile.append('gender', this.AddClientDetails.value.gender);
     NewProfile.append('whatsapp_number', this.AddClientDetails.value.whatsapp_number );
     NewProfile.append('height', this.AddClientDetails.value.height );
-    NewProfile.append('birth_date', this.AddClientDetails.value.birth_date );
+    // NewProfile.append('birth_date', this.AddClientDetails.value.birth_date );
     NewProfile.append('birth_place', this.AddClientDetails.value.birth_place );
     NewProfile.append('weight', this.AddClientDetails.value.weight );
     NewProfile.append('birth_time', this.AddClientDetails.value.birth_time );
@@ -65,11 +65,14 @@ export class PersonalDetailsComponent implements OnInit {
     NewProfile.append('disabled_part', this.AddClientDetails.value.disabled_part );
 
     
-    
+    // toISOString().slice(0,10)
      
 
+     var date = new Date(this.AddClientDetails.value.birth_date)
+       var  dob = date.toISOString().slice(0,10).toString();
+             NewProfile.append('birth_date',dob.toString()) ;
 
-    console.log(NewProfile);
+    console.log(NewProfile.get('birth_date'));
 
     return this.http.post('http://matchmakerz.in/api/v1/client/registerClient' , NewProfile ,{ 
         headers : new HttpHeaders({
