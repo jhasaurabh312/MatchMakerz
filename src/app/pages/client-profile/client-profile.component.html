@@ -3,13 +3,13 @@
         <div class="section shadow" id="header-2">
             <div class="row" style="margin: 0px; padding: 0px;">
                 <div class="section shadow" id="header-1">
-                    <div class="container">
-                        <div class="row" style="margin-top: 20px;">
-                            <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark">
-                                <i class="fa fa-chevron-left fa-2x"></i></a>
-                            <strong style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">
+                    <div style="width: 100%">
+                        <div class="row" style="margin-top: 20px;    width: fit-content;">
+                            <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
+                                <i class="fa fa-chevron-left" style="font-size:1.3em"></i></a>
+                            <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">
                             Client Profile
-                            </strong>
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                             </div>
                             <div class="image">
                                     <form  enctype="multipart/form-data">
-                                        <label for="photo"> <img src="../../../assets/icons/camera-plus.svg"></label>
+                                        <label for="photo"> <img src="../../../assets/icons/camera-plus.svg" style="width: 40px;height: 40px"></label>
                                         <input type="file" name="filetoupload" id="photo" style="display:none" (change)="processfile($event)">
                                       </form>
                             </div>
@@ -76,17 +76,17 @@
             <div class="section">
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
                         <div class="row">
-                            <div class=" icons">
-                                <img src="../../../assets/icons/info-circle.svg">
+                            <div class="icon">
+                                <img src="../../../assets/icons_white/info-circle.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
                                 BASIC DETAILS
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92C8B">
                             <div class="offset-11">
                             <div class="icons">
                                 <img src="../../../assets/icons/pen.svg">
@@ -178,10 +178,10 @@
             <div class="section">
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="text-align:left;color: #F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="text-align:left;color: #f92c8b">
                         <div class="row">
-                            <div class=" icons">
-                                <img src="../../../assets/icons/balance-scale.svg">
+                            <div class=" icon">
+                                <img src="../../../assets/icons_white/balance.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
                          HOROSCOPE DETAILS
@@ -189,7 +189,7 @@
                         </div>
 
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
                               <div class="icons">
                                 <img src="../../../assets/icons/pen.svg">
@@ -234,10 +234,10 @@
             <div class="section">
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#f92c8b">
                         <div class="row">
-                            <div class=" icons">
-                                <img src="../../../assets/icons/graduation-hat.svg">
+                            <div class=" icon">
+                                <img src="../../../assets/icons_white/education.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
                             Educational Details
@@ -245,7 +245,7 @@
                             </div>
                         </div>
                   </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
                               <div class="icons">
                                 <img src="../../../assets/icons/pen.svg">
@@ -271,10 +271,10 @@
             <div class="section">
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#f92c8b">
                         <div class="row">
-                            <div class=" icons">
-                                <img src="../../../assets/icons/briefcase-alt.svg">
+                            <div class=" icon">
+                                <img src="../../../assets/icons_white/briefcase.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
                     Career Details
@@ -282,7 +282,7 @@
                         </div>
 
                   </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
                               <div class="icons">
                                 <img src="../../../assets/icons/pen.svg">
@@ -320,17 +320,17 @@
             <div class="section">
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#f92c8b">
                         <div class="row">
-                            <div class=" icons">
-                                <img src="../../../assets/icons/info-circle.svg">
+                            <div class=" icon">
+                                <img src="../../../assets/icons_white/info-circle.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
                     Contact Details
                             </div>
                         </div>
                   </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
                               <div class="icons">
                                 <img src="../../../assets/icons/pen.svg">
@@ -366,17 +366,17 @@
             <div class="section">
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#f92c8b">
                         <div class="row">
-                            <div class=" icons">
-                                <img src="../../../assets/icons/couple.svg">
+                            <div class=" icon">
+                                <img src="../../../assets/icons_white/couple.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
                     Parent Details
                             </div>
                         </div>
                   </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
                               <div class="icons">
                                 <img src="../../../assets/icons/pen.svg">
@@ -421,17 +421,17 @@
             <div class="section">
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#f92c8b">
                         <div class="row">
-                            <div class=" icons">
-                                <img src="../../../assets/icons/twins.svg">
+                            <div class=" icon">
+                                <img src="../../../assets/icons_white/twins.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
                               Siblings
                             </div>
                         </div>
                   </div>
-                                      <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                                      <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
                               <div class="icons">
                                 <img src="../../../assets/icons/pen.svg">
@@ -475,16 +475,16 @@
             <div class="section">
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left;color:#f92c8b">
                         <div class="row">
-                            <div class=" icons">
-                                <img src="../../../assets/icons/info-circle.svg">
+                            <div class=" icon">
+                                <img src="../../../assets/icons_white/info-circle.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
 Partner Preferences                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92BCC">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
                               <div class="icons">
                                 <img src="../../../assets/icons/pen.svg">
