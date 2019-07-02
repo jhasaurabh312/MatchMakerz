@@ -30,7 +30,6 @@ export class ClientPreferencesComponent implements OnInit {
       'occupation' : [''],
       'citizenship' : [''],
       'caste' : [''],
-      // 'id' : [''],
     });; 
   }
 
