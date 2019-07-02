@@ -20,18 +20,23 @@ export class ClientsComponent implements OnInit {
   notices : any =[];
   check : boolean ;
   check1 : boolean ;
-  
+  male : any;
+  female :any;
   
   constructor( private http : HttpClient , public router : Router) { }
 
   ngOnInit() {
 
+    this.male  = 'https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png'
+    // 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
+    this.female= 'http://www.pranawellness.in/Images/female.png';
+                
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
-     this.http.get('http://matchmakerz.in/api/v1/client/list?id=999999999', {headers : headers}).subscribe((response) =>{
+     this.http.get('http://matchmakerz.in/api/v1/client/list?id=99999999999', {headers : headers}).subscribe((response) =>{
      this.staticProductDetail = response;
      console.log(this.staticProductDetail);
   
@@ -58,8 +63,15 @@ export class ClientsComponent implements OnInit {
 
       for(let i=0;i<l;i++){
         if(this.staticProductDetail[i].profile_photo== null)
-        this.staticProductDetail[i].profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
+        {        
+          if (this.staticProductDetail[i].gender === 1)
+              this.staticProductDetail[i].profile_photo = this.female
 
+           else{
+             this.staticLoadProductDetail[i].profile_photo=this.male 
+           }
+
+        }
         if(this.staticProductDetail[i].marital_status == '0')
          this.staticProductDetail[i].marital = "Not Married";
         else

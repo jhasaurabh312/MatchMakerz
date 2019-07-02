@@ -224,16 +224,21 @@ export class ClientProfileComponent implements OnInit {
        this.personal = true;
        this.social = false;
        this.preferences = false;
+       window.scrollTo(0,400)
      }
      else if (e=='social'){
        this.personal = false;
        this.social = true;
        this.preferences = false;
+       window.scrollTo(0,1200)
+
      }
      else{
        this.personal = false;
        this.social = false;
        this.preferences = true;
+       window.scrollTo(0,2140)
+
      }
    }
 
