@@ -4,6 +4,9 @@ import { FilterComponent } from '../filter/filter.component'
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import {
+    debounceTime
+} from 'rxjs/operators'
 
 @Component({
   selector: 'app-matches',
@@ -36,11 +39,14 @@ export class MatchesComponent implements OnInit {
     localStorage.setItem('page','1');
   }
   getData(){
-     
+     debounceTime(10000)
     this.show= false;
     this.load_more=true;
-     let  URL = 'http://matchmakerz.in/api/v1/client/filterMatches?page='+localStorage.getItem('page')
+     let  URL = 'http://matchmakerz.in/api/v1/client/filterMatches?page='+localStorage.getItem('page');
+     console.log(localStorage.getItem('min_age'))
+
                 if(localStorage.getItem('min_age') !== null){
+                  console.log("****")
                  URL +='&min_age='+localStorage.getItem('min_age')
                  // localStorage.removeItem('min_age')
                 }
@@ -111,16 +117,20 @@ export class MatchesComponent implements OnInit {
 
                                  // localStorage.removeItem('prgender')
               }
+               if(localStorage.getItem('citizenship') !== null){
+                URL +='&citizenship='+localStorage.getItem('citizenship')
+
+                                 // localStorage.removeItem('prgender')
+              }
               const headers = new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': 'Token ' + localStorage.getItem('token')
               }) 
-              localStorage.setItem('filter','0')
                 console.log(URL)
-                this.http.get(URL, {headers : headers}).subscribe((response) =>{
+                this.http.get(URL, {headers : headers}).pipe(debounceTime(1000)).subscribe((response) =>{
                   this.response = response;
                   this.staticProductDetail = [...this.staticProductDetail, ...this.response.results];
-                  console.log(console.log(response));
+                  console.log(response);
 
                   let l = this.staticProductDetail.length;
                     if(l<20)
@@ -132,38 +142,35 @@ export class MatchesComponent implements OnInit {
                     this.show = false;
                     this.load_more = false;
 
-                        localStorage.removeItem('min_age')
-                
+                              localStorage.removeItem('min_age')
+                              localStorage.setItem('filter','0')
 
-                                 localStorage.removeItem('max_age')
-                                 localStorage.removeItem('min_income')
+                              localStorage.removeItem('max_age')
+                              localStorage.removeItem('min_income')
 
-                                 localStorage.removeItem('max_income')
+                              localStorage.removeItem('max_income')
 
-                                               localStorage.removeItem('min_height')
+                              localStorage.removeItem('min_height')
 
-                                 localStorage.removeItem('max_height')
+                              localStorage.removeItem('max_height')
 
-                                             localStorage.removeItem('marital_status')
-                
-
-                                 localStorage.removeItem('manglik')
-
-                                 localStorage.removeItem('food_choice')
+                              localStorage.removeItem('marital_status')
 
 
-                                 localStorage.removeItem('occupation')
+                              localStorage.removeItem('manglik')
+
+                              localStorage.removeItem('food_choice')
 
 
-                                 localStorage.removeItem('caste')
+                              localStorage.removeItem('occupation')
+                              localStorage.removeItem('citizenship')
+
+
+                              localStorage.removeItem('caste')
+                              localStorage.removeItem('prgender')
+
 
               }
-              if(localStorage.getItem('prgender') !== null){
-                URL +='&gender='+localStorage.getItem('prgender')
-
-                                 localStorage.removeItem('prgender')
-
-                  }
 
                   for(let i=0;i<this.staticProductDetail.length;i++){
                     if(this.staticProductDetail[i].profile_photo== null)
@@ -188,7 +195,7 @@ export class MatchesComponent implements OnInit {
             
             })
 
-            this.http.get('http://matchmakerz.in/api/v1/client/total-shortlist?id='+localStorage.getItem('clientId'), {headers : headers}).subscribe((res) => {
+            this.http.get('http://matchmakerz.in/api/v1/client/total-shortlist?id='+localStorage.getItem('clientId'), {headers : headers}).pipe(debounceTime(1000)).subscribe((res) => {
             this.shortlistedTotal = res;
             console.log(this.shortlistedTotal);
    })
@@ -198,6 +205,7 @@ export class MatchesComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
 
     const headers = new HttpHeaders({
@@ -206,7 +214,7 @@ export class MatchesComponent implements OnInit {
     }) 
     if(localStorage.getItem('filter') === '0'){
       console.log("888888")
-       this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
+       this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).pipe(debounceTime(-1000)).subscribe((res) => {
       this.res = res;
       console.log((this.res));
       var cast_prefer = '';
@@ -252,23 +260,23 @@ export class MatchesComponent implements OnInit {
 
       // if(this.res.gender === 1)
       //   ((localStorage.setItem('prgender', this.res.gender)));
-        if(localStorage.getItem('gender')==='0'){
-                  ((localStorage.setItem('prgender', '1')));
+          if(localStorage.getItem('gender')==='0'){
+                    ((localStorage.setItem('prgender', '1')));
 
-        }
-        else{
-          ((localStorage.setItem('prgender', '0')));
+          }
+          else{
+            ((localStorage.setItem('prgender', '0')));
 
-        }
+          }
       })
 
     }
 
+     // debounceTime(4000)
 
      this.getData()
+ // setInterval(this.getData(), 2000)
 
-    this.show= true;
-    this.load_more=false;
   }
 
 
