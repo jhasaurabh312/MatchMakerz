@@ -159,8 +159,13 @@ export class ClientProfileComponent implements OnInit {
      this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
       this.User = res;
       console.log(this.User);
+      if(this.User.caste.lenght>=2){
+        this.pref_caste = this.User.caste[0].caste+", "+this.User.caste[1].caste;
+      }
 
-
+      // else{
+      //   this.User.caste
+      // }
       if(this.User.marital == 0)
          this.User.marital = "Not Married";
         else if(this.User.marital == 1)
