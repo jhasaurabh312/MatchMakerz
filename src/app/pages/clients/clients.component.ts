@@ -98,6 +98,34 @@ export class ClientsComponent implements OnInit {
     localStorage.setItem('clientId' , data);
     localStorage.setItem('filter' , '0');
     localStorage.setItem('gender' , gender);
+
+    localStorage.removeItem('min_age')
+    localStorage.setItem('filter','0')
+
+
+    localStorage.removeItem('max_age')
+    localStorage.removeItem('min_income')
+
+    localStorage.removeItem('max_income')
+
+    localStorage.removeItem('min_height')
+
+    localStorage.removeItem('max_height')
+
+    localStorage.removeItem('marital_status')
+
+
+    localStorage.removeItem('manglik')
+
+    localStorage.removeItem('food_choice')
+
+
+    localStorage.removeItem('occupation')
+    localStorage.removeItem('citizenship')
+
+
+    localStorage.removeItem('caste')
+    localStorage.removeItem('prgender')
     this.router.navigate(['/matches']);
   }
 
