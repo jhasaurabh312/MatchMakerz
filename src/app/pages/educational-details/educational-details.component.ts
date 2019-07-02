@@ -79,7 +79,7 @@ export class EducationalDetailsComponent implements OnInit {
            this.data = response;
            console.log(this.data);
            if(this.data.status === 1)
-           this.router.navigate(['/social-details']);
+           this.router.navigate(['/client-profile']);
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

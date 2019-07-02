@@ -35,7 +35,7 @@
               </div>
               <div class="col-xs-1 col-md-1 col-lg-1 text-center view-button">
                 <div class="button-notification">
-                    <button class="btn btn-primary text-center" style="margin-left: 0px;
+                    <button (click)="getActivity(notice.matched_for)" class="btn btn-primary text-center" style="margin-left: 0px;
                         width: 52px;
                         height: 29px;
                         font-size: 1em;
@@ -61,7 +61,7 @@
       <div class="row client-card">
         <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
           <div style="padding:10px">
-            <img src="{{member.profile_photo}}" class="img-thumbnail" style="width: 100%;height:250px">
+            <img src="{{member.profile_photo}}" style="width: 100%;height:250px;border-radius: 7px;">
           </div>
         </div>
         <div class="column-r" style="width:50%">
@@ -106,24 +106,23 @@
 </main>
 <div class="section" style="position:fixed;width:100%;bottom:0">
   <div class="row">
-    <div style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;" (click)="AddClient()">
-      <img src='../../../assets/icons/test.svg' style="width: 80px;">
-
+    <div style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;margin-bottom: 30px" (click)="AddClient()">
+      <img src='../../../assets/icons/test.svg' style="width: 75px;">
     </div>
   </div>
   <div class="card-wrapper" style="background-color:white;height:62px;padding:5px;display: flex;color:#f92c8b;margin-top:20px">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <a  [ngClass]="clients ? 'active-border' : 'active-border-none'" (click)="ActiveBorder('clients')" routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center">
+      <a  class="active-border" (click)="ActiveBorder('clients')" routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center">
         <img src="../../../assets/icons/users-alt.svg" style="width:30px">
         <br>
         <p style="color:#5d5a5a">My clients</p>
       </a>
     </div>
     <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
-      <a  [ngClass]="my_profile ? 'active-border' : 'active-border-none'" (click)="ActiveBorder('my_profile')" routerLink="/my-profile" routerLinkActive="active" style="display:block;;text-align: center">
-        <img src="../../../assets/icons/icons-19.svg" style="width:30px">
+      <a  (click)="ActiveBorder('my_profile')" routerLink="/my-profile" routerLinkActive="active" style="display:block;;text-align: center">
+        <img src="../../../assets/icons/icons-19.svg" style="width:30px;margin-top: -4px;">
         <br>
-        <p style="color:#5d5a5a">My Profile</p>
+        <p style="color:#5d5a5a" >My Profile</p>
       </a>
     </div>
   </div>

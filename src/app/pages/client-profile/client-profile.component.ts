@@ -17,6 +17,7 @@ export class ClientProfileComponent implements OnInit {
   preferences: boolean;
   selectedFile: File;
   response: any;
+  pref_caste:any;
 
   constructor(private http: HttpClient, public router : Router) { }
 
@@ -158,7 +159,13 @@ export class ClientProfileComponent implements OnInit {
      this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
       this.User = res;
       console.log(this.User);
+      if(this.User.caste.lenght>=2){
+        this.pref_caste = this.User.caste[0].caste+", "+this.User.caste[1].caste;
+      }
 
+      // else{
+      //   this.User.caste
+      // }
       if(this.User.marital == 0)
          this.User.marital = "Not Married";
         else if(this.User.marital == 1)
@@ -211,9 +218,14 @@ export class ClientProfileComponent implements OnInit {
 
           if(this.User.min_age == null)
            this.User.min_age = 'na' ;
-
+         else{
+                    this.User.min_age = 2019-(this.User.min_age).split('-')[0]
+         }
            if(this.User.max_age == null)
            this.User.max_age = 'na' ; 
+         else{
+                    this.User.max_age = 2019-(this.User.max_age).split('-')[0]
+         }
 
 
     })
@@ -224,16 +236,21 @@ export class ClientProfileComponent implements OnInit {
        this.personal = true;
        this.social = false;
        this.preferences = false;
+       window.scrollTo(0,400)
      }
      else if (e=='social'){
        this.personal = false;
        this.social = true;
        this.preferences = false;
+       window.scrollTo(0,1200)
+
      }
      else{
        this.personal = false;
        this.social = false;
        this.preferences = true;
+       window.scrollTo(0,2140)
+
      }
    }
 

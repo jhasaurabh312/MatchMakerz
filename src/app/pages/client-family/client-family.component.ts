@@ -96,7 +96,7 @@ export class ClientFamilyComponent implements OnInit {
       NewProfile.append('married_daughter', this.AddClientEducationalDetails.value.unmarried_daughter );
       NewProfile.append('unmarried_daughter', this.AddClientEducationalDetails.value.unmarried_daughter );
       NewProfile.append('matchmaker_note', this.AddClientEducationalDetails.value.matchmaker_note );
-      NewProfile.append('is_active', this.AddClientEducationalDetails.value.is_active );
+      NewProfile.append('is_active', "1");
       console.log(NewProfile);
   
       return this.http.post('http://matchmakerz.in/api/v1/client/client-family-update', NewProfile ,{ 

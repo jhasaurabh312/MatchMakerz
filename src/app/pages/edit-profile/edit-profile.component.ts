@@ -88,7 +88,7 @@ export class EditProfileComponent implements OnInit {
           this.data = response;
           if(this.data.status === 1){
             window.alert("Your Profile has been successfully updated !!!")
-            this.router.navigate(['/my-profile']);
+            this.router.navigate(['/client-profile']);
           }
           
           else 
