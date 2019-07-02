@@ -17,6 +17,7 @@ export class ClientProfileComponent implements OnInit {
   preferences: boolean;
   selectedFile: File;
   response: any;
+  pref_caste:any;
 
   constructor(private http: HttpClient, public router : Router) { }
 
@@ -159,6 +160,7 @@ export class ClientProfileComponent implements OnInit {
       this.User = res;
       console.log(this.User);
 
+
       if(this.User.marital == 0)
          this.User.marital = "Not Married";
         else if(this.User.marital == 1)
@@ -211,9 +213,14 @@ export class ClientProfileComponent implements OnInit {
 
           if(this.User.min_age == null)
            this.User.min_age = 'na' ;
-
+         else{
+                    this.User.min_age = 2019-(this.User.min_age).split('-')[0]
+         }
            if(this.User.max_age == null)
            this.User.max_age = 'na' ; 
+         else{
+                    this.User.max_age = 2019-(this.User.max_age).split('-')[0]
+         }
 
 
     })

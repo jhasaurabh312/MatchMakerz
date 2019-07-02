@@ -108,7 +108,7 @@ export class EditPersonalComponent implements OnInit {
            this.data = response;
            if(this.data.status === 1){
              localStorage.setItem('newClientId' ,localStorage.getItem('clientProfileId'));
-             this.router.navigate(['/educational-details']);
+             this.router.navigate(['/client-profile']);
            }
            
          
