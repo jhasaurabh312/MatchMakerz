@@ -67,8 +67,7 @@ export class MyProfileComponent implements OnInit {
  
   signout(){
     localStorage.clear();
-    window.history.go(-1);
-    this.router.navigate(['/get-otp']);
+    this.router.navigate(['/carousel']);
   }
 
   editProfile(){
