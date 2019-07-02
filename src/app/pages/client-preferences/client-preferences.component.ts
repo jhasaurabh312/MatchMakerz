@@ -55,8 +55,8 @@ export class ClientPreferencesComponent implements OnInit {
 
     const NewProfile  = new FormData();
     NewProfile.append('id', localStorage.getItem('newClientId') );   
-    NewProfile.append('min_age', this.AddClientEducationalDetails.value.min_age );   
-    NewProfile.append('max_age', this.AddClientEducationalDetails.value.max_age );
+    NewProfile.append('min_age', (2019-(this.AddClientEducationalDetails.value.min_age)).toString()+'-01-01' );   
+    NewProfile.append('max_age', (2019-(this.AddClientEducationalDetails.value.max_age)).toString()+'-01-01' );
     NewProfile.append('min_income', this.AddClientEducationalDetails.value.min_income);
     NewProfile.append('max_income', this.AddClientEducationalDetails.value.max_income );
     NewProfile.append('min_height', this.AddClientEducationalDetails.value.min_height );
@@ -93,7 +93,7 @@ export class ClientPreferencesComponent implements OnInit {
           return throwError("oops"); })).subscribe((response:any) => {
            this.data = response;
            console.log(this.data);
-           if(this.data.status === 1)
+           if(this.data.Status === 1)
             this.router.navigate(['/clients']);
          
         }),err =>{
