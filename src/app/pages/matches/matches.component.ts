@@ -268,13 +268,154 @@ export class MatchesComponent implements OnInit {
             ((localStorage.setItem('prgender', '0')));
 
           }
+
+               this.getData()
+
       })
 
     }
+    else{
+                     this.getData()
 
+    }
      // debounceTime(4000)
 
-     this.getData()
+     // this.getData()
+     //  let  URL = 'http://matchmakerz.in/api/v1/client/filterMatches?page='+localStorage.getItem('page');
+     // console.log(localStorage.getItem('min_age'))
+
+     //            if(localStorage.getItem('min_age') !== null){
+     //              console.log("****")
+     //             URL +='&min_age='+localStorage.getItem('min_age')
+     //             // localStorage.removeItem('min_age')
+     //            }
+
+     //            if(localStorage.getItem('max_age') !== null){
+     //            URL +='&max_age='+localStorage.getItem('max_age')
+     //                             // localStorage.removeItem('max_age')
+
+     //          }
+
+     //            if(localStorage.getItem('min_income') !== null){
+     //              URL +='&min_income='+localStorage.getItem('min_income')
+     //                             // localStorage.removeItem('min_income')
+
+     //          }
+
+     //            if(localStorage.getItem('max_income') !== null){
+     //            URL +='&max_income='+localStorage.getItem('max_income')
+     //                             // localStorage.removeItem('max_income')
+
+     //          }
+
+     //            if (localStorage.getItem('min_height') !== null){
+     //              URL +='&min_height='+localStorage.getItem('min_height')
+     //                                           // localStorage.removeItem('min_height')
+
+     //          }
+  
+     //            if(localStorage.getItem('max_height') !== null){
+     //              URL +='&max_height='+localStorage.getItem('max_height')
+     //                             // localStorage.removeItem('max_height')
+
+     //          }
+
+     //            if(localStorage.getItem('marital_status') !== null){
+     //              URL +='&marital_status='+localStorage.getItem('marital_status')
+     //                                         // localStorage.removeItem('marital_status')
+                
+
+     //          }
+
+     //            if(localStorage.getItem('manglik') !== null) {
+     //              URL +='&manglik='+localStorage.getItem('manglik')
+
+     //                             // localStorage.removeItem('manglik')
+
+     //          }
+     //          if(localStorage.getItem('food_choice') !== null){
+     //            URL +='&food_choice='+localStorage.getItem('food_choice')
+     //                             // localStorage.removeItem('food_choice')
+
+     //          }
+
+     //          if(localStorage.getItem('occupation') !== null){
+     //            URL +='&occupation='+localStorage.getItem('occupation')
+
+     //                             // localStorage.removeItem('occupation')
+
+     //          }
+     //          if(localStorage.getItem('caste') !== null){
+     //            URL +='&caste='+localStorage.getItem('caste')
+
+     //                             // localStorage.removeItem('caste')
+
+     //          }
+     //          if(localStorage.getItem('prgender') !== null){
+     //            URL +='&gender='+localStorage.getItem('prgender')
+
+     //                             // localStorage.removeItem('prgender')
+     //          }
+     //           if(localStorage.getItem('citizenship') !== null){
+     //            URL +='&citizenship='+localStorage.getItem('citizenship')
+
+     //                             // localStorage.removeItem('prgender')
+     //          }
+     //          // const headers = new HttpHeaders({
+     //          //   'Content-Type': 'application/json',
+     //          //   'Authorization': 'Token ' + localStorage.getItem('token')
+     //          // }) 
+     //            console.log(URL)
+     //            this.http.get(URL, {headers : headers}).pipe(debounceTime(1000)).subscribe((response) =>{
+     //              this.response = response;
+     //              this.staticProductDetail = [...this.staticProductDetail, ...this.response.results];
+     //              console.log(response);
+
+     //              let l = this.staticProductDetail.length;
+     //                if(l<20)
+     //                this.show = false;
+     //                else
+     //                this.show = true; 
+
+     //              if(this.response.links.next === 'null'){
+     //                this.show = false;
+     //                this.load_more = false;
+
+                            
+
+
+     //          }
+
+     //              for(let i=0;i<this.staticProductDetail.length;i++){
+     //                if(this.staticProductDetail[i].profile_photo== null)
+     //                this.staticProductDetail[i].profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
+            
+     //                if(this.staticProductDetail[i].marital_status == '0')
+     //                 this.staticProductDetail[i].marital = "Not Married";
+     //                else
+     //                 this.staticProductDetail[i].marital = "Married";
+            
+            
+     //                 if(this.staticProductDetail[i].manglik == 0)
+     //                  this.staticProductDetail[i].manglik = 'Non-Manglik';
+     //                 else
+     //                  this.staticProductDetail[i].manglik = 'Manglik'; 
+            
+                   
+     //                 this.staticProductDetail[i].inches = this.staticProductDetail[i].height % 12 ;
+     //                 this.staticProductDetail[i].feet = (this.staticProductDetail[i].height -  this.staticProductDetail[i].inches)/12;
+                    
+     //              } 
+            
+     //        })
+
+     //        this.http.get('http://matchmakerz.in/api/v1/client/total-shortlist?id='+localStorage.getItem('clientId'), {headers : headers}).pipe(debounceTime(1000)).subscribe((res) => {
+     //        this.shortlistedTotal = res;
+     //        console.log(this.shortlistedTotal);
+     //     })
+     //      this.show = true;
+     //      this.load_more=false;
+
  // setInterval(this.getData(), 2000)
 
   }
