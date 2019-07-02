@@ -4,9 +4,7 @@ import { FilterComponent } from '../filter/filter.component'
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import {
-    debounceTime
-} from 'rxjs/operators'
+import {debounceTime} from 'rxjs/operators'
 
 @Component({
   selector: 'app-matches',
@@ -21,19 +19,6 @@ export class MatchesComponent implements OnInit {
   response : any ;
   res : any = [];
   show : boolean;
-  // min_age: number;
-  // max_age: number;
-  // min_income : number;
-  // max_income : number;
-  // min_height: number ;
-  // max_height: number;
-  // marital_status: number;
-  // manglik: number;
-  // food_choice:number;
-  // occupation: number;
-  // citizenship: number;
-  // caste: number;
-  // gender: number;
 
   constructor(private http : HttpClient, private filtercomp: FilterComponent, public route : Router) { 
     localStorage.setItem('page','1');
@@ -183,9 +168,24 @@ export class MatchesComponent implements OnInit {
             
             
                      if(this.staticProductDetail[i].manglik == 0)
-                      this.staticProductDetail[i].manglik = 'Non-Manglik';
-                     else
-                      this.staticProductDetail[i].manglik = 'Manglik'; 
+                        this.staticProductDetail[i].manglik = 'Non-Manglik';
+                      else if(this.staticProductDetail[i].manglik == 1)
+                        this.staticProductDetail[i].manglik = 'Manglik'; 
+                      else 
+                        this.staticProductDetail[i].manglik == 'Anshik Manglik' 
+
+                      if(this.staticProductDetail[i].occupation =='0')
+                        this.staticProductDetail[i].occupation = 'Not Working';
+                      else if(this.staticProductDetail[i].occupation =='1')
+                        this.staticProductDetail[i].occupation = 'Private Job';
+                      else if(this.staticProductDetail[i].occupation =='2')
+                        this.staticProductDetail[i].occupation = 'Self Employed';
+                      else if(this.staticProductDetail[i].occupation =='3')
+                        this.staticProductDetail[i].occupation = 'Government Job';
+                      else if(this.staticProductDetail[i].occupation =='4')
+                        this.staticProductDetail[i].occupation = 'Doctor';
+                      else 
+                        this.staticProductDetail[i].occupation = 'Teacher'; 
             
                    
                      this.staticProductDetail[i].inches = this.staticProductDetail[i].height % 12 ;

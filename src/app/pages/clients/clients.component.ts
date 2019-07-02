@@ -68,8 +68,25 @@ export class ClientsComponent implements OnInit {
 
          if(this.staticProductDetail[i].manglik == 0)
           this.staticProductDetail[i].manglik = 'Non-Manglik';
-         else
+         else if(this.staticProductDetail[i].manglik == 1)
           this.staticProductDetail[i].manglik = 'Manglik'; 
+         else 
+          this.staticProductDetail[i].manglik == 'Anshik Manglik' 
+
+         if(this.staticProductDetail[i].occupation =='0')
+          this.staticProductDetail[i].occupation = 'Not Working';
+         else if(this.staticProductDetail[i].occupation =='1')
+          this.staticProductDetail[i].occupation = 'Private Job';
+         else if(this.staticProductDetail[i].occupation =='2')
+          this.staticProductDetail[i].occupation = 'Self Employed';
+         else if(this.staticProductDetail[i].occupation =='3')
+          this.staticProductDetail[i].occupation = 'Government Job';
+         else if(this.staticProductDetail[i].occupation =='4')
+          this.staticProductDetail[i].occupation = 'Doctor';
+         else 
+           this.staticProductDetail[i].occupation = 'Teacher';  
+          
+          
 
        
          this.staticProductDetail[i].inches = this.staticProductDetail[i].height % 12 ;
@@ -190,9 +207,23 @@ export class ClientsComponent implements OnInit {
 
          if(this.staticProductDetail[i].manglik == 0)
           this.staticProductDetail[i].manglik = 'Non-Manglik';
-         else
+         else if(this.staticProductDetail[i].manglik == 1)
           this.staticProductDetail[i].manglik = 'Manglik'; 
+         else 
+          this.staticProductDetail[i].manglik == 'Anshik Manglik' 
 
+         if(this.staticProductDetail[i].occupation =='0')
+          this.staticProductDetail[i].occupation = 'Not Working';
+         else if(this.staticProductDetail[i].occupation =='1')
+          this.staticProductDetail[i].occupation = 'Private Job';
+         else if(this.staticProductDetail[i].occupation =='2')
+          this.staticProductDetail[i].occupation = 'Self Employed';
+         else if(this.staticProductDetail[i].occupation =='3')
+          this.staticProductDetail[i].occupation = 'Government Job';
+         else if(this.staticProductDetail[i].occupation =='4')
+          this.staticProductDetail[i].occupation = 'Doctor';
+         else 
+           this.staticProductDetail[i].occupation = 'Teacher'; 
        
          this.staticProductDetail[i].inches = this.staticProductDetail[i].height % 12 ;
          this.staticProductDetail[i].feet = (this.staticProductDetail[i].height -  this.staticProductDetail[i].inches)/12;
@@ -209,59 +240,18 @@ export class ClientsComponent implements OnInit {
 
 
  myFunction() {
-  var x = document.getElementById("myDropdown")
-  // .classList.toggle("show");
-    // document.getElementById("myDropdown").classList.remove('hide');
-console.log(x.style.display)
-console.log(x.style.display==='block')
+  var x = document.getElementById("myDropdown");
   if(x.style.display==='block'){
     x.style.display='none';
   }
   else{
     x.style.display = 'block';
   }
- // x.style.display = 'none';
- console.log(x)
-  // x.style.display = "none";
-
 } 
 hide(){
   var x = document.getElementById("myDropdown")
-  // .classList.add('hide');
- //  if(x.style.display='block'){
- //    x.style.display='none';
- //  }
- //  else{
- //    x.style.display = 'block';
- //  }
- // x.style.display = 'none';
- // console.log(x)
   x.style.display = "none";
 }
-
-// hide(){
-//   document.getElementById("myDropdown").toggle("show");
-//   // x.style.display = "none";
-// }
-
- signout(){
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Authorization': 'Token ' + localStorage.getItem('token')
-    // })
-    // return this.http.get('http://matchmakerz.in/api/v1/matchmaker/logout', { headers: headers }).subscribe((response) => {
-    //   this.response = response;
-    //   if(this.response.status === 1){
-    //     localStorage.setItem('is_active','false');
-    //     window.location.replace('/');   
-    //   }   
-    //   else 
-    //    console.log('Something went wrong'); 
-    // })  
-
-    localStorage.clear();
-    this.router.navigate(['/carousel']);
-  }
 
 
 }

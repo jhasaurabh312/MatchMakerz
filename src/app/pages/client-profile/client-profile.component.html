@@ -109,7 +109,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Marital Status</strong>
 
-                        <h6>{{user.marital_status}}</h6>
+                        <h6>{{user.marital}}</h6>
                     </div>
                 </div>
                 <hr/>
@@ -117,7 +117,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Height</strong>
                         <br>
-                        <h6>{{user.height}} inches</h6>
+                        <h6>{{user.feet}}'{{user.inches}}" inches</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Weight(Kg)</strong>
@@ -160,7 +160,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Salary</strong>
                         <br>
-                        <h6>{{user.yearly_income}}</h6>
+                        <h6>{{user.yearly_income}} LPA</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Job Type</strong>
@@ -201,7 +201,7 @@
 
                 <div class="row" style=" margin-top:15px;">
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
-                        <strong>Mangalik Status</strong>
+                        <strong>Manglik Status</strong>
 
                         <h6>{{user.manglik}}</h6>
                     </div>
@@ -307,7 +307,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
                         <strong>City</strong>
 
-                        <h6>{{user.city}}</h6>
+                        <h6>{{user.hometown}}</h6>
                     </div>
                 </div>
 
@@ -449,7 +449,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
                         <strong>Sister Unmarried</strong>
 
-                        <h6>{{user.Unmarried_daughter}}</h6>
+                        <h6>{{user.unmarried_daughter}}</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
                         <strong>Brother Married</strong>
@@ -463,7 +463,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;">
                         <strong>Brother Unmarried</strong>
 
-                        <h6>{{user.Unmarried_son}}</h6>
+                        <h6>{{user.unmarried_son}}</h6>
                     </div>
                 </div>
 
@@ -498,8 +498,10 @@ Partner Preferences                            </div>
                 <div class="row" style=" margin-top:15px;">
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Caste</strong>
+                   <!-- --------------------------- -->
+                        <h6>{{User.client}}</h6>
+                   <!-- --------------------------- -->
 
-                        <h6>{{User.id}}</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Mangalik</strong>
@@ -509,7 +511,7 @@ Partner Preferences                            </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Marital Status</strong>
 
-                        <h6>{{User.marital_status}}</h6>
+                        <h6>{{User.marital}}</h6>
                     </div>
                 </div>
                 <hr/>
@@ -518,7 +520,7 @@ Partner Preferences                            </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Age</strong>
                         <br>
-                        <h6>{{User.min_age}} - {{User.max_age}}yrs</h6>
+                        <h6>{{User.min_age}} yrs  -  {{User.max_age}} yrs</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Food Choice</strong>
@@ -537,7 +539,7 @@ Partner Preferences                            </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Income</strong>
                         <br>
-                        <h6>{{User.yearly_income}} LPA</h6>
+                        <h6>{{User.min_income}} LPA - {{User.max_income}} LPA</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Citizenship</strong>
@@ -547,7 +549,7 @@ Partner Preferences                            </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Height</strong>
                         <br>
-                        <h6>{{User.min_height}}-{{User.max_height}}</h6>
+                        <h6>{{User.min_feet}}' {{User.min_inches}}"  -  {{User.max_feet}}' {{User.max_inches}}"</h6>
                     </div>
                 </div>
 
