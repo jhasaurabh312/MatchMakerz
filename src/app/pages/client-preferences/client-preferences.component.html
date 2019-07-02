@@ -14,41 +14,104 @@
                         <div class="form-row ">
                            
                                 <mat-form-field class="full-width" appearance="outline">
-                                    <input matInput formControlName="min_age" placeholder="min_age*">
+                                    <mat-label>Min Age</mat-label>
+                                    <input matInput formControlName="min_age" placeholder="min_age*" type="number">
                                 </mat-form-field>
                         </div>    
                         <div class="form-row ">
                                 <mat-form-field class="full-width" appearance="outline">
-
-                                    <input matInput formControlName="max_age" placeholder="max_age*">
+                                        <mat-label>Max Age</mat-label>
+                                    <input matInput formControlName="max_age" placeholder="max_age*" type="number">
                                 </mat-form-field>
                             
                         </div>
                         <div class="form-row ">
 
                                 <mat-form-field class="full-width" appearance="outline">
-
-                                    <input matInput formControlName="min_income" placeholder="min_income*">
+                                        <mat-label>Min Income(LPA)</mat-label>
+                                    <input matInput formControlName="min_income" placeholder="min_income" type="number">
                                 </mat-form-field>
                         </div>
                         <div class="form-row ">
 
                                 <mat-form-field class="full-width" appearance="outline">
-
-                                    <input matInput formControlName="max_income" placeholder="max_income*">
+                                        <mat-label>Max Income(LPA)</mat-label>
+                                    <input matInput formControlName="max_income" placeholder="max_income*" type="number">
                                 </mat-form-field>
                         </div>
                         <div class="form-row ">
                                 <mat-form-field class="full-width" appearance="outline">
-
-                                    <input matInput formControlName="min_height" placeholder="min_height*">
+                                    <mat-label>Min Height</mat-label>
+                                    <mat-select matInput formControlName="min_height" placeholder="min_height">
+                                            <mat-option value="55">4'7"</mat-option>
+                                            <mat-option value="56">4'8"</mat-option>
+                                            <mat-option value="57">4'9"</mat-option>
+                                            <mat-option value="58">4'10"</mat-option>
+                                            <mat-option value="59">4'11"</mat-option>
+                                            <mat-option value="60">5'0"</mat-option>
+                                            <mat-option value="61">5'1"</mat-option>
+                                            <mat-option value="62">5'2"</mat-option>
+                                            <mat-option value="63">5'3"</mat-option>
+                                            <mat-option value="64">5'4"</mat-option>
+                                            <mat-option value="65">5'5"</mat-option>
+                                            <mat-option value="66">5'6"</mat-option>
+                                            <mat-option value="67">5'7"</mat-option>
+                                            <mat-option value="68">5'8"</mat-option>
+                                            <mat-option value="69">5'9"</mat-option>
+                                            <mat-option value="70">5'10"</mat-option>
+                                            <mat-option value="71">5'11"</mat-option>
+                                            <mat-option value="72">6'0"</mat-option>
+                                            <mat-option value="73">6'1"</mat-option>
+                                            <mat-option value="74">6'2"</mat-option>
+                                            <mat-option value="75">6'3"</mat-option>
+                                            <mat-option value="76">6'4"</mat-option>
+                                            <mat-option value="77">6'5"</mat-option>
+                                            <mat-option value="78">6'6"</mat-option>
+                                            <mat-option value="79">6'7"</mat-option>
+                                            <mat-option value="80">6'8"</mat-option>
+                                            <mat-option value="81">6'9"</mat-option>
+                                            <mat-option value="82">6'10"</mat-option>
+                                            <mat-option value="83">6'11"</mat-option>
+                                            <mat-option value="84">7'0"</mat-option>
+                                        </mat-select>
                                 </mat-form-field>
                         </div>
                         <div class="form-row ">
 
                             <mat-form-field class="full-width" appearance="outline">
-
-                                <input matInput formControlName="max_height" placeholder="max_height*">
+                                <mat-label>Max Height</mat-label>
+                                <mat-select matInput formControlName="max_height" placeholder="max_height*">
+                                        <mat-option value="55">4'7"</mat-option>
+                                        <mat-option value="56">4'8"</mat-option>
+                                        <mat-option value="57">4'9"</mat-option>
+                                        <mat-option value="58">4'10"</mat-option>
+                                        <mat-option value="59">4'11"</mat-option>
+                                        <mat-option value="60">5'0"</mat-option>
+                                        <mat-option value="61">5'1"</mat-option>
+                                        <mat-option value="62">5'2"</mat-option>
+                                        <mat-option value="63">5'3"</mat-option>
+                                        <mat-option value="64">5'4"</mat-option>
+                                        <mat-option value="65">5'5"</mat-option>
+                                        <mat-option value="66">5'6"</mat-option>
+                                        <mat-option value="67">5'7"</mat-option>
+                                        <mat-option value="68">5'8"</mat-option>
+                                        <mat-option value="69">5'9"</mat-option>
+                                        <mat-option value="70">5'10"</mat-option>
+                                        <mat-option value="71">5'11"</mat-option>
+                                        <mat-option value="72">6'0"</mat-option>
+                                        <mat-option value="73">6'1"</mat-option>
+                                        <mat-option value="74">6'2"</mat-option>
+                                        <mat-option value="75">6'3"</mat-option>
+                                        <mat-option value="76">6'4"</mat-option>
+                                        <mat-option value="77">6'5"</mat-option>
+                                        <mat-option value="78">6'6"</mat-option>
+                                        <mat-option value="79">6'7"</mat-option>
+                                        <mat-option value="80">6'8"</mat-option>
+                                        <mat-option value="81">6'9"</mat-option>
+                                        <mat-option value="82">6'10"</mat-option>
+                                        <mat-option value="83">6'11"</mat-option>
+                                        <mat-option value="84">7'0"</mat-option>
+                                    </mat-select>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
@@ -71,30 +134,10 @@
                                 <!-- <input matInput formControlName="caste" placeholder="caste*"> -->
                                 <mat-label>caste</mat-label>
                                 <mat-select formControlName="caste" multiple>
-                                        <mat-option value="3">A</mat-option>
-                                        <mat-option value="1">B</mat-option>
-                                        <mat-option value="2">C</mat-option>
-                                        <!-- <mat-option value=""></mat-option> -->
-                                        <!-- <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option>
-                                        <mat-option value=""></mat-option> -->
+                                    <mat-option *ngFor="let ietm of castes" [value]="ietm.id">
+                                        {{ietm.caste}}
+                                    </mat-option>
+                                       
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -112,7 +155,7 @@
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width" appearance="outline">
-                                    <mat-label>Manglik</mat-label>
+                                    <mat-label>Manglik status</mat-label>
                                     <mat-select matInput formControlName="manglik" >
                                         <mat-option value="0">Non Manglik</mat-option>
                                         <mat-option value="1">Manglik</mat-option>
@@ -134,7 +177,7 @@
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width" appearance="outline">
-                                    <mat-label>citizenship</mat-label>
+                                    <mat-label>Citizenship</mat-label>
                                     <mat-select matInput formControlName="citizenship" >
                                         <mat-option value="0">Indian</mat-option>
                                         <mat-option value="1">NRI</mat-option>   

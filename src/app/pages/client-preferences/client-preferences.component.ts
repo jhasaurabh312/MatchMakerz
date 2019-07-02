@@ -14,6 +14,7 @@ export class ClientPreferencesComponent implements OnInit {
   AddClientEducationalDetails: FormGroup;
   error : any;
   data : any;
+  castes: any;
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router:Router) { 
     this. AddClientEducationalDetails= this._formBuilder.group({
@@ -34,6 +35,18 @@ export class ClientPreferencesComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    }) 
+
+
+    this.http.get('http://matchmakerz.in/api/v1/client/castes',{headers : headers}).subscribe((res) => {
+      console.log(res)
+      this.castes = res
+ 
+    })
   }
 
 
