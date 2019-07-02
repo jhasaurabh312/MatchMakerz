@@ -27,7 +27,8 @@
                <div class="form-row ">
                     <div class="input-group p-2">
                         <mat-form-field class="full-width">
-                              <input matInput  formControlName="children" placeholder="children*">
+                                <mat-label>Children</mat-label>
+                              <input matInput  formControlName="children" placeholder="children*" type="number">
                         </mat-form-field>
                     </div>
                </div>
@@ -113,8 +114,9 @@
                             <!-- <input matInput  formControlName="caste" placeholder="caste*"> -->
                             <mat-label>Caste</mat-label>
                             <mat-select matInput formControlName="caste" >
-                                <mat-option value="10">XXX</mat-option>
-                                <mat-option value="15">YYY</mat-option>   
+                                       <mat-option *ngFor="let ietm of castes" [value]="ietm.id">
+                                            {{ietm.caste}}
+                                        </mat-option>
                             </mat-select>
 
                     </mat-form-field>

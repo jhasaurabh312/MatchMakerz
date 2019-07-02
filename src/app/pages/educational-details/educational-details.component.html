@@ -1,7 +1,7 @@
 <div class="section shadow" id="header" style="background: white;">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;margin-top : auto; margin-bottom : auto">
         <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark"><i class="fa fa-chevron-left fa-2x" ></i></a>
-        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Personal Details</h5>
+        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Educational Details</h5>
     </div>
 <main class="modal-body">
 <form [formGroup]="AddClientEducationalDetails">
@@ -13,15 +13,16 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Degree</mat-label>
                         <mat-select  formControlName="degree">
-                            <mat-option value="0">B.A</mat-option>
+                            <!-- <mat-option value="0">B.A</mat-option>
                             <mat-option value="1">B.Com</mat-option>
                             <mat-option value="2">B.E/B.Tech</mat-option>
                             <mat-option value="4">B.Sc</mat-option>
-                            <mat-option value="5">B.Tech</mat-option>
-                            <mat-option value="6">Bachelors</mat-option>
-                            <mat-option value="13">Masters</mat-option>
-                            <mat-option value="16">Ph.D</mat-option>
-                            <mat-option value="15">Others</mat-option>
+                            <mat-option value="5">B.Tech</mat-option> -->
+                            <mat-option value="0">High School</mat-option>
+                            <mat-option value="1">Bachelors</mat-option>
+                            <mat-option value="2">Masters</mat-option>
+                            <mat-option value="3">Ph.D</mat-option>
+                            <mat-option value="4">Others</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -39,12 +40,13 @@
                 <div class="col input-group p-2 ">
 
                     <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Is Working</mat-label>
+                        <mat-label>Work Status</mat-label>
 
                         <mat-select formControlName="is_working">
 
-                            <mat-option value="0">No</mat-option>
-                            <mat-option value="1">Yes</mat-option>
+                            <mat-option value="0">Not Working</mat-option>
+                            <mat-option value="1">Working</mat-option>
+                            
                         </mat-select>
                     </mat-form-field>
                 </div>
