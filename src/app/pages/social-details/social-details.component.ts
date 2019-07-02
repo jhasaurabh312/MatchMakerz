@@ -16,18 +16,19 @@ export class SocialDetailsComponent implements OnInit {
   error: any;
   data: any;
   castes: any;
+  user : any = [];
 
   constructor(private _formBuilder: FormBuilder, private http: HttpClient , public router : Router) {
     this.AddClientEducationalDetails = this._formBuilder.group({
-      'marital_status': [''],
-      'children': [''],
-      'mother_tongue': [''],
-      'religion': [''],
-      'zodiac': [''],
-      'manglik': [''],
-      'caste': [''],
-      'citizenship': [''],
-      'want_horoscope_match': [''],
+      'marital_status': [localStorage.getItem('edit_client_marital_status')],
+      'children': [localStorage.getItem('edit_client_children')],
+      'mother_tongue': [localStorage.getItem('edit_client_mother_tongue')],
+      'religion': [localStorage.getItem('edit_client_religion')],
+      'zodiac': [localStorage.getItem('edit_client_zodiac')],
+      'manglik': [localStorage.getItem('edit_client_manglik')],
+      'caste': [localStorage.getItem('edit_client_caste')],
+      'citizenship': [localStorage.getItem('edit_client_citizenship')],
+      'want_horoscope_match': [localStorage.getItem('edit_client_want_horoscope_match')],
     });;
   }
 
@@ -43,6 +44,27 @@ export class SocialDetailsComponent implements OnInit {
       this.castes = res
  
     })
+
+
+    this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
+      this.user = user;
+      console.log(this.user);
+
+      localStorage.setItem('edit_client_marital_status',this.user.marital_status);
+      localStorage.setItem('edit_client_mother_tongue',this.user.mother_tongue);
+      localStorage.setItem('edit_client_children',this.user.children);
+      localStorage.setItem('edit_client_religion',this.user.religion);
+      localStorage.setItem('edit_client_zodiac',this.user.zodiac);
+      localStorage.setItem('edit_client_manglik',this.user.manglik);
+      localStorage.setItem('edit_client_caste',this.user.caste);
+      localStorage.setItem('edit_client_citizenship',this.user.citizenship);
+      localStorage.setItem('edit_client_want_horoscope_match',this.user.want_horoscope_match);
+      // localStorage.setItem('edit_client_birth_place',this.user.birth_place);
+      // localStorage.setItem('edit_client_food_choice',this.user.food_choice);
+      // localStorage.setItem('edit_client_disability',this.user.disability);
+      // localStorage.setItem('edit_client_disabled_part',this.user.disabled_part);
+    })
+
   }
 
 

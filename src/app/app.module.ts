@@ -13,7 +13,6 @@ import { ClientsComponent } from './pages/clients/clients.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { PersonalDetailsComponent } from './pages/personal-details/personal-details.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NotificationComponent } from './pages/notification/notification.component';
 import { GetOTPComponent } from './pages/get-otp/get-otp.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -33,6 +32,7 @@ import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component'
 import { PlansComponent } from './pages/plans/plans.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatDatepickerModule, MatNativeDateModule, MatAutocompleteModule } from '@angular/material';
+import { EditPersonalComponent } from './pages/edit-personal/edit-personal.component';
 
 // import {ngMaterialDatePicker} from 'ng-material-datetimepicker';
 
@@ -44,7 +44,6 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatDate
     ClientsComponent,
     MyProfileComponent,
     PersonalDetailsComponent,
-    NotificationComponent,
     GetOTPComponent,
     EditProfileComponent,
     SignupComponent,
@@ -58,9 +57,9 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatDate
     ClientPreferencesComponent,
     ClientProfileComponent,
     DeclinedComponent,
-
     ShortlistedComponent,
     PlansComponent,
+    EditPersonalComponent,
   ],
   imports: [
 

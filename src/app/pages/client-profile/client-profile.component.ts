@@ -285,6 +285,10 @@ processfile(event){
 
  }
 
+ editprofile(data1){
+   localStorage.setItem('clientProfileId',data1);
+   this.router.navigate(['/edit-personal']);
+ }
 
 
 }

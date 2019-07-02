@@ -16,30 +16,61 @@ export class ClientFamilyComponent implements OnInit {
     AddClientEducationalDetails: FormGroup;
     error : any;
     data : any;
+    user: any = [];
   
     constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router: Router) { 
       this. AddClientEducationalDetails= this._formBuilder.group({
-        'family_type' : [''],
-        'hometown' : [''],
-        'home_address' : [''],
-        'house_type' : [''],
-        'gotra' : [''],
-        'mother_status' : [''],
-        'mother_occupation' : [''],
-        'father_status' : [''],
-        'father_occupation' : [''],
-        'family_income' : [''],
-        'landline' : [''],
-        'married_son' : [''],
-        'unmarried_son' : [''],
-        'married_daughter' : [''],
-        'unmarried_daughter' : [''],
-        'matchmaker_note' : [''],
-        'is_active' : [''],
+        'family_type' : [localStorage.getItem('edit_client_family_type')],
+        'hometown' : [localStorage.getItem('edit_client_hometown')],
+        'home_address' : [localStorage.getItem('edit_client_home_address')],
+        'house_type' : [localStorage.getItem('edit_client_house_type')],
+        'gotra' : [localStorage.getItem('edit_client_gotra')],
+        'mother_status' : [localStorage.getItem('edit_client_mother_status')],
+        'mother_occupation' : [localStorage.getItem('edit_client_mother_occupation')],
+        'father_status' : [localStorage.getItem('edit_client_father_status')],
+        'father_occupation' : [localStorage.getItem('edit_client_want_father_occupation')],
+        'family_income' : [localStorage.getItem('edit_client_family_income')],
+        'landline' : ['na'],
+        'married_son' : [localStorage.getItem('edit_client_married_son')],
+        'unmarried_son' : [localStorage.getItem('edit_client_unmarried_son')],
+        'married_daughter' : [localStorage.getItem('edit_client_married_daughter')],
+        'unmarried_daughter' : [localStorage.getItem('edit_client_unmarried_daughter')],
+        'matchmaker_note' : [localStorage.getItem('edit_client_matchmaker_note')],
+        'is_active' : ['1'],
       });; 
     }
   
     ngOnInit() {
+
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + localStorage.getItem('token')
+      }) 
+  
+      this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
+        this.user = user;
+        console.log(this.user);
+  
+        localStorage.setItem('edit_client_family_type',this.user.family_type);
+        localStorage.setItem('edit_client_hometown',this.user.hometown);
+        localStorage.setItem('edit_client_home_address',this.user.home_address);
+        localStorage.setItem('edit_client_house_type',this.user.house_type);
+        localStorage.setItem('edit_client_gotra',this.user.gotra);
+        localStorage.setItem('edit_client_mother_status',this.user.mother_status);
+        localStorage.setItem('edit_client_mother_occupation',this.user.mother_occupation);
+        localStorage.setItem('edit_client_father_status',this.user.father_status);
+        localStorage.setItem('edit_client_want_father_occupation',this.user.father_occupation);
+        localStorage.setItem('edit_client_family_income',this.user.family_income);
+        localStorage.setItem('edit_client_landline',this.user.landline);
+        localStorage.setItem('edit_client_married_son',this.user.married_son);
+        localStorage.setItem('edit_client_unmarried_son',this.user.unmarried_son);
+        localStorage.setItem('edit_client_married_daughter',this.user.married_daughter);
+        localStorage.setItem('edit_client_unmarried_daughter',this.user.unmarried_daughter);
+        localStorage.setItem('edit_client_matchmaker_note',this.user.matchmaker_note);
+        localStorage.setItem('edit_client_is_active',this.user.is_active);
+        
+      })
+  
       
     }
   

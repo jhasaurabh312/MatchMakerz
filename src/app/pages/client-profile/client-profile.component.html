@@ -82,7 +82,7 @@
                 <div class="row">
                     <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
                         <div class="row">
-                            <div class="icon">
+                            <div class="icon" >
                                 <img src="../../../assets/icons_white/info-circle.svg">
                             </div>
                             <div style="color: #E55A69;margin: 14px;">
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92C8B">
                             <div class="offset-11">
-                            <div class="icons">
+                            <div class="icons" (click)="editprofile(user.id)" style="cursor : pointer">
                                 <img src="../../../assets/icons/pen.svg">
                             </div>
                           </div>
@@ -121,7 +121,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Height</strong>
                         <br>
-                        <h6>{{user.feet}}'{{user.inches}}" inches</h6>
+                        <h6>{{user.feet}}'{{user.inches}}"</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Weight(Kg)</strong>

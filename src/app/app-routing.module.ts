@@ -17,10 +17,10 @@ import { FilterComponent } from './pages/filter/filter.component';
 import { MatchesComponent } from './pages/matches/matches.component';
 import { ClientProfileComponent } from './pages/client-profile/client-profile.component';
 import { ConnectedComponent } from './pages/connected/connected.component';
-import { NotificationComponent } from './pages/notification/notification.component';
 import { DeclinedComponent } from './pages/declined/declined.component';
 import { PlansComponent } from './pages/plans/plans.component';
 import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
+import { EditPersonalComponent } from './pages/edit-personal/edit-personal.component';
 
       
 const appRoutes: Routes = [
@@ -44,9 +44,9 @@ const appRoutes: Routes = [
   { path : 'connected' , component : ConnectedComponent},
   { path : 'filter' , component : FilterComponent},
   { path : 'declined' , component : DeclinedComponent},
-  { path : 'notification' ,component : NotificationComponent},
   { path: 'plans' , component : PlansComponent},
-  { path : 'shortlisted', component : ShortlistedComponent}
+  { path : 'shortlisted', component : ShortlistedComponent},
+  { path : 'edit-personal' , component : EditPersonalComponent},
 ];
 
 
