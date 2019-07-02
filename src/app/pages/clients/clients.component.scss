@@ -72,9 +72,9 @@
 }
 
 .active-border-none{
-    color:black;cursor: pointer;
-  // width: 300px;
-  color: #f92c8b;
+    color:black;
+    cursor: pointer;
+    color: #f92c8b;
 
     border-bottom: 3px solid #FFF;
 
@@ -83,7 +83,6 @@
 .active-border{
   color:black;cursor: pointer;
   border-bottom: 3px solid #F92CBB;
-  // width: 400px;
     color: #f92c8b;
 
    transition: border-bottom, width,1s;

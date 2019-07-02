@@ -16,7 +16,7 @@
       <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:25px;" *ngFor="let member of connect" >
         <div class="row client-card" >
           <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
-             <div style="padding:10px"> <img src="{{member.matched_to.profile_photo}}" style="width: 100%;height:250px" ></div>
+             <div style="padding:10px"> <img src="{{member.matched_to.profile_photo}}" style="width: 100%;height:220px" ></div>
           </div>
           <div class="column-r" style="width:50%">
                                                   <div class="row">
@@ -31,10 +31,10 @@
               <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.matched_to.current_city}}</p>
                        </div>
 
-              <div class="button" style="margin-top : 15px; display: flex">
+              <!-- <div class="button" style="margin-top : 15px; display: flex">
                 <button type="button" class="card-button"  (click) = "shortlistCandidate(member.id)" style="color:white;background-color: green;border: 5px solid green"><i class="fa fa-search"  style="width:20px;height:20px;color:white"></i>Accept</button>
                 <button type="button"  class="card-button"  (click) = "showInterestCandidate(member.id)" style="margin-left:10px;color:white;background-color:red;border: 5px solid red"><i class="fa fa-clock-o" style="width:20px;height:20px"></i>Decline</button>
-              </div>   
+              </div>    -->
               </div>  
            </div>
         </div>
