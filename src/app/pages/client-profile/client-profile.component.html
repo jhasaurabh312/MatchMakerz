@@ -195,8 +195,8 @@
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons">
-                                <img src="../../../assets/icons/pen.svg">
+                              <div class="icons" (click)="editprofile(user.id)">
+                                <img src="../../../assets/icons/pen.svg" (click)="editprofile(user.id)">
                               </div>
                             </div>                   
                      </div>
@@ -251,7 +251,7 @@
                   </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons">
+                              <div class="icons" (click)="editeducation(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -288,7 +288,7 @@
                   </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons">
+                              <div class="icons" (click)="editeducation(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -336,7 +336,7 @@
                   </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons">
+                              <div class="icons" (click)="editsocial(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -382,7 +382,7 @@
                   </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons">
+                              <div class="icons" (click)="editfamily(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -437,7 +437,7 @@
                   </div>
                                       <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons">
+                              <div class="icons" (click)="editfamily(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -490,7 +490,7 @@ Partner Preferences                            </div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons">
+                              <div class="icons" (click)="editpreferences(user.id)"> 
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   

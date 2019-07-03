@@ -37,18 +37,34 @@ export class EducationalDetailsComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
-    this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
-      this.user = user;
-      console.log(this.user);
+   if(localStorage.getItem('clientId')){
+   
+       this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
+         this.user = user;
+         console.log(this.user);
+         localStorage.setItem('newClientId',localStorage.getItem('clientId'));
+      localStorage.removeItem('clientId')
 
-      localStorage.setItem('edit_client_is_working',this.user.is_working);
-      localStorage.setItem('edit_client_degree',this.user.degree);
-      localStorage.setItem('edit_client_college',this.user.college);
-      localStorage.setItem('edit_client_occupation',this.user.occupation);
-      localStorage.setItem('edit_client_sub_occupation',this.user.sub_occupation);
-      localStorage.setItem('edit_client_office_address',this.user.office_address);
-      localStorage.setItem('edit_client_yearly_income',this.user.yearly_income);
-    })
+         localStorage.setItem('edit_client_is_working',this.user.is_working);
+         localStorage.setItem('edit_client_degree',this.user.degree);
+         localStorage.setItem('edit_client_college',this.user.college);
+         localStorage.setItem('edit_client_occupation',this.user.occupation);
+         localStorage.setItem('edit_client_sub_occupation',this.user.sub_occupation);
+         localStorage.setItem('edit_client_office_address',this.user.office_address);
+         localStorage.setItem('edit_client_yearly_income',this.user.yearly_income);
+         this. AddClientEducationalDetails= this._formBuilder.group({
+         'is_working' : [localStorage.getItem('edit_client_is_working')],
+         'education' : ['NA'],
+         'degree' : [localStorage.getItem('edit_client_degree')],
+         'college' : [localStorage.getItem('edit_client_college')],
+         'occupation' : [localStorage.getItem('edit_client_occupation')],
+         'sub_occupation' : [localStorage.getItem('edit_client_sub_occupation')],
+         'office_address' : [localStorage.getItem('edit_client_office_address')],
+         'yearly_income' : [localStorage.getItem('edit_client_yearly_income')],
+         
+       });; 
+       })
+     }
 
 
   }
@@ -79,7 +95,7 @@ export class EducationalDetailsComponent implements OnInit {
            this.data = response;
            console.log(this.data);
            if(this.data.status === 1)
-           this.router.navigate(['/client-profile']);
+           this.router.navigate(['/social-details']);
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

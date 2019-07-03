@@ -70,15 +70,15 @@
               <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.name}}</b></h6> 
               <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.marital}}, &nbsp;{{member.age}}yrs</p>
               <p style="font-size:16px;margin-bottom:7px">
-                <img src="./../../../assets/icons_white/graduation-hat.svg" style="width:40px;height:20px">{{member.degree}}</p>
+                <img src="./../../../assets/icons_white/graduation-hat.svg" style="width:40px;height:20px;margin-top:-9px">{{member.degree}}</p>
               <p style="font-size:16px;margin-bottom:7px">
-                <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px">{{member.feet}}'{{member.inches}}"</p>
+                <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-top:-9px">{{member.feet}}'{{member.inches}}"</p>
               <p style="font-size:16px;margin-bottom:7px">
-                <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.manglik}}</p>
+                <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-top:-9px">{{member.manglik}}</p>
               <p style="font-size:16px;margin-bottom:7px">
-                <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px">{{member.yearly_income}}LPA,{{member.occupation}}</p>
+                <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-top:-9px">{{member.yearly_income}}LPA,{{member.occupation}}</p>
               <p style="font-size:16px">
-                <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-top:-9px">{{member.current_city}}</p>
             </div>
             <div class="button" style="overflow:hidden; display: flex">
               <button type="button"  class="card-button" (click)="getMatches(member.id, member.gender)" ><i class="fa fa-search" style="display: inline;padding:5px;overflow:hidden; width:20px;height:20px;color:white"  ></i>Matches</button>
@@ -106,7 +106,7 @@
 </main>
 <div class="section" style="position:fixed;width:100%;bottom:0">
   <div class="row">
-    <div style="width:45px;height:45px;background-size: 24px;margin-left:80%;cursor:pointer;margin-bottom: 30px" (click)="AddClient()">
+    <div style="width:45px;height:45px;background-size: 24px;margin-left:85%;cursor:pointer;margin-bottom: 30px" (click)="AddClient()">
       <img src='../../../assets/icons/test.svg' style="width: 75px;">
     </div>
   </div>

@@ -30,7 +30,7 @@ export class ClientsComponent implements OnInit {
     this.male  = 'https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png'
     // 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
     this.female= 'http://www.pranawellness.in/Images/female.png';
-                
+              
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
@@ -62,16 +62,19 @@ export class ClientsComponent implements OnInit {
       // console.log(l, this.show); 
 
       for(let i=0;i<l;i++){
+        // console.log(this.staticLoadProductDetail)
         if(this.staticProductDetail[i].profile_photo== null)
         {        
           if (this.staticProductDetail[i].gender === 1)
               this.staticProductDetail[i].profile_photo = this.female
 
            else{
-             this.staticLoadProductDetail[i].profile_photo=this.male 
+             this.staticProductDetail[i].profile_photo=this.male 
            }
 
         }
+        console.log(this.staticProductDetail[i].profile_photo)
+
         if(this.staticProductDetail[i].marital_status == '0')
          this.staticProductDetail[i].marital = "Not Married";
         else
