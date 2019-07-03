@@ -15,21 +15,21 @@ export class ClientPreferencesComponent implements OnInit {
   error : any;
   data : any;
   castes: any;
-
+res:any;
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router:Router) { 
     this. AddClientEducationalDetails= this._formBuilder.group({
-      'min_age' : [''],
-      'max_age' : [''],
-      'min_income' : [''],
-      'max_income' : [''],
-      'min_height' : [''],
-      'max_height' : [''],
-      'marital_status' : [''],
-      'manglik' : [''],
-      'food_choice' : [''],
-      'occupation' : [''],
-      'citizenship' : [''],
-      'caste' : [''],
+      'min_age' : [        localStorage.getItem('min_age')],
+      'max_age' : [        localStorage.getItem('max_age')],
+      'min_income' : [        localStorage.getItem('min_income')],
+      'max_income' : [      ((localStorage.getItem('max_income')))],
+      'min_height' : [        ((localStorage.getItem('min_height')))],
+      'max_height' : [        ((localStorage.getItem('max_height')))],
+      'marital_status' : [        ((localStorage.getItem('marital_status')))],
+      'manglik' : [        ((localStorage.getItem('manglik')))],
+      'food_choice' : [        ((localStorage.getItem('food_choice')))],
+      'occupation' : [        ((localStorage.getItem('occupation')))],
+      'citizenship' : [        ((localStorage.getItem('citizenship')))],
+      'caste' : [        ((localStorage.getItem('caste')))],
     });; 
   }
 
@@ -46,6 +46,80 @@ export class ClientPreferencesComponent implements OnInit {
       this.castes = res
  
     })
+      if(localStorage.getItem('clientId')){
+             this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
+      this.res = res;
+      console.log((this.res));
+      var cast_prefer = '';
+       this. AddClientEducationalDetails= this._formBuilder.group({
+      'min_age' : [2019-parseInt((this.res.min_age).split('-')[0])],
+      'max_age' : [2019-parseInt((this.res.max_age).split('-')[0])],
+      'min_income' : [this.res.min_income],
+      'max_income' : [this.res.max_income],
+      'min_height' : [this.res.min_height],
+      'max_height' : [this.res.max_height],
+      'marital_status' : [this.res.marital_status],
+      'manglik' : [this.res.manglik],
+      'food_choice' : [this.res.food_choice],
+      'occupation' : [this.res.occupation],
+      'citizenship' : [this.res.citizenship],
+      'caste' : [this.res.caste],
+    });; 
+
+      this.res.caste.map((value, index) => {
+        // console.log(value)
+        cast_prefer+=(value['id'])+','
+      })
+      cast_prefer+='0';
+      if(this.res.min_age !== null)
+        localStorage.setItem('min_age',(this.res.min_age).split('-')[0]);
+
+      if(this.res.max_age !== null)
+        localStorage.setItem('max_age',(this.res.max_age).split('-')[0]);
+
+      if(this.res.min_income !== null)
+        localStorage.setItem('min_income',this.res.min_income);
+
+      if(this.res.max_income !== null)
+      ((localStorage.setItem('max_income',this.res.max_income)));
+
+      if (this.res.min_height !== null)
+        ((localStorage.setItem('min_height',this.res.min_height)));
+
+      if (this.res.max_height !== null)
+        ((localStorage.setItem('max_height',this.res.max_height)));
+
+      if (this.res.marital_status !== null)
+        ((localStorage.setItem('marital_status',this.res.marital_status)));
+
+      if(this.res.manglik !== null)
+        ((localStorage.setItem('manglik',this.res.manglik)));
+
+      if(this.res.food_choice !== null)
+        ((localStorage.setItem('food_choice',this.res.food_choice)));
+
+      if(this.res.citizenship !== null)
+        ((localStorage.setItem('citizenship',this.res.citizenship)));
+
+      if(this.res.occupation !== null)
+        ((localStorage.setItem('occupation',this.res.occupation)));
+      if(cast_prefer !== null)
+        ((localStorage.setItem('caste',cast_prefer)));
+
+      // if(this.res.gender === 1)
+      //   ((localStorage.setItem('prgender', this.res.gender)));
+          if(localStorage.getItem('gender')==='0'){
+                    ((localStorage.setItem('prgender', '1')));
+
+          }
+          else{
+            ((localStorage.setItem('prgender', '0')));
+
+          }
+
+
+      })
+      }
   }
 
 

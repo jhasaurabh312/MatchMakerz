@@ -299,8 +299,33 @@ processfile(event){
 
  editprofile(data1){
    localStorage.setItem('clientProfileId',data1);
+      localStorage.setItem('clientId',data1);
+
    this.router.navigate(['/edit-personal']);
  }
 
+ editeducation(data1){
+   localStorage.setItem('clientProfileId',data1);
+      localStorage.setItem('clientId',data1);
+
+   this.router.navigate(['/educational-details']);
+ }
+ editsocial(data1){
+   localStorage.setItem('clientProfileId',data1);
+      localStorage.setItem('clientId',data1);
+
+   this.router.navigate(['/social-details']);
+ }
+ editfamily(data1){
+   localStorage.setItem('clientProfileId',data1);
+      localStorage.setItem('clientId',data1);
+
+   this.router.navigate(['/client-family']);
+ }
+ editpreferences(data1){
+   localStorage.setItem('clientProfileId',data1);
+   localStorage.setItem('clientId',data1);
+   this.router.navigate(['/client-preferences']);
+ }
 
 }

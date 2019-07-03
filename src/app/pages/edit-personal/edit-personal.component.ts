@@ -48,10 +48,14 @@ export class EditPersonalComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
+   if(localStorage.getItem('clientId')){
+
     this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
       this.user = user;
       console.log(this.user);
 
+      localStorage.setItem('clientProfileId',localStorage.getItem('clientId'));
+      localStorage.removeItem('clientId')
       localStorage.setItem('edit_client_name',this.user.name);
       localStorage.setItem('edit_client_phone_number',this.user.phone_number);
       localStorage.setItem('edit_client_whatsapp_number',this.user.whatsapp_number);
@@ -65,7 +69,23 @@ export class EditPersonalComponent implements OnInit {
       localStorage.setItem('edit_client_food_choice',this.user.food_choice);
       localStorage.setItem('edit_client_disability',this.user.disability);
       localStorage.setItem('edit_client_disabled_part',this.user.disabled_part);
+        this. AddClientDetails= this._formBuilder.group({
+      'name' : [localStorage.getItem('edit_client_name')],
+      'gender' : [localStorage.getItem('edit_client_gender')],
+      'whatsapp_number' : [localStorage.getItem('edit_client_whatsapp_number')],
+      'phone_number' : [localStorage.getItem('edit_client_phone_number')],
+      'height' : [localStorage.getItem('edit_client_height')],
+      'birth_date' : [localStorage.getItem('edit_client_birth_date')],
+      'birth_place' : [localStorage.getItem('edit_client_birth_place')],
+      'weight' : [localStorage.getItem('edit_client_weight')],
+      'birth_time' : [localStorage.getItem('edit_client_birth_time')],
+      'current_city' : [localStorage.getItem('edit_client_current_city')],
+      'food_choice' : [localStorage.getItem('edit_client_food_choice')],
+      'disability' : [localStorage.getItem('edit_client_disability')],
+      'disabled_part' : [localStorage.getItem('edit_client_disabled_part')],
+    });; 
     })
+  }
 
 
 

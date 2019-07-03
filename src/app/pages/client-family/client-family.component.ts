@@ -46,11 +46,14 @@ export class ClientFamilyComponent implements OnInit {
         'Content-Type': 'application/json',
         'Authorization': 'Token ' + localStorage.getItem('token')
       }) 
-  
+     if(localStorage.getItem('clientId')){
+
       this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
         this.user = user;
         console.log(this.user);
-  
+           localStorage.setItem('newClientId',localStorage.getItem('clientId'));
+          localStorage.removeItem('clientId')
+
         localStorage.setItem('edit_client_family_type',this.user.family_type);
         localStorage.setItem('edit_client_hometown',this.user.hometown);
         localStorage.setItem('edit_client_home_address',this.user.home_address);
@@ -68,10 +71,28 @@ export class ClientFamilyComponent implements OnInit {
         localStorage.setItem('edit_client_unmarried_daughter',this.user.unmarried_daughter);
         localStorage.setItem('edit_client_matchmaker_note',this.user.matchmaker_note);
         localStorage.setItem('edit_client_is_active',this.user.is_active);
-        
+         this. AddClientEducationalDetails= this._formBuilder.group({
+        'family_type' : [localStorage.getItem('edit_client_family_type')],
+        'hometown' : [localStorage.getItem('edit_client_hometown')],
+        'home_address' : [localStorage.getItem('edit_client_home_address')],
+        'house_type' : [localStorage.getItem('edit_client_house_type')],
+        'gotra' : [localStorage.getItem('edit_client_gotra')],
+        'mother_status' : [localStorage.getItem('edit_client_mother_status')],
+        'mother_occupation' : [localStorage.getItem('edit_client_mother_occupation')],
+        'father_status' : [localStorage.getItem('edit_client_father_status')],
+        'father_occupation' : [localStorage.getItem('edit_client_want_father_occupation')],
+        'family_income' : [localStorage.getItem('edit_client_family_income')],
+        'landline' : ['na'],
+        'married_son' : [localStorage.getItem('edit_client_married_son')],
+        'unmarried_son' : [localStorage.getItem('edit_client_unmarried_son')],
+        'married_daughter' : [localStorage.getItem('edit_client_married_daughter')],
+        'unmarried_daughter' : [localStorage.getItem('edit_client_unmarried_daughter')],
+        'matchmaker_note' : [localStorage.getItem('edit_client_matchmaker_note')],
+        'is_active' : ['1'],
+      });; 
       })
   
-      
+      }
     }
   
   
