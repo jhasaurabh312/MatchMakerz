@@ -2,7 +2,7 @@
 <div class="section shadow" id="header">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
       <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:30px;" class="text-dark" >
-      <i class="fa fa-chevron-left" style="font-size:1.3em;" ></i></a>
+                              <img src="../../../assets/icons_white/angle-left.svg" style="width:14px"></a>
       <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">
       Connected
       </h5>
@@ -22,19 +22,41 @@
                                                   <div class="row">
                             <div style="cursor:pointer">
 
-              <h6 style="font: size 1.3rem;margin-top:10px">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>   
+              <h6 style="font: size 1.3rem;margin-top:10px;color:#707070">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>   
               <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.matched_to.marital}}, &nbsp;{{member.matched_to.age}}yrs</p>
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/graduation-hat.svg"style="width:40px;height:20px;margin-top:-9px">{{member.matched_to.degree}}</p>
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-top:-9px">{{member.matched_to.feet}}'{{member.matched_to.inches}}"</p>       
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-top:-9px">{{member.matched_to.manglik}}</p>
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-top:-9px">{{member.matched_to.yearly_income}}LPA,{{member.matched_to.occupation}}</p>             
-              <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-top:-9px">{{member.matched_to.current_city}}</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/graduation-hat.svg"style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.degree}}</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.feet}}'{{member.matched_to.inches}}"</p>       
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.manglik}}</p>
+              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.yearly_income}}LPA,{{member.matched_to.occupation}}</p>             
+              <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.current_city}}</p>
                        </div>
 
-              <!-- <div class="button" style="margin-top : 15px; display: flex">
-                <button type="button" class="card-button"  (click) = "shortlistCandidate(member.id)" style="color:white;background-color: green;border: 5px solid green"><i class="fa fa-search"  style="width:20px;height:20px;color:white"></i>Accept</button>
-                <button type="button"  class="card-button"  (click) = "showInterestCandidate(member.id)" style="margin-left:10px;color:white;background-color:red;border: 5px solid red"><i class="fa fa-clock-o" style="width:20px;height:20px"></i>Decline</button>
-              </div>    -->
+              <div class="button" style="margin-top : 15px; display: flex">
+                <ng-template #content let-c="close" let-d="dismiss">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Matchmaker Detail</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    {{matchmaker.name}}
+                    <br/>
+                    {{matchmaker.phone_number}}
+                  </div>
+
+                </ng-template>
+
+<button  class="card-button"  style="background: #f92b8c" (click)="open(content, member.matched_to.id)">View Contact </button>
+<!--                 <button type="button" class="card-button"  (click) = "view_phone(member.matched_to.id)" style="color:white;background-color: green;border: 5px solid green">Contact</button>
+ -->
+                <!-- Button trigger modal -->
+
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
+
+                <!-- <button mat-raised-button (click)="openDialog()">Pick one</button> -->
+              </div>   
               </div>  
            </div>
         </div>

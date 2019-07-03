@@ -1,13 +1,13 @@
 .column-l{
     float: left;
     width: 40%;
-    padding: 5px;
+    padding: 7px;
   }
 
   .column-r {
     float: right;
     width: 60%;
-    padding: 5px; 
+    padding: 7px; 
     max-height: 250px
   }
 
@@ -50,15 +50,16 @@
 
 }
 .circle{
-  height: 40px;
+  height: 45px;
   border-radius: 100%;
-  margin-top: 10px;
+  // margin-top: 10px;
   margin-bottom: auto;
   cursor: pointer;
-  background-color: #f92c8b;
-  width: 40px;
-  margin-right: 25px;
+  // background-color: #f92c8b;
+  width: 45px;
+  margin-right: -2px;
   background-position: center;
+
   background-size: cover;
   background-repeat: no-repeat;
   -webkit-transition-property: width, height, background-color, box-shadow ;/* Safari */
@@ -215,8 +216,9 @@
 // }
 
 .client-card{
+  margin: 2px;
   display:flex;
-  margin-top:25px; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
+  margin:2px; background-color:#F1F1F1; width: 80%;height:100%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
       -webkit-transition-property: width, background-color,box-shadow; /* Safari */
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-property: background-color, box-shadow;
@@ -241,7 +243,7 @@
   }
   .client-card{
   display:flex;
-  margin-top:25px; background-color:#F1F1F1; width: 95%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
+  margin:2px; background-color:#F1F1F1; width: 95%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
       -webkit-transition-property: width, background-color,box-shadow; /* Safari */
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-property: background-color, box-shadow;
@@ -273,7 +275,7 @@
   display:flex;
   height: 100%;
   width: 100%;
-  margin-top:25px; background-color:#F1F1F1; margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
+  margin:2px; background-color:#F1F1F1; margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
       -webkit-transition-property: width, background-color,box-shadow; /* Safari */
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-property: background-color, box-shadow;

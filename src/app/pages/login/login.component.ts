@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
       document.getElementById("timer").innerHTML = seconds + "sec";
-      console.log( document.getElementById("timer").innerHTML);  
+      // console.log( document.getElementById("timer").innerHTML);  
       if (distance <= 0) {  
         clearInterval(x);
         document.getElementById("timer").innerHTML = "expired";

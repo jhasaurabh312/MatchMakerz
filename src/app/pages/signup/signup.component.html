@@ -1,9 +1,8 @@
 <div class="section shadow" id="header">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;">
-        <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
-        <h5 style="font-size:1.2em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-style: continuous">Matchmakerz</h5>
-    </div>
-
+  <div class="col-xs-6 col-sm-6 col-md-8 col-lg-9" style="display:flex;height:85px;" >
+    <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width: 80px;height:80px;margin-top:auto;margin-bottom:auto;padding-left:30px">
+    <h5 style="font-size:1.4em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;color:#606060;font-style: continuous">Matchmakerz</h5>
+  </div>
 </div>
 
 <main class="modal-body" style="margin-top: 40px;">
@@ -17,11 +16,11 @@
     <form [formGroup]="signupDetails">
         <div class="container">
             <div class="row">
-                <div class="offset-4">
+                <div style="width: 100%;">
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+                                <mat-label>First name</mat-label>
                                 <input matInput formControlName="first_name" placeholder="First Name" >
                             </mat-form-field>
                         </div>
@@ -29,7 +28,7 @@
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+<mat-label>Last name</mat-label>
                                 <input matInput formControlName="last_name" placeholder="Last Name" >
                             </mat-form-field>
                         </div>
@@ -61,7 +60,7 @@
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+<mat-label>Phone number</mat-label>
                                 <input matInput formControlName="phone_number" placeholder="phone_number" >
                             </mat-form-field>
                         </div>
@@ -69,7 +68,7 @@
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+<mat-label>Unique about</mat-label>
                                 <input matInput formControlName="unique_about" placeholder="unique_about" >
                             </mat-form-field>
                         </div>
@@ -77,7 +76,7 @@
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+<mat-label>Specialization</mat-label>
                                 <input matInput formControlName="specialization" placeholder="specialization" >
                             </mat-form-field>
                         </div>
@@ -85,7 +84,7 @@
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+<mat-label>Age</mat-label>
                                 <input matInput formControlName="age" placeholder="age" >
                             </mat-form-field>
                         </div>
@@ -93,7 +92,7 @@
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+<mat-label>Whatsapp number</mat-label>
                                 <input matInput formControlName="whatsapp_number" placeholder="whatsapp_number" >
                             </mat-form-field>
                         </div>
@@ -101,7 +100,7 @@
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+<mat-label>Referral code</mat-label>
                                 <input matInput formControlName="referred_by" placeholder="referred_by" >
                             </mat-form-field>
                         </div>
@@ -109,7 +108,7 @@
                     <div class="form-row ">
                         <div class="input-group p-2">
                             <mat-form-field class="full-width" appearance="outline">
-
+<mat-label>About me</mat-label>
                                 <textarea matInput formControlName="about" placeholder="About You" ></textarea>
                             </mat-form-field>
                         </div>

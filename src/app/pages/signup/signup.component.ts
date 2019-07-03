@@ -56,6 +56,9 @@ export class SignupComponent implements OnInit {
     localStorage.setItem('signup_matchmaker_type' , this.signupDetails.value.matchmaker_type);
 
 
+   if(this.signupDetails.value.referred_by == null ||this.signupDetails.value.referred_by==='' )
+      this.signupDetails.value.referred_by = 'na';
+
     
     loginData.append( 'first_name' , this.signupDetails.value.first_name),
     loginData.append('last_name' , this.signupDetails.value.last_name),
@@ -81,8 +84,8 @@ export class SignupComponent implements OnInit {
       this.data = response;
       console.log(this.data);
       if(this.data.status === 1){
-        localStorage.setItem('token' , localStorage.getItem(this.data.auth_token));
-        this.router.navigate(['/my-profile']);
+          localStorage.setItem('token' , this.data.auth_token);
+          this.router.navigate(['/my-profile']);
       }
     })
         
