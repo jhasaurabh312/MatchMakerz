@@ -77,6 +77,7 @@ resendOTP(){
    
     this.http.get('http://matchmakerz.in/api/v1/matchmaker/loginotp?phone_number='+ localStorage.getItem('mpn')).subscribe((response) => {
       alert('OTP Resent !!!');
+      this.router.navigate(['/login']);
     })
 }
 
