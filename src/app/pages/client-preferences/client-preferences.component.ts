@@ -18,18 +18,18 @@ export class ClientPreferencesComponent implements OnInit {
 res:any;
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router:Router) { 
     this. AddClientEducationalDetails= this._formBuilder.group({
-      'min_age' : [        localStorage.getItem('min_age')],
-      'max_age' : [        localStorage.getItem('max_age')],
-      'min_income' : [        localStorage.getItem('min_income')],
-      'max_income' : [      ((localStorage.getItem('max_income')))],
-      'min_height' : [        ((localStorage.getItem('min_height')))],
-      'max_height' : [        ((localStorage.getItem('max_height')))],
-      'marital_status' : [        ((localStorage.getItem('marital_status')))],
-      'manglik' : [        ((localStorage.getItem('manglik')))],
-      'food_choice' : [        ((localStorage.getItem('food_choice')))],
-      'occupation' : [        ((localStorage.getItem('occupation')))],
-      'citizenship' : [        ((localStorage.getItem('citizenship')))],
-      'caste' : [        ((localStorage.getItem('caste')))],
+      'min_age' : [2019-parseInt(localStorage.getItem('min_age'))],
+      'max_age' : [2019-parseInt(localStorage.getItem('max_age'))],
+      'min_income' : [localStorage.getItem('min_income')],
+      'max_income' : [((localStorage.getItem('max_income')))],
+      'min_height' : [((localStorage.getItem('min_height')))],
+      'max_height' : [((localStorage.getItem('max_height')))],
+      'marital_status' : [((localStorage.getItem('marital_status')))],
+      'manglik' : [((localStorage.getItem('manglik')))],
+      'food_choice' : [((localStorage.getItem('food_choice')))],
+      'occupation' : [((localStorage.getItem('occupation')))],
+      'citizenship' : [((localStorage.getItem('citizenship')))],
+      'caste' : [((localStorage.getItem('caste')))],
     });; 
   }
 
@@ -51,26 +51,13 @@ res:any;
       this.res = res;
       console.log((this.res));
       var cast_prefer = '';
-       this. AddClientEducationalDetails= this._formBuilder.group({
-      'min_age' : [2019-parseInt((this.res.min_age).split('-')[0])],
-      'max_age' : [2019-parseInt((this.res.max_age).split('-')[0])],
-      'min_income' : [this.res.min_income],
-      'max_income' : [this.res.max_income],
-      'min_height' : [this.res.min_height],
-      'max_height' : [this.res.max_height],
-      'marital_status' : [this.res.marital_status],
-      'manglik' : [this.res.manglik],
-      'food_choice' : [this.res.food_choice],
-      'occupation' : [this.res.occupation],
-      'citizenship' : [this.res.citizenship],
-      'caste' : [this.res.caste],
-    });; 
 
       this.res.caste.map((value, index) => {
         // console.log(value)
         cast_prefer+=(value['id'])+','
       })
       cast_prefer+='0';
+
       if(this.res.min_age !== null)
         localStorage.setItem('min_age',(this.res.min_age).split('-')[0]);
 
@@ -119,6 +106,8 @@ res:any;
 
 
       })
+
+
       }
   }
 

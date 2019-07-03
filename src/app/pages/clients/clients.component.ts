@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+
+
 
 @Component({
   selector: 'app-clients',
@@ -23,11 +27,15 @@ export class ClientsComponent implements OnInit {
   male : any;
   female :any;
   
-  constructor( private http : HttpClient , public router : Router) { }
+  constructor( private http : HttpClient , public router : Router) {}
+
+
+// constructor(private modalService: NgbModal) {}
+
 
   ngOnInit() {
 
-    this.male  = 'https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png'
+    this.male  = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png'
     // 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
     this.female= 'http://www.pranawellness.in/Images/female.png';
               
@@ -120,6 +128,7 @@ export class ClientsComponent implements OnInit {
   })
 
   }
+
 
   getActivity(data){
     localStorage.setItem('clientId' , data);  

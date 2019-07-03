@@ -54,7 +54,7 @@ p {
 }
 .active-border{
   color:black;cursor: pointer;
-  // border-bottom: 3px solid #F92CBB;
+  border-bottom: 3px solid #F92CBB;
   // width: 400px;
     color: #F92CBB;
 
@@ -81,7 +81,7 @@ p {
 }
 .client-card{
   display:flex;
-  margin-top:25px; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:15px;
+  margin:2px; background-color:#F1F1F1; width: 80%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:15px;
       -webkit-transition-property: width, background-color,box-shadow; /* Safari */
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-property: background-color, box-shadow;
@@ -97,7 +97,7 @@ p {
 @media only screen and (max-width: 1025px) {
   .client-card{
   display:flex;
-  margin-top:25px; background-color:#F1F1F1; width: 95%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
+  margin:2px; background-color:#F1F1F1; width: 95%;margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
       -webkit-transition-property: width, background-color,box-shadow; /* Safari */
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-property: background-color, box-shadow;
@@ -115,7 +115,7 @@ p {
   display:flex;
   height: 100%;
   width: 100%;
-  margin-top:25px; background-color:#F1F1F1; margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
+  margin:2px; background-color:#F1F1F1; margin-left: auto;margin-right: auto;padding: 5px;border-radius:20px;
       -webkit-transition-property: width, background-color,box-shadow; /* Safari */
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-property: background-color, box-shadow;

@@ -94,12 +94,15 @@ export class FilterComponent implements OnInit {
   ApplyFilter(){
       localStorage.setItem('filter','1')
       localStorage.setItem('page','1');
+      // var maxheight = this.EditClientPreferences.value.min
+
       localStorage.setItem('min_age',(parseInt('2019')-parseInt(this.EditClientPreferences.value.min_age)).toString());
       localStorage.setItem('max_age',(parseInt('2019')-parseInt(this.EditClientPreferences.value.max_age)).toString());
       localStorage.setItem('min_income',(parseInt(this.EditClientPreferences.value.min_income)*100000).toString());
       ((localStorage.setItem('max_income',(parseInt(this.EditClientPreferences.value.max_income)*100000).toString())));
       localStorage.setItem('min_height',this.EditClientPreferences.value.min_height);   
       localStorage.setItem('max_height',this.EditClientPreferences.value.max_height);   
+
       if(this.EditClientPreferences.value.marital_status!=='3')
         localStorage.setItem('marital_status',this.EditClientPreferences.value.marital_status);
        else{

@@ -48,8 +48,17 @@ export class ShortlistedComponent implements OnInit {
  
        for(let i=0;i<l;i++){
          if(this.shortlisted[i].shortlist_to.profile_photo== null)
-         this.shortlisted[i].shortlist_to.profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
- 
+          {
+              if (this.shortlisted[i].shortlist_to.gender===0){
+                  this.shortlisted[i].shortlist_to.profile_photo= 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
+
+              }
+              else{
+                  this.shortlisted[i].shortlist_to.profile_photo = 'http://www.pranawellness.in/Images/female.png';
+                
+              }
+
+          } 
          if(this.shortlisted[i].shortlist_to.marital_status == '0')
           this.shortlisted[i].shortlist_to.marital = "Not Married";
          else

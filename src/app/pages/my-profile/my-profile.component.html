@@ -1,16 +1,17 @@
 
 <div class="card-wrapper" style="overflow: hidden;padding: 0px;background-color: #f1f1f1;">
   <div class="section shadow" id="header" >
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;padding: 20px;margin-top: auto;margin-bottom: auto;"> <img src="../../../assets/icons/icons-20.svg" style="width: 60px;margin-top:auto;margin-bottom:auto;padding-left:30px">
-    <h5 style="font-size:1.2em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-style: continuous">Matchmakerz</h5>
+  <div class="col-xs-6 col-sm-6 col-md-8 col-lg-9" style="display:flex;height:85px;" >
+    <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width: 80px;height:80px;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+    <h5 style="font-size:1.4em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;color:#606060;font-style: continuous">Matchmakerz</h5>
   </div>
      
-      <div class="col-xs-4 col-md-4 col-lg-4 col-sm-4" style="display:flex;height:70px; margin-top : auto;
+    <div class="col-xs-4 col-md-4 col-lg-3 col-sm-4" style="display:flex;height:70px; margin-top : auto;
       margin-bottom: auto">
     <div class="offset-9">
-      <div class="row" style="margin-top : auto;
-      margin-bottom: auto;height : 70px">
-        <div class="circle" style="background-size:40px;background-repeat: no-repeat;    background-position: center;background-image:url('../../../assets/icons/sign-out.svg') ; margin-top: auto;margin-bottom : auto;" (click)="signout()"></div>
+      <div class="row" style="margin-top : auto; 
+      margin-bottom: auto;height : 70px" >
+        <div class="circle" data-toggle="tooltip" data-placement="top" title="sign-out" style="background-size:40px;background-repeat: no-repeat;    background-position: center;background-image:url('../../../assets/icons/sign-out.svg') ; margin-top: auto;margin-bottom : auto;" (click)="signout()"></div>
         <!-- <div class="circle" style="background : #F92C8B">
            <i class="fa fa-power-off" style="color : white;font-size:30px;background-repeat: no-repeat;    background-position: center; margin-top: auto;margin-bottom : auto;" (click)="signout()"></i>
         </div> -->
@@ -67,7 +68,7 @@
 
       <div class="flex" style="min-height:200px">
         <div id="profile">
-          <div class="btn website"><div class="txt">View your website</div></div>
+          <div class="btn website"><div class="txt" (click)="viewWebsite(user.id)">View your website</div></div>
         </div>
         <div id="info">
           <div class="btn website"><div class="txt">Share website</div></div>
@@ -91,7 +92,7 @@
     </div>
     <div class="col-xs-7 col-sm-6 col-md-6 col-lg-6">
       <a class="active-border" (click)="ActiveBorder('my_profile')" routerLink="/my-profile" routerLinkActive="active" style="display:block;;text-align: center;">
-        <img src="../../../assets/icons/icons-19.svg" style="width:30px;margin-top: -5px;">
+        <img src="../../../assets/icons_white/user_pink.svg" style="width:30px;margin-top: -5px;">
         <br>
         <p style="color:#5d5a5a" class="text ">My Profile</p>
       </a>
