@@ -101,6 +101,7 @@ export class FilterComponent implements OnInit {
       localStorage.setItem('min_income',(parseInt(this.EditClientPreferences.value.min_income)*100000).toString());
       ((localStorage.setItem('max_income',(parseInt(this.EditClientPreferences.value.max_income)*100000).toString())));
       localStorage.setItem('min_height',this.EditClientPreferences.value.min_height);   
+      console.log(this.EditClientPreferences.value.max_height)
       localStorage.setItem('max_height',this.EditClientPreferences.value.max_height);   
 
       if(this.EditClientPreferences.value.marital_status!=='3')
@@ -138,7 +139,8 @@ export class FilterComponent implements OnInit {
           localStorage.setItem('caste',this.EditClientPreferences.value.caste.toString());   
        }
        else{
-         localStorage.removeItem('caste')
+
+         localStorage.setItem('caste','all')
        }
 
       localStorage.setItem('prgender',this.EditClientPreferences.value.gender);   

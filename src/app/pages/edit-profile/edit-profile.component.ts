@@ -5,6 +5,7 @@ import { EditProfileService } from 'src/app/shared/services/editProfile/edit-pro
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import {SnackService} from '../../shared/services/snack.service'
 
 
 @Component({
@@ -24,7 +25,7 @@ export class EditProfileComponent implements OnInit {
   results : any = [];
   
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService, private router: Router) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, private edit : EditProfileService, private router: Router,public snack : SnackService) { 
     this. EditProfileDetails= this._formBuilder.group({
       'first_name' : [localStorage.getItem('signup_first_name')],
       'last_name' : [localStorage.getItem('signup_last_name')],
@@ -91,9 +92,10 @@ export class EditProfileComponent implements OnInit {
             this.router.navigate(['/my-profile']);
           }
           
-          else 
-           alert('Cannot Update !! something went Wrong');  
-
+          else{
+                   this.snack.openSnackBar("Some Error Occure", 'required filed')
+                 }
+         
         }),err =>{
           alert('Something went wrong please try again after Sometime');
         }

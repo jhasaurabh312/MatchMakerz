@@ -14,17 +14,20 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Degree</mat-label>
                         <mat-select  formControlName="degree">
+                              <mat-option *ngFor="let ietm of degree" [value]="ietm.id">
+                                        {{ietm.name}}
+                                </mat-option>
                             <!-- <mat-option value="0">B.A</mat-option>
                             <mat-option value="1">B.Com</mat-option>
                             <mat-option value="2">B.E/B.Tech</mat-option>
                             <mat-option value="4">B.Sc</mat-option>
                             <mat-option value="5">B.Tech</mat-option> -->
-                            <mat-option value="0">High School</mat-option>
+<!--                             <mat-option value="0">High School</mat-option>
                             <mat-option value="1">Bachelors</mat-option>
                             <mat-option value="2">Masters</mat-option>
                             <mat-option value="3">Ph.D</mat-option>
                             <mat-option value="4">Others</mat-option>
-                        </mat-select>
+ -->                        </mat-select>
                     </mat-form-field>
                 </div>
             </div>

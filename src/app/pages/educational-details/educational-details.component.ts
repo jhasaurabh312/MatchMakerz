@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import {SnackService} from '../../shared/services/snack.service'
 
 @Component({
   selector: 'app-educational-details',
@@ -17,7 +18,8 @@ export class EducationalDetailsComponent implements OnInit {
   error : any;
   data : any;
   user : any;
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router) { 
+  degree:any;
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router, public snack : SnackService) { 
     this. AddClientEducationalDetails= this._formBuilder.group({
       'is_working' : [localStorage.getItem('edit_client_is_working')],
       'education' : ['NA'],
@@ -37,8 +39,12 @@ export class EducationalDetailsComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
-   if(localStorage.getItem('clientId')){
-   
+   // if(localStorage.getItem('clientId')){
+          this.http.get('http://matchmakerz.in/api/v1/client/degree',{headers : headers}).subscribe((res) => {
+            console.log(res)
+            this.degree = res;
+          })
+
        this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
          this.user = user;
          console.log(this.user);
@@ -64,7 +70,7 @@ export class EducationalDetailsComponent implements OnInit {
          
        });; 
        })
-     }
+     // }
 
 
   }
@@ -96,6 +102,9 @@ export class EducationalDetailsComponent implements OnInit {
            console.log(this.data);
            if(this.data.status === 1)
            this.router.navigate(['/social-details']);
+         else{
+           this.snack.openSnackBar("Some Error Occure", 'required filed')
+         }
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

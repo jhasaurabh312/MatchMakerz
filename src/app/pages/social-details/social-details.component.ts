@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import {SnackService} from '../../shared/services/snack.service'
+
 @Component({
   selector: 'app-social-details',
   templateUrl: './social-details.component.html',
@@ -18,7 +20,7 @@ export class SocialDetailsComponent implements OnInit {
   castes: any;
   user : any = [];
 
-  constructor(private _formBuilder: FormBuilder, private http: HttpClient , public router : Router) {
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router, public snack : SnackService) { 
     this.AddClientEducationalDetails = this._formBuilder.group({
       'marital_status': [localStorage.getItem('edit_client_marital_status')],
       'children': [localStorage.getItem('edit_client_children')],
@@ -111,6 +113,9 @@ export class SocialDetailsComponent implements OnInit {
       console.log(this.data);
       if (this.data.status === 1)
       this.router.navigate(['/client-family']);
+      else{
+           this.snack.openSnackBar("Some Error Occure", 'required filed')
+         }
 
     }), err => {
       console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

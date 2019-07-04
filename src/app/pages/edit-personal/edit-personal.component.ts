@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SnackService} from '../../shared/services/snack.service'
 
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
@@ -24,7 +25,7 @@ export class EditPersonalComponent implements OnInit {
   apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
   user : any = [];
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient , public router : Router) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router, public snack : SnackService) { 
     this. AddClientDetails= this._formBuilder.group({
       'name' : [localStorage.getItem('edit_client_name')],
       'gender' : [localStorage.getItem('edit_client_gender')],
@@ -130,6 +131,9 @@ export class EditPersonalComponent implements OnInit {
              localStorage.setItem('newClientId' ,localStorage.getItem('clientProfileId'));
              this.router.navigate(['/educational-details']);
            }
+            else{
+           this.snack.openSnackBar("Some Error Occure", 'required filed')
+         }
            
          
         }),err =>{

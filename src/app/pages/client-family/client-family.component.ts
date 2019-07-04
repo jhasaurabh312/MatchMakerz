@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {SnackService} from '../../shared/services/snack.service'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
@@ -18,7 +18,7 @@ export class ClientFamilyComponent implements OnInit {
     data : any;
     user: any = [];
   
-    constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router: Router) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router, public snack : SnackService) { 
       this. AddClientEducationalDetails= this._formBuilder.group({
         'family_type' : [localStorage.getItem('edit_client_family_type')],
         'hometown' : [localStorage.getItem('edit_client_hometown')],
@@ -129,7 +129,10 @@ export class ClientFamilyComponent implements OnInit {
              console.log(this.data);
              if(this.data.status === 1)
               this.router.navigate(['/client-preferences']);
-           
+                    else{
+           this.snack.openSnackBar("Some Error Occure", 'required filed')
+         }
+         
           }),err =>{
             console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
           }

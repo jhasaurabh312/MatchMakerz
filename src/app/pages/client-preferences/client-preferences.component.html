@@ -131,10 +131,12 @@
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width" appearance="outline">
+                                <!-- <mat-slide-toggle>Slide me!</mat-slide-toggle> -->
 
                                 <!-- <input matInput formControlName="caste" placeholder="caste*"> -->
                                 <mat-label>caste</mat-label>
                                 <mat-select formControlName="caste" multiple>
+                                    <mat-option value=0>All</mat-option>
                                     <mat-option *ngFor="let ietm of castes" [value]="ietm.id">
                                         {{ietm.caste}}
                                     </mat-option>

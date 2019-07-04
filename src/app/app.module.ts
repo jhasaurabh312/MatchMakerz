@@ -31,7 +31,7 @@ import { DeclinedComponent } from './pages/declined/declined.component';
 import { ShortlistedComponent } from './pages/shortlisted/shortlisted.component';
 import { PlansComponent } from './pages/plans/plans.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatDatepickerModule, MatNativeDateModule, MatAutocompleteModule } from '@angular/material';
+import { MatSlideToggle,MatSnackBarModule,MatSlideToggleModule, MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatDatepickerModule, MatNativeDateModule, MatAutocompleteModule } from '@angular/material';
 import { EditPersonalComponent } from './pages/edit-personal/edit-personal.component';
 
 // import {ngMaterialDatePicker} from 'ng-material-datetimepicker';
@@ -59,7 +59,7 @@ import { EditPersonalComponent } from './pages/edit-personal/edit-personal.compo
     DeclinedComponent,
     ShortlistedComponent,
     PlansComponent,
-    EditPersonalComponent,
+    EditPersonalComponent
   ],
   imports: [
 
@@ -80,7 +80,7 @@ import { EditPersonalComponent } from './pages/edit-personal/edit-personal.compo
     MatSelectModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatDatepickerModule, MatNativeDateModule,
+    MatDatepickerModule, MatNativeDateModule,MatSlideToggleModule,MatSnackBarModule
     // ngMaterialDatePicker
   ],
   providers: [
