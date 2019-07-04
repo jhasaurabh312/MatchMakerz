@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import {debounceTime} from 'rxjs/operators'
+import {SnackService} from '../../shared/services/snack.service'
 
 @Component({
   selector: 'app-matches',
@@ -20,7 +21,7 @@ export class MatchesComponent implements OnInit {
   res : any = [];
   show : boolean;
 
-  constructor(private http : HttpClient, private filtercomp: FilterComponent, public route : Router) { 
+  constructor(private http : HttpClient, private filtercomp: FilterComponent, public route : Router,public snack : SnackService) { 
     localStorage.setItem('page','1');
   }
   getData(){
@@ -91,12 +92,14 @@ export class MatchesComponent implements OnInit {
                                  // localStorage.removeItem('occupation')
 
               }
-              if(localStorage.getItem('caste') !== null){
-                URL +='&caste='+localStorage.getItem('caste')
-
+              if(localStorage.getItem('caste') !== null && localStorage.getItem('caste')!=='0'){
+                if(localStorage.getItem('caste')!=='all'){
+                      URL +='&caste='+localStorage.getItem('caste')
+                }
                                  // localStorage.removeItem('caste')
 
               }
+
               if(localStorage.getItem('prgender') !== null){
                 URL +='&gender='+localStorage.getItem('prgender')
 
@@ -444,6 +447,14 @@ export class MatchesComponent implements OnInit {
           'Authorization': 'Token ' + localStorage.getItem('token'),
         })}).pipe(catchError((error) => {
           return throwError("oops"); })).subscribe((response:any) => {
+          if(response.status===1){
+                       this.snack.openSnackBar(response.message, 'success')
+
+          }
+          else{
+                                   this.snack.openSnackBar(response.message, 'error')
+
+          }
           console.log(response);
            }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
@@ -465,6 +476,15 @@ export class MatchesComponent implements OnInit {
           'Authorization': 'Token ' + localStorage.getItem('token'),
         })}).pipe(catchError((error) => {
           return throwError("oops"); })).subscribe((response:any) => {
+                    if(response.status===1){
+                       this.snack.openSnackBar(response.message, 'success')
+
+                      }
+                      else{
+                                               this.snack.openSnackBar(response.message, 'error')
+
+                      }
+
           console.log(response);
            }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

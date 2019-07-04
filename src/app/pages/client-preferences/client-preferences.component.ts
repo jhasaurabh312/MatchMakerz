@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import {SnackService} from '../../shared/services/snack.service'
+
+
 @Component({
   selector: 'app-client-preferences',
   templateUrl: './client-preferences.component.html',
@@ -16,7 +19,10 @@ export class ClientPreferencesComponent implements OnInit {
   data : any;
   castes: any;
 res:any;
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router:Router) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router:Router,  public snack : SnackService) { 
+
+    // for(let i =)
+
     this. AddClientEducationalDetails= this._formBuilder.group({
       'min_age' : [2019-parseInt(localStorage.getItem('min_age'))],
       'max_age' : [2019-parseInt(localStorage.getItem('max_age'))],
@@ -29,7 +35,7 @@ res:any;
       'food_choice' : [((localStorage.getItem('food_choice')))],
       'occupation' : [((localStorage.getItem('occupation')))],
       'citizenship' : [((localStorage.getItem('citizenship')))],
-      'caste' : [((localStorage.getItem('caste')))],
+      'caste' : [localStorage.getItem('caste').split(',')],
     });; 
   }
 
@@ -46,11 +52,12 @@ res:any;
       this.castes = res
  
     })
-      if(localStorage.getItem('clientId')){
-             this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
+      // if(localStorage.getItem('clientId')){
+     this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res) => {
       this.res = res;
       console.log((this.res));
       var cast_prefer = '';
+      
 
       this.res.caste.map((value, index) => {
         // console.log(value)
@@ -108,7 +115,7 @@ res:any;
       })
 
 
-      }
+      // }
   }
 
 
@@ -128,7 +135,23 @@ res:any;
     NewProfile.append('food_choice', this.AddClientEducationalDetails.value.food_choice );
     NewProfile.append('occupation', this.AddClientEducationalDetails.value.occupation );
     NewProfile.append('citizenship', this.AddClientEducationalDetails.value.citizenship );
-    NewProfile.append('caste', this.AddClientEducationalDetails.value.caste.join() );
+    // console.log(this.AddClientEducationalDetails.value.caste)
+    console.log(this.AddClientEducationalDetails.value.caste[0]!=='0')
+    console.log(this.AddClientEducationalDetails.value.caste[0]!==0)
+    console.log(this.AddClientEducationalDetails.value.caste[0]===0)
+    console.log(this.AddClientEducationalDetails.value.caste[0]==='0')
+        console.log(typeof(this.AddClientEducationalDetails.value.caste[0]))
+
+    if(this.AddClientEducationalDetails.value.caste !== null && this.AddClientEducationalDetails.value.caste[0]!=='0'){
+      console.log("***")
+      NewProfile.append('caste', this.AddClientEducationalDetails.value.caste.join());
+    }
+    else{
+           NewProfile.append('caste', 'all');
+ 
+    }
+    // else
+
 
     localStorage.setItem('c_cp_min_age', this.AddClientEducationalDetails.value.min_age );
     localStorage.setItem('c_cp_max_age', this.AddClientEducationalDetails.value.max_age );
@@ -141,12 +164,17 @@ res:any;
     localStorage.setItem('c_cp_food_choice', this.AddClientEducationalDetails.value.food_choice );
     localStorage.setItem('c_cp_occupation', this.AddClientEducationalDetails.value.occupation );
     localStorage.setItem('c_cp_citizenship', this.AddClientEducationalDetails.value.citizenship );
-    localStorage.setItem('c_cp_caste', this.AddClientEducationalDetails.value.caste.join() );
+
+    if(this.AddClientEducationalDetails.value.caste !== null && this.AddClientEducationalDetails.value.caste[0]!=='0')
+        localStorage.setItem('c_cp_caste', this.AddClientEducationalDetails.value.caste.join() );
     
 
-    // console.log(this.AddClientEducationalDetails.value.caste.join() );
+    // console.log(this.AddClientEducationalDetails. );
 
-    console.log(NewProfile);
+    // console.log(NewProfile.get('caste'));
+    // if(NewProfile.get('caste')){
+
+    // }
 
     return this.http.post('http://matchmakerz.in/api/v1/client/updateclientpref/' , NewProfile ,{ 
         headers : new HttpHeaders({
@@ -157,6 +185,9 @@ res:any;
            console.log(this.data);
            if(this.data.Status === 1)
             this.router.navigate(['/clients']);
+           else{
+           this.snack.openSnackBar("Some Error Occure", 'required filed')
+         }
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

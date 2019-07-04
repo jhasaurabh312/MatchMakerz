@@ -127,7 +127,8 @@
                     <div class="col input-group p-2  offset-3">
                         <!-- <input formControlformControlName="min_age" value="min_age" class="form-control" placeholder="Min Age"> -->
                         <mat-form-field class="example-full-width" appearance="outline">
-                            <input formControlName="min_age" type="number" matInput placeholder="Min Age">
+                            <mat-label>Min Age</mat-label>
+                            <input formControlName="min_age" type="number" maxlength="3" matInput placeholder="Min Age">
                         </mat-form-field>
 
                     </div>
@@ -135,7 +136,9 @@
                     <div class="col input-group p-2">
                         <!-- <input formControlformControlName="max_age" value="max_age" class="form-control" placeholder="Max Age"> -->
                         <mat-form-field class="example-full-width" appearance="outline">
-                            <input formControlName="max_age" type="number" matInput placeholder="Max Age">
+                                                        <mat-label>Max Age</mat-label>
+
+                            <input formControlName="max_age" type="number" maxlength="3" matInput placeholder="Max Age">
                         </mat-form-field>
 
                     </div>
@@ -146,7 +149,7 @@
                         <mat-form-field class="example-full-width" appearance="outline">
                                             <mat-label>Min Income(LPA)</mat-label>
 
-                            <input formControlName="min_income" type="number" matInput placeholder="Min Income(LPA)">
+                            <input formControlName="min_income" type="number" maxlength="4" matInput placeholder="Min Income(LPA)">
                         </mat-form-field>
 
                     </div>
@@ -155,7 +158,7 @@
                         <mat-form-field class="example-full-width" appearance="outline">
                                                                 <mat-label>Max Income(LPA)</mat-label>
 
-                            <input formControlName="max_income" type="number" matInput placeholder="Max Income(LPA)">
+                            <input formControlName="max_income" maxlength="4" type="number" matInput placeholder="Max Income(LPA)">
                         </mat-form-field>
 
                     </div>
@@ -212,7 +215,7 @@
                         <mat-form-field class="example-full-width" appearance="outline">
                             <!-- <input formControlName="max_height" matInput placeholder="Max Height (In CM)"> -->
                             <mat-label>Min Height</mat-label>
-                                    <mat-select matInput formControlName="min_height" placeholder="min_height">
+                                    <mat-select matInput formControlName="max_height" placeholder="max_height">
                                             <mat-option value="55">4'7"</mat-option>
                                             <mat-option value="56">4'8"</mat-option>
                                             <mat-option value="57">4'9"</mat-option>
@@ -254,6 +257,7 @@
                         <!-- <input formControlformControlName="caste" value="caste" class="form-control" placeholder=> -->
                         <mat-form-field  appearance="outline" style="width: 76%">                            <mat-label>Caste</mat-label>
                             <mat-select multiple formControlName="caste">
+                                <mat-option value='0'>All</mat-option>
                                 <mat-option *ngFor="let ietm of castes" [value]="ietm.id">
                                     {{ietm.caste}}
                                 </mat-option>
