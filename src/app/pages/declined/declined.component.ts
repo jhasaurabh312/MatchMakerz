@@ -32,11 +32,29 @@ export class DeclinedComponent implements OnInit {
        this.awaitedIn = response;
        console.log(this.awaitedIn)
 
+       for(let i=0;i<this.awaitedIn.length;i++){
+                   if(this.awaitedIn[i].matched_to.marital_status == '0')
+                    this.awaitedIn[i].matched_to.marital = "Not Married";
+                    else
+                    this.awaitedIn[i].matched_to.marital = "Married";
+         this.awaitedIn[i].matched_to.inches = this.awaitedIn[i].matched_to.height % 12 ;
+         this.awaitedIn[i].matched_to.feet = (this.awaitedIn[i].matched_to.height -  this.awaitedIn[i].matched_to.inches)/12;
+       }
+
      })
 
      this.http.get('http://matchmakerz.in/api/v1/client/declined-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
       this.awaitedOut = response;
       console.log(this.awaitedOut)
+      
+       for(let i=0;i<this.awaitedOut.length;i++){
+                    if(this.awaitedOut[i].matched_to.marital_status == '0')
+                    this.awaitedOut[i].matched_to.marital = "Not Married";
+                    else
+                    this.awaitedOut[i].matched_to.marital = "Married";
+         this.awaitedOut[i].matched_to.inches = this.awaitedOut[i].matched_to.height % 12 ;
+         this.awaitedOut[i].matched_to.feet = (this.awaitedOut[i].matched_to.height -  this.awaitedOut[i].matched_to.inches)/12;
+       }
     })
   
   }

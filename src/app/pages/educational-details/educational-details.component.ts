@@ -43,7 +43,7 @@ export class EducationalDetailsComponent implements OnInit {
          this.user = user;
          console.log(this.user);
          localStorage.setItem('newClientId',localStorage.getItem('clientId'));
-      localStorage.removeItem('clientId')
+      // localStorage.removeItem('clientId')
 
          localStorage.setItem('edit_client_is_working',this.user.is_working);
          localStorage.setItem('edit_client_degree',this.user.degree);
