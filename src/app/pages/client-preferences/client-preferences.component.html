@@ -16,13 +16,13 @@
                            
                                 <mat-form-field class="full-width" appearance="outline">
                                     <mat-label>Min Age</mat-label>
-                                    <input matInput formControlName="min_age" placeholder="min_age*" type="number">
+                                    <input matInput formControlName="min_age" type="number"placeholder="min_age*" type="number">
                                 </mat-form-field>
                         </div>    
                         <div class="form-row ">
                                 <mat-form-field class="full-width" appearance="outline">
                                         <mat-label>Max Age</mat-label>
-                                    <input matInput formControlName="max_age" placeholder="max_age*" type="number">
+                                    <input matInput formControlName="max_age" type="number" placeholder="max_age*" type="number">
                                 </mat-form-field>
                             
                         </div>
@@ -30,14 +30,14 @@
 
                                 <mat-form-field class="full-width" appearance="outline">
                                         <mat-label>Min Income(LPA)</mat-label>
-                                    <input matInput formControlName="min_income" placeholder="min_income" type="number">
+                                    <input matInput formControlName="min_income" type="number" maxlength = "3" placeholder="min_income" type="number">
                                 </mat-form-field>
                         </div>
                         <div class="form-row ">
 
                                 <mat-form-field class="full-width" appearance="outline">
                                         <mat-label>Max Income(LPA)</mat-label>
-                                    <input matInput formControlName="max_income" placeholder="max_income*" type="number">
+                                    <input matInput formControlName="max_income" type="number"  [maxLength]="3"  placeholder="max_income*" type="number">
                                 </mat-form-field>
                         </div>
                         <div class="form-row ">

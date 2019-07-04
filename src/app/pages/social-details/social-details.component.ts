@@ -51,7 +51,7 @@ export class SocialDetailsComponent implements OnInit {
       this.user = user;
       console.log(this.user);
          localStorage.setItem('newClientId',localStorage.getItem('clientId'));
-      localStorage.removeItem('clientId')
+      // localStorage.removeItem('clientId')
 
       localStorage.setItem('edit_client_marital_status',this.user.marital_status);
       localStorage.setItem('edit_client_mother_tongue',this.user.mother_tongue);

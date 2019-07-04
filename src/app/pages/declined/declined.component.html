@@ -29,25 +29,26 @@
        <ng-container  *ngIf="awaitedOut?.length>'0'">
     
     <div class="row" style="display:flex;background-color:white;width:100%" >
-      <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:25px;" *ngFor="let member of awaitedOut" >
-        <div class="row  client-card" >
+      <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:75px;" *ngFor="let member of awaitedOut" >
+        <div class="row  client-card"  style="width: 90%" >
           <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
              <div style="padding:10px"> <img  *ngIf="member.matched_to.profile_photo!==null" src="{{member.matched_to.profile_photo}}" style="width: 100%;height:220px" >
               <!-- <ng-container #profile_pic> -->
-                <img *ngIf="member.matched_to.profile_photo===null"  src="{{member.matched_to.gender ? female : male }}" style="width: 100%;height:220px" >
+                <img *ngIf="member.matched_to.profile_photo===null"  src="{{member.matched_to.gender ? female : male }}" style="width: 100%;height:220px;border-radius: 7px;" >
               <!-- </ng-container> -->
              </div>
 
           </div>
           <div class="column-r" style="width:50%">
                                       <div class="row">
-                            <div style="cursor:pointer">
+                            <div style="cursor:pointer;color: #606060;">
 
-              <h6 style="font: size 1.3rem;margin-top:10px;color: #707070">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>   
+              <h6 style="font-size:25px;margin-top:10px;color: #707070;font-weight: bold;">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>   
               <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.matched_to.marital}}, &nbsp;{{member.matched_to.age}}yrs</p>
               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/graduation-hat.svg"style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.degree}}</p>
               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.feet}}'{{member.matched_to.inches}}"</p>       
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.manglik}}</p>
+              <p style="font-size:16px;margin-bottom:7px" *ngIf="member.matched_to.manglik===0"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">Non manglik</p>
+              <p style="font-size:16px;margin-bottom:7px" *ngIf="member.matched_to.manglik===1"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">Manglik</p>
               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.yearly_income}}LPA,{{member.matched_to.occupation}}</p>             
               <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.current_city}}</p>
                        
@@ -77,25 +78,26 @@
        <ng-container  *ngIf="awaitedIn?.length>'0'">
 
     <div class="row" style="display:flex;background-color:white;" >
-      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of awaitedIn" >
-        <div class="row  client-card" >
+      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:75px;" *ngFor="let member of awaitedIn" >
+        <div class="row  client-card"  style="width: 90%" >
           <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
              <div style="padding:10px"> 
 
                   <img  *ngIf="member.matched_to.profile_photo!==null" src="{{member.matched_to.profile_photo}}" style="width: 100%;height:220px" >
                                 <!-- <ng-container #profile_pic> -->
-                                  <img *ngIf="member.matched_to.profile_photo===null"  src="{{member.matched_to.gender ? female : male }}" style="width: 100%;height:220px" >
+                                  <img *ngIf="member.matched_to.profile_photo===null"  src="{{member.matched_to.gender ? female : male }}" style="width: 100%;height:270px;border-radius: 7px;" >
                </div>
           </div>
           <div class="column-r" style="width:50%">
                                       <div class="row">
-                            <div style="cursor:pointer">
+                            <div style="cursor:pointer;color: #606060;">
 
-              <h6 style="font: size 1.3rem;margin-top:10px;color: #707070">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>   
+              <h6 style="font-size:25px;margin-top:10px;color: #707070;font-weight: bold;">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>   
               <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.matched_to.marital}}, &nbsp;{{member.matched_to.age}}yrs</p>
               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/graduation-hat.svg"style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.degree}}</p>
               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.feet}}'{{member.matched_to.inches}}"</p>       
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.manglik}}</p>
+               <p style="font-size:16px;margin-bottom:7px" *ngIf="member.matched_to.manglik===0"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">Non manglik</p>
+                <p style="font-size:16px;margin-bottom:7px" *ngIf="member.matched_to.manglik===1"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">Manglik</p>
               <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.yearly_income}}LPA,{{member.matched_to.occupation}}</p>             
               <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.current_city}}</p>
             </div>

@@ -55,7 +55,7 @@ export class EditPersonalComponent implements OnInit {
       console.log(this.user);
 
       localStorage.setItem('clientProfileId',localStorage.getItem('clientId'));
-      localStorage.removeItem('clientId')
+      // localStorage.removeItem('clientId')
       localStorage.setItem('edit_client_name',this.user.name);
       localStorage.setItem('edit_client_phone_number',this.user.phone_number);
       localStorage.setItem('edit_client_whatsapp_number',this.user.whatsapp_number);
@@ -128,7 +128,7 @@ export class EditPersonalComponent implements OnInit {
            this.data = response;
            if(this.data.status === 1){
              localStorage.setItem('newClientId' ,localStorage.getItem('clientProfileId'));
-             this.router.navigate(['/client-profile']);
+             this.router.navigate(['/educational-details']);
            }
            
          

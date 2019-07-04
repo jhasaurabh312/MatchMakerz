@@ -52,7 +52,7 @@ export class ClientFamilyComponent implements OnInit {
         this.user = user;
         console.log(this.user);
            localStorage.setItem('newClientId',localStorage.getItem('clientId'));
-          localStorage.removeItem('clientId')
+          // localStorage.removeItem('clientId')
 
         localStorage.setItem('edit_client_family_type',this.user.family_type);
         localStorage.setItem('edit_client_hometown',this.user.hometown);

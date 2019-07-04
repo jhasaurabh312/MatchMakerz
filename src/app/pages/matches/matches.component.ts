@@ -117,13 +117,13 @@ export class MatchesComponent implements OnInit {
                   this.staticProductDetail = [...this.staticProductDetail, ...this.response.results];
                   console.log(response);
 
-                  let l = this.staticProductDetail.length;
-                    if(l<20)
-                    this.show = false;
-                    else
-                    this.show = true; 
+                  // let l = this.staticProductDetail.length;
+                  //   if(l<20)
+                  //   this.show = false;
+                  //   else
+                  //   this.show = true; 
 
-                  if(this.response.links.next === 'null'){
+                  if(this.response.links.next === null){
                     this.show = false;
                     this.load_more = false;
 
@@ -158,9 +158,18 @@ export class MatchesComponent implements OnInit {
               }
 
                   for(let i=0;i<this.staticProductDetail.length;i++){
-                    if(this.staticProductDetail[i].profile_photo== null)
-                    this.staticProductDetail[i].profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
-            
+                    if(this.staticProductDetail[i].profile_photo=== null)
+                        {
+                            if (this.staticProductDetail[i].gender===0){
+                                this.staticProductDetail[i].profile_photo = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
+
+                            }
+                            else{
+                               this.staticProductDetail[i].profile_photo = 'http://www.pranawellness.in/Images/female.png';
+                              
+                            }
+
+                        }
                     if(this.staticProductDetail[i].marital_status == '0')
                      this.staticProductDetail[i].marital = "Not Married";
                     else
