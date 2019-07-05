@@ -34,8 +34,8 @@ export class ClientProfileComponent implements OnInit {
 
      this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
       this.user = res;
-        if(this.user.profile_photo == null ){ 
-                if (this.user.gender===0){
+        if(this.user.profile_photo === null ){ 
+                if (this.user.gender=== 0){
                     this.user.profile_photo = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
                 }
                 else{
@@ -44,49 +44,50 @@ export class ClientProfileComponent implements OnInit {
         } 
      
       
-       if(this.user.marital == 0)
+       if(this.user.marital === 0)
          this.user.marital = "Not Married";
-        else if(this.user.marital == 1)
+        else if(this.user.marital === 1)
          this.user.marital = "Divorced";
         else 
         this.user.marital = "Widowed";
 
 
-         if(this.user.manglik == 0)
+         if(this.user.manglik === 0)
           this.user.manglik = 'Non-Manglik';
-         else if(this.user.manglik == 1)
+         else if(this.user.manglik === 1)
           this.user.manglik = 'Manglik'; 
          else 
-          this.user.manglik == 'Anshik Manglik' 
+          this.user.manglik = 'Anshik Manglik' 
 
-        if(this.user.religion =='0')
+        if(this.user.religion ==='0')
           this.user.religion = 'Hindu';
-         else if(this.user.religion =='1')
+         else if(this.user.religion ==='1')
           this.user.religion = 'Muslim';
-         else if(this.user.religion =='2')
+         else if(this.user.religion ==='2')
           this.user.religion = 'Christian';
-         else if(this.user.religion =='3')
+         else if(this.user.religion ==='3')
           this.user.religion = 'Sikh';
          else if(this.user.religion =='4')
           this.user.religion = 'Jain';
          else 
            this.user.religion = 'Other';   
-
-         if(this.user.occupation =='0')
+ 
+         if(this.user.occupation ==='0')
           this.user.occupation = 'Not Working';
-         else if(this.user.occupation =='1')
+         else if(this.user.occupation ==='1')
           this.user.occupation = 'Private Job';
-         else if(this.user.occupation =='2')
+         else if(this.user.occupation ==='2')
           this.user.occupation = 'Self Employed';
-         else if(this.user.occupation =='3')
+         else if(this.user.occupation ==='3')
           this.user.occupation = 'Government Job';
-         else if(this.user.occupation =='4')
+         else if(this.user.occupation ==='4')
           this.user.occupation = 'Doctor';
-         else 
+         else if (this.user.occupation ==='5')
            this.user.occupation = 'Teacher'; 
-
+         else
+           this.user.occupation = '-'
          
-         if(this.user.food_choice == 0)
+         if(this.user.food_choice === 0)
             this.user.food_choice = 'Vegetarian';
          else
             this.user.food_choice = 'Non Vegetarian';   
@@ -95,62 +96,69 @@ export class ClientProfileComponent implements OnInit {
          this.user.feet = (this.user.height -  this.user.inches)/12;
 
 
-         if(this.user.occupation == 0)
+         if(this.user.occupation === 0)
           this.user.occupation = 'Not Working'; 
          else if(this.user.occupation == 1)
           this.user.occupation = 'Private Company';   
-         else if(this.user.occupation == 2)
+         else if(this.user.occupation === 2)
           this.user.occupation = 'Self Employed';   
-         else if(this.user.occupation == 3)
+         else if(this.user.occupation === 3)
           this.user.occupation = 'Government Job';   
-         else if(this.user.occupation == 4)
+         else if(this.user.occupation === 4)
           this.user.occupation = 'Doctor';  
+         else if (this.user.occupation ==='5')
+           this.user.occupation = 'Teacher'; 
          else
-          this.user.occupation = 'Teacher';   
+           this.user.occupation = '-'
           
          
-         if(this.user.father_status == 0)
+         if(this.user.father_status === 0)
            this.user.father_status = 'Alive'; 
          else 
            this.user.father_status = 'Dead';  
           
 
-         if(this.user.mother_status == 0)
+         if(this.user.mother_status === 0)
            this.user.mother_status = 'Alive'; 
-         else 
+         else if(this.user.mother_status === 1)
            this.user.mother_status = 'Dead';  
+         
+         else if(this.user.mother_status === 1)
+           this.user.mother_status = '-';  
+         
 
 
-          if(this.user.father_occupation == 0)
+          if(this.user.father_occupation === 0)
            this.user.father_occupation = 'Not Working'; 
-          else if(this.user.father_occupation == 1)
+          else if(this.user.father_occupation === 1)
            this.user.father_occupation = 'Private Company';   
-          else if(this.user.father_occupation == 2)
+          else if(this.user.father_occupation === 2)
            this.user.father_occupation = 'Self Employed';   
-          else if(this.user.father_occupation == 3)
+          else if(this.user.father_occupation === 3)
            this.user.father_occupation = 'Government Job';   
-          else if(this.user.father_occupation == 4)
+          else if(this.user.father_occupation === 4)
            this.user.father_occupation = 'Doctor';  
           else
            this.user.father_occupation = 'Teacher';   
 
-           if(this.user.mother_occupation == 0)
+           if(this.user.mother_occupation === 0)
            this.user.mother_occupation = 'Not Working'; 
-          else if(this.user.mother_occupation == 1)
+          else if(this.user.mother_occupation === 1)
            this.user.mother_occupation = 'Private Company';   
-          else if(this.user.mother_occupation == 2)
+          else if(this.user.mother_occupation === 2)
            this.user.mother_occupation = 'Self Employed';   
-          else if(this.user.mother_occupation == 3)
+          else if(this.user.mother_occupation === 3)
            this.user.mother_occupation = 'Government Job';   
-          else if(this.user.mother_occupation == 4)
+          else if(this.user.mother_occupation === 4)
            this.user.mother_occupation = 'Doctor';  
-          else
-           this.user.mother_occupation = 'Teacher'; 
-             
+         else if (this.user.occupation ==='5')
+           this.user.occupation = 'Teacher'; 
+         else
+           this.user.occupation = '-'
             
         
 
-      if(this.user.is_active == "true")
+      if(this.user.is_active === "true")
          this.user.is_active = 1;
       else
          this.user.is_active = 0;
@@ -176,38 +184,40 @@ export class ClientProfileComponent implements OnInit {
               console.log(this.pref_caste)
 
       }
-      if(this.User.marital == 0)
+      if(this.User.marital === 0)
          this.User.marital = "Not Married";
-        else if(this.User.marital == 1)
+        else if(this.User.marital === 1)
          this.User.marital = "Divorced";
         else 
         this.User.marital = "Widowed";
 
 
-         if(this.User.manglik == 0)
+         if(this.User.manglik === 0)
           this.User.manglik = 'Non-Manglik';
-         else if(this.User.manglik == 1)
+         else if(this.User.manglik === 1)
           this.User.manglik = 'Manglik'; 
          else 
           this.User.manglik == 'Anshik Manglik' 
 
        
 
-         if(this.User.occupation =='0')
+         if(this.User.occupation ==='0')
           this.User.occupation = 'Not Working';
-         else if(this.User.occupation =='1')
+         else if(this.User.occupation ==='1')
           this.User.occupation = 'Private Job';
-         else if(this.User.occupation =='2')
+         else if(this.User.occupation ==='2')
           this.User.occupation = 'Self Employed';
-         else if(this.User.occupation =='3')
+         else if(this.User.occupation ==='3')
           this.User.occupation = 'Government Job';
-         else if(this.User.occupation =='4')
+         else if(this.User.occupation ==='4')
           this.User.occupation = 'Doctor';
-         else 
-           this.User.occupation = 'Teacher'; 
+         else if (this.user.occupation ==='5')
+           this.user.occupation = 'Teacher'; 
+         else
+           this.user.occupation = '-';
 
          
-         if(this.User.food_choice == 0)
+         if(this.User.food_choice === 0)
             this.User.food_choice = 'Vegetarian';
          else
             this.User.food_choice = 'Non Vegetarian';   
@@ -221,17 +231,17 @@ export class ClientProfileComponent implements OnInit {
          this.User.max_feet = (this.User.max_height -  this.User.max_inches)/30;
 
 
-        if(this.User.citizenship == 0)
+        if(this.User.citizenship === 0)
           this.User.citizenship = 'Indian';
         else
           this.User.citizenship = 'NRI';
 
-          if(this.User.min_age == null)
+          if(this.User.min_age === null)
            this.User.min_age = 'na' ;
          else{
                     this.User.min_age = 2019-(this.User.min_age).split('-')[0]
          }
-           if(this.User.max_age == null)
+           if(this.User.max_age === null)
            this.User.max_age = 'na' ; 
          else{
                     this.User.max_age = 2019-(this.User.max_age).split('-')[0]
