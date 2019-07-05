@@ -234,7 +234,7 @@ export class ClientProfileComponent implements OnInit {
          if(this.User.food_choice === 0)
             this.User.food_choice = 'Vegetarian';
 
-         if(this.User.food_choice === 1)
+         else if(this.User.food_choice === 1)
             this.User.food_choice = 'Non Vegetarian';
 
          else  
@@ -256,7 +256,7 @@ export class ClientProfileComponent implements OnInit {
         else
           this.User.citizenship = '-';
 
-          if(this.User.min_age === null)
+        if(this.User.min_age === null)
            this.User.min_age = 'na' ;
          else{
                     this.User.min_age = 2019-(this.User.min_age).split('-')[0]
