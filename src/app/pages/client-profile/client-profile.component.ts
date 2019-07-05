@@ -48,16 +48,21 @@ export class ClientProfileComponent implements OnInit {
          this.user.marital = "Not Married";
         else if(this.user.marital === 1)
          this.user.marital = "Divorced";
-        else 
+        else if(this.user.marital === 2)
         this.user.marital = "Widowed";
+        else
+         // if(this.user.marital === 2)
+        this.user.marital = "-";
 
 
          if(this.user.manglik === 0)
           this.user.manglik = 'Non-Manglik';
          else if(this.user.manglik === 1)
           this.user.manglik = 'Manglik'; 
-         else 
+         else if(this.user.manglik === 2)
           this.user.manglik = 'Anshik Manglik' 
+         else
+          this.user.manglik = '-' 
 
         if(this.user.religion ==='0')
           this.user.religion = 'Hindu';
@@ -89,9 +94,11 @@ export class ClientProfileComponent implements OnInit {
          
          if(this.user.food_choice === 0)
             this.user.food_choice = 'Vegetarian';
-         else
+         else if(this.user.food_choice === 1)
             this.user.food_choice = 'Non Vegetarian';   
-       
+         else 
+            this.user.food_choice = '-';   
+
          this.user.inches = this.user.height % 12 ;
          this.user.feet = (this.user.height -  this.user.inches)/12;
 
@@ -114,16 +121,19 @@ export class ClientProfileComponent implements OnInit {
          
          if(this.user.father_status === 0)
            this.user.father_status = 'Alive'; 
-         else 
-           this.user.father_status = 'Dead';  
-          
+         else if(this.user.mother_status === 1)
+           this.user.mother_status = 'Dead';  
+         
+         else
+           this.user.mother_status = '-';  
+         
 
          if(this.user.mother_status === 0)
            this.user.mother_status = 'Alive'; 
          else if(this.user.mother_status === 1)
            this.user.mother_status = 'Dead';  
          
-         else if(this.user.mother_status === 1)
+         else
            this.user.mother_status = '-';  
          
 
@@ -188,16 +198,20 @@ export class ClientProfileComponent implements OnInit {
          this.User.marital = "Not Married";
         else if(this.User.marital === 1)
          this.User.marital = "Divorced";
-        else 
+        else if(this.User.marital === 2)
         this.User.marital = "Widowed";
+        else 
+        this.User.marital = "-";
 
 
          if(this.User.manglik === 0)
           this.User.manglik = 'Non-Manglik';
          else if(this.User.manglik === 1)
           this.User.manglik = 'Manglik'; 
-         else 
+         else if(this.User.manglik === 2)
           this.User.manglik == 'Anshik Manglik' 
+         else 
+          this.User.manglik == '-' 
 
        
 
@@ -219,8 +233,12 @@ export class ClientProfileComponent implements OnInit {
          
          if(this.User.food_choice === 0)
             this.User.food_choice = 'Vegetarian';
-         else
-            this.User.food_choice = 'Non Vegetarian';   
+
+         if(this.User.food_choice === 1)
+            this.User.food_choice = 'Non Vegetarian';
+
+         else  
+            this.User.food_choice = '-';   
        
          this.User.min_inches = this.User.min_height % 30 ;
          this.User.min_feet = (this.User.min_height -  this.User.min_inches)/30;
@@ -233,8 +251,10 @@ export class ClientProfileComponent implements OnInit {
 
         if(this.User.citizenship === 0)
           this.User.citizenship = 'Indian';
-        else
+        else if(this.User.citizenship === 1)
           this.User.citizenship = 'NRI';
+        else
+          this.User.citizenship = '-';
 
           if(this.User.min_age === null)
            this.User.min_age = 'na' ;
