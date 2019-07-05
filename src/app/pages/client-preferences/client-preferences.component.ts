@@ -64,7 +64,7 @@ res:any;
       this.res = res;
       console.log((this.res));
       var cast_prefer = '';
-      
+      localStorage.setItem('newClientId',localStorage.getItem('clientId'))
 
       this.res.caste.map((value, index) => {
         // console.log(value)
@@ -131,6 +131,7 @@ res:any;
 
     const NewProfile  = new FormData();
     NewProfile.append('id', localStorage.getItem('newClientId') );   
+    console.log(NewProfile.get('id'))
     NewProfile.append('min_age', (2019-(this.AddClientEducationalDetails.value.min_age)).toString()+'-01-01' );   
     NewProfile.append('max_age', (2019-(this.AddClientEducationalDetails.value.max_age)).toString()+'-01-01' );
     NewProfile.append('min_income', this.AddClientEducationalDetails.value.min_income);
@@ -138,11 +139,11 @@ res:any;
     NewProfile.append('min_height', this.AddClientEducationalDetails.value.min_height );
     NewProfile.append('max_height', this.AddClientEducationalDetails.value.max_height );
     NewProfile.append('marital_status', this.AddClientEducationalDetails.value.marital_status );
-    NewProfile.append('manglik', this.AddClientEducationalDetails.value.marital_status );
+    NewProfile.append('manglik', this.AddClientEducationalDetails.value.manglik );
     NewProfile.append('food_choice', this.AddClientEducationalDetails.value.food_choice );
     NewProfile.append('occupation', this.AddClientEducationalDetails.value.occupation );
     NewProfile.append('citizenship', this.AddClientEducationalDetails.value.citizenship );
-    console.log(this.AddClientEducationalDetails.value.caste)
+    console.log(this.AddClientEducationalDetails.value)
     console.log(this.AddClientEducationalDetails.value.caste[0]!=='0')
     console.log(this.AddClientEducationalDetails.value.caste[0]!==0)
     console.log(this.AddClientEducationalDetails.value.caste[0]===0)

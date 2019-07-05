@@ -335,6 +335,7 @@ processfile(event){
  editpreferences(data1){
    localStorage.setItem('clientProfileId',data1);
    localStorage.setItem('clientId',data1);
+   localStorage.setItem('newClientId',data1);
    this.router.navigate(['/client-preferences']);
  }
  open(content) {
