@@ -68,10 +68,10 @@
 
       <div class="flex" style="min-height:200px">
         <div id="profile">
-          <div class="btn website" href='#'><div class="txt" (click)="viewWebsite(user.id)">View your website</div></div>
+          <div class="btn website" (click)="viewWebsite(user.id)" ><div class="txt">View your website</div></div>
         </div>
         <div id="info">
-          <div class="btn website"><div class="txt">Share website</div></div>
+          <div class="btn website" (click)="copy(user.id)"><div class="txt">Share website</div></div>
         </div>
       </div>
     </div>

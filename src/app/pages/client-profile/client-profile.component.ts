@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-client-profile',
@@ -17,9 +18,10 @@ export class ClientProfileComponent implements OnInit {
   preferences: boolean;
   selectedFile: File;
   response: any;
-  pref_caste:any;
+  pref_caste:any='';
+  see_more:boolean=false;
 
-  constructor(private http: HttpClient, public router : Router) { }
+  constructor(private http: HttpClient, public router : Router, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.personal = true;
@@ -158,14 +160,22 @@ export class ClientProfileComponent implements OnInit {
 
      this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
       this.User = res;
-      console.log(this.User);
-      if(this.User.caste.lenght>=2){
+      console.log(this.User.caste.length);
+      console.log(this.pref_caste)
+      if(this.User.caste.length>2){
         this.pref_caste = this.User.caste[0].caste+", "+this.User.caste[1].caste;
+        this.see_more = true;
+              console.log(this.pref_caste)
+
       }
 
-      // else{
-      //   this.User.caste
-      // }
+      else{
+        for(let i =0;i<this.User.caste.length;i++){
+          this.pref_caste+=this.User.caste[i].caste+', ';
+        }
+              console.log(this.pref_caste)
+
+      }
       if(this.User.marital == 0)
          this.User.marital = "Not Married";
         else if(this.User.marital == 1)
@@ -327,5 +337,9 @@ processfile(event){
    localStorage.setItem('clientId',data1);
    this.router.navigate(['/client-preferences']);
  }
+ open(content) {
 
+    this.modalService.open(content);
+
+  }
 }

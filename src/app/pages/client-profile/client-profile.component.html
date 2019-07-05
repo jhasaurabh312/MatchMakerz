@@ -504,8 +504,24 @@ Partner Preferences                            </div>
                 <div class="row" style=" margin-top:15px;">
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Caste</strong>
-                   <!-- --------------------------- -->
-                        <h6>{{User.client}}</h6>
+                    <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Caste</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                            <ul>
+                                <li *ngFor="let item of User.caste">{{item.caste}}</li>
+                            </ul>
+                    </div>
+
+                    </ng-template>
+
+<!--                     <button  class="card-button"  style="background: #f92b8c" (click)="open(content, member.matched_to.id)">View Contact </button>
+ -->                   <!-- --------------------------- -->
+                        <h6>{{this.pref_caste}}<p *ngIf="see_more" style="color: blue;text-decoration-line: underline;" (click)="open(content)">more+</p></h6>
                    <!-- --------------------------- -->
 
                     </div>
