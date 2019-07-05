@@ -18,7 +18,8 @@ export class ClientPreferencesComponent implements OnInit {
   error : any;
   data : any;
   castes: any;
-res:any;
+  res:any;
+  load:boolean=false;
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router:Router,  public snack : SnackService) { 
 
     // for(let i =)
@@ -42,7 +43,7 @@ res:any;
       'food_choice' : [((localStorage.getItem('food_choice')))],
       'occupation' : [((localStorage.getItem('occupation')))],
       'citizenship' : [((localStorage.getItem('citizenship')))],
-      'caste' : [castes],
+      'caste' : castes,
     });; 
   }
 
@@ -186,6 +187,7 @@ res:any;
     // if(NewProfile.get('caste')){
 
     // }
+    this.load=true;
 
     return this.http.post('http://matchmakerz.in/api/v1/client/updateclientpref/' , NewProfile ,{ 
         headers : new HttpHeaders({
@@ -194,9 +196,12 @@ res:any;
           return throwError("oops"); })).subscribe((response:any) => {
            this.data = response;
            console.log(this.data);
-           if(this.data.Status === 1)
+           if(this.data.Status === 1){
             this.router.navigate(['/clients']);
+            this.load=false;
+           }
            else{
+             this.load=false;
            this.snack.openSnackBar("Some Error Occure", 'required filed')
          }
          

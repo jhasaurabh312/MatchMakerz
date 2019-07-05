@@ -42,13 +42,21 @@ export class ClientProfileComponent implements OnInit {
                     this.user.profile_photo = 'http://www.pranawellness.in/Images/female.png';
                 }
         } 
-     
+       
+       if(this.user.yearly_income!==null){
+         this.user.yearly_income = this.user.yearly_income/100000
+       }
       
-       if(this.user.marital === 0)
+      console.log(this.user)
+      console.log(this.user.marital_status=='0')
+      console.log(this.user.marital_status==0)
+      console.log(this.user.marital_status===0)
+      console.log(this.user.marital_status==='0')
+       if(this.user.marital_status === '0')
          this.user.marital = "Not Married";
-        else if(this.user.marital === 1)
+        else if(this.user.marital_status === '1')
          this.user.marital = "Divorced";
-        else if(this.user.marital === 2)
+        else if(this.user.marital_status === '2')
         this.user.marital = "Widowed";
         else
          // if(this.user.marital === 2)
@@ -64,30 +72,30 @@ export class ClientProfileComponent implements OnInit {
          else
           this.user.manglik = '-' 
 
-        if(this.user.religion ==='0')
+        if(this.user.religion ===0)
           this.user.religion = 'Hindu';
-         else if(this.user.religion ==='1')
+         else if(this.user.religion ===1)
           this.user.religion = 'Muslim';
-         else if(this.user.religion ==='2')
+         else if(this.user.religion ===2)
           this.user.religion = 'Christian';
-         else if(this.user.religion ==='3')
+         else if(this.user.religion ===3)
           this.user.religion = 'Sikh';
-         else if(this.user.religion =='4')
+         else if(this.user.religion ===4)
           this.user.religion = 'Jain';
          else 
            this.user.religion = 'Other';   
  
-         if(this.user.occupation ==='0')
+         if(this.user.occupation === 0)
           this.user.occupation = 'Not Working';
-         else if(this.user.occupation ==='1')
+         else if(this.user.occupation === 1)
           this.user.occupation = 'Private Job';
-         else if(this.user.occupation ==='2')
+         else if(this.user.occupation ===2)
           this.user.occupation = 'Self Employed';
-         else if(this.user.occupation ==='3')
+         else if(this.user.occupation ===3)
           this.user.occupation = 'Government Job';
-         else if(this.user.occupation ==='4')
+         else if(this.user.occupation === 4)
           this.user.occupation = 'Doctor';
-         else if (this.user.occupation ==='5')
+         else if (this.user.occupation ===5)
            this.user.occupation = 'Teacher'; 
          else
            this.user.occupation = '-'
@@ -138,30 +146,33 @@ export class ClientProfileComponent implements OnInit {
          
 
 
-          if(this.user.father_occupation === 0)
+          if(this.user.father_occupation == 0)
            this.user.father_occupation = 'Not Working'; 
-          else if(this.user.father_occupation === 1)
+          else if(this.user.father_occupation == 1)
            this.user.father_occupation = 'Private Company';   
-          else if(this.user.father_occupation === 2)
+          else if(this.user.father_occupation == 2)
            this.user.father_occupation = 'Self Employed';   
-          else if(this.user.father_occupation === 3)
+          else if(this.user.father_occupation == 3)
            this.user.father_occupation = 'Government Job';   
-          else if(this.user.father_occupation === 4)
+          else if(this.user.father_occupation == 4)
            this.user.father_occupation = 'Doctor';  
-          else
-           this.user.father_occupation = 'Teacher';   
+         else if (this.user.occupation == 5)
+           this.user.occupation = 'Teacher'; 
+         else
+           this.user.occupation = '-'
 
-           if(this.user.mother_occupation === 0)
+
+           if(this.user.mother_occupation == 0)
            this.user.mother_occupation = 'Not Working'; 
-          else if(this.user.mother_occupation === 1)
+          else if(this.user.mother_occupation == 1)
            this.user.mother_occupation = 'Private Company';   
-          else if(this.user.mother_occupation === 2)
+          else if(this.user.mother_occupation == 2)
            this.user.mother_occupation = 'Self Employed';   
-          else if(this.user.mother_occupation === 3)
+          else if(this.user.mother_occupation == 3)
            this.user.mother_occupation = 'Government Job';   
-          else if(this.user.mother_occupation === 4)
+          else if(this.user.mother_occupation == 4)
            this.user.mother_occupation = 'Doctor';  
-         else if (this.user.occupation ==='5')
+         else if (this.user.occupation == 5)
            this.user.occupation = 'Teacher'; 
          else
            this.user.occupation = '-'
@@ -178,7 +189,7 @@ export class ClientProfileComponent implements OnInit {
 
      this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
       this.User = res;
-      console.log(this.User.caste.length);
+      console.log(this.User);
       console.log(this.pref_caste)
       if(this.User.caste.length>2){
         this.pref_caste = this.User.caste[0].caste+", "+this.User.caste[1].caste;
@@ -194,38 +205,38 @@ export class ClientProfileComponent implements OnInit {
               console.log(this.pref_caste)
 
       }
-      if(this.User.marital === 0)
+      if(this.User.marital_status === 0)
          this.User.marital = "Not Married";
-        else if(this.User.marital === 1)
+        else if(this.User.marital_status === 1)
          this.User.marital = "Divorced";
-        else if(this.User.marital === 2)
+        else if(this.User.marital_status === 2)
         this.User.marital = "Widowed";
         else 
         this.User.marital = "-";
 
 
-         if(this.User.manglik === 0)
-          this.User.manglik = 'Non-Manglik';
-         else if(this.User.manglik === 1)
-          this.User.manglik = 'Manglik'; 
-         else if(this.User.manglik === 2)
-          this.User.manglik == 'Anshik Manglik' 
-         else 
-          this.User.manglik == '-' 
+     if(this.User.manglik === 0)
+      this.User.manglik = 'Non-Manglik';
+     else if(this.User.manglik === 1)
+      this.User.manglik = 'Manglik'; 
+     else if(this.User.manglik === 2)
+      this.User.manglik = 'Anshik Manglik' 
+     else 
+      this.User.manglik = '-' 
 
-       
+   
 
-         if(this.User.occupation ==='0')
+         if(this.User.occupation === 0)
           this.User.occupation = 'Not Working';
-         else if(this.User.occupation ==='1')
+         else if(this.User.occupation === 1)
           this.User.occupation = 'Private Job';
-         else if(this.User.occupation ==='2')
+         else if(this.User.occupation ===2)
           this.User.occupation = 'Self Employed';
-         else if(this.User.occupation ==='3')
+         else if(this.User.occupation ===3)
           this.User.occupation = 'Government Job';
-         else if(this.User.occupation ==='4')
+         else if(this.User.occupation ===4)
           this.User.occupation = 'Doctor';
-         else if (this.user.occupation ==='5')
+         else if (this.user.occupation === 5)
            this.user.occupation = 'Teacher'; 
          else
            this.user.occupation = '-';
@@ -240,13 +251,13 @@ export class ClientProfileComponent implements OnInit {
          else  
             this.User.food_choice = '-';   
        
-         this.User.min_inches = this.User.min_height % 30 ;
-         this.User.min_feet = (this.User.min_height -  this.User.min_inches)/30;
+         this.User.min_inches = this.User.min_height % 12;
+         this.User.min_feet = parseInt((this.User.min_height/12).toString());
 
 
-         this.User.max_inches = this.User.max_height % 30 ;
+         this.User.max_inches = this.User.max_height % 12 ;
         //  console.log(this.User.max_inches)
-         this.User.max_feet = (this.User.max_height -  this.User.max_inches)/30;
+         this.User.max_feet = parseInt(((this.User.max_height)/12).toString());
 
 
         if(this.User.citizenship === 0)

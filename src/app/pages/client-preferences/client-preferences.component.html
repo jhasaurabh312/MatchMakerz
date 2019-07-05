@@ -190,7 +190,8 @@
                         </div>
 
                         <div class="input-group p-2">
-                            <button class="btn btn-user" style="background-color: #f92c8b;width:400px"  type="button" (click)="addClient()"> Next Page</button>
+                            <button class="btn btn-user" *ngIf="load===false" style="background-color: #f92c8b;width:400px"  type="button" (click)="addClient()"> Next Page</button>
+                                <button type="button" *ngIf="load" style="background-color: #f92c8b;width:400px" class="btn btn-user"> <i class="fa  fa-spinner fa-spin fa-2x" aria-hidden="true" style="color:#ffffff;"> </i> </button>
                         </div>
                     </div>
                 </div>

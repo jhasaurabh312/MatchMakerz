@@ -521,7 +521,7 @@ Partner Preferences                            </div>
 
 <!--                     <button  class="card-button"  style="background: #f92b8c" (click)="open(content, member.matched_to.id)">View Contact </button>
  -->                   <!-- --------------------------- -->
-                        <h6>{{this.pref_caste}}<p *ngIf="see_more" style="color: blue;text-decoration-line: underline;" (click)="open(content)">more+</p></h6>
+                        <h6>{{this.pref_caste}}<p *ngIf="see_more" style="color: blue;text-decoration-line: underline;cursor: pointer;" (click)="open(content)">more+</p></h6>
                    <!-- --------------------------- -->
 
                     </div>
@@ -561,7 +561,7 @@ Partner Preferences                            </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Income</strong>
                         <br>
-                        <h6>{{User.min_income}} LPA - {{User.max_income}} LPA</h6>
+                        <h6>{{User.min_income/100000}} LPA - {{User.max_income/100000}} LPA</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Citizenship</strong>
@@ -571,7 +571,7 @@ Partner Preferences                            </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Height</strong>
                         <br>
-                        <h6>{{User.min_feet}}' {{User.min_inches}}"  -  {{User.max_feet}}' {{User.max_inches}}"</h6>
+                        <h6>{{User.min_feet}}'{{User.min_inches}}"  -  {{User.max_feet}}'{{User.max_inches}}"</h6>
                     </div>
                 </div>
 
