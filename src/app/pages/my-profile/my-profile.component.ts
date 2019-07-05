@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MyprofileService } from '../../shared/services/myProfile/myprofile.service'
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
+import { SnackService } from '../../shared/services/snack.service'
 
 @Component({
   selector: 'app-my-profile',
@@ -18,7 +19,7 @@ export class MyProfileComponent implements OnInit {
   clients: boolean= !true;
   my_profile: boolean = !false;
    selectedFile: File
-  constructor( private http : HttpClient , private myProfile : MyprofileService, public router : Router) { }
+  constructor( private http : HttpClient , private myProfile : MyprofileService, public router : Router,public snack : SnackService) { }
 
   ngOnInit() {
 
@@ -150,8 +151,18 @@ submit(){
 
 viewWebsite(id){
   console.log(id)
-       this.router.navigate(['http://hansmatrimony.com/matchmaker/profile?matchmaker_id='+id]);
+   window.open('https://partner.hansmatrimony.com', "_blank");
 }
+ copy(id){
+    var inp =document.createElement('input');
+    document.body.appendChild(inp)
+    inp.value ='https://partner.hansmatrimony.com'
+    inp.select();
+    document.execCommand('copy',false);
+    inp.remove();
+   this.snack.openSnackBar("Successfully copied link", 'success')
+
+  }
 
 }
 

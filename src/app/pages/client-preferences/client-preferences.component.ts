@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import {SnackService} from '../../shared/services/snack.service'
+import { SnackService } from '../../shared/services/snack.service'
 
 
 @Component({
@@ -22,7 +22,14 @@ res:any;
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router:Router,  public snack : SnackService) { 
 
     // for(let i =)
+    var castes = [];
 
+    if(localStorage.getItem('caste')!==null){
+      castes = localStorage.getItem('caste').split(',')
+      if(castes.length===461)
+        castes=["0"]
+    }
+    console.log(castes)
     this. AddClientEducationalDetails= this._formBuilder.group({
       'min_age' : [2019-parseInt(localStorage.getItem('min_age'))],
       'max_age' : [2019-parseInt(localStorage.getItem('max_age'))],
@@ -35,7 +42,7 @@ res:any;
       'food_choice' : [((localStorage.getItem('food_choice')))],
       'occupation' : [((localStorage.getItem('occupation')))],
       'citizenship' : [((localStorage.getItem('citizenship')))],
-      'caste' : [localStorage.getItem('caste').split(',')],
+      'caste' : [castes],
     });; 
   }
 
@@ -63,7 +70,7 @@ res:any;
         // console.log(value)
         cast_prefer+=(value['id'])+','
       })
-      cast_prefer+='0';
+      cast_prefer = cast_prefer.substring(0,cast_prefer.length-1);
 
       if(this.res.min_age !== null)
         localStorage.setItem('min_age',(this.res.min_age).split('-')[0]);
@@ -135,21 +142,24 @@ res:any;
     NewProfile.append('food_choice', this.AddClientEducationalDetails.value.food_choice );
     NewProfile.append('occupation', this.AddClientEducationalDetails.value.occupation );
     NewProfile.append('citizenship', this.AddClientEducationalDetails.value.citizenship );
-    // console.log(this.AddClientEducationalDetails.value.caste)
+    console.log(this.AddClientEducationalDetails.value.caste)
     console.log(this.AddClientEducationalDetails.value.caste[0]!=='0')
     console.log(this.AddClientEducationalDetails.value.caste[0]!==0)
     console.log(this.AddClientEducationalDetails.value.caste[0]===0)
     console.log(this.AddClientEducationalDetails.value.caste[0]==='0')
-        console.log(typeof(this.AddClientEducationalDetails.value.caste[0]))
+        console.log(NewProfile.get('max_height'))
 
     if(this.AddClientEducationalDetails.value.caste !== null && this.AddClientEducationalDetails.value.caste[0]!=='0'){
       console.log("***")
+      console.log(typeof(this.AddClientEducationalDetails.value.caste.join()))
       NewProfile.append('caste', this.AddClientEducationalDetails.value.caste.join());
     }
     else{
+
            NewProfile.append('caste', 'all');
  
     }
+
     // else
 
 
