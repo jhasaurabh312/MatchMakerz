@@ -89,22 +89,24 @@ export class ClientProfileComponent implements OnInit {
           this.user.religion = 'Jain';
          else 
            this.user.religion = 'Other';   
- 
-         if(this.user.occupation == 0)
+   console.log(this.user.occupation)
+
+         if(this.user.occupation === 0)
           this.user.occupation = 'Not Working';
-         else if(this.user.occupation == 1)
+         else if(this.user.occupation === 1)
           this.user.occupation = 'Private Job';
-         else if(this.user.occupation ==2)
+         else if(this.user.occupation ===2)
           this.user.occupation = 'Self Employed';
-         else if(this.user.occupation ==3)
+         else if(this.user.occupation ===3)
           this.user.occupation = 'Government Job';
-         else if(this.user.occupation == 4)
+         else if(this.user.occupation === 4)
           this.user.occupation = 'Doctor';
-         else if (this.user.occupation ==5)
+         else if (this.user.occupation ===5)
            this.user.occupation = 'Teacher'; 
          else
            this.user.occupation = '-'
-         
+
+         console.log(this.user.occupation)
          if(this.user.food_choice === 0)
             this.user.food_choice = 'Vegetarian';
          else if(this.user.food_choice === 1)
@@ -116,20 +118,20 @@ export class ClientProfileComponent implements OnInit {
          this.user.feet = (this.user.height -  this.user.inches)/12;
 
 
-         if(this.user.occupation == 0)
-          this.user.occupation = 'Not Working'; 
-         else if(this.user.occupation == 1)
-          this.user.occupation = 'Private Company';   
-         else if(this.user.occupation == 2)
-          this.user.occupation = 'Self Employed';   
-         else if(this.user.occupation == 3)
-          this.user.occupation = 'Government Job';   
-         else if(this.user.occupation === 4)
-          this.user.occupation = 'Doctor';  
-         else if (this.user.occupation == 5)
-           this.user.occupation = 'Teacher'; 
-         else
-           this.user.occupation = '-'
+         // if(this.user.occupation == 0)
+         //  this.user.occupation = 'Not Working'; 
+         // else if(this.user.occupation == 1)
+         //  this.user.occupation = 'Private Company';   
+         // else if(this.user.occupation == 2)
+         //  this.user.occupation = 'Self Employed';   
+         // else if(this.user.occupation == 3)
+         //  this.user.occupation = 'Government Job';   
+         // else if(this.user.occupation === 4)
+         //  this.user.occupation = 'Doctor';  
+         // else if (this.user.occupation == 5)
+         //   this.user.occupation = 'Teacher'; 
+         // else
+         //   this.user.occupation = '-'
           
          
          if(this.user.father_status === 0)
@@ -248,9 +250,9 @@ export class ClientProfileComponent implements OnInit {
          else if(this.User.occupation ===4)
           this.User.occupation = 'Doctor';
          else if (this.user.occupation === 5)
-           this.user.occupation = 'Teacher'; 
+           this.User.occupation = 'Teacher'; 
          else
-           this.user.occupation = '-';
+           this.User.occupation = '-';
 
          
          if(this.User.food_choice === 0)
