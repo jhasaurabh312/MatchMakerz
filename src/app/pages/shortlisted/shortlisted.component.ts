@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import {
+  SnackService
+} from '../../shared/services/snack.service'
 
 @Component({
   selector: 'app-shortlisted',
@@ -16,7 +20,7 @@ export class ShortlistedComponent implements OnInit {
   check : boolean;
   check1 : boolean;
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,public snack: SnackService,private routes: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -25,13 +29,13 @@ export class ShortlistedComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
 
-    this.http.get('http://matchmakerz.in/api/v1/client/total-shortlist?id='+localStorage.getItem('clientId'), {headers : headers}).subscribe((res) => {
+    this.http.get('http://matchmakerz.in/api/v1/client/total-shortlist?id='+this.routes.snapshot.queryParamMap.get('id'), {headers : headers}).subscribe((res) => {
       this.shortlistedTotal = res;
       console.log(this.shortlistedTotal);
    })
 
 
-    this.http.get('http://matchmakerz.in/api/v1/client/shortList?id='+localStorage.getItem('clientId'), {headers : headers}).subscribe((res) => {
+    this.http.get('http://matchmakerz.in/api/v1/client/shortList?id='+this.routes.snapshot.queryParamMap.get('id'), {headers : headers}).subscribe((res) => {
        this.shortlisted = res;
        console.log(this.shortlisted);
 
@@ -93,6 +97,13 @@ export class ShortlistedComponent implements OnInit {
         })}).pipe(catchError((error) => {
           return throwError("oops"); })).subscribe((response:any) => {
           console.log(response);
+                if (response.status === 1) {
+                  this.snack.openSnackBar("successfully remove", 'success')
+
+                } else {
+                  this.snack.openSnackBar(response.message, 'error')
+
+                }
            }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
         }
@@ -101,23 +112,33 @@ export class ShortlistedComponent implements OnInit {
 
   showInterestCandidate(data){
 
-    this.a = parseInt(localStorage.getItem('clientId'));
-    const Data  = new FormData();
-    Data.append('showInterest_for',this.a)
-    Data.append('showInterest_to',data);
+        this.a = this.routes.snapshot.queryParamMap.get('id');
+    const Data = new FormData();
+    Data.append('showInterest_for', this.a)
+    Data.append('showInterest_to', data);
 
-    console.log(Data);
+    console.log(data+" "+this.a);
 
-    return this.http.post('http://matchmakerz.in/api/v1/client/showInterest' , Data ,{ 
-           headers : new HttpHeaders({
-          'Authorization': 'Token ' + localStorage.getItem('token'),
-        })}).pipe(catchError((error) => {
-          return throwError("oops"); })).subscribe((response:any) => {
-          console.log(response);
-           }),err =>{
-          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
-        }
-  }
+    return this.http.post('http://matchmakerz.in/api/v1/client/showInterest', Data, {
+      headers: new HttpHeaders({
+        'Authorization': 'Token ' + localStorage.getItem('token'),
+      })
+    }).pipe(catchError((error) => {
+      return throwError("oops");
+    })).subscribe((response: any) => {
+      if (response.status === 1) {
+        this.snack.openSnackBar("you show interest", 'success')
+        // this.DeleteShorlist(data);
+      } else {
+        this.snack.openSnackBar(response.message, 'error')
+
+      }
+
+      console.log(response);
+    }), err => {
+      console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
+    }
+    }
 
 
 }

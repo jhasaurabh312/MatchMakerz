@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -27,7 +28,7 @@ export class ClientsComponent implements OnInit {
   male : any;
   female :any;
   
-  constructor( private http : HttpClient , public router : Router) {}
+  constructor( private http : HttpClient , public router : Router,private route: ActivatedRoute) {}
 
 
 // constructor(private modalService: NgbModal) {}
@@ -82,6 +83,11 @@ export class ClientsComponent implements OnInit {
 
         }
         console.log(this.staticProductDetail[i].profile_photo)
+   
+         if(this.staticProductDetail[i].yearly_income>1000){
+           this.staticProductDetail[i].yearly_income = this.staticProductDetail[i].yearly_income/100000
+         }
+  
 
         if(this.staticProductDetail[i].marital_status == '0')
          this.staticProductDetail[i].marital = "Not Married";
@@ -132,7 +138,7 @@ export class ClientsComponent implements OnInit {
 
   getActivity(data){
     localStorage.setItem('clientId' , data);  
-    this.router.navigate(['/awaited']);
+    this.router.navigate(['/awaited'],{ queryParams: { id:data}});
   }
 
   getMatches(data, gender){
@@ -167,12 +173,12 @@ export class ClientsComponent implements OnInit {
 
     localStorage.removeItem('caste')
     localStorage.removeItem('prgender')
-    this.router.navigate(['/matches']);
+    this.router.navigate(['/matches'],{ queryParams: { id:data}});
   }
 
   getProfile(data){
     localStorage.setItem('clientId' , data);
-    this.router.navigate(['/client-profile']);
+    this.router.navigate(['/client-profile'],{ queryParams: { id:data}});
   }
 
   AddClient(){
@@ -273,6 +279,9 @@ export class ClientsComponent implements OnInit {
   }
 } 
 hide(){
+  // $(".circle").click(function(){
+  //   $("myDropdown").hide(500);
+  // });
   var x = document.getElementById("myDropdown")
   x.style.display = "none";
 }

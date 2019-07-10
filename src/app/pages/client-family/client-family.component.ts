@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-client-family',
@@ -17,43 +18,62 @@ export class ClientFamilyComponent implements OnInit {
     error : any;
     data : any;
     user: any = [];
+    client_data:any = {
+      'family_type':'',
+      'hometown':'',
+      'home_address':'',
+      'house_type':'',
+      'gotra':'',
+        'mother_status' : '',
+      'mother_occupation':'',
+      'father_status':'',
+      'father_occupation':'',
+      'married_son':'',
+      'unmarried_son':'',
+      'married_daughter':'',
+      'unmarried_daughter':'',
+      'matchmaker_note':'',
+    }
   
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router, public snack : SnackService) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router, public snack : SnackService,private route: ActivatedRoute) { 
       this. AddClientEducationalDetails= this._formBuilder.group({
-        'family_type' : [localStorage.getItem('edit_client_family_type')],
-        'hometown' : [localStorage.getItem('edit_client_hometown')],
-        'home_address' : [localStorage.getItem('edit_client_home_address')],
-        'house_type' : [localStorage.getItem('edit_client_house_type')],
-        'gotra' : [localStorage.getItem('edit_client_gotra')],
-        'mother_status' : [localStorage.getItem('edit_client_mother_status')],
-        'mother_occupation' : [localStorage.getItem('edit_client_mother_occupation')],
-        'father_status' : [localStorage.getItem('edit_client_father_status')],
-        'father_occupation' : [localStorage.getItem('edit_client_want_father_occupation')],
-        'family_income' : [localStorage.getItem('edit_client_family_income')],
+        'family_type' : [this.client_data.family_type],
+        'hometown' : [this.client_data._hometown],
+        'home_address' : [this.client_data.ome_address],
+        'house_type' : [this.client_data.house_type],
+        'gotra' : [this.client_data.gotra],
+        'mother_status' : [this.client_data.mother_status],
+        'mother_occupation' : [this.client_data.other_occupation],
+        'father_status' : [this.client_data.father_status],
+        'father_occupation' : [this.client_data.father_occupation],
+        'family_income' : [this.client_data.family_income],
         'landline' : ['na'],
-        'married_son' : [localStorage.getItem('edit_client_married_son')],
-        'unmarried_son' : [localStorage.getItem('edit_client_unmarried_son')],
-        'married_daughter' : [localStorage.getItem('edit_client_married_daughter')],
-        'unmarried_daughter' : [localStorage.getItem('edit_client_unmarried_daughter')],
-        'matchmaker_note' : [localStorage.getItem('edit_client_matchmaker_note')],
+        'married_son' : [this.client_data.married_son],
+        'unmarried_son' : [this.client_data.unmarried_son],
+        'married_daughter' : [this.client_data.married_daughter],
+        'unmarried_daughter' : [this.client_data.unmarried_daughter],
+        'matchmaker_note' : [this.client_data.matchmaker_note],
         'is_active' : ['1'],
       });; 
     }
   
     ngOnInit() {
 
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Token ' + localStorage.getItem('token')
-      }) 
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    }) 
+
+
      if(localStorage.getItem('clientId')){
 
-      this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
+      this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+this.route.snapshot.queryParamMap.get('id'),{headers : headers}).subscribe((user) => {
         this.user = user;
         console.log(this.user);
-           localStorage.setItem('newClientId',localStorage.getItem('clientId'));
+        this.client_data = user;
+           // localStorage.setItem('newClientId',localStorage.getItem('clientId'));
           // localStorage.removeItem('clientId')
-
+          console.log(this.client_data)
         localStorage.setItem('edit_client_family_type',this.user.family_type);
         localStorage.setItem('edit_client_hometown',this.user.hometown);
         localStorage.setItem('edit_client_home_address',this.user.home_address);
@@ -71,23 +91,26 @@ export class ClientFamilyComponent implements OnInit {
         localStorage.setItem('edit_client_unmarried_daughter',this.user.unmarried_daughter);
         localStorage.setItem('edit_client_matchmaker_note',this.user.matchmaker_note);
         localStorage.setItem('edit_client_is_active',this.user.is_active);
-         this. AddClientEducationalDetails= this._formBuilder.group({
-        'family_type' : [localStorage.getItem('edit_client_family_type')],
-        'hometown' : [localStorage.getItem('edit_client_hometown')],
-        'home_address' : [localStorage.getItem('edit_client_home_address')],
-        'house_type' : [localStorage.getItem('edit_client_house_type')],
-        'gotra' : [localStorage.getItem('edit_client_gotra')],
-        'mother_status' : [localStorage.getItem('edit_client_mother_status')],
-        'mother_occupation' : [localStorage.getItem('edit_client_mother_occupation')],
-        'father_status' : [localStorage.getItem('edit_client_father_status')],
-        'father_occupation' : [localStorage.getItem('edit_client_want_father_occupation')],
-        'family_income' : [localStorage.getItem('edit_client_family_income')],
+        if(this.client_data.family_income>1000){
+          this.client_data.family_income = this.client_data.family_income/100000;
+        }
+  this. AddClientEducationalDetails= this._formBuilder.group({
+        'family_type' : [(this.client_data.family_type).toString()],
+        'hometown' : [this.client_data.hometown],
+        'home_address' : [this.client_data.home_address],
+        'house_type' : [(this.client_data.house_type).toString()],
+        'gotra' : [this.client_data.gotra],
+        'mother_status' : [(this.client_data.mother_status).toString()],
+        'mother_occupation' : [(this.client_data.mother_occupation).toString()],
+        'father_status' : [(this.client_data.father_status).toString()],
+        'father_occupation' : [(this.client_data.father_occupation).toString()],
+        'family_income' : [this.client_data.family_income],
         'landline' : ['na'],
-        'married_son' : [localStorage.getItem('edit_client_married_son')],
-        'unmarried_son' : [localStorage.getItem('edit_client_unmarried_son')],
-        'married_daughter' : [localStorage.getItem('edit_client_married_daughter')],
-        'unmarried_daughter' : [localStorage.getItem('edit_client_unmarried_daughter')],
-        'matchmaker_note' : [localStorage.getItem('edit_client_matchmaker_note')],
+        'married_son' : [(this.client_data.married_son).toString()],
+        'unmarried_son' : [(this.client_data.unmarried_son).toString()],
+        'married_daughter' : [(this.client_data.married_daughter).toString()],
+        'unmarried_daughter' : [(this.client_data.unmarried_daughter).toString()],
+        'matchmaker_note' : [this.client_data.matchmaker_note],
         'is_active' : ['1'],
       });; 
       })
@@ -100,7 +123,7 @@ export class ClientFamilyComponent implements OnInit {
     addClient(){
   
       const NewProfile  = new FormData();
-      NewProfile.append('id', localStorage.getItem('newClientId') );   
+      NewProfile.append('id', this.route.snapshot.queryParamMap.get('id'));   
       NewProfile.append('family_type', this.AddClientEducationalDetails.value.family_type );   
       NewProfile.append('hometown', this.AddClientEducationalDetails.value.hometown );
       NewProfile.append('home_address', this.AddClientEducationalDetails.value.home_address);
@@ -114,7 +137,7 @@ export class ClientFamilyComponent implements OnInit {
       NewProfile.append('landline', this.AddClientEducationalDetails.value.landline );
       NewProfile.append('married_son', this.AddClientEducationalDetails.value.married_son );
       NewProfile.append('unmarried_son', this.AddClientEducationalDetails.value.unmarried_son );
-      NewProfile.append('married_daughter', this.AddClientEducationalDetails.value.unmarried_daughter );
+      NewProfile.append('married_daughter', this.AddClientEducationalDetails.value.married_daughter );
       NewProfile.append('unmarried_daughter', this.AddClientEducationalDetails.value.unmarried_daughter );
       NewProfile.append('matchmaker_note', this.AddClientEducationalDetails.value.matchmaker_note );
       NewProfile.append('is_active', "1");
@@ -128,7 +151,7 @@ export class ClientFamilyComponent implements OnInit {
              this.data = response;
              console.log(this.data);
              if(this.data.status === 1)
-              this.router.navigate(['/client-preferences']);
+              this.router.navigate(['/client-preferences'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
                     else{
            this.snack.openSnackBar("Some Error Occure", 'required filed')
          }

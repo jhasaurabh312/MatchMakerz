@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-declined',
   templateUrl: './declined.component.html',
@@ -15,7 +17,7 @@ export class DeclinedComponent implements OnInit {
   public awaitedOut : any = [];
   outgoing : boolean = true;
   incoming : boolean = false;
-  constructor(private http : HttpClient, public router : Router) { }
+  constructor(private http : HttpClient, public router : Router,private route: ActivatedRoute) { }
   male:any;
   female:any;
   ngOnInit() {
@@ -28,7 +30,7 @@ export class DeclinedComponent implements OnInit {
                   this.female= 'http://www.pranawellness.in/Images/female.png';
 
 
-     this.http.get('http://matchmakerz.in/api/v1/client/declined-interest-incoming?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+     this.http.get('http://matchmakerz.in/api/v1/client/declined-interest-incoming?id='+ this.route.snapshot.queryParamMap.get('id') , {headers : headers}).subscribe((response) =>{
        this.awaitedIn = response;
        console.log(this.awaitedIn)
 
@@ -43,7 +45,7 @@ export class DeclinedComponent implements OnInit {
 
      })
 
-     this.http.get('http://matchmakerz.in/api/v1/client/declined-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+     this.http.get('http://matchmakerz.in/api/v1/client/declined-interest?id='+ this.route.snapshot.queryParamMap.get('id') , {headers : headers}).subscribe((response) =>{
       this.awaitedOut = response;
       console.log(this.awaitedOut)
       
@@ -59,9 +61,7 @@ export class DeclinedComponent implements OnInit {
   
   }
   
-  awaited(){
-    this.router.navigate(['/awaited']);
-  }
+
 
      ShowDeclined(e){
      if(e === 'incoming'){
@@ -76,13 +76,19 @@ export class DeclinedComponent implements OnInit {
    }
 
 
+
+  awaited(){
+    this.router.navigate(['/awaited'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
+  }
+
+
   connected(){
-    this.router.navigate(['/connected']);
+    this.router.navigate(['/connected'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
   }
 
 
   declined(){
-    this.router.navigate(['/declined']);
+    this.router.navigate(['/declined'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
   }
 
   accept(data){

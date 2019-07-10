@@ -25,7 +25,7 @@
                             </div>
                             <div class="image">
                                       <form  enctype="multipart/form-data">
-                                        <label for="photo"> <img src="../../../assets/icons/camera-plus.svg" style="width: 40px;height: 40px"></label>
+                                        <label for="photo"> <img src="../../../assets/icons/camera-plus.svg" style="width: 40px;cursor: pointer;height: 40px"></label>
                                         <input type="file" name="filetoupload" id="photo" style="display:none" (change)="processfile($event)">
                                       </form>
                             </div>
@@ -561,7 +561,7 @@ Partner Preferences                            </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Income</strong>
                         <br>
-                        <h6>{{User.min_income/100000}} LPA - {{User.max_income/100000}} LPA</h6>
+                        <h6>{{User.min_income}} LPA - {{User.max_income}} LPA</h6>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center">
                         <strong>Citizenship</strong>

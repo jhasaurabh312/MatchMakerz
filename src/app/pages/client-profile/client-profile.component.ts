@@ -4,6 +4,10 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
+import {
+  SnackService
+} from '../../shared/services/snack.service'
 
 @Component({
   selector: 'app-client-profile',
@@ -21,7 +25,7 @@ export class ClientProfileComponent implements OnInit {
   pref_caste:any='';
   see_more:boolean=false;
 
-  constructor(private http: HttpClient, public router : Router, private modalService: NgbModal) { }
+  constructor(private http: HttpClient, public router : Router,public snack: SnackService, private modalService: NgbModal,private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.personal = true;
@@ -32,7 +36,7 @@ export class ClientProfileComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
-     this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
+     this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+this.route.snapshot.queryParamMap.get('id'),{headers : headers}).subscribe((res : any) => {
       this.user = res;
         if(this.user.profile_photo === null ){ 
                 if (this.user.gender=== 0){
@@ -44,7 +48,8 @@ export class ClientProfileComponent implements OnInit {
         } 
        
        if(this.user.yearly_income!==null){
-         this.user.yearly_income = this.user.yearly_income/100000
+         if(this.user.yearly_income>1000)
+           this.user.yearly_income = this.user.yearly_income/100000
        }
       
       console.log(this.user)
@@ -85,17 +90,17 @@ export class ClientProfileComponent implements OnInit {
          else 
            this.user.religion = 'Other';   
  
-         if(this.user.occupation === 0)
+         if(this.user.occupation == 0)
           this.user.occupation = 'Not Working';
-         else if(this.user.occupation === 1)
+         else if(this.user.occupation == 1)
           this.user.occupation = 'Private Job';
-         else if(this.user.occupation ===2)
+         else if(this.user.occupation ==2)
           this.user.occupation = 'Self Employed';
-         else if(this.user.occupation ===3)
+         else if(this.user.occupation ==3)
           this.user.occupation = 'Government Job';
-         else if(this.user.occupation === 4)
+         else if(this.user.occupation == 4)
           this.user.occupation = 'Doctor';
-         else if (this.user.occupation ===5)
+         else if (this.user.occupation ==5)
            this.user.occupation = 'Teacher'; 
          else
            this.user.occupation = '-'
@@ -111,17 +116,17 @@ export class ClientProfileComponent implements OnInit {
          this.user.feet = (this.user.height -  this.user.inches)/12;
 
 
-         if(this.user.occupation === 0)
+         if(this.user.occupation == 0)
           this.user.occupation = 'Not Working'; 
          else if(this.user.occupation == 1)
           this.user.occupation = 'Private Company';   
-         else if(this.user.occupation === 2)
+         else if(this.user.occupation == 2)
           this.user.occupation = 'Self Employed';   
-         else if(this.user.occupation === 3)
+         else if(this.user.occupation == 3)
           this.user.occupation = 'Government Job';   
          else if(this.user.occupation === 4)
           this.user.occupation = 'Doctor';  
-         else if (this.user.occupation ==='5')
+         else if (this.user.occupation == 5)
            this.user.occupation = 'Teacher'; 
          else
            this.user.occupation = '-'
@@ -187,7 +192,7 @@ export class ClientProfileComponent implements OnInit {
          console.log(this.user);
     })
 
-     this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((res : any) => {
+     this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+this.route.snapshot.queryParamMap.get('id'),{headers : headers}).subscribe((res : any) => {
       this.User = res;
       console.log(this.User);
       console.log(this.pref_caste)
@@ -225,6 +230,12 @@ export class ClientProfileComponent implements OnInit {
       this.User.manglik = '-' 
 
    
+   if(this.User.min_income>1000){
+     this.User.min_income = this.User.min_income/100000
+   }
+   if(this.User.max_income>1000){
+     this.User.max_income = this.User.max_income/100000
+   }
 
          if(this.User.occupation === 0)
           this.User.occupation = 'Not Working';
@@ -311,12 +322,18 @@ processfile(event){
   this.selectedFile =  (event.target.files[0])
    const uploadData = new FormData();
    console.log(this.selectedFile)
-   this.user.profile_pic = URL.createObjectURL(this.selectedFile);
-    uploadData.append('profile_pic', this.selectedFile,  this.selectedFile.name);
-    console.log(this.user.profile_pic)
-    uploadData.append('matchmaker_id', this.user.id);
+   var reader = new FileReader();
+    // this.imagePath = files;
+    reader.readAsDataURL( this.selectedFile ); 
+    reader.onload = (_event) => { 
+    this.user.profile_photo = reader.result; 
+    }
+   // this.user.profile_photo = URL.createObjectURL(this.selectedFile);
+    uploadData.append('profile_photo', this.selectedFile,  this.selectedFile.name);
+    console.log((this.user.profile_photo))
+    uploadData.append('id', this.user.id);
 
-    this.http.post('http://matchmakerz.in/api/v1/matchmaker/uploadProfilePic' , uploadData ,{ 
+    this.http.post('http://matchmakerz.in/api/v1/client/uploadProfilePic' , uploadData ,{ 
     headers : new HttpHeaders({
       // 'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token'),
@@ -325,10 +342,13 @@ processfile(event){
       .subscribe((response:any) => {
       this.response = response;
       console.log(this.response);
-      if(this.response.status === 1)
-       this.router.navigate(['/my-profile']);
+      if(this.response.status === 1){
+          this.snack.openSnackBar(response.message, 'success')
+
+       this.router.navigate(['/client-profile'],{queryParams:{id:this.route.snapshot.queryParamMap.get('id')}});
+      }
       else 
-       alert('Cannot Update !! something went Wrong');  
+          this.snack.openSnackBar(response.message, 'error')
 
     }),err =>{
       alert('Something went wrong please try again after Sometime');
@@ -349,35 +369,33 @@ processfile(event){
  }
 
  editprofile(data1){
-   localStorage.setItem('clientProfileId',data1);
+   
       localStorage.setItem('clientId',data1);
 
-   this.router.navigate(['/edit-personal']);
+   this.router.navigate(['/edit-personal'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
  }
 
  editeducation(data1){
-   localStorage.setItem('clientProfileId',data1);
+   
       localStorage.setItem('clientId',data1);
 
-   this.router.navigate(['/educational-details']);
+   this.router.navigate(['/educational-details'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
  }
  editsocial(data1){
-   localStorage.setItem('clientProfileId',data1);
+   
       localStorage.setItem('clientId',data1);
 
-   this.router.navigate(['/social-details']);
+   this.router.navigate(['/social-details'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
  }
  editfamily(data1){
-   localStorage.setItem('clientProfileId',data1);
+  
       localStorage.setItem('clientId',data1);
 
-   this.router.navigate(['/client-family']);
+   this.router.navigate(['/client-family'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
  }
  editpreferences(data1){
-   localStorage.setItem('clientProfileId',data1);
    localStorage.setItem('clientId',data1);
-   localStorage.setItem('newClientId',data1);
-   this.router.navigate(['/client-preferences']);
+   this.router.navigate(['/client-preferences'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
  }
  open(content) {
 

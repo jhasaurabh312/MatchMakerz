@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
@@ -24,7 +25,7 @@ export class PersonalDetailsComponent implements OnInit {
   suc : any = [];
   apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient , public router : Router) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient ,private route: ActivatedRoute,  public router : Router) { 
     this. AddClientDetails= this._formBuilder.group({
       'name' : [''],
       'gender' : [''],
@@ -84,7 +85,7 @@ export class PersonalDetailsComponent implements OnInit {
            this.data = response;
            if(this.data.status === 1){
              localStorage.setItem('newClientId' ,this.data.id);
-             this.router.navigate(['/educational-details']);
+             this.router.navigate(['/educational-details'],{ queryParams: { id:this.data.id}});
            }
            
          
