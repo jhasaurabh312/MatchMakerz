@@ -180,10 +180,17 @@ export class MatchesComponent implements OnInit {
 
 
       }
-else{
-      this.show = true;
-    this.load_more = false;
-}
+        else{
+              this.show = true;
+            this.load_more = false;
+        }
+
+        if(this.response.results.length<=0)
+          {
+            this.show=false;
+            this.load_more=false;
+          }
+
       for (let i = 0; i < this.staticProductDetail.length; i++) {
         if (this.staticProductDetail[i].profile_photo === null) {
           if (this.staticProductDetail[i].gender === 0) {

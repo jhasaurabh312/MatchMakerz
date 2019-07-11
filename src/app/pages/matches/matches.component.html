@@ -16,7 +16,7 @@
 <main class="card-wrapper"  style="overflow:hidden;margin-top: 30px">
  
   <div class="row" style="display:flex;background-color:white;" >
-    <div *ngIf="staticProductDetail?.length >'0'; else not_found;" >
+    <div *ngIf="staticProductDetail?.length >'0'; else not_found;" style="width: -webkit-fill-available">
       <div class="row">
      <div  class="col-sm-12 col-md-8 col-xs-12 col-lg-6" style="margin-top:75px;" *ngFor="let member of staticProductDetail">
          <div class="row  client-card shadow-sm"  style="width: 90%">
