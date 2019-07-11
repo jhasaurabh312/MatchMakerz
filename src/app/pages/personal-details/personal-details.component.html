@@ -13,7 +13,7 @@
         <div class="col input-group p-2 ">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="name" placeholder="Name">
+                <input matInput formControlName="name" placeholder="Name" required>
             </mat-form-field>
             <!-- <input  formControlName="first_name" placeholder="First Name" class="form-control"> -->
     
@@ -23,7 +23,7 @@
         <div class="col input-group p-2">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Phone Number</mat-label>
-                <input matInput formControlName="phone_number" placeholder="phone_number">
+                <input matInput formControlName="phone_number" maxlength=10 minlength=10 type="tel" placeholder="Phone Number" required>
             
         </mat-form-field>
             <!-- <input formControlName="last_name" placeholder="Last Name" class="form-control" > -->
@@ -34,7 +34,7 @@
     <div class="col input-group p-2 ">
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Whatsapp Number</mat-label>
-            <input matInput formControlName="whatsapp_number" placeholder="whatsapp_number">
+            <input matInput formControlName="whatsapp_number" maxlength=10 minlength=10 type="tel" placeholder="Whatsapp Number" required>
 
     </mat-form-field>
 
@@ -47,7 +47,7 @@
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Gender</mat-label>
 
-            <mat-select formControlName="gender">
+            <mat-select formControlName="gender" required>
                 <mat-option value="0">Male</mat-option>
                 <mat-option value="1">Female</mat-option>
             </mat-select>
@@ -60,7 +60,7 @@
         <!-- <input matinput formControlName="phone_number" placeholder="phone_number" class="form-control" > -->
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Height</mat-label>
-            <mat-select matInput formControlName="height" placeholder="Height(Inches)">
+            <mat-select matInput formControlName="height" placeholder="Height(Inches)" required>
                 <mat-option value="55">4'7"</mat-option>
                 <mat-option value="56">4'8"</mat-option>
                 <mat-option value="57">4'9"</mat-option>
@@ -99,13 +99,15 @@
 
             <div class="col input-group p-2" >
                 <mat-form-field class="full-width" appearance="outline">
-                  <input matInput formControlName="birth_date" placeholder="Birth Date(YYYY-MM-DD)" [matDatepicker]="picker" >
+                                <mat-label>Birth Date</mat-label>
+
+                  <input matInput formControlName="birth_date" placeholder="Birth Date(YYYY-MM-DD)"  required [matDatepicker]="picker" >
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 
 <!--                 <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Birth Date</mat-label>
+                    <mat-label>Birth Date*</mat-label>
                     <input matInput formControlName="birth_date" placeholder="Birth Date(YYYY-MM-DD)" type="number">
             </mat-form-field>
  -->    </div>
@@ -116,7 +118,7 @@
         <!-- <input formControlName="unique_about" placeholder="unique_about" class="form-control" > -->
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Birth Time</mat-label>
-            <input matInput formControlName="birth_time" placeholder="Birth Time(11:45)" type="time">
+            <input matInput formControlName="birth_time" placeholder="Birth Time(11:45)" required type="time">
         </mat-form-field>
     </div>
 </div>
@@ -124,7 +126,7 @@
     <div class="input-group p-2">
         <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Weight</mat-label>
-                <input matInput formControlName="weight" placeholder="Weight(Kg)" type="number">
+                <input matInput formControlName="weight" placeholder="Weight(Kg)" required type="number">
         </mat-form-field>
     </div>
 </div>        
@@ -132,7 +134,7 @@
     <div class="input-group p-2">
         <mat-form-field class="full-width" appearance="outline">  
                 <mat-label>Current City</mat-label> 
-                <input type="text" matInput formControlName="current_city"  placeholder="current_city" (keyup)="getlocation()">
+                <input type="text" matInput formControlName="current_city"  placeholder="Current City" required (keyup)="getlocation()">
                 <!-- <datalist>
                     <option *ngFor="let option of suc">{{option.description}}</option>
                 </datalist>   -->
@@ -144,7 +146,7 @@
     <div class="input-group p-2">
         <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Birth Place</mat-label>
-                <input matInput formControlName="birth_place" placeholder="Birth Place*">
+                <input matInput formControlName="birth_place"  required placeholder="Birth Place">
                 
         </mat-form-field>
     </div>
@@ -154,7 +156,7 @@
         <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Food Choice</mat-label>
 
-                <mat-select formControlName="food_choice">
+                <mat-select formControlName="food_choice" required>
                     <mat-option value="0">Vegetarian</mat-option>
                     <mat-option value="1">Non-vegetarian</mat-option>
                 </mat-select>
@@ -166,7 +168,7 @@
         <div class="input-group p-2">
             <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Disability</mat-label>
-                    <mat-select formControlName="disability">
+                    <mat-select formControlName="disability" required>
                         <mat-option value="0">Not Disabled</mat-option>
                         <mat-option value="1">Disabled</mat-option>
                     </mat-select>
@@ -175,11 +177,11 @@
         </div>
     </div>
 
-    <div class="form-row ">
+    <div class="form-row" *ngIf="this.AddClientDetails.value.disability==='1'">
             <div class="input-group p-2">
                 <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Disabled Part</mat-label>
-                        <input matInput formControlName="disabled_part" placeholder="Disabled Part">
+                        <input matInput formControlName="disabled_part" placeholder="Disabled Part" requiredw>
                         
                 </mat-form-field>
             </div>

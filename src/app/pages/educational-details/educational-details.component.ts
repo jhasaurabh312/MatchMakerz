@@ -77,7 +77,7 @@ export class EducationalDetailsComponent implements OnInit {
           'education' : ['NA'],
           'degree' : [this.client_data.degree_id],
           'college' : [this.client_data.college],
-          'occupation' : [(this.client_data.occupation).toString()],
+          'occupation' : [this.client_data.occupation  !==null ? (this.client_data.occupation).toString():''],
           'sub_occupation' : [this.client_data.sub_occupation],
           'office_address' : [this.client_data.office_address],
           'yearly_income' : [this.client_data.yearly_income],
@@ -115,8 +115,11 @@ export class EducationalDetailsComponent implements OnInit {
           return throwError("oops"); })).subscribe((response:any) => {
            this.data = response;
            console.log(this.data);
-           if(this.data.status === 1)
-           this.router.navigate(['/social-details'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
+           if(this.data.status === 1){
+                                       this.snack.openSnackBar(this.data.message, 'success')
+
+             this.router.navigate(['/social-details'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
+           }
          else{
            this.snack.openSnackBar("Some Error Occure", 'required filed')
          }

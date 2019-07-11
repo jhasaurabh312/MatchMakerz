@@ -127,7 +127,7 @@ export class ShortlistedComponent implements OnInit {
       return throwError("oops");
     })).subscribe((response: any) => {
       if (response.status === 1) {
-        this.snack.openSnackBar("you show interest", 'success')
+        this.snack.openSnackBar("You have shown an interest", 'success')
         // this.DeleteShorlist(data);
       } else {
         this.snack.openSnackBar(response.message, 'error')

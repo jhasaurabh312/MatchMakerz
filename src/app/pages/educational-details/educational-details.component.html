@@ -13,7 +13,7 @@
                 <div class="col input-group p-2 ">
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Degree</mat-label>
-                        <mat-select  formControlName="degree">
+                        <mat-select  formControlName="degree" required>
                               <mat-option *ngFor="let ietm of degree" [value]="ietm.id">
                                         {{ietm.name}}
                                 </mat-option>
@@ -36,7 +36,7 @@
 
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>College</mat-label>
-                        <input matInput formControlName="college" placeholder="Last college*">
+                        <input matInput formControlName="college" placeholder="Last college" required>
                     </mat-form-field>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Work Status</mat-label>
 
-                        <mat-select formControlName="is_working">
+                        <mat-select formControlName="is_working" required>
 
                             <mat-option value='0'>Not Working</mat-option>
                             <mat-option value='1'>Working</mat-option>
@@ -60,7 +60,7 @@
 
                     <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Annual Income (IN LPA)</mat-label>
-                        <input matInput formControlName="yearly_income" type="number"  maxlength = "3" placeholder="yearly_income (IN LPA)*">
+                        <input matInput formControlName="yearly_income" type="number"  maxlength = 3 maxlength = 1  required placeholder="yearly_income (IN LPA)">
                     </mat-form-field>
                 </div>
             </div>
@@ -69,26 +69,17 @@
                    
                     <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Office Address</mat-label>
-                        <input matInput formControlName="office_address" placeholder="office_address*">
+                        <input matInput formControlName="office_address" placeholder="Office Address" required>
                     </mat-form-field>
                 </div>
             </div>
-            <div class="form-row ">
-                <div class="col input-group p-2 ">
-                    
-                    <mat-form-field class="full-width" appearance="outline">
-                            <mat-label>Sub Occupation</mat-label>
-                        <input matInput formControlName="sub_occupation" placeholder="sub_occupation*">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="form-row ">
+               <div class="form-row ">
                 <div class="col input-group p-2 ">
 
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Occupation</mat-label>
 
-                        <mat-select formControlName="occupation">
+                        <mat-select formControlName="occupation" required>
 
                             <mat-option value="0">Not Working</mat-option>
                             <mat-option value="1">Private Company</mat-option>
@@ -101,6 +92,16 @@
                 </div>
             </div>
             
+            <div class="form-row ">
+                <div class="col input-group p-2 ">
+                    
+                    <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Sub Occupation</mat-label>
+                        <input matInput formControlName="sub_occupation" placeholder="Sub Occupation" required>
+                    </mat-form-field>
+                </div>
+            </div>
+         
                 
 
 

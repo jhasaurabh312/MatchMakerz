@@ -48,11 +48,16 @@ export class ClientsComponent implements OnInit {
      this.http.get('http://matchmakerz.in/api/v1/client/list?id=99999999999', {headers : headers}).subscribe((response) =>{
      this.staticProductDetail = response;
      console.log(this.staticProductDetail);
-  
+      let l = this.staticProductDetail.length;
+      if(l<20)
+       this.show = false;
+      else
+       this.show = true; 
 
      if(this.staticProductDetail.length===0){
       this.check = false ;
       this.check1 = true ;
+      this.show = false;
      }
       
      else {
@@ -62,11 +67,7 @@ export class ClientsComponent implements OnInit {
      
 
      
-      let l = this.staticProductDetail.length;
-      if(l<20)
-       this.show = false;
-      else
-       this.show = true; 
+
        
       // console.log(l, this.show); 
 
@@ -217,13 +218,17 @@ export class ClientsComponent implements OnInit {
       console.log(this.staticProductDetail);
 
      
-      let l = this.staticProductDetail.length;
+      let l = this.staticLoadProductDetail.length;
+      console.log(l)
       if(l<20)
        this.show = false;
       else
        this.show = true; 
-       
-      console.log(l, this.show); 
+       if(this.staticLoadProductDetail.length===0){
+         this.load_more=false;
+          this.show = false;
+        }
+      // console.log(l, this.show); 
 
       for(let i=0;i<l;i++){
         if(this.staticProductDetail[i].profile_photo== null)
@@ -259,7 +264,7 @@ export class ClientsComponent implements OnInit {
          this.staticProductDetail[i].feet = (this.staticProductDetail[i].height -  this.staticProductDetail[i].inches)/12;
         
       } 
-      this.load_more = false;
+         this.load_more=false;
 
       localStorage.setItem('lastClientId', this.staticProductDetail[l-1].id);
       this.router.navigate(['/clients']);

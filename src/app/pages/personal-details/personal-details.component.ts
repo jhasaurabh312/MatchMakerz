@@ -7,6 +7,7 @@ import { EditProfileService } from 'src/app/shared/services/editProfile/edit-pro
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import {SnackService} from '../../shared/services/snack.service'
 
 @Component({
   selector: 'app-personal-details',
@@ -25,7 +26,7 @@ export class PersonalDetailsComponent implements OnInit {
   suc : any = [];
   apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient ,private route: ActivatedRoute,  public router : Router) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient , public snack : SnackService,private route: ActivatedRoute,  public router : Router) { 
     this. AddClientDetails= this._formBuilder.group({
       'name' : [''],
       'gender' : [''],
@@ -84,10 +85,15 @@ export class PersonalDetailsComponent implements OnInit {
           console.log(response)
            this.data = response;
            if(this.data.status === 1){
+                               this.snack.openSnackBar(this.data.message, 'success')
+
              localStorage.setItem('newClientId' ,this.data.id);
              this.router.navigate(['/educational-details'],{ queryParams: { id:this.data.id}});
            }
-           
+else{
+                            this.snack.openSnackBar(this.data.message, 'error')
+
+}           
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

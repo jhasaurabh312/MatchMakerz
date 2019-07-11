@@ -180,7 +180,10 @@ export class MatchesComponent implements OnInit {
 
 
       }
-
+else{
+      this.show = true;
+    this.load_more = false;
+}
       for (let i = 0; i < this.staticProductDetail.length; i++) {
         if (this.staticProductDetail[i].profile_photo === null) {
           if (this.staticProductDetail[i].gender === 0) {
@@ -232,8 +235,7 @@ export class MatchesComponent implements OnInit {
       this.shortlistedTotal = res;
       console.log(this.shortlistedTotal);
     })
-    this.show = true;
-    this.load_more = false;
+
 
 
   }
@@ -332,7 +334,7 @@ export class MatchesComponent implements OnInit {
       return throwError("oops");
     })).subscribe((response: any) => {
       if (response.status === 1) {
-        this.snack.openSnackBar("you shortlist candidate", 'success')
+        this.snack.openSnackBar("You have shortlisted a candidate", 'success')
 
       } else {
         this.snack.openSnackBar(response.message, 'error')
@@ -362,7 +364,7 @@ export class MatchesComponent implements OnInit {
       return throwError("oops");
     })).subscribe((response: any) => {
       if (response.status === 1) {
-        this.snack.openSnackBar("you show interest", 'success')
+        this.snack.openSnackBar("You have shown an interest", 'success')
 
       } else {
         this.snack.openSnackBar(response.message, 'error')

@@ -53,20 +53,20 @@
           <div class="text-center" style="margin-left: auto;
           margin-right: auto;
           margin-top: 10%">
-              <h6 style="font-size: 1.7rem;color:#E55A68">we dont't have any  matches bassed on your preferences</h6>
+              <h6 style="font-size: 1.7rem;color:#E55A68">We dont't have any  matches based on your preferences</h6>
           </div>
         </div>
    </ng-template>
  </div>
  <div class="row" style="margin-bottom: 40px;margin-top: 25px">
   <button type="button" *ngIf="show" class="btn load-more shadow" (click)="GetMore()">View More Clients</button>
-    <button type="button" *ngIf="load_more" class="btn load-more-icon shadow"> <i class="fa  fa-spinner fa-spin fa-3x" aria-hidden="true" style="color:#f92c8b;"> </i> </button>
+    <button type="button" *ngIf="load_more" class="btn load-more-icon"> <i class="fa  fa-spinner fa-spin fa-3x" aria-hidden="true" style="color:#f92c8b;"> </i> </button>
 </div>
 </main>
 
-<div class="section" style="position:fixed;width:100%;bottom:0;margin-bottom: 85px;">
+<div class="section" style="position:fixed;bottom:0;margin-bottom: 85px;margin-left: 92%;">
   <div class="row">
-    <div style="width:45px;height:45px;background-size: 24px;margin-left:90%;cursor:pointer;margin-bottom: 30px" (click)="filter()">
+    <div style="width:45px;height:45px;background-size: 24px;cursor:pointer;margin-bottom: 30px" (click)="filter()">
       <img src='../../../assets/icons_white/filter.svg' style="width: 75px;">
     </div>
   </div>

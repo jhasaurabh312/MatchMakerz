@@ -113,7 +113,7 @@ export class ClientPreferencesComponent implements OnInit {
                 this.caste_arr = ["0"]
             console.log(this.caste_arr)
             cast_prefer = cast_prefer.substring(0, cast_prefer.length - 1);
-
+            console.log(this.client_pref)
                 this.AddClientEducationalDetails = this._formBuilder.group({
                     'min_age': [2019 - parseInt(this.client_pref.min_age)],
                     'max_age': [2019 - parseInt(this.client_pref.max_age)],
@@ -198,11 +198,7 @@ export class ClientPreferencesComponent implements OnInit {
         NewProfile.append('occupation', this.AddClientEducationalDetails.value.occupation);
         NewProfile.append('citizenship', this.AddClientEducationalDetails.value.citizenship);
 
-        console.log(this.AddClientEducationalDetails.value)
-        console.log(this.AddClientEducationalDetails.value.caste[0] !== '0')
-        console.log(this.AddClientEducationalDetails.value.caste[0] !== 0)
-        console.log(this.AddClientEducationalDetails.value.caste[0] === 0)
-        console.log(this.AddClientEducationalDetails.value.caste[0] === '0')
+
         console.log(NewProfile.get('max_height'))
 
         if (this.AddClientEducationalDetails.value.caste !== null && this.AddClientEducationalDetails.value.caste[0] !== '0') {
@@ -230,6 +226,7 @@ export class ClientPreferencesComponent implements OnInit {
         localStorage.setItem('c_cp_occupation', this.AddClientEducationalDetails.value.occupation);
         localStorage.setItem('c_cp_citizenship', this.AddClientEducationalDetails.value.citizenship);
 
+
         if (this.AddClientEducationalDetails.value.caste !== null && this.AddClientEducationalDetails.value.caste[0] !== '0')
             localStorage.setItem('c_cp_caste', this.AddClientEducationalDetails.value.caste.join());
 
@@ -252,6 +249,8 @@ export class ClientPreferencesComponent implements OnInit {
             this.data = response;
             console.log(this.data);
             if (this.data.Status === 1) {
+                                          this.snack.openSnackBar(this.data.message, 'success')
+
                 this.router.navigate(['/client-profile'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
                 this.load = false;
             } else {

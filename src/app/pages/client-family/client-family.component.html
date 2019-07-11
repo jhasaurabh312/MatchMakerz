@@ -16,13 +16,13 @@
                         <div class="form-row ">
                             <mat-form-field class="full-width" appearance="outline">
                                 <mat-label>Hometown</mat-label>
-                                <input matInput formControlName="hometown" placeholder="hometown*">
+                                <input matInput formControlName="hometown" placeholder="Hometown" required>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width" appearance="outline">
                                     <mat-label>Home address</mat-label>
-                                <input matInput formControlName="home_address" placeholder="home_address*">
+                                <input matInput formControlName="home_address" placeholder="Home Address" required>
 
                             </mat-form-field>
                         </div>
@@ -30,7 +30,7 @@
                                 <mat-form-field class="full-width" appearance="outline">
     
                                     <mat-label>House Type</mat-label>
-                                    <mat-select formControlName="house_type">
+                                    <mat-select formControlName="house_type" required>
                                         <mat-option value="0">Owned</mat-option>
                                         <mat-option value="1">Rented</mat-option>
                                     </mat-select>
@@ -41,7 +41,7 @@
                                     <mat-form-field class="full-width" appearance="outline">
         
                                         <mat-label>Family Type</mat-label>
-                                        <mat-select formControlName="family_type">
+                                        <mat-select formControlName="family_type" required>
                                             <mat-option value="0">Nuclear</mat-option>
                                             <mat-option value="1">Joint</mat-option>
                                         </mat-select>
@@ -52,15 +52,35 @@
 
                             <mat-form-field class="full-width" appearance="outline">
                                     <mat-label>Gotra</mat-label>
-                                <input matInput formControlName="gotra" placeholder="gotra*">
+                                <input matInput formControlName="gotra" placeholder="Gotra" required>
+                            </mat-form-field>
+                        </div>
+                          <div class="form-row ">
+                            <mat-form-field class="full-width" appearance="outline">
+
+                                <mat-label>Mother Status</mat-label>
+                                <mat-select formControlName="mother_status" required>
+                                    <mat-option value="0">Alive</mat-option>
+                                    <mat-option value="1">Dead</mat-option>
+                                </mat-select>
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
                             <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Father Status</mat-label>
+                                <mat-select formControlName="father_status" required>
+                                    <mat-option value="0">Alive</mat-option>
+                                    <mat-option value="1">Dead</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row ">
+
+                            <mat-form-field class="full-width" appearance="outline">
 
                                 <!-- <input matInput formControlName="mother_occupation" placeholder="mother_occupation*"> -->
                                 <mat-label>Mother Occupation</mat-label>
-                                <mat-select formControlName="mother_occupation">
+                                <mat-select formControlName="mother_occupation" required>
                                         <mat-option value="0">Not Working</mat-option>
                                         <mat-option value="1">Private Company</mat-option>
                                         <mat-option value="2">Business/ Self Employed</mat-option>
@@ -75,7 +95,7 @@
 
                                 <!-- <input matInput formControlName="father_occupation" placeholder="father_occupation*"> -->
                                 <mat-label>Father Occupation</mat-label>
-                                <mat-select formControlName="father_occupation">
+                                <mat-select formControlName="father_occupation" required>
                                         <mat-option value="0">Not Working</mat-option>
                                         <mat-option value="1">Private Company</mat-option>
                                         <mat-option value="2">Business/ Self Employed</mat-option>
@@ -90,7 +110,7 @@
 
                                 <!-- <input matInput formControlName="married_son" placeholder="married_son*"> -->
                                 <mat-label>Married Son</mat-label>
-                                <mat-select formControlName="married_son">
+                                <mat-select formControlName="married_son" required>
                                     <mat-option value="0">0</mat-option>
                                     <mat-option value="1">1</mat-option>
                                     <mat-option value="2">2</mat-option>
@@ -106,7 +126,7 @@
 
                                 <!-- <input matInput formControlName="unmarried_son" placeholder="unmarried_son*"> -->
                                 <mat-label>Unmarried Son</mat-label>
-                                <mat-select formControlName="unmarried_son">
+                                <mat-select formControlName="unmarried_son" required>
                                     <mat-option value="0">0</mat-option>
                                     <mat-option value="1">1</mat-option>
                                     <mat-option value="2">2</mat-option>
@@ -122,7 +142,7 @@
 
                                 <!-- <input matInput formControlName="married_daughter" placeholder="married_daughter*"> -->
                                 <mat-label>Married Daughter</mat-label>
-                                <mat-select formControlName="married_daughter">
+                                <mat-select formControlName="married_daughter" required>
                                     <mat-option value="0">0</mat-option>
                                     <mat-option value="1">1</mat-option>
                                     <mat-option value="2">2</mat-option>
@@ -138,7 +158,7 @@
 
                                 <!-- <input matInput formControlName="unmarried_daughter" placeholder="unmarried_daughter*"> -->
                                 <mat-label>Unmarried Daughter</mat-label>
-                                <mat-select formControlName="unmarried_daughter">
+                                <mat-select formControlName="unmarried_daughter" required>
                                     <mat-option value="0">0</mat-option>
                                     <mat-option value="1">1</mat-option>
                                     <mat-option value="2">2</mat-option>
@@ -152,34 +172,16 @@
                        
                        
                        
-                        <div class="form-row ">
-                            <mat-form-field class="full-width" appearance="outline">
-
-                                <mat-label>Mother Status</mat-label>
-                                <mat-select formControlName="mother_status">
-                                    <mat-option value="0">Alive</mat-option>
-                                    <mat-option value="1">Dead</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-                        <div class="form-row ">
-                            <mat-form-field class="full-width" appearance="outline">
-                                <mat-label>Father Status</mat-label>
-                                <mat-select formControlName="father_status">
-                                    <mat-option value="0">Alive</mat-option>
-                                    <mat-option value="1">Dead</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
+                      
                         <div class="form-row ">
                                 <mat-form-field class="full-width" appearance="outline">
                                         <mat-label>Family Income (IN LPA)</mat-label>
-                                    <input matInput formControlName="family_income" maxlength = "3" placeholder="Family Income (IN LPA)*" type="number">
+                                    <input matInput formControlName="family_income" maxlength = 3 placeholder="Family Income (IN LPA)*" type="number" required>
                                 </mat-form-field>
                             </div>
                         <!-- <div class="form-row ">
                             <mat-form-field class="full-width">
-                                <mat-label>is_active</mat-label>
+                                <mat-label>is_active*</mat-label>
 
                                 <mat-select formControlName="is_active">
                                     <mat-option value="0">No</mat-option>
@@ -190,7 +192,7 @@
                         <div class="form-row ">
                                 <mat-form-field class="full-width" appearance="outline">
                                         <mat-label>About</mat-label>
-                                    <input matInput formControlName="matchmaker_note" placeholder="matchmaker_note*" type="text">
+                                    <input matInput formControlName="matchmaker_note" placeholder="Matchmaker Note" required type="text">
                                 </mat-form-field>
                             </div>
 

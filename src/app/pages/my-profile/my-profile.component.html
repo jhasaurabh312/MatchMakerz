@@ -76,12 +76,17 @@
       </div>
     </div>
 </div>
-<div class="section" style="position:fixed;width:100%;bottom:0">
-  <div class="row">
+  <div class="row" style="    width: 7%;
+    /* margin-bottom: 7%; */
+    position: fixed;
+    margin-left: 80%;
+    bottom: 11%;">
     <div style="width:45px;height:45px;background-size: 24px;margin-left:85.5%;cursor:pointer;margin-bottom: 23px"  (click)="editProfile()">
       <img src='../../../assets/icons_white/pen.svg' style="width: 60px;"> 
     </div>
   </div>  
+<div class="section" style="position:fixed;width:100%;bottom:0">
+
   <div class="card-wrapper" style="background-color:white;height:62px;padding:5px;display: flex;color:#f92c8b;margin-top:20px">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <a  (click)="ActiveBorder('clients')" routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center;text-decoration: none;">

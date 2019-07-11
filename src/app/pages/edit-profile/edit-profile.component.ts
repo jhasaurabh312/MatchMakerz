@@ -88,7 +88,9 @@ export class EditProfileComponent implements OnInit {
           return throwError("oops"); })).subscribe((response:any) => {
           this.data = response;
           if(this.data.status === 1){
-            window.alert("Your Profile has been successfully updated !!!")
+                                      this.snack.openSnackBar(this.data.message, 'success')
+
+            // window.alert("Your Profile has been successfully updated !!!")
             this.router.navigate(['/my-profile']);
           }
           

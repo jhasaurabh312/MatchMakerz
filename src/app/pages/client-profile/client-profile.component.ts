@@ -118,29 +118,15 @@ export class ClientProfileComponent implements OnInit {
          this.user.feet = (this.user.height -  this.user.inches)/12;
 
 
-         // if(this.user.occupation == 0)
-         //  this.user.occupation = 'Not Working'; 
-         // else if(this.user.occupation == 1)
-         //  this.user.occupation = 'Private Company';   
-         // else if(this.user.occupation == 2)
-         //  this.user.occupation = 'Self Employed';   
-         // else if(this.user.occupation == 3)
-         //  this.user.occupation = 'Government Job';   
-         // else if(this.user.occupation === 4)
-         //  this.user.occupation = 'Doctor';  
-         // else if (this.user.occupation == 5)
-         //   this.user.occupation = 'Teacher'; 
-         // else
-         //   this.user.occupation = '-'
-          
+
          
          if(this.user.father_status === 0)
            this.user.father_status = 'Alive'; 
-         else if(this.user.mother_status === 1)
-           this.user.mother_status = 'Dead';  
+         else if(this.user.father_status === 1)
+           this.user.father_status = 'Dead';  
          
          else
-           this.user.mother_status = '-';  
+           this.user.father_status = '-';  
          
 
          if(this.user.mother_status === 0)
@@ -163,10 +149,10 @@ export class ClientProfileComponent implements OnInit {
            this.user.father_occupation = 'Government Job';   
           else if(this.user.father_occupation == 4)
            this.user.father_occupation = 'Doctor';  
-         else if (this.user.occupation == 5)
-           this.user.occupation = 'Teacher'; 
+         else if (this.user.mother_occupation == 5)
+           this.user.mother_occupation = 'Teacher'; 
          else
-           this.user.occupation = '-'
+           this.user.mother_occupation = '-'
 
 
            if(this.user.mother_occupation == 0)
@@ -179,10 +165,10 @@ export class ClientProfileComponent implements OnInit {
            this.user.mother_occupation = 'Government Job';   
           else if(this.user.mother_occupation == 4)
            this.user.mother_occupation = 'Doctor';  
-         else if (this.user.occupation == 5)
-           this.user.occupation = 'Teacher'; 
+         else if (this.user.mother_occupation == 5)
+           this.user.mother_occupation = 'Teacher'; 
          else
-           this.user.occupation = '-'
+           this.user.mother_occupation = '-'
             
         
 

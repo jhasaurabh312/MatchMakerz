@@ -81,12 +81,12 @@ this.client_data = user;
 
       'marital_status': [this.client_data.marital_status],
       'children': [this.client_data.children],
-      'mother_tongue': [(this.client_data.mother_tongue_id).toString()],
+      'mother_tongue': [ this.client_data.mother_tongue_id !==null ?(this.client_data.mother_tongue_id).toString() : ''],
       'religion': [this.client_data.religion],
-      'zodiac': [(this.client_data.zodiac).toString()],
-      'manglik': [(this.client_data.manglik).toString()],
+      'zodiac': [this.client_data.zodiac!=null ? (this.client_data.zodiac).toString() : ''],
+      'manglik': [this.client_data.manglik!==null?(this.client_data.manglik).toString():''],
       'caste': [this.client_data.caste_id],
-      'citizenship': [(this.client_data.citizenship).toString()],
+      'citizenship': [this.client_data.citizenship !=null ? (this.client_data.citizenship).toString() : ''],
       'want_horoscope_match': [(this.client_data.want_horoscope_match) ? '1':'0'],
     });;
       // localStorage.setItem('edit_client_birth_place',this.user.birth_place);
@@ -125,8 +125,11 @@ this.client_data = user;
     })).subscribe((response: any) => {
       this.data = response;
       console.log(this.data);
-      if (this.data.status === 1)
-      this.router.navigate(['/client-family'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
+      if (this.data.status === 1){
+                                  this.snack.openSnackBar(this.data.message, 'success')
+
+        this.router.navigate(['/client-family'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
+      }
       else{
            this.snack.openSnackBar("Some Error Occure", 'required filed')
          }

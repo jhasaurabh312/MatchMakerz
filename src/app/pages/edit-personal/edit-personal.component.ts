@@ -130,6 +130,8 @@ export class EditPersonalComponent implements OnInit {
           console.log(response)
            this.data = response;
            if(this.data.status === 1){
+                       this.snack.openSnackBar(this.data.message, 'success')
+
              localStorage.setItem('newClientId' ,localStorage.getItem('clientProfileId'));
              this.router.navigate(['/educational-details'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
            }

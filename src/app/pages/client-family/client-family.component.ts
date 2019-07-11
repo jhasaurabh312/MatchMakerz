@@ -95,21 +95,21 @@ export class ClientFamilyComponent implements OnInit {
           this.client_data.family_income = this.client_data.family_income/100000;
         }
   this. AddClientEducationalDetails= this._formBuilder.group({
-        'family_type' : [(this.client_data.family_type).toString()],
+        'family_type' : [this.client_data.family_type!==null ? (this.client_data.family_type).toString() : ''],
         'hometown' : [this.client_data.hometown],
         'home_address' : [this.client_data.home_address],
-        'house_type' : [(this.client_data.house_type).toString()],
+        'house_type' : [this.client_data.house_type !==null ? (this.client_data.house_type).toString() : ''],
         'gotra' : [this.client_data.gotra],
-        'mother_status' : [(this.client_data.mother_status).toString()],
-        'mother_occupation' : [(this.client_data.mother_occupation).toString()],
-        'father_status' : [(this.client_data.father_status).toString()],
-        'father_occupation' : [(this.client_data.father_occupation).toString()],
+        'mother_status' : [this.client_data.mother_status!=null ? (this.client_data.mother_status).toString() : ''],
+        'mother_occupation' : [this.client_data.mother_occupation!==null ?(this.client_data.mother_occupation).toString() : ''],
+        'father_status' : [this.client_data.father_status!==null ? (this.client_data.father_status).toString() : ''],
+        'father_occupation' : [this.client_data.father_occupation!=null ? (this.client_data.father_occupation).toString() : ''],
         'family_income' : [this.client_data.family_income],
         'landline' : ['na'],
-        'married_son' : [(this.client_data.married_son).toString()],
-        'unmarried_son' : [(this.client_data.unmarried_son).toString()],
-        'married_daughter' : [(this.client_data.married_daughter).toString()],
-        'unmarried_daughter' : [(this.client_data.unmarried_daughter).toString()],
+        'married_son' : [ this.client_data.married_son !==null ? (this.client_data.married_son).toString() : ''],
+        'unmarried_son' : [this.client_data.unmarried_son!=null ? (this.client_data.unmarried_son).toString() : ''],
+        'married_daughter' : [ this.client_data.married_daughter!==null ? (this.client_data.married_daughter).toString() :''],
+        'unmarried_daughter' : [this.client_data.unmarried_daughter !==null ? (this.client_data.unmarried_daughter).toString() : ''],
         'matchmaker_note' : [this.client_data.matchmaker_note],
         'is_active' : ['1'],
       });; 
@@ -150,9 +150,12 @@ export class ClientFamilyComponent implements OnInit {
             return throwError("oops"); })).subscribe((response:any) => {
              this.data = response;
              console.log(this.data);
-             if(this.data.status === 1)
-              this.router.navigate(['/client-preferences'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
-                    else{
+             if(this.data.status === 1){
+                          this.snack.openSnackBar(this.data.message, 'success')
+
+                this.router.navigate(['/client-preferences'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
+             }
+             else{
            this.snack.openSnackBar("Some Error Occure", 'required filed')
          }
          
