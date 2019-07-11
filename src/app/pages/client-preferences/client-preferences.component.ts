@@ -255,7 +255,7 @@ export class ClientPreferencesComponent implements OnInit {
                 this.load = false;
             } else {
                 this.load = false;
-                this.snack.openSnackBar("Some Error Occure", 'error')
+           this.snack.openSnackBar("Some error occured", 'error')
             }
 
         }), err => {

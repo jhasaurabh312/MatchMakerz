@@ -135,7 +135,7 @@ this.client_data = user;
         this.router.navigate(['/client-family'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
       }
       else{
-           this.snack.openSnackBar("Some Error Occure", 'required filed')
+           this.snack.openSnackBar("Some error occured", 'error')
          }
 
     }), err => {

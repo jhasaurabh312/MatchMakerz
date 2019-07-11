@@ -95,7 +95,7 @@ export class EditProfileComponent implements OnInit {
           }
           
           else{
-                   this.snack.openSnackBar("Some Error Occure", 'required filed')
+           this.snack.openSnackBar("Some error occured", 'error')
                  }
          
         }),err =>{

@@ -86,6 +86,10 @@ export class PersonalDetailsComponent implements OnInit {
            this.data = response;
            if(this.data.status === 1){
                                this.snack.openSnackBar(this.data.message, 'success')
+              var my_clients = localStorage.getItem('my_clients').split(',')
+              my_clients.push(this.data.id)
+                          localStorage.setItem('my_clients', my_clients.toString());
+
 
              localStorage.setItem('newClientId' ,this.data.id);
              this.router.navigate(['/educational-details'],{ queryParams: { id:this.data.id}});

@@ -47,7 +47,7 @@ export class MatchesComponent implements OnInit {
     debounceTime(10000)
     this.show = false;
     this.load_more = true;
-    let URL = 'http://matchmakerz.in/api/v1/client/filterMatches?page=' + localStorage.getItem('page');
+    let URL = 'http://matchmakerz.in/api/v1/client/filterMatches?page=' + localStorage.getItem('page')+'&&client_id='+this.routes.snapshot.queryParamMap.get('id');
     console.log(localStorage.getItem('min_age'))
 
     if (localStorage.getItem('min_age') !== null) {
@@ -63,13 +63,13 @@ export class MatchesComponent implements OnInit {
     }
 
     if (localStorage.getItem('min_income') !== null) {
-      URL += '&min_income=' + localStorage.getItem('min_income')
+      URL += '&min_income=' + (parseInt(localStorage.getItem('min_income'))*100000)
       // localStorage.removeItem('min_income')
 
     }
 
     if (localStorage.getItem('max_income') !== null) {
-      URL += '&max_income=' + localStorage.getItem('max_income')
+      URL += '&max_income=' +  (parseInt(localStorage.getItem('max_income'))*100000)
       // localStorage.removeItem('max_income')
 
     }
@@ -204,16 +204,17 @@ export class MatchesComponent implements OnInit {
         }
         if (this.staticProductDetail[i].marital_status == '0')
           this.staticProductDetail[i].marital = "Not Married";
-        else
-          this.staticProductDetail[i].marital = "Married";
-
-
+         else if (this.staticProductDetail[i].marital_status == '1')
+            this.staticProductDetail[i].marital = "Divorced";
+        else if (this.staticProductDetail[i].marital_status == '2')
+            this.staticProductDetail[i].marital = "widowed";
+          
         if (this.staticProductDetail[i].manglik == 0)
           this.staticProductDetail[i].manglik = 'Non-Manglik';
         else if (this.staticProductDetail[i].manglik == 1)
           this.staticProductDetail[i].manglik = 'Manglik';
-        else
-          this.staticProductDetail[i].manglik == 'Anshik Manglik'
+        else if (this.staticProductDetail[i].manglik == 2)
+          this.staticProductDetail[i].manglik = 'Anshik Manglik'
 
         if (this.staticProductDetail[i].occupation == '0')
           this.staticProductDetail[i].occupation = 'Not Working';
@@ -371,6 +372,7 @@ export class MatchesComponent implements OnInit {
       return throwError("oops");
     })).subscribe((response: any) => {
       if (response.status === 1) {
+
         this.snack.openSnackBar("You have shown an interest", 'success')
 
       } else {
