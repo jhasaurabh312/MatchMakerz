@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
-
+ 
 @Component({
   selector: 'app-connected',
   templateUrl: './connected.component.html',
@@ -28,7 +28,7 @@ export class ConnectedComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
 
-     this.http.get('http://matchamkerz.in/api/v1/client/connected-interest?id='+ + this.route.snapshot.queryParamMap.get('id') , {headers : headers}).subscribe((response) =>{
+     this.http.get('http://matchmakerz.in/api/v1/client/connected-interest?id='+ + this.route.snapshot.queryParamMap.get('id') , {headers : headers}).subscribe((response) =>{
           this.connect = response;
           console.log(this.connect);
 
@@ -93,6 +93,10 @@ export class ConnectedComponent implements OnInit {
 
   }
 
+  clientProfile(data){
+    localStorage.setItem('clientId' , data);
+    this.router.navigate(['/client-profile'],{ queryParams: { id:data}});
+  }
 
 
  open(content, client_id) {

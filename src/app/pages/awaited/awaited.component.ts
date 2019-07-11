@@ -147,6 +147,11 @@ export class AwaitedComponent implements OnInit {
   connected(){
     this.router.navigate(['/connected'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
   }
+  
+  clientProfile(data){
+    localStorage.setItem('clientId' , data);
+    this.router.navigate(['/client-profile'],{ queryParams: { id:data}});
+  }
 
 
   declined(){
@@ -159,10 +164,18 @@ export class AwaitedComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
 
-      console.log(data)
+    console.log(data)
      return this.http.get('http://matchmakerz.in/api/v1/client/statusaccept-interest?id='+data, {headers : headers}).subscribe((result:any) => {
        console.log(result);
+          if (result.status === 1) {
+              this.snack.openSnackBar(result.message, 'success')
+
+            } else {
+              this.snack.openSnackBar(result.message, 'error')
+
+            }
      })
+
   }
 
   decline(data){

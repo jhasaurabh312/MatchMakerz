@@ -1,4 +1,4 @@
-<main class="card-wrapper" style="background-color:#f1f1f1;">
+<main class="card-wrapper" style="background-color:#f1f1f1;height: fit-content">
     <main class="card-wrapper" style="background-color:#ffffff;">
         <div class="section shadow" id="header-2">
             <div class="row" style="margin: 0px; padding: 0px;">
@@ -23,7 +23,7 @@
                             <div class="row text-center header-row">
                                 <img class="img-thumbnail rounded-circle mx-auto d-block " style="width:250px;height: 250px;" src="{{user.profile_photo}}">
                             </div>
-                            <div class="image">
+                            <div *ngIf="deleteOn" class="image">
                                       <form  enctype="multipart/form-data">
                                         <label for="photo"> <img src="../../../assets/icons/camera-plus.svg" style="width: 40px;cursor: pointer;height: 40px"></label>
                                         <input type="file" name="filetoupload" id="photo" style="display:none" (change)="processfile($event)">
@@ -38,15 +38,43 @@
                                 <!-- <div class=" mx-auto d-block"> -->
                                 <div class="col-md-6 col-sm-6 col-lg-6  mx-auto d-block text-right">
                                     <div class="icon-phone">
+                                                <ng-template #phone let-c="close" let-d="dismiss">
+                                                      <div class="modal-header">
+                                                        <h4 class="modal-title" id="modal-basic-title">Mobile No.</h4>
+                                                        <button type="button" class="close" aria-label="Close"  style="outline:none" (click)="d('Cross click')">
+                                                          <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <br/>
+                                                        {{user.phone_number}}
+                                                      </div>
+
+                                                    </ng-template>
+
                                         <div class=" icon">
-                                            <img src="../../../assets/icons_white/phone-blue.svg">
+                                            <img (click)="open(phone)" src="../../../assets/icons_white/phone-blue.svg">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-lg-6   mx-auto d-block text-left">
+                                                    <ng-template #whatapp let-c="close" let-d="dismiss">
+                                                      <div class="modal-header">
+                                                        <h4 class="modal-title" id="modal-basic-title">Whats App</h4>
+                                                        <button type="button" class="close" aria-label="Close"  style="outline:none" (click)="d('Cross click')">
+                                                          <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <br/>
+                                                        {{user.whatsapp_number}}
+                                                      </div>
+
+                                                    </ng-template>
+
                                     <div class="icon-whatsapp">
                                         <div class=" icon">
-                                            <img src="../../../assets/icons_white/whatsapp.svg">
+                                            <img (click)="open(whatapp)" src="../../../assets/icons_white/whatsapp.svg">
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +122,7 @@
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#F92C8B">
                             <div class="offset-11">
-                            <div class="icons" (click)="editprofile(user.id)" style="cursor : pointer">
+                            <div *ngIf="deleteOn" class="icons" (click)="editprofile(user.id)" style="cursor : pointer">
                                 <img src="../../../assets/icons/pen.svg">
                             </div>
                           </div>
@@ -197,7 +225,7 @@
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons" (click)="editprofile(user.id)">
+                              <div *ngIf="deleteOn" class="icons" (click)="editprofile(user.id)">
                                 <img src="../../../assets/icons/pen.svg" (click)="editprofile(user.id)">
                               </div>
                             </div>                   
@@ -253,7 +281,7 @@
                   </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons" (click)="editeducation(user.id)">
+                              <div *ngIf="deleteOn" class="icons" (click)="editeducation(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -290,7 +318,7 @@
                   </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons" (click)="editeducation(user.id)">
+                              <div *ngIf="deleteOn" class="icons" (click)="editeducation(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -338,7 +366,7 @@
                   </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons" (click)="editsocial(user.id)">
+                              <div *ngIf="deleteOn" class="icons" (click)="editsocial(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -383,7 +411,7 @@
                         </div>
                   </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
-                            <div class="offset-11">
+                            <div *ngIf="deleteOn" class="offset-11">
                               <div class="icons" (click)="editfamily(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
@@ -439,7 +467,7 @@
                   </div>
                                       <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons" (click)="editfamily(user.id)">
+                              <div *ngIf="deleteOn" class="icons" (click)="editfamily(user.id)">
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -492,7 +520,7 @@ Partner Preferences                            </div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 text-right" style="float:left;color:#f92c8b">
                             <div class="offset-11">
-                              <div class="icons" (click)="editpreferences(user.id)"> 
+                              <div *ngIf="deleteOn" class="icons" (click)="editpreferences(user.id)"> 
                                 <img src="../../../assets/icons/pen.svg">
                               </div>
                             </div>                   
@@ -579,8 +607,9 @@ Partner Preferences                            </div>
 
         </main>
     </main>
-    <div class="container text-center">
-        <button class="btn btn-danger" style="margin:50px;margin-left:auto;margin-right:auto;" (click)="delete()">Delete Client</button>
+    <div class="container text-center" >
+        <button class="btn btn-danger" *ngIf="deleteOn" style="margin:50px;margin-left:auto;margin-right:auto;" (click)="delete()">Delete Client</button>
+        <!-- <button  *ngIf="!deleteOn" style="margin:50px;margin-left:auto;margin-right:auto;display: none;">Delete Client</button> -->
     </div>
 
 </main>

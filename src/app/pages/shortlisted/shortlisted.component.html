@@ -100,8 +100,8 @@
   </div> -->
       <div class="row" style="display:flex;background-color:white;" >
       <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:75px;" *ngFor="let member of shortlisted" >
-        <div class="row client-card shadow-sm"  style="width:90%">
-          <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
+        <div class="row client-card shadow-sm" (click)="clientProfile(member.matched_to.id)"   style="width:90%">
+          <div class="column-l"  style="width:50%">
              <div style="padding:10px;"> <img src="{{member.shortlist_to.profile_photo}}" style="width: 100%;height:270px;border-radius: 7px;" ></div>
           </div>
           <div class="column-r" style="width:50%">

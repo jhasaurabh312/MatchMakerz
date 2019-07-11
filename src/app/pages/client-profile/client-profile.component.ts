@@ -12,7 +12,8 @@ import {
 @Component({
   selector: 'app-client-profile',
   templateUrl: './client-profile.component.html',
-  styleUrls: ['./client-profile.component.scss']
+  styleUrls: ['./client-profile.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class ClientProfileComponent implements OnInit {
   User : any = [];
@@ -24,8 +25,12 @@ export class ClientProfileComponent implements OnInit {
   response: any;
   pref_caste:any='';
   see_more:boolean=false;
+  deleteOn:boolean=false;
 
-  constructor(private http: HttpClient, public router : Router,public snack: SnackService, private modalService: NgbModal,private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, public router : Router,public snack: SnackService,config: NgbModalConfig, private modalService: NgbModal,private route: ActivatedRoute) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
 
   ngOnInit() {
     this.personal = true;
@@ -35,6 +40,8 @@ export class ClientProfileComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
+    var my_clients = localStorage.getItem('my_clients').split(',')
+    this.deleteOn = my_clients.includes(this.route.snapshot.queryParamMap.get('id').toString())
 
      this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+this.route.snapshot.queryParamMap.get('id'),{headers : headers}).subscribe((res : any) => {
       this.user = res;
@@ -53,10 +60,6 @@ export class ClientProfileComponent implements OnInit {
        }
       
       console.log(this.user)
-      console.log(this.user.marital_status=='0')
-      console.log(this.user.marital_status==0)
-      console.log(this.user.marital_status===0)
-      console.log(this.user.marital_status==='0')
        if(this.user.marital_status === '0')
          this.user.marital = "Not Married";
         else if(this.user.marital_status === '1')
@@ -67,7 +70,6 @@ export class ClientProfileComponent implements OnInit {
          // if(this.user.marital === 2)
         this.user.marital = "-";
 
-
          if(this.user.manglik === 0)
           this.user.manglik = 'Non-Manglik';
          else if(this.user.manglik === 1)
@@ -77,19 +79,19 @@ export class ClientProfileComponent implements OnInit {
          else
           this.user.manglik = '-' 
 
-        if(this.user.religion ===0)
+        if(this.user.religion === '0')
           this.user.religion = 'Hindu';
-         else if(this.user.religion ===1)
+         else if(this.user.religion === '1')
           this.user.religion = 'Muslim';
-         else if(this.user.religion ===2)
+         else if(this.user.religion === '2')
           this.user.religion = 'Christian';
-         else if(this.user.religion ===3)
+         else if(this.user.religion === '3')
           this.user.religion = 'Sikh';
-         else if(this.user.religion ===4)
+         else if(this.user.religion === '4')
           this.user.religion = 'Jain';
          else 
            this.user.religion = 'Other';   
-   console.log(this.user.occupation)
+   console.log(this.user.religion)
 
          if(this.user.occupation === 0)
           this.user.occupation = 'Not Working';
@@ -344,15 +346,35 @@ processfile(event){
 }
 
  delete(){
-  const headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'Token ' + localStorage.getItem('token')
-  }) 
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    }) 
 
-   this.http.get('http://matchmakerz.in/api/v1/client/deleteClient?id='+localStorage.getItem('clientId')+'&is_active='+this.user.is_active,{headers : headers}).subscribe((res : any) => {
+  console.log('Token ' + localStorage.getItem('token'))
+  
+
+   this.http.post('http://matchmakerz.in/api/v1/client/deleteClient?id='+this.route.snapshot.queryParamMap.get('id')+'&is_active=false',{ 
+    headers : new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token'),
+    })}).subscribe((res : any) => {
     this.user = res;
     console.log(this.user);
-  })
+    if(this.user.status === 1){
+        this.snack.openSnackBar(res.message, 'success')
+
+     this.router.navigate(['/clients']);
+    }
+    else {
+        this.snack.openSnackBar(res.message, 'error')
+
+    }
+  }),err =>{
+             this.snack.openSnackBar('Something went wrong please try again after Sometime', 'error')
+
+          console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');
+        }
 
  }
 
@@ -385,6 +407,7 @@ processfile(event){
    localStorage.setItem('clientId',data1);
    this.router.navigate(['/client-preferences'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
  }
+ 
  open(content) {
 
     this.modalService.open(content);

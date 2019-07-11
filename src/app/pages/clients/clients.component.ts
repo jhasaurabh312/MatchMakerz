@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModalConfig,NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
-
+import {
+    FormBuilder,
+    FormGroup
+} from '@angular/forms';
 
 
 
@@ -27,51 +30,36 @@ export class ClientsComponent implements OnInit {
   check1 : boolean ;
   male : any;
   female :any;
-  
-  constructor( private http : HttpClient , public router : Router,private route: ActivatedRoute) {}
+  my_clients:any=[];
+  SearchClient:any;
+  constructor( private http : HttpClient , public router : Router,private route: ActivatedRoute,private _formBuilder: FormBuilder) {
+
+        this.SearchClient = this._formBuilder.group({
+          'search':[''],
+
+        })
+
+  }
 
 
 // constructor(private modalService: NgbModal) {}
-
-
-  ngOnInit() {
-
-    this.male  = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png'
-    // 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
-    this.female= 'http://www.pranawellness.in/Images/female.png';
-              
-    const headers = new HttpHeaders({
+SerachMyClients(){
+      const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
+      console.log(this.SearchClient.value["search"])
+   this.http.get('http://matchmakerz.in/api/v1/matchmaker/searchclient?search='+this.SearchClient.value["search"], {headers : headers}).subscribe((response) =>{
+       this.staticProductDetail = response;
+     if(this.staticProductDetail.status===0)
+         this.staticProductDetail = []
 
-     this.http.get('http://matchmakerz.in/api/v1/client/list?id=99999999999', {headers : headers}).subscribe((response) =>{
-     this.staticProductDetail = response;
-     console.log(this.staticProductDetail);
-      let l = this.staticProductDetail.length;
-      if(l<20)
-       this.show = false;
-      else
-       this.show = true; 
+           let l = this.staticProductDetail.length;
+           this.show = false;
+     console.log(response)
 
-     if(this.staticProductDetail.length===0){
-      this.check = false ;
-      this.check1 = true ;
-      this.show = false;
-     }
-      
-     else {
-      this.check = true ; 
-      this.check1 = false ; 
-     }
-     
-
-     
-
-       
-      // console.log(l, this.show); 
-
-      for(let i=0;i<l;i++){
+           for(let i=0;i<l;i++){
+        this.my_clients.push(this.staticProductDetail[i].id)
         // console.log(this.staticLoadProductDetail)
         if(this.staticProductDetail[i].profile_photo== null)
         {        
@@ -123,6 +111,103 @@ export class ClientsComponent implements OnInit {
          this.staticProductDetail[i].feet = (this.staticProductDetail[i].height -  this.staticProductDetail[i].inches)/12;
         
       } 
+   })
+    
+}
+
+  ngOnInit() {
+
+    this.male  = 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png'
+    // 'http://www.epsomps.vic.edu.au/wp-content/uploads/2016/09/512x512-300x300.png';
+    this.female= 'http://www.pranawellness.in/Images/female.png';
+              
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem('token')
+    }) 
+
+     this.http.get('http://matchmakerz.in/api/v1/client/list?id=99999999999', {headers : headers}).subscribe((response) =>{
+     this.staticProductDetail = response;
+     console.log(this.staticProductDetail);
+      let l = this.staticProductDetail.length;
+      if(l<20)
+       this.show = false;
+      else
+       this.show = true; 
+
+     if(this.staticProductDetail.length===0){
+      this.check = false ;
+      this.check1 = true ;
+      this.show = false;
+     }
+      
+     else {
+      this.check = true ; 
+      this.check1 = false ; 
+     }
+     
+
+     
+
+       
+      // console.log(l, this.show); 
+
+      for(let i=0;i<l;i++){
+        this.my_clients.push(this.staticProductDetail[i].id)
+        // console.log(this.staticLoadProductDetail)
+        if(this.staticProductDetail[i].profile_photo== null)
+        {        
+          if (this.staticProductDetail[i].gender === 1)
+              this.staticProductDetail[i].profile_photo = this.female
+
+           else{
+             this.staticProductDetail[i].profile_photo=this.male 
+           }
+
+        }
+        console.log(this.staticProductDetail[i].profile_photo)
+   
+         if(this.staticProductDetail[i].yearly_income>1000){
+           this.staticProductDetail[i].yearly_income = this.staticProductDetail[i].yearly_income/100000
+         }
+  
+
+        if(this.staticProductDetail[i].marital_status == '0')
+         this.staticProductDetail[i].marital = "Not Married";
+        else
+         this.staticProductDetail[i].marital = "Married";
+
+
+         if(this.staticProductDetail[i].manglik == 0)
+          this.staticProductDetail[i].manglik = 'Non-Manglik';
+         else if(this.staticProductDetail[i].manglik == 1)
+          this.staticProductDetail[i].manglik = 'Manglik'; 
+         else 
+          this.staticProductDetail[i].manglik == 'Anshik Manglik' 
+
+         if(this.staticProductDetail[i].occupation =='0')
+          this.staticProductDetail[i].occupation = 'Not Working';
+         else if(this.staticProductDetail[i].occupation =='1')
+          this.staticProductDetail[i].occupation = 'Private Job';
+         else if(this.staticProductDetail[i].occupation =='2')
+          this.staticProductDetail[i].occupation = 'Self Employed';
+         else if(this.staticProductDetail[i].occupation =='3')
+          this.staticProductDetail[i].occupation = 'Government Job';
+         else if(this.staticProductDetail[i].occupation =='4')
+          this.staticProductDetail[i].occupation = 'Doctor';
+         else 
+           this.staticProductDetail[i].occupation = 'Teacher';  
+          
+          
+
+       
+         this.staticProductDetail[i].inches = this.staticProductDetail[i].height % 12 ;
+         this.staticProductDetail[i].feet = (this.staticProductDetail[i].height -  this.staticProductDetail[i].inches)/12;
+        
+      } 
+            localStorage.setItem('my_clients', this.my_clients.toString());
+       console.log(this.my_clients.length)
+
 
       localStorage.setItem('lastClientId', this.staticProductDetail[l-1].id);
   
@@ -141,6 +226,26 @@ export class ClientsComponent implements OnInit {
     localStorage.setItem('clientId' , data);  
     this.router.navigate(['/awaited'],{ queryParams: { id:data}});
   }
+
+  NotView(data){
+
+    localStorage.setItem('clientId' , data); 
+    let id = 1;
+    console.log(this.my_clients.includes(data.matched_for_id))
+    if(this.my_clients.includes(data.matched_for_id))
+      id = data.matched_for_id
+    else
+      id = data.matched_to_id
+    console.log(data) 
+    if(data.approved_by_receiver===0)
+      this.router.navigate(['/declined'],{ queryParams: { id:id}});
+    else if(data.approved_by_receiver===1)
+      this.router.navigate(['/connected'],{ queryParams: { id:id}});
+    else
+      this.router.navigate(['/awaited'],{ queryParams: { id:id}});
+
+  }
+
 
   getMatches(data, gender){
     localStorage.setItem('clientId' , data);
@@ -231,6 +336,7 @@ export class ClientsComponent implements OnInit {
       // console.log(l, this.show); 
 
       for(let i=0;i<l;i++){
+        this.my_clients.push(this.staticLoadProductDetail[i].id)
         if(this.staticProductDetail[i].profile_photo== null)
         this.staticProductDetail[i].profile_photo = 'https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png';
 
@@ -265,8 +371,9 @@ export class ClientsComponent implements OnInit {
         
       } 
          this.load_more=false;
-
+       console.log(this.my_clients.length)
       localStorage.setItem('lastClientId', this.staticProductDetail[l-1].id);
+      localStorage.setItem('my_clients', this.my_clients.toString());
       this.router.navigate(['/clients']);
    })
    

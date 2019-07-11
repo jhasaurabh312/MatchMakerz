@@ -97,6 +97,10 @@ this.client_data = user;
   }
 
   }
+  clientProfile(data){
+    localStorage.setItem('clientId' , data);
+    this.router.navigate(['/client-profile'],{ queryParams: { id:data}});
+  }
 
 
 

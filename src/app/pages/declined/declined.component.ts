@@ -76,6 +76,10 @@ export class DeclinedComponent implements OnInit {
    }
 
 
+  clientProfile(data){
+    localStorage.setItem('clientId' , data);
+    this.router.navigate(['/client-profile'],{ queryParams: { id:data}});
+  }
 
   awaited(){
     this.router.navigate(['/awaited'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
