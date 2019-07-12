@@ -191,8 +191,8 @@ export class FilterComponent implements OnInit {
 
         localStorage.setItem('min_age', (parseInt('2019') - parseInt(this.EditClientPreferences.value.min_age)).toString());
         localStorage.setItem('max_age', (parseInt('2019') - parseInt(this.EditClientPreferences.value.max_age)).toString());
-        localStorage.setItem('min_income', (parseInt(this.EditClientPreferences.value.min_income) * 100000).toString());
-        ((localStorage.setItem('max_income', (parseInt(this.EditClientPreferences.value.max_income) * 100000).toString())));
+        localStorage.setItem('min_income', (parseInt(this.EditClientPreferences.value.min_income)).toString());
+        ((localStorage.setItem('max_income', (parseInt(this.EditClientPreferences.value.max_income)).toString())));
         localStorage.setItem('min_height', this.EditClientPreferences.value.min_height);
         // console.log(this.EditClientPreferences.value.max_height)
         localStorage.setItem('max_height', this.EditClientPreferences.value.max_height);
@@ -215,7 +215,7 @@ export class FilterComponent implements OnInit {
             localStorage.removeItem('food_choice');
 
         }
-        if (this.EditClientPreferences.value.occupation !== '2')
+        if (this.EditClientPreferences.value.occupation !== '6')
             localStorage.setItem('occupation', this.EditClientPreferences.value.occupation);
         else {
             localStorage.removeItem('occupation');

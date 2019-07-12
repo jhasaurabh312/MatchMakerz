@@ -207,7 +207,10 @@ export class MatchesComponent implements OnInit {
          else if (this.staticProductDetail[i].marital_status == '1')
             this.staticProductDetail[i].marital = "Divorced";
         else if (this.staticProductDetail[i].marital_status == '2')
-            this.staticProductDetail[i].marital = "widowed";
+            this.staticProductDetail[i].marital = "widowed";  
+         else
+            this.staticProductDetail[i].marital = "-";
+
           
         if (this.staticProductDetail[i].manglik == 0)
           this.staticProductDetail[i].manglik = 'Non-Manglik';
@@ -215,6 +218,8 @@ export class MatchesComponent implements OnInit {
           this.staticProductDetail[i].manglik = 'Manglik';
         else if (this.staticProductDetail[i].manglik == 2)
           this.staticProductDetail[i].manglik = 'Anshik Manglik'
+        else
+          this.staticProductDetail[i].manglik = '-'
 
         if (this.staticProductDetail[i].occupation == '0')
           this.staticProductDetail[i].occupation = 'Not Working';
@@ -226,8 +231,10 @@ export class MatchesComponent implements OnInit {
           this.staticProductDetail[i].occupation = 'Government Job';
         else if (this.staticProductDetail[i].occupation == '4')
           this.staticProductDetail[i].occupation = 'Doctor';
-        else
+        else if (this.staticProductDetail[i].occupation == '5')
           this.staticProductDetail[i].occupation = 'Teacher';
+        else
+          this.staticProductDetail[i].occupation = '-';
 
 
         this.staticProductDetail[i].inches = this.staticProductDetail[i].height % 12;

@@ -106,15 +106,17 @@
                         </mat-form-field>
                     </div>
                     <div class="col input-group p-2">
-                        <mat-form-field  appearance="outline">                            <mat-label>occupation</mat-label>
+                        <mat-form-field  appearance="outline">                            
+                            <mat-label>occupation</mat-label>
                             <mat-select required formControlName="occupation">
-                                <mat-option value='0'>
-                                    No
-                                </mat-option>
-                                <mat-option value='1'>
-                                    Yes
-                                </mat-option>
-                                <mat-option value='2'>
+                               
+                                    <mat-option value='0'>Not Working</mat-option>
+                                    <mat-option value='1'>Private Company</mat-option>
+                                    <mat-option value='2'>Business/ Self Employed</mat-option>
+                                    <mat-option value='3'>Government Job</mat-option>
+                                    <mat-option value='4'>Doctor</mat-option>
+                                    <mat-option value='5'>Teacher</mat-option>
+                                <mat-option value='6'>
                                     Doesn't Matter
                                 </mat-option>
                             </mat-select>
