@@ -46,6 +46,7 @@ export class ClientsComponent implements OnInit {
     female: any;
     my_clients: any = [];
     SearchClient: any;
+    show_find_Matches:boolean=false;
     constructor(private http: HttpClient, public router: Router, private route: ActivatedRoute, private _formBuilder: FormBuilder) {
 
         this.SearchClient = this._formBuilder.group({
@@ -161,7 +162,9 @@ export class ClientsComponent implements OnInit {
                 this.check = false;
                 this.check1 = true;
                 this.show = false;
+                this.show_find_Matches = true;
             } else {
+                this.show_find_Matches=false;
                 this.check = true;
                 this.check1 = false;
             }
@@ -244,7 +247,7 @@ export class ClientsComponent implements OnInit {
             console.log(this.my_clients.length)
 
 
-            localStorage.setItem('lastClientId', this.staticProductDetail[l - 1].id);
+            localStorage.setItem('lastClientId', (l>0 ? this.staticProductDetail[l - 1].id:''));
 
         })
 
@@ -298,7 +301,13 @@ export class ClientsComponent implements OnInit {
             });
 
     }
-
+    findMatches(){
+         this.router.navigate(['/filter'], {
+                queryParams: {
+                    id: 0
+                }
+            });
+    }
 
     getMatches(data, gender) {
         localStorage.setItem('clientId', data);
