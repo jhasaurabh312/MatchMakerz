@@ -1,6 +1,6 @@
 <div class="section shadow" id="header" >
-  <div class="col-xs-6 col-sm-6 col-md-8 col-lg-9" style="display:flex;height:85px;" (click)="hide()">
-    <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width: 80px;height:80px;margin-top:auto;margin-bottom:auto;padding-left:30px">
+  <div class="col-xs-6 col-sm-6 col-md-8 col-lg-9" style="display:flex;height:85px;outline: none;" (click)="hide()">
+    <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="outline: none;cursor:pointer;width: 80px;height:80px;margin-top:auto;margin-bottom:auto;padding-left:30px">
     <h5 style="font-size:1.4em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;color:#606060;font-style: continuous">Matchmakerz</h5>
   </div>
   <div class="col-xs-6 col-md-4 col-lg-3 col-sm-6" style="display:flex;height:85px;">
@@ -13,7 +13,7 @@
     /*display: none;*/
     height: 600px;background: #f1f1f1">
           <ng-container *ngIf="notices?.length>'0'">
-            <div class="row notification-item" (click)="getActivity(notice.matched_for)"  *ngFor="let notice of notices">
+            <div class="row notification-item" (click)="NotView(notice)"  *ngFor="let notice of notices">
 
               <div class="col-xs-11 col-md-11 col-lg-11" >
                 <div class="row">
@@ -36,7 +36,7 @@
               </div>
               <div class="col-xs-1 col-md-1 col-lg-1 text-center view-button">
                 <div class="button-notification">
-                    <button (click)="getActivity(notice.matched_for)" class="btn btn-primary text-center" style="margin-left: 0px;
+                    <button (click)="NotView(notice)" class="btn btn-primary text-center" style="margin-left: 0px;
                         width: 52px;
                         height: 29px;
                         font-size: 1em;
@@ -65,10 +65,30 @@
     </div>
   </div>
 </div>
+<div class="row" style="width:100%">
+  <div class="container">
+    <div style="text-align: -webkit-center;margin-top: 3%;">
+              <form [formGroup]="SearchClient" (ngSubmit)="SerachMyClients()">
+
+      <div style="display: flex; width: 40%;   border-radius: 103px;
+    height: 50px;
+    display: flex;
+    padding: 10px;outline: none;" class="form-control">
+        <i class="fa fa-search" style="    padding: 5px;"></i>
+        <input style="    border-radius: 100px;
+    width: -webkit-fill-available;
+    border: none;
+    outline: none;"   type="text" placeholder="Search" formControlName="search">
+
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
 <main class="card-wrapper" style="overflow:hidden;padding: 20px;margin-bottom:10px" *ngIf="check" (click)="hide()">
   <div id="something" class="row" style="display:flex;background-color:white; margin-bottom: 60px">
     <div class="col-sm-12 col-md-8 col-lg-6"  style="margin-top: 75px" *ngFor="let member of staticProductDetail">
-      <div class="row client-card" style="width:90%">
+      <div class="row client-card shadow-sm" style="width:90%">
         <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
           <div style="padding:10px">
             <img src="{{member.profile_photo}}" style="width: 100%;height:270px;border-radius: 7px;">
@@ -86,7 +106,7 @@
               <p style="font-size:16px;margin-bottom:7px">
                 <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.manglik}}</p>
               <p style="font-size:16px;margin-bottom:7px">
-                <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.yearly_income}}LPA,{{member.occupation}}</p>
+                <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.yearly_income}} LPA,{{member.occupation}}</p>
               <p style="font-size:16px">
                 <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.current_city}}</p>
             </div>
@@ -110,15 +130,23 @@
     margin-right: auto;
     margin-top: 10%">
         <h6 style="font-size: 2rem;color:#F92CBB">You have no clients......</h6>
-    </div>
+        <button  mat-raised-button style="color: white;background-color: #f92c8b" (click)="findMatches()">
+          Find Matches
+        </button>
+    </div> 
   </div>
 </main>
-<div class="section" style="position:fixed;width:100%;bottom:0">
-  <div class="row">
+  <div class="row" style="    width: 7%;
+    /* margin-bottom: 7%; */
+    position: fixed;
+    margin-left: 80%;
+    bottom: 11%;">
     <div style="width:45px;height:45px;background-size: 24px;margin-left:90%;cursor:pointer;margin-bottom: 30px" (click)="AddClient()">
       <img src='../../../assets/icons/test.svg' style="width: 75px;">
     </div>
   </div>
+<div class="section" style="position:fixed;width:100%;bottom:0">
+
   <div class="card-wrapper shadow-sm" style="background-color:white;height:62px;padding:5px;display: flex;color:#f92c8b;margin-top:20px">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <a  class="active-border" (click)="ActiveBorder('clients')" routerLink="/clients" routerLinkActive="active" style="display:block;text-align: center; text-decoration: none;">

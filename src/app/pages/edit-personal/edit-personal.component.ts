@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SnackService} from '../../shared/services/snack.service'
+import { ActivatedRoute } from '@angular/router';
 
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
@@ -24,8 +25,9 @@ export class EditPersonalComponent implements OnInit {
   suc : any = [];
   apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
   user : any = [];
+  client_id:any;
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router, public snack : SnackService) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, public router : Router,private route: ActivatedRoute, public snack : SnackService) { 
     this. AddClientDetails= this._formBuilder.group({
       'name' : [localStorage.getItem('edit_client_name')],
       'gender' : [localStorage.getItem('edit_client_gender')],
@@ -49,13 +51,13 @@ export class EditPersonalComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     }) 
 
-   if(localStorage.getItem('clientId')){
-
-    this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+localStorage.getItem('clientId'),{headers : headers}).subscribe((user) => {
+   // if(localStorage.getItem('clientId')){
+     this.client_id = this.route.snapshot.queryParamMap.get('id');
+    this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+this.route.snapshot.queryParamMap.get('id'),{headers : headers}).subscribe((user) => {
       this.user = user;
       console.log(this.user);
 
-      localStorage.setItem('clientProfileId',localStorage.getItem('clientId'));
+      // localStorage.setItem('clientProfileId',localStorage.getItem('clientId'));
       // localStorage.removeItem('clientId')
       localStorage.setItem('edit_client_name',this.user.name);
       localStorage.setItem('edit_client_phone_number',this.user.phone_number);
@@ -86,7 +88,7 @@ export class EditPersonalComponent implements OnInit {
       'disabled_part' : [localStorage.getItem('edit_client_disabled_part')],
     });; 
     })
-  }
+  // }
 
 
 
@@ -95,7 +97,7 @@ export class EditPersonalComponent implements OnInit {
   addClient(){
 
     const NewProfile  = new FormData();
-    NewProfile.append('id', localStorage.getItem('clientProfileId') );  
+    NewProfile.append('id',this.route.snapshot.queryParamMap.get('id'));  
     NewProfile.append('name', this.AddClientDetails.value.name );   
     NewProfile.append('phone_number', this.AddClientDetails.value.phone_number );
     NewProfile.append('gender', this.AddClientDetails.value.gender);
@@ -128,11 +130,13 @@ export class EditPersonalComponent implements OnInit {
           console.log(response)
            this.data = response;
            if(this.data.status === 1){
+                       this.snack.openSnackBar(this.data.message, 'success')
+
              localStorage.setItem('newClientId' ,localStorage.getItem('clientProfileId'));
-             this.router.navigate(['/educational-details']);
+             this.router.navigate(['/educational-details'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
            }
             else{
-           this.snack.openSnackBar("Some Error Occure", 'required filed')
+           this.snack.openSnackBar("Some error occured", 'error')
          }
            
          

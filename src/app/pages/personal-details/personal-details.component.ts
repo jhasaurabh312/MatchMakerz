@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
@@ -6,6 +7,7 @@ import { EditProfileService } from 'src/app/shared/services/editProfile/edit-pro
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import {SnackService} from '../../shared/services/snack.service'
 
 @Component({
   selector: 'app-personal-details',
@@ -24,7 +26,7 @@ export class PersonalDetailsComponent implements OnInit {
   suc : any = [];
   apiKey:string='AIzaSyCoWnTuLuqqx-SLvnv4gH6UHcC_Sr9KysU';
 
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient , public router : Router) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient , public snack : SnackService,private route: ActivatedRoute,  public router : Router) { 
     this. AddClientDetails= this._formBuilder.group({
       'name' : [''],
       'gender' : [''],
@@ -83,10 +85,19 @@ export class PersonalDetailsComponent implements OnInit {
           console.log(response)
            this.data = response;
            if(this.data.status === 1){
+                               this.snack.openSnackBar(this.data.message, 'success')
+              var my_clients = localStorage.getItem('my_clients').split(',')
+              my_clients.push(this.data.id)
+                          localStorage.setItem('my_clients', my_clients.toString());
+
+
              localStorage.setItem('newClientId' ,this.data.id);
-             this.router.navigate(['/educational-details']);
+             this.router.navigate(['/educational-details'],{ queryParams: { id:this.data.id}});
            }
-           
+else{
+                            this.snack.openSnackBar(this.data.message, 'error')
+
+}           
          
         }),err =>{
           console.log('Something went wrong please try again after Sometime', 'danger', 'top-right');

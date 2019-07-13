@@ -33,6 +33,8 @@ import { PlansComponent } from './pages/plans/plans.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggle,MatSnackBarModule,MatSlideToggleModule, MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,MatDatepickerModule, MatNativeDateModule, MatAutocompleteModule } from '@angular/material';
 import { EditPersonalComponent } from './pages/edit-personal/edit-personal.component';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmCoreModule } from '@agm/core';
 
 // import {ngMaterialDatePicker} from 'ng-material-datetimepicker';
 
@@ -80,7 +82,7 @@ import { EditPersonalComponent } from './pages/edit-personal/edit-personal.compo
     MatSelectModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatDatepickerModule, MatNativeDateModule,MatSlideToggleModule,MatSnackBarModule
+    MatDatepickerModule, MatNativeDateModule,MatSlideToggleModule,MatSnackBarModule, MatGoogleMapsAutocompleteModule, AgmCoreModule.forRoot()
     // ngMaterialDatePicker
   ],
   providers: [

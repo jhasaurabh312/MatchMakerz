@@ -8,7 +8,7 @@
 <main class="card-wrapper" style="overflow:hidden;padding: 20px;padding-top:100px;margin-bottom:40px">
   <div id="something" class="row" style="display:flex;background-color:white;min-height: -webkit-fill-available; margin-bottom: 60px">
     <div class="col-sm-12 col-md-6 col-lg-6"  *ngFor="let member of shortlisted">
-      <div class="row client-card">
+      <div class="row client-card shadow-sm">
         <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
           <div style="padding:10px">
             <img src="{{member.shortlist_to.profile_photo}}" style="width: 100%;height:250px">
@@ -56,7 +56,7 @@
 <div class="section shadow" id="header">
 
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;margin-top : auto; margin-bottom : auto">
-        <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
+        <a [routerLink]="['/matches']" queryParamsHandling="merge" style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
                               <img src="../../../assets/icons_white/angle-left.svg" style="width:14px"></a>
         <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Shortlisted</h5>
     </div>
@@ -64,7 +64,7 @@
 <main class="card-wrapper" style="overflow:hidden;padding: 20px;margin-bottom:20px" *ngIf="check">
   <!-- <div id="something" class="row" style="display:flex;background-color:white; margin-bottom: 60px">
     <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of shortlisted">
-      <div class="row client-card">
+      <div class="row client-card shadow-sm">
         <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
           <div style="padding:10px">
             <img src="{{member.shortlist_to.profile_photo}}" style="width: 100%;height:250px">
@@ -100,8 +100,8 @@
   </div> -->
       <div class="row" style="display:flex;background-color:white;" >
       <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:75px;" *ngFor="let member of shortlisted" >
-        <div class="row client-card"  style="width:90%">
-          <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
+        <div class="row client-card shadow-sm" (click)="clientProfile(member.matched_to.id)"   style="width:90%">
+          <div class="column-l"  style="width:50%">
              <div style="padding:10px;"> <img src="{{member.shortlist_to.profile_photo}}" style="width: 100%;height:270px;border-radius: 7px;" ></div>
           </div>
           <div class="column-r" style="width:50%">
@@ -116,16 +116,17 @@
               <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.shortlist_to.current_city}}</p>
                        
               </div>
+            </div>
               <!-- <div class="button" style="margin-top : 15px; display: flex"> -->
-                  <div class="button" style="margin-top : 0px;overflow:hidden; display: flex">
+                  <div class="row button" style="margin-top : 0px;overflow:hidden; display: flex">
                     <div class="text-center">
-                      <button type="button"  class="card-button" (click)="showInterestCandidate(member.id)" ><i class="fa fa-search" style="width:10px;height:10px;color:white"></i>&nbsp;&nbsp;&nbsp;Interested</button>
+                      <button type="button"  class="card-button" (click)="showInterestCandidate(member.shortlist_to.id)" ><i class="fa fa-search" style="width:10px;height:10px;color:white"></i>&nbsp;&nbsp;&nbsp;Interested</button>
                     </div>
                    <div class="text-center">
                     <button type="button" class="card-button" (click)="DeleteShorlist(member.id)" ><i class="fa fa-clock-o" style="width:10px;height:10px"></i>&nbsp;&nbsp;&nbsp;Remove</button>
                    </div>
               </div>     
-            </div>
+            <!-- </div> -->
            </div>
         </div>
       </div>

@@ -98,6 +98,12 @@ processfile(event){
   this.selectedFile =  (event.target.files[0])
    const uploadData = new FormData();
    console.log(this.selectedFile)
+           var reader = new FileReader();
+        // this.imagePath = files;
+        reader.readAsDataURL(this.selectedFile);
+        reader.onload = (_event) => {
+            this.user.profile_pic = reader.result;
+        }
     uploadData.append('profile_pic', this.selectedFile,  this.selectedFile.name);
     // console.log(this.user.profile_pic)
     uploadData.append('matchmaker_id', this.user.id);
@@ -111,10 +117,14 @@ processfile(event){
       .subscribe((response:any) => {
       this.response = response;
       console.log(this.response);
-      if(this.response.status === 1)
-       this.router.navigate(['/my-profile']);
-      else 
-       alert('Cannot Update !! something went Wrong');  
+      if(this.response.status === 1){
+         this.snack.openSnackBar(this.response.message, 'success')
+         this.router.navigate(['/my-profile']);
+       }
+      else {
+                 this.snack.openSnackBar(this.response.message, 'error')
+
+      }
 
     }),err =>{
       alert('Something went wrong please try again after Sometime');

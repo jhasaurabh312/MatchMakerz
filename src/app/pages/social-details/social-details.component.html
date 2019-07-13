@@ -1,6 +1,6 @@
 <div class="section shadow" id="header" style="background: white;">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;margin-top : auto; margin-bottom : auto">
-        <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
+        <a [routerLink]="['/client-profile']" queryParamsHandling="merge"  style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
                               <img src="../../../assets/icons_white/angle-left.svg" style="width:14px"></a>
         <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Social Details</h5>
     </div>
@@ -17,7 +17,7 @@
                       <!-- <input matInput formControlName="marital_status" placeholder="marital_status*"> -->
                         <mat-label>Marraige</mat-label>
 
-                                <mat-select formControlName="marital_status">
+                                <mat-select formControlName="marital_status" required>
 
                                     <mat-option value="0">Never Married</mat-option>
                                     <mat-option value="1">Divorced</mat-option>
@@ -31,7 +31,7 @@
                         <mat-form-field class="full-width" appearance="outline">
 
                                 <mat-label>Children</mat-label>
-                              <input matInput  formControlName="children" placeholder="children*" type="number">
+                              <input matInput  formControlName="children" placeholder="Children" required type="number">
                         </mat-form-field>
                     </div>
                </div>
@@ -42,7 +42,7 @@
                              
                              <mat-label>Mother Tongue</mat-label>
 
-                                <mat-select formControlName="mother_tongue">
+                                <mat-select formControlName="mother_tongue" required>
 
                                     <mat-option value="1">Hindi</mat-option>
                                     <mat-option value="2">Punjabi</mat-option>
@@ -56,7 +56,7 @@
                     <mat-form-field class="full-width" appearance="outline">
 
                         <mat-label>Religion</mat-label>
-                        <mat-select matInput formControlName="religion" placeholder="religion*">
+                        <mat-select matInput formControlName="religion" placeholder="Religion" required>
 
                             <mat-option value="0">Hindu</mat-option>
                             <mat-option value="1">Muslim</mat-option>
@@ -77,7 +77,7 @@
 
 
                         <mat-label>Zodiac</mat-label>
-                            <mat-select matInput formControlName="zodiac" >
+                            <mat-select matInput formControlName="zodiac" required>
                                 <mat-option value="0">Aries</mat-option>
                                 <mat-option value="1">Taurus</mat-option>
                                 <mat-option value="2">Gemini</mat-option>
@@ -103,7 +103,7 @@
                               
 
                               <mat-label>Manglik</mat-label>
-                              <mat-select matInput formControlName="manglik" >
+                              <mat-select matInput formControlName="manglik" required>
                                   <mat-option value="0">Non Manglik</mat-option>
                                   <mat-option value="1">Manglik</mat-option>
                                   <mat-option value="2">Anshik Manglik</mat-option>
@@ -121,7 +121,7 @@
 
                             <!-- <input matInput  formControlName="caste" placeholder="caste*"> -->
                             <mat-label>Caste</mat-label>
-                            <mat-select matInput formControlName="caste" >
+                            <mat-select matInput formControlName="caste" required>
                                        <mat-option *ngFor="let ietm of castes" [value]="ietm.id">
                                             {{ietm.caste}}
                                         </mat-option>
@@ -137,7 +137,7 @@
                             
 
                             <mat-label>citizenship</mat-label>
-                            <mat-select matInput formControlName="citizenship" >
+                            <mat-select matInput formControlName="citizenship" required>
                                 <mat-option value="0">Indian</mat-option>
                                 <mat-option value="1">NRI</mat-option>   
                             </mat-select>
@@ -150,7 +150,7 @@
                         <mat-form-field class="full-width" appearance="outline">
 
                           <mat-label>Horoscope Match</mat-label>
-                            <mat-select  formControlName="want_horoscope_match">
+                            <mat-select  formControlName="want_horoscope_match" required>
                                 <mat-option value="0">No</mat-option>
                                 <mat-option value="1">Yes</mat-option>
                             </mat-select>

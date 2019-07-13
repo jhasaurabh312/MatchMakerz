@@ -15,7 +15,13 @@
       font-size : 15px;
       margin-bottom : 5px
   }
+.myDropdown{
+  transition-property:  width,height, height,background-color, border, box-shadow;
+  transition-duration: 0.4s;
+  height: 600px;
 
+
+}
 
  .load-more {
   font-size: 1rem;
@@ -204,6 +210,7 @@
 .card-button{
   color:white;background-color:#f92c8b;border: 5px solid #f92c8b;
   margin:3px;
+  outline: none;
   border-radius: 5px;
     -webkit-transition-property: width, background-color,box-shadow; /* Safari */
   -webkit-transition-duration: 0.5s; /* Safari */

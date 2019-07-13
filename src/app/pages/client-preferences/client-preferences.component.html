@@ -1,6 +1,6 @@
 <div class="section shadow" id="header" style="background: white;">
     <div class="col input-group p-2-xs-8 col input-group p-2-sm-8 col input-group p-2-md-8 col input-group p-2-lg-8" style="display:flex;height:70px;">
-        <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
+        <a [routerLink]="['/client-profile']" queryParamsHandling="merge"  style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
                               <img src="../../../assets/icons_white/angle-left.svg" style="width:14px"></a>
         <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Preferences</h5>
     </div>
@@ -16,13 +16,13 @@
                            
                                 <mat-form-field class="full-width" appearance="outline">
                                     <mat-label>Min Age</mat-label>
-                                    <input matInput formControlName="min_age" type="number"placeholder="min_age*" type="number">
+                                    <input matInput formControlName="min_age" type="number" placeholder="Min age"  required type="number">
                                 </mat-form-field>
                         </div>    
                         <div class="form-row ">
                                 <mat-form-field class="full-width" appearance="outline">
                                         <mat-label>Max Age</mat-label>
-                                    <input matInput formControlName="max_age" type="number" placeholder="max_age*" type="number">
+                                    <input matInput formControlName="max_age" type="number" placeholder="Max Age"  required type="number">
                                 </mat-form-field>
                             
                         </div>
@@ -30,20 +30,20 @@
 
                                 <mat-form-field class="full-width" appearance="outline">
                                         <mat-label>Min Income(LPA)</mat-label>
-                                    <input matInput formControlName="min_income" type="number" maxlength = "3" placeholder="min_income" type="number">
+                                    <input matInput formControlName="min_income"  required type="number" maxlength = "3" placeholder="Min Income" type="number">
                                 </mat-form-field>
                         </div>
                         <div class="form-row ">
 
                                 <mat-form-field class="full-width" appearance="outline">
                                         <mat-label>Max Income(LPA)</mat-label>
-                                    <input matInput formControlName="max_income" type="number"  [maxLength]="3"  placeholder="max_income*" type="number">
+                                    <input matInput formControlName="max_income" type="number"   required [maxLength]="3"  placeholder="Max Income" type="number">
                                 </mat-form-field>
                         </div>
                         <div class="form-row ">
                                 <mat-form-field class="full-width" appearance="outline">
                                     <mat-label>Min Height</mat-label>
-                                    <mat-select matInput formControlName="min_height" placeholder="min_height">
+                                    <mat-select matInput formControlName="min_height"  required placeholder="Min Height">
                                             <mat-option value="55">4'7"</mat-option>
                                             <mat-option value="56">4'8"</mat-option>
                                             <mat-option value="57">4'9"</mat-option>
@@ -81,7 +81,7 @@
 
                             <mat-form-field class="full-width" appearance="outline">
                                 <mat-label>Max Height</mat-label>
-                                <mat-select matInput formControlName="max_height" placeholder="max_height*">
+                                <mat-select matInput formControlName="max_height" placeholder="Max Height"  required>
                                         <mat-option value="55">4'7"</mat-option>
                                         <mat-option value="56">4'8"</mat-option>
                                         <mat-option value="57">4'9"</mat-option>
@@ -119,7 +119,7 @@
                             <mat-form-field class="full-width" appearance="outline">
 
                                 <mat-label>Occupation</mat-label>
-                                <mat-select formControlName="occupation">
+                                <mat-select formControlName="occupation"  required>
                                         <mat-option value=0>Not Working</mat-option>
                                         <mat-option value=1>Private Company</mat-option>
                                         <mat-option value=2>Business/ Self Employed</mat-option>
@@ -134,8 +134,8 @@
                                 <!-- <mat-slide-toggle>Slide me!</mat-slide-toggle> -->
 
                                 <!-- <input matInput formControlName="caste" placeholder="caste*"> -->
-                                <mat-label>caste</mat-label>
-                                <mat-select formControlName="caste" multiple>
+                                <mat-label>Caste</mat-label>
+                                <mat-select formControlName="caste" multiple  required>
                                     <mat-option value=0>All</mat-option>
                                     <mat-option *ngFor="let ietm of castes" [value]="ietm.id">
                                         {{ietm.caste}}
@@ -145,10 +145,10 @@
                             </mat-form-field>
                         </div>
                         <div class="form-row ">
-                            <mat-form-field class="full-width" appearance="outline">
+                            <mat-form-field class="full-width" appearance="outline"  required>
                                     <mat-label>Marraige</mat-label >
 
-                                    <mat-select formControlName="marital_status">
+                                    <mat-select formControlName="marital_status"  required>
     
                                         <mat-option value=0>Never Married</mat-option>
                                         <mat-option value=1>Divorced</mat-option>
@@ -159,7 +159,7 @@
                         <div class="form-row ">
                             <mat-form-field class="full-width" appearance="outline">
                                     <mat-label>Manglik status</mat-label>
-                                    <mat-select matInput formControlName="manglik" >
+                                    <mat-select matInput formControlName="manglik"   required>
                                         <mat-option value=0>Non Manglik</mat-option>
                                         <mat-option value=1>Manglik</mat-option>
                                         <mat-option value=2>Anshik Manglik</mat-option>
@@ -172,7 +172,7 @@
                             <mat-form-field class="full-width" appearance="outline">
                                     <mat-label>Food Choice</mat-label>
 
-                                    <mat-select formControlName="food_choice">
+                                    <mat-select formControlName="food_choice"  required>
                                         <mat-option value=0>Vegetarian</mat-option>
                                         <mat-option value=1>Non-vegetarian</mat-option>
                                     </mat-select>
@@ -181,7 +181,7 @@
                         <div class="form-row ">
                             <mat-form-field class="full-width" appearance="outline">
                                     <mat-label>Citizenship</mat-label>
-                                    <mat-select matInput formControlName="citizenship" >
+                                    <mat-select matInput formControlName="citizenship"  required>
                                         <mat-option value=0>Indian</mat-option>
                                         <mat-option value=1>NRI</mat-option>   
                                     </mat-select>
@@ -190,7 +190,8 @@
                         </div>
 
                         <div class="input-group p-2">
-                            <button class="btn btn-user" style="background-color: #f92c8b;width:400px"  type="button" (click)="addClient()"> Next Page</button>
+                            <button class="btn btn-user" *ngIf="load===false" style="background-color: #f92c8b;width:400px"  type="button" (click)="addClient()"> Next Page</button>
+                                <button type="button" *ngIf="load" style="background-color: #f92c8b;width:400px" class="btn btn-user"> <i class="fa  fa-spinner fa-spin fa-2x" aria-hidden="true" style="color:#ffffff;"> </i> </button>
                         </div>
                     </div>
                 </div>

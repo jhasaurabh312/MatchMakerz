@@ -15,7 +15,7 @@
                     <div class="col input-group p-2 offset-3">
                         <mat-form-field  appearance="outline">
                                                     <mat-label>Gender</mat-label>
-                            <mat-select formControlName="gender">
+                            <mat-select required formControlName="gender">
                                 <mat-option value='0'>
                                     Male
                                 </mat-option>
@@ -30,7 +30,7 @@
                     <div class="col nput-group p-2">
 
                         <mat-form-field  appearance="outline">                            <mat-label>manglik</mat-label>
-                            <mat-select formControlName="manglik">
+                            <mat-select required formControlName="manglik">
                                 <mat-option value='0'>
                                     Non Manglik &  
                                     Anshik Manglik
@@ -52,7 +52,7 @@
                     <div class="col input-group p-2  offset-3">
                         <mat-form-field  appearance="outline">                            
                             <mat-label>Merital Status</mat-label>
-                            <mat-select formControlName="marital_status">
+                            <mat-select required formControlName="marital_status">
                                 <mat-option value='0'>
                                     Never Married
                                 </mat-option>
@@ -74,7 +74,7 @@
                     <div class="col input-group p-2">
                         <mat-form-field  appearance="outline">                            
                             <mat-label>Food Choice</mat-label>
-                            <mat-select formControlName="food_choice">
+                            <mat-select required formControlName="food_choice">
                                 <mat-option value='0'>
                                     Veg
                                 </mat-option>
@@ -92,7 +92,7 @@
                 <div class="form-row">
                     <div class="col input-group p-2  offset-3">
                         <mat-form-field  appearance="outline">                            <mat-label>citizenship</mat-label>
-                            <mat-select formControlName="citizenship">
+                            <mat-select required formControlName="citizenship">
                                 <mat-option value='0'>
                                     Indian
                                 </mat-option>
@@ -106,15 +106,17 @@
                         </mat-form-field>
                     </div>
                     <div class="col input-group p-2">
-                        <mat-form-field  appearance="outline">                            <mat-label>occupation</mat-label>
-                            <mat-select formControlName="occupation">
-                                <mat-option value='0'>
-                                    No
-                                </mat-option>
-                                <mat-option value='1'>
-                                    Yes
-                                </mat-option>
-                                <mat-option value='2'>
+                        <mat-form-field  appearance="outline">                            
+                            <mat-label>occupation</mat-label>
+                            <mat-select required formControlName="occupation">
+                               
+                                    <mat-option value='0'>Not Working</mat-option>
+                                    <mat-option value='1'>Private Company</mat-option>
+                                    <mat-option value='2'>Business/ Self Employed</mat-option>
+                                    <mat-option value='3'>Government Job</mat-option>
+                                    <mat-option value='4'>Doctor</mat-option>
+                                    <mat-option value='5'>Teacher</mat-option>
+                                <mat-option value='6'>
                                     Doesn't Matter
                                 </mat-option>
                             </mat-select>
@@ -125,40 +127,40 @@
                 <div class="form-row">
 
                     <div class="col input-group p-2  offset-3">
-                        <!-- <input formControlformControlName="min_age" value="min_age" class="form-control" placeholder="Min Age"> -->
+                        <!-- <input formControlrequired formControlName="min_age" value="min_age" class="form-control" placeholder="Min Age"> -->
                         <mat-form-field class="example-full-width" appearance="outline">
                             <mat-label>Min Age</mat-label>
-                            <input formControlName="min_age" type="number" maxlength="3" matInput placeholder="Min Age">
+                            <input required formControlName="min_age" type="number" maxlength="3" matInput placeholder="Min Age">
                         </mat-form-field>
 
                     </div>
 
                     <div class="col input-group p-2">
-                        <!-- <input formControlformControlName="max_age" value="max_age" class="form-control" placeholder="Max Age"> -->
+                        <!-- <input formControlrequired formControlName="max_age" value="max_age" class="form-control" placeholder="Max Age"> -->
                         <mat-form-field class="example-full-width" appearance="outline">
                                                         <mat-label>Max Age</mat-label>
 
-                            <input formControlName="max_age" type="number" maxlength="3" matInput placeholder="Max Age">
+                            <input required formControlName="max_age" type="number" maxlength="3" matInput placeholder="Max Age">
                         </mat-form-field>
 
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col input-group p-2  offset-3">
-                        <!-- <input formControlformControlName="min_income" value="min_income" class="form-control" placeholder="Min Income(LPA)"> -->
+                        <!-- <input formControlrequired formControlName="min_income" value="min_income" class="form-control" placeholder="Min Income(LPA)"> -->
                         <mat-form-field class="example-full-width" appearance="outline">
                                             <mat-label>Min Income(LPA)</mat-label>
 
-                            <input formControlName="min_income" type="number" maxlength="4" matInput placeholder="Min Income(LPA)">
+                            <input required formControlName="min_income" type="number" maxlength="4" matInput placeholder="Min Income(LPA)">
                         </mat-form-field>
 
                     </div>
                     <div class="col input-group p-2">
-                        <!-- <input formControlformControlName="max_income" value="max_income" class="form-control" placeholder="Max Income(LPA)"> -->
+                        <!-- <input formControlrequired formControlName="max_income" value="max_income" class="form-control" placeholder="Max Income(LPA)"> -->
                         <mat-form-field class="example-full-width" appearance="outline">
                                                                 <mat-label>Max Income(LPA)</mat-label>
 
-                            <input formControlName="max_income" maxlength="4" type="number" matInput placeholder="Max Income(LPA)">
+                            <input required formControlName="max_income" maxlength="4" type="number" matInput placeholder="Max Income(LPA)">
                         </mat-form-field>
 
                     </div>
@@ -166,14 +168,14 @@
                 <div class="form-row">
 
                     <div class="col input-group p-2  offset-3">
-                        <!-- <input formControlformControlName="min_height" value="min_height" class="form-control" placeholder="Min Height"> --><!-- 
+                        <!-- <input formControlrequired formControlName="min_height" value="min_height" class="form-control" placeholder="Min Height"> --><!-- 
                         <mat-form-field class="example-full-width" appearance="outline">
-                            <input formControlName="min_height" matInput placeholder="Min Height">
+                            <input required formControlName="min_height" matInput placeholder="Min Height">
                         </mat-form-field> -->
 
                         <mat-form-field class="example-full-width" appearance="outline">
                                     <mat-label>Min Height</mat-label>
-                                    <mat-select matInput formControlName="min_height" placeholder="min_height">
+                                    <mat-select matInput required formControlName="min_height" placeholder="min_height">
                                             <mat-option value="55">4'7"</mat-option>
                                             <mat-option value="56">4'8"</mat-option>
                                             <mat-option value="57">4'9"</mat-option>
@@ -211,11 +213,11 @@
                     </div>
 
                     <div class="col input-group p-2">
-                        <!--                             <input formControlformControlName="max_height" value="max_height" class="form-control" placeholder="Max Height"> -->
+                        <!--                             <input formControlrequired formControlName="max_height" value="max_height" class="form-control" placeholder="Max Height"> -->
                         <mat-form-field class="example-full-width" appearance="outline">
-                            <!-- <input formControlName="max_height" matInput placeholder="Max Height (In CM)"> -->
-                            <mat-label>Min Height</mat-label>
-                                    <mat-select matInput formControlName="max_height" placeholder="max_height">
+                            <!-- <input required formControlName="max_height" matInput placeholder="Max Height (In CM)"> -->
+                            <mat-label>Max Height</mat-label>
+                                    <mat-select matInput required formControlName="max_height" placeholder="max_height">
                                             <mat-option value="55">4'7"</mat-option>
                                             <mat-option value="56">4'8"</mat-option>
                                             <mat-option value="57">4'9"</mat-option>
@@ -254,9 +256,9 @@
                 <div class="form-row">
 
                     <div class="col input-group p-2  offset-3">
-                        <!-- <input formControlformControlName="caste" value="caste" class="form-control" placeholder=> -->
+                        <!-- <input formControlrequired formControlName="caste" value="caste" class="form-control" placeholder=> -->
                         <mat-form-field  appearance="outline" style="width: 76%">                            <mat-label>Caste</mat-label>
-                            <mat-select multiple formControlName="caste">
+                            <mat-select multiple required formControlName="caste">
                                 <mat-option value='0'>All</mat-option>
                                 <mat-option *ngFor="let ietm of castes" [value]="ietm.id">
                                     {{ietm.caste}}

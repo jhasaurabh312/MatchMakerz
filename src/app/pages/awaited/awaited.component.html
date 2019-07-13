@@ -1,132 +1,123 @@
 <div class="section shadow" id="header">
-    <div style="width: 100%">
-      <div class="row" style="margin-top: 30px;width: 100%;">
-        <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark" >
-          <!-- <i class="fa fa-chevron-left" style="font-size: 1.3em;" ></i> -->
-                              <img src="../../../assets/icons_white/angle-left.svg" style="width:14px">
-
-        </a>
-          <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">
-            Awaited
-          </h5>
+  <div style="width: 100%">
+    <div class="row" style="margin-top: 30px;width: 100%;">
+      <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
+        <!-- <i class="fa fa-chevron-left" style="font-size: 1.3em;" ></i> -->
+        <img src="../../../assets/icons_white/angle-left.svg" style="width:14px">
+      </a>
+      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">
+        Awaited
+      </h5>
+    </div>
+    <div class="row" style="width: 100%;margin: auto;">
+      <div class="col-sm-6 col-lg-6 active" style="text-align:center;margin-top: 30px;color:black;cursor: pointer;">
+        <div [ngClass]="outgoing ? 'active-border' : 'active-border-none'" (click)="ShowAwaited('outgoing')">
+          <p>
+            <img src="../../../assets/icons/sign-out.svg" style="width:20px">
+            Awaited Outgoing</p>
+        </div>
       </div>
-      <div class="row"  style="width: 100%;margin: auto;">
-          <div class="col-sm-6 col-lg-6 active" style="text-align:center;margin-top: 30px;color:black;cursor: pointer;">
-            <div [ngClass]="outgoing ? 'active-border' : 'active-border-none'" (click)="ShowAwaited('outgoing')">
-              <p>
-                <img src="../../../assets/icons/sign-out.svg" style="width:20px">
-              Awaited Outgoing</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-6 active" style="text-align:center;margin-top: 30px;color:black;cursor: pointer;">
-            <div [ngClass]="incoming ? 'active-border' : 'active-border-none'" (click)="ShowAwaited('incoming')">              
-              <p>
-                    <img src="../../../assets/icons/sign-in.svg" style="width:20px">
-
-              Awaited Incoming</p>
-            </div>
-          </div>
+      <div class="col-sm-6 col-lg-6 active" style="text-align:center;margin-top: 30px;color:black;cursor: pointer;">
+        <div [ngClass]="incoming ? 'active-border' : 'active-border-none'" (click)="ShowAwaited('incoming')">
+          <p>
+            <img src="../../../assets/icons/sign-in.svg" style="width:20px">
+            Awaited Incoming</p>
+        </div>
       </div>
     </div>
+  </div>
 </div>
-<main class="card-wrapper"  style="overflow: hidden; margin-top: 50px;width: 100%;margin-bottom: 10%;">
+<main class="card-wrapper" style="overflow: hidden; margin-top: 50px;width: 100%;margin-bottom: 10%;">
   <ng-container id="outgoing" class="outgoing" *ngIf="outgoing">
-  <ng-container *ngIf="staticProductDetail?.length>'0'">
-      <div class="row" style="display:flex;background-color:white;" >
-          <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:75px;" *ngFor="let member of staticProductDetail" >
-            <div class="row client-card" style="width:90%">
-              <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
-                 <div style="padding:10px;border-radius: 30px;"> <img src="{{member.matched_to.profile_photo}}" style="width: 100%;height:270px;border-radius: 7px;" ></div>
-              </div>
-              <div class="column-r" style="width:50%">
-                          <div class="row">
-                            <div style="cursor:pointer;color: #606060;">
-
-                  <h6 style="font-size:25px;margin-top:10px;color: #707070;font-weight: bold">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>   
+    <ng-container *ngIf="staticProductDetail?.length>'0'">
+      <div class="row" style="display:flex;background-color:white;">
+        <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:75px;" *ngFor="let member of staticProductDetail">
+          <div class="row client-card shadow-sm" (click)="clientProfile(member.matched_to.id)" style="width:90%">
+            <div class="column-l" style="width:50%">
+              <div style="padding:10px;border-radius: 30px;"> <img src="{{member.matched_to.profile_photo}}" style="width: 100%;height:270px;border-radius: 7px;"></div>
+            </div>
+            <div class="column-r" style="width:50%">
+              <div class="row">
+                <div style="cursor:pointer;color: #606060;">
+                  <h6 style="font-size:25px;margin-top:10px;color: #707070;font-weight: bold">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>
                   <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.matched_to.marital}}, &nbsp;{{member.matched_to.age}}yrs</p>
-                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/graduation-hat.svg"style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.degree}}</p>
-                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.feet}}'{{member.matched_to.inches}}"</p>       
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/graduation-hat.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.degree}}</p>
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.feet}}'{{member.matched_to.inches}}"</p>
                   <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.manglik}}</p>
-                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.yearly_income}}LPA,{{member.matched_to.occupation}}</p>             
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.yearly_income}}LPA,{{member.matched_to.occupation}}</p>
                   <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.current_city}}</p>
-                           </div>
-    
-                  </div> 
-               </div>
-            </div>
-          </div>
-        </div>
-  </ng-container>
-  <ng-container  *ngIf="staticProductDetail?.length===0">
-      <div class="row">
-          <div class="text-center" style="margin-left: auto;
-          margin-right: auto;
-          margin-top: 10%">
-              <h6 style="font-size: 1.7rem;color:#f92c8b">You have no new activity</h6>
-          </div>
-        </div>
-  </ng-container>
-  </ng-container>
-  <ng-container id="incoming" class= "incoming" *ngIf = "incoming">
-      <ng-container *ngIf="awaitedIn?.length>'0'">
-
-    <div class="row" style="display:flex;background-color:white;" >
-      <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:75px;" *ngFor="let member of awaitedIn" >
-        <div class="row client-card" style="width:90%">
-          <div class="column-l" (click)="clientProfile(member.id)" style="width:50%">
-             <div style="padding:10px;"> <img src="{{member.matched_to.profile_photo}}" style="width: 100%;height:270px;border-radius: 7px;" ></div>
-          </div>
-          <div class="column-r" style="width:50%">
-                                      <div class="row">
-                            <div style="cursor:pointer;color: #606060;">
-              <h6 style="font-size:25px;margin-top:10px;color: #707070;font-weight: bold">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>   
-              <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.matched_to.marital}}, &nbsp;{{member.matched_to.age}}yrs</p>
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.degree}}</p>
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.feet}}'{{member.matched_to.inches}}"</p>       
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.manglik}}</p>
-              <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.yearly_income}}LPA,{{member.matched_to.occupation}}</p>             
-              <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.current_city}}</p>
-                       
+                </div>
               </div>
-              <div class="button" style="margin-top : 15px; display: flex">
-                <button type="button" class="card-button" (click) = "accept(member.id)" style="color:white;background-color: green;border: 5px solid green">Accept</button>
-                <button type="button"  class="card-button" (click) = "decline(member.id)" style="margin-left:10px;color:white;background-color:red;border: 5px solid red">Decline</button>
-              </div>     
             </div>
-           </div>
+          </div>
         </div>
       </div>
-    </div>
-  </ng-container>
-   <ng-container  *ngIf="awaitedIn?.length===0">
+    </ng-container>
+    <ng-container *ngIf="staticProductDetail?.length===0">
       <div class="row">
-          <div class="text-center" style="margin-left: auto;
+        <div class="text-center" style="margin-left: auto;
           margin-right: auto;
           margin-top: 10%">
-              <h6 style="font-size: 1.7rem;color:#f92c8b">You have no new activity</h6>
+          <h6 style="font-size: 1.7rem;color:#f92c8b">You have no new activity</h6>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container id="incoming" class="incoming" *ngIf="incoming">
+    <ng-container *ngIf="awaitedIn?.length>'0'">
+      <div class="row" style="display:flex;background-color:white;">
+        <div class="col-sm-12 col-md-8 col-lg-6" style="margin-top:75px;" *ngFor="let member of awaitedIn">
+          <div class="row client-card shadow-sm" (click)="clientProfile(member.matched_to.id)" style="width:90%">
+            <div class="column-l" style="width:50%">
+              <div style="padding:10px;"> <img src="{{member.matched_to.profile_photo}}" style="width: 100%;height:270px;border-radius: 7px;"></div>
+            </div>
+            <div class="column-r" style="width:50%">
+              <div class="row">
+                <div style="cursor:pointer;color: #606060;">
+                  <h6 style="font-size:25px;margin-top:10px;color: #707070;font-weight: bold">&nbsp;&nbsp;<b>{{member.matched_to.name}}</b></h6>
+                  <p style="font-size:16px;margin-bottom:7px">&nbsp;&nbsp;{{member.matched_to.marital}}, &nbsp;{{member.matched_to.age}}yrs</p>
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/graduation-hat.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.degree}}</p>
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/ruler.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.feet}}'{{member.matched_to.inches}}"</p>
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.manglik}}</p>
+                  <p style="font-size:16px;margin-bottom:7px"> <img src="./../../../assets/icons_white/briefcase-alt.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.yearly_income}}LPA,{{member.matched_to.occupation}}</p>
+                  <p style="font-size:16px"> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px;margin-bottom: 5px">{{member.matched_to.current_city}}</p>
+                </div>
+                <div class="button" style="margin-top : 15px; display: flex">
+                  <button type="button" class="card-button shadow" (click)="accept(member.id)" style="color:white;background-color: green;border: 5px solid green">Accept</button>
+                  <button type="button" class="card-button shadow" (click)="decline(member.id)" style="margin-left:10px;color:white;background-color:red;border: 5px solid red">Decline</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="awaitedIn?.length===0">
+      <div class="row">
+        <div class="text-center" style="margin-left: auto;
+          margin-right: auto;
+          margin-top: 10%">
+          <h6 style="font-size: 1.7rem;color:#f92c8b">You have no new activity</h6>
+        </div>
+      </div>
+    </ng-container>
   </ng-container>
-  </ng-container>
-
-
 </main>
-
-
-
-
-  <main style="position:fixed;bottom:0px;width: 100%;" class="card-wrapper">
-    <div class="flex" style="background-color:#f1f1f1;display:flex;cursor: pointer;height: 60px">
-        <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center;padding: 5px">
-          <img src="../../../assets/icons/pending.svg" style="width:27px">  <h6 style="font-size: 15px;padding: 2px;" >Awaited</h6>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4" (click)="connected()" style="text-align: center;padding: 5px;">
-          <div >
-          <img src="../../../assets/icons_white/heartbeat_grey.svg" style="width:27px"><h6 style="font-size: 15px;padding: 2px;">Connected</h6>
-        </div>
-       </div>
-        <div class="col-sm-4 col-md-4 col-lg-4" (click)="declined()" style="text-align: center;padding: 5px;">
-          <img src="../../../assets/icons/cross.svg" style="width:27px"> <h6 style="font-size: 15px;padding: 2px;">Declined</h6>
-         </div>
+<main style="position:fixed;bottom:0px;width: 100%;" class="card-wrapper">
+  <div class="flex" style="background-color:#f1f1f1;display:flex;cursor: pointer;height: 60px">
+    <div class="col-sm-4 col-md-4 col-lg-4" (click)="awaited()" style="text-align: center;padding: 5px">
+      <img src="../../../assets/icons/pending.svg" style="width:27px">
+      <h6 style="font-size: 15px;padding: 2px;">Awaited</h6>
     </div>
-</main>  
+    <div class="col-sm-4 col-md-4 col-lg-4" (click)="connected()" style="text-align: center;padding: 5px;">
+      <div>
+        <img src="../../../assets/icons_white/heartbeat_grey.svg" style="width:27px">
+        <h6 style="font-size: 15px;padding: 2px;">Connected</h6>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" (click)="declined()" style="text-align: center;padding: 5px;">
+      <img src="../../../assets/icons/cross.svg" style="width:27px">
+      <h6 style="font-size: 15px;padding: 2px;">Declined</h6>
+    </div>
+  </div>
+</main>

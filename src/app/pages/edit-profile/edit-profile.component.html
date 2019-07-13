@@ -62,7 +62,7 @@
             <!-- <input matinput formControlName="phone_number" placeholder="phone_number" class="form-control" > -->
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Phone number </mat-label>
-                <input matInput formControlName="phone_number" placeholder="phone number">
+                <input matInput formControlName="phone_number" maxlength=10 minlength=10 type="tel" placeholder="phone number">
             </mat-form-field>
         </div>
     </div>
@@ -72,7 +72,7 @@
             <!-- <input formControlName="whatsapp_number" placeholder="whatsapp_number" class="form-control" > -->
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>WhatsApp Number </mat-label>
-                <input matInput placeholder="Whatsapp Number" formControlName="whatsapp_number">
+                <input matInput placeholder="Whatsapp Number" maxlength=10 minlength=10 type="tel" formControlName="whatsapp_number">
             </mat-form-field>
         </div>
       </div>
@@ -112,7 +112,7 @@
             <!-- <input formControlName="age" placeholder="age" class="form-control" > -->
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Age</mat-label>
-                <input matInput placeholder="Age" formControlName="age">
+                <input matInput placeholder="Age" type = "number" formControlName="age">
             </mat-form-field>
         </div>
       </div>

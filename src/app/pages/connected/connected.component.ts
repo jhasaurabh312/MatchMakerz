@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { ActivatedRoute } from '@angular/router';
+ 
 @Component({
   selector: 'app-connected',
   templateUrl: './connected.component.html',
@@ -14,7 +15,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ConnectedComponent implements OnInit {
 
  public connect : any = [];
-  constructor(private http : HttpClient, public router : Router,config: NgbModalConfig, private modalService: NgbModal) {
+  constructor(private http : HttpClient, public router : Router,config: NgbModalConfig, private modalService: NgbModal,private route: ActivatedRoute) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
     config.keyboard = false;
@@ -27,7 +28,7 @@ export class ConnectedComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
 
-     this.http.get('http://matchmakerz.in/api/v1/client/connected-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+     this.http.get('http://matchmakerz.in/api/v1/client/connected-interest?id='+ + this.route.snapshot.queryParamMap.get('id') , {headers : headers}).subscribe((response) =>{
           this.connect = response;
           console.log(this.connect);
 
@@ -65,15 +66,20 @@ export class ConnectedComponent implements OnInit {
   }
 
  
+
   awaited(){
-    this.router.navigate(['/awaited']);
+    this.router.navigate(['/awaited'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
   }
 
 
   connected(){
-    this.router.navigate(['/connected']);
+    this.router.navigate(['/connected'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
   }
 
+
+  declined(){
+    this.router.navigate(['/declined'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
+  }
   view_phone(client_id){
         const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -87,10 +93,11 @@ export class ConnectedComponent implements OnInit {
 
   }
 
-  declined(){
-    this.router.navigate(['/declined']);
-    
+  clientProfile(data){
+    localStorage.setItem('clientId' , data);
+    this.router.navigate(['/client-profile'],{ queryParams: { id:data}});
   }
+
 
  open(content, client_id) {
    console.log(client_id)

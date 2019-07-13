@@ -3,6 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import {
+  SnackService
+} from '../../shared/services/snack.service'
 
 @Component({
   selector: 'app-awaited',
@@ -18,9 +22,9 @@ export class AwaitedComponent implements OnInit {
   outgoing:  boolean;
   check : boolean ;
   check1 : boolean ;
-  constructor(private http : HttpClient, public router : Router) { }
+  constructor(private http : HttpClient, public router : Router,public snack: SnackService,private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit() { 
 
     this.incoming = false;
     this.outgoing = true;
@@ -30,7 +34,7 @@ export class AwaitedComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
 
-     this.http.get('http://matchmakerz.in/api/v1/client/incoming-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+     this.http.get('http://matchmakerz.in/api/v1/client/incoming-interest?id='+ this.route.snapshot.queryParamMap.get('id') , {headers : headers}).subscribe((response) =>{
        this.awaitedIn = response;
        console.log('Incoming',this.awaitedIn)
 
@@ -75,7 +79,7 @@ export class AwaitedComponent implements OnInit {
       } 
      })
 
-     this.http.get('http://matchmakerz.in/api/v1/client/awaited-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+     this.http.get('http://matchmakerz.in/api/v1/client/awaited-interest?id='+ this.route.snapshot.queryParamMap.get('id'), {headers : headers}).subscribe((response) =>{
       this.staticProductDetail = response;
       console.log('outgoing',this.staticProductDetail)
 
@@ -136,17 +140,22 @@ export class AwaitedComponent implements OnInit {
    }
 
   awaited(){
-    this.router.navigate(['/awaited']);
+    this.router.navigate(['/awaited'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
   }
 
 
   connected(){
-    this.router.navigate(['/connected']);
+    this.router.navigate(['/connected'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
+  }
+  
+  clientProfile(data){
+    localStorage.setItem('clientId' , data);
+    this.router.navigate(['/client-profile'],{ queryParams: { id:data}});
   }
 
 
   declined(){
-    this.router.navigate(['/declined']);
+    this.router.navigate(['/declined'],{ queryParams: { id:this.route.snapshot.queryParamMap.get('id')}});
   }
 
   accept(data){
@@ -155,9 +164,18 @@ export class AwaitedComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
 
+    console.log(data)
      return this.http.get('http://matchmakerz.in/api/v1/client/statusaccept-interest?id='+data, {headers : headers}).subscribe((result:any) => {
        console.log(result);
+          if (result.status === 1) {
+              this.snack.openSnackBar(result.message, 'success')
+
+            } else {
+              this.snack.openSnackBar(result.message, 'error')
+
+            }
      })
+
   }
 
   decline(data){
@@ -166,10 +184,17 @@ export class AwaitedComponent implements OnInit {
       'Authorization': 'Token ' + localStorage.getItem('token')
     })
 
-     this.http.get('http://matchmakerz.in/api/v1/client/statusdecline-interest?id='+data, {headers : headers}).subscribe((result:any) => {
-       console.log(result);
+     this.http.get('http://matchmakerz.in/api/v1/client/statusdecline-interest?id='+data, {headers : headers}).subscribe((response:any) => {
+       console.log(response);
+             if (response.status === 1) {
+          this.snack.openSnackBar(response.message, 'success')
+
+        } else {
+          this.snack.openSnackBar(response.message, 'error')
+
+        }
      })
-     return  this.http.get('http://matchmakerz.in/api/v1/client/awaited-interest?id='+ localStorage.getItem('clientId') , {headers : headers}).subscribe((response) =>{
+     return  this.http.get('http://matchmakerz.in/api/v1/client/awaited-interest?id='+ this.route.snapshot.queryParamMap.get('id') , {headers : headers}).subscribe((response) =>{
       this.staticProductDetail = response;
       console.log('outgoing',this.staticProductDetail)
 
